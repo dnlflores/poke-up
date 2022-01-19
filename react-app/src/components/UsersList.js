@@ -13,10 +13,13 @@ function UsersList() {
     fetchData();
   }, []);
 
+  console.log("THESE ARE THE USERS => ", users);
+
   const userComponents = users.map((user) => {
     return (
       <li key={user.id}>
         <NavLink to={`/users/${user.id}`}>{user.username}</NavLink>
+        <img src={user.profile_pic_url} alt="profile"></img>
       </li>
     );
   });
