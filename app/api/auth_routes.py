@@ -65,7 +65,8 @@ def sign_up():
         user = User(
             username=form.data['username'],
             email=form.data['email'],
-            password=form.data['password']
+            password=form.data['password'],
+            profile_pic_url="https://pokeup.s3.us-west-1.amazonaws.com/Pokeball-PNG-Photos.png"
         )
         db.session.add(user)
         db.session.commit()
