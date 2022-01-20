@@ -14,7 +14,7 @@ class User(db.Model, UserMixin):
     profile_pic_url = db.Column(db.String(255))
 
     lists = db.relationship('List', back_populates="user", cascade="all, delete")
-    posts = db.relationship('Post', back_populates="posts", cascade="all, delete")
+    posts = db.relationship('Post', back_populates="user", cascade="all, delete")
 
     @property
     def password(self):
