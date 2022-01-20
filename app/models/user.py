@@ -13,6 +13,9 @@ class User(db.Model, UserMixin):
     description = db.Column(db.String(500))
     profile_pic_url = db.Column(db.String(255))
 
+    lists = db.relationship('List', back_populates="user", cascade="all, delete")
+    posts = db.relationship('Post', back_populates="posts", cascade="all, delete")
+
     @property
     def password(self):
         return self.hashed_password

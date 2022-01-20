@@ -7,6 +7,8 @@ class Category(db.Model):
 
     name = db.Column(db.String(255), nullable=False)
 
+    posts = db.relationship('Post', back_populates="category", cascade="all, delete")
+
     def to_dict(self):
         return {
             "id": self.id,
