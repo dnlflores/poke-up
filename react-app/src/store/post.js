@@ -1,8 +1,14 @@
 const LOAD_POSTS = 'posts/LOAD_POSTS';
+const DELETE_POST = 'posts/DELETE_POST';
 
 const loadPosts = posts => ({
   type: LOAD_POSTS,
   payload: posts  
+});
+
+const deletePost = post => ({
+    type: DELETE_POST,
+    payload: post
 });
 
 export const getPosts = posts => async dispatch => {
@@ -13,6 +19,10 @@ export const getPosts = posts => async dispatch => {
         dispatch(loadPosts(posts));
         return posts;
     }
+};
+
+export const removePost = post => async dispatch => {
+    
 }
 
 export default function postsReducer(state = {}, action) {

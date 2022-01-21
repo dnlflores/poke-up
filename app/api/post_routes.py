@@ -15,6 +15,7 @@ def get_posts():
 
 
 @post_routes.route('/', methods=["POST"])
+@login_required
 def add_post():
     form = CreatePostForm()
 
@@ -66,3 +67,14 @@ def add_post():
         db.session.commit()
         return post.to_dict()
     return {"errors": form.errors}
+
+
+@post_routes.route("/<int:id>", method=["DELETE"])
+@login_required
+def delete_post(id):
+    post = Post.query.get(id)
+
+    db.session.delete(post)
+    db.commit()
+
+    return post.to_dict()
