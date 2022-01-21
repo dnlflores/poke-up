@@ -1,14 +1,22 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getPosts } from '../../store/post';
+import { getPosts, removePost } from '../../store/post';
 
 function HomePage() {
     const dispatch = useDispatch();
     const posts = useSelector(state => Object.values(state.posts));
+    const user = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(getPosts());
     }, [dispatch]);
+
+    const handleDelete = event => {
+        event.preventDefault();
+        const postId = event.target.className.split('-')[2];
+
+        dispatch(removePost(postId));
+    };
 
     return (
         <div>
@@ -22,6 +30,9 @@ function HomePage() {
                     <label>Price: {post.price} </label>
                     <label>Quantity: {post.quantity} </label>
                     <img src={post.image_url} alt="post"></img>
+                    {user.id === post.user_id && (
+                        <button onClick={handleDelete} className={`delete-post-${post.id}`}>Delete</button>
+                    )}
                 </div>
             ))}
         </div>

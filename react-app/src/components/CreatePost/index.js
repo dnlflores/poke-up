@@ -13,7 +13,7 @@ const CreatePost = (props) => {
     const [price, setPrice] = useState('');
     const [quantity, setQuantity] = useState('');
     const [image, setImage] = useState(null);
-    const [category, setCategory] = useState('')
+    const [category, setCategory] = useState('1')
     const user = useSelector(state => state.session.user);
     const categories = useSelector(state => Object.values(state.categories))
 
@@ -44,7 +44,6 @@ const CreatePost = (props) => {
     };
 
     const updateCategory = event => {
-        console.log("THIS IS THE EVENT TARGET VALUE => ", event.target.value);
         setCategory(event.target.value)
     }
 
@@ -68,8 +67,6 @@ const CreatePost = (props) => {
             // aws uploads can be a bit slow—displaying
             // some sort of loading message is a good idea
             setImageLoading(true);
-            
-            console.log("THIS IS THE CATEGORY => ", category)
 
             formData.append("title", title);
             formData.append("description", description);

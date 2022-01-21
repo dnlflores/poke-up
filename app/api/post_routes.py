@@ -41,8 +41,6 @@ def add_post():
 
     url = upload["url"]
 
-    print("         THIS IS THE FORM CATEGORY => ", form.data['category_id'], 5, "5")
-
     form.category_id.choices = [(category.id, category.name) for category in Category.query.all()]; 
 
     if form.validate_on_submit():
@@ -69,12 +67,12 @@ def add_post():
     return {"errors": form.errors}
 
 
-@post_routes.route("/<int:id>", method=["DELETE"])
+@post_routes.route("/<int:id>", methods=["DELETE"])
 @login_required
 def delete_post(id):
     post = Post.query.get(id)
 
     db.session.delete(post)
-    db.commit()
+    db.session.commit()
 
     return post.to_dict()

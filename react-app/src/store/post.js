@@ -21,18 +21,31 @@ export const getPosts = posts => async dispatch => {
     }
 };
 
-export const removePost = post => async dispatch => {
-    
+export const removePost = postId => async dispatch => {
+    const response = await fetch(`/api/posts/${postId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if(response.ok) {
+        const post = await response.json();
+        dispatch(deletePost(post));
+        return post;
+    }
 }
 
 export default function postsReducer(state = {}, action) {
     switch(action.type){
         case LOAD_POSTS:
             const loadsState = {...state};
-            console.log("THIS IS THE ACTION PAYLOAD => ", action.payload);
-            console.log("THIS IS THE STATE => ", loadsState);
             action.payload.posts?.forEach(post => loadsState[post.id] = post);
             return loadsState;
+        case DELETE_POST:
+            const deleteState = {...state};
+            delete deleteState[action.payload.id]
+            return deleteState;
         default:
             return state;
     }
