@@ -1,11 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPosts, removePost } from '../../store/post';
+import EditPost from '../EditPost';
 
 function HomePage() {
     const dispatch = useDispatch();
     const posts = useSelector(state => Object.values(state.posts));
     const user = useSelector(state => state.session.user);
+    const [editButtonPopup, setEditButtonPopup] = useState(0);
 
     useEffect(() => {
         dispatch(getPosts());
@@ -13,9 +15,18 @@ function HomePage() {
 
     const handleDelete = event => {
         event.preventDefault();
+
         const postId = event.target.className.split('-')[2];
 
         dispatch(removePost(postId));
+    };
+
+    const handleEdit = event => {
+        event.preventDefault();
+        
+        const postId = event.target.className.split('-')[2];
+
+        setEditButtonPopup(postId);
     };
 
     return (
@@ -31,7 +42,13 @@ function HomePage() {
                     <label>Quantity: {post.quantity} </label>
                     <img src={post.image_url} alt="post"></img>
                     {user.id === post.user_id && (
-                        <button onClick={handleDelete} className={`delete-post-${post.id}`}>Delete</button>
+                        <div>
+                            <button onClick={handleDelete} className={`delete-post-${post.id}`}>Delete</button>
+                            <button onClick={handleEdit} className={`edit-post-${post.id}`}>Edit</button>
+                        </div>
+                    )}
+                    {+editButtonPopup === post.id && (
+                        <EditPost post={post} trigger={editButtonPopup} setTrigger={setEditButtonPopup} />
                     )}
                 </div>
             ))}

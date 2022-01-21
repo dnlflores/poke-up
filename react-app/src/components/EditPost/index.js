@@ -2,18 +2,19 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getCategories } from "../../store/category";
+import { editPost } from "../../store/post";
 
-const CreatePost = (props) => {
+const EditPost = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
 
     const [errors, setErrors] = useState([]);
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [price, setPrice] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [image, setImage] = useState(null);
-    const [category, setCategory] = useState('1')
+    const [price, setPrice] = useState(0);
+    const [quantity, setQuantity] = useState(0);
+    const [image, setImage] = useState('');
+    const [category, setCategory] = useState(1)
     const user = useSelector(state => state.session.user);
     const categories = useSelector(state => Object.values(state.categories))
 
@@ -44,7 +45,7 @@ const CreatePost = (props) => {
     };
 
     const updateCategory = event => {
-        setCategory(event.target.value)
+        setCategory(+event.target.value)
     }
 
     const handleSubmit = async event => {
@@ -52,16 +53,10 @@ const CreatePost = (props) => {
 
         const newErrors = [];
 
-        if(!image) newErrors.push("Please upload an image.");
-        if(!title) newErrors.push("Please enter a title.");
-        if(!description) newErrors.push("Please enter a description of the item.");
-        if(!price) newErrors.push("Please enter a price.");
-        if(!quantity) newErrors.push("Please enter a quantity.");
-        if(!category) newErrors.push("Please choose a category");
-
         if(newErrors.length) setErrors(newErrors);
         else {
             const formData = new FormData();
+            console.log("THIS IS THE CATEGORY => ", category);
             formData.append("image", image);
 
             // aws uploads can be a bit slow—displaying
@@ -73,16 +68,17 @@ const CreatePost = (props) => {
             formData.append("price", price);
             formData.append("quantity", quantity);
             formData.append("user_id", user.id);
-            formData.append("category_id", category)
+            formData.append("category_id", category);
 
-            const response = await fetch("/api/posts/", {
-                method: "POST",
+            const response = await fetch(`/api/posts/${props.post.id}`, {
+                method: "PUT",
                 body: formData,
             });
             if (response.ok) {
-                await response.json();
+                const updatedPost = await response.json();
+                dispatch(editPost(updatedPost));
                 setImageLoading(false);
-                history.push("/");
+                history.push('/')
             }else {
                 setImageLoading(false);
 
@@ -93,7 +89,7 @@ const CreatePost = (props) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} id="create-post-form">
+            <form onSubmit={handleSubmit} id="edit-post-form">
                 <ul>
                     {errors.length > 0 && errors.map(err => (
                         <li className="display-errors" key={err}>{err}</li>
@@ -114,7 +110,7 @@ const CreatePost = (props) => {
                         value={title}
                     ></input>
                     <label>Category</label>
-                    <select name="categories" form="create-post-form" onChange={updateCategory}>
+                    <select name="categories" form="edit-post-form" onChange={updateCategory}>
                         {categories?.map(category => (
                             <option value={category.id}>{category.name}</option>
                         ))}
@@ -144,6 +140,7 @@ const CreatePost = (props) => {
                         value={quantity}
                     ></input>
                     <button className="submit-button" type="submit">Submit Post</button>
+                    <button onClick={event => props.setTrigger(0)}>Cancel</button>
                     {imageLoading && <p>Loading...</p>}
                 </div>
             </form>
@@ -151,4 +148,4 @@ const CreatePost = (props) => {
     )
 }
 
-export default CreatePost;
+export default EditPost;

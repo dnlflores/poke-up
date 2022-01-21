@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.forms.create_post_form import CreatePostForm
+from app.forms.edit_post_form import EditPostForm
 from app.models import db, User, Post, Category
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -76,3 +77,55 @@ def delete_post(id):
     db.session.commit()
 
     return post.to_dict()
+
+
+@post_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def edit_post(id):
+    form = EditPostForm()
+
+    post = Post.query.get(id)
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if "image" not in request.files:
+        url = None
+    else:
+
+        image = request.files["image"]
+
+        if not allowed_file(image.filename):
+            return {"errors": "file type not permitted"}, 400
+
+        image.filename = get_unique_filename(image.filename)
+
+        upload = upload_file_to_s3(image)
+
+        if "url" not in upload:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when we tried to upload
+            # so we send back that error message
+            return upload, 400
+
+        url = upload["url"]
+
+    form.category_id.choices = [(category.id, category.name) for category in Category.query.all()]; 
+
+    if form.validate_on_submit():
+        if form.data['title']:
+            post.title = form.data['title']
+        if form.data['category_id']:
+            post.category_id = form.data['category_id']
+        if form.data['description']:
+            post.description = form.data['description']
+        if form.data['price']:
+            post.price = form.data['price']
+        if form.data['quantity']:
+            post.quantity = form.data['quantity']
+        if url:
+            post.image_url = url
+
+        db.session.commit()
+        return post.to_dict()
+    return {"errors": form.errors}
+    
