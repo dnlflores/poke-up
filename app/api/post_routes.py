@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.forms.create_post_form import CreatePostForm
-from app.models import db, User, Post
+from app.models import db, User, Post, Category
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
@@ -14,7 +14,7 @@ def get_posts():
     return {"posts": [post.to_dict() for post in posts]}
 
 
-@post_routes.route('/posts', methods=["POST"])
+@post_routes.route('/', methods=["POST"])
 def add_post():
     form = CreatePostForm()
 
@@ -40,10 +40,14 @@ def add_post():
 
     url = upload["url"]
 
+    print("         THIS IS THE FORM CATEGORY => ", form.data['category_id'], 5, "5")
+
+    form.category_id.choices = [(category.id, category.name) for category in Category.query.all()]; 
+
     if form.validate_on_submit():
         title = form.data['title']
         user_id = current_user.id
-        category_id = form.data['category']
+        category_id = form.data['category_id']
         description = form.data['description']
         price = form.data['price']
         quantity = form.data['quantity']

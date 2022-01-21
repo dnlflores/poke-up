@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import HomePage from './components/HomePage';
+import CreatePost from './components/CreatePost';
 import { authenticate } from './store/session';
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
         <Route path='/' exact={true}>
           <HomePage />
         </Route>
+        <ProtectedRoute path='/posts/new' exact={true} >
+          <CreatePost />
+        </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
