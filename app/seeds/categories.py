@@ -1,7 +1,5 @@
 from app.models import db, Category
 
-
-# Adds a demo user, you can add other users here if you want
 def seed_categories():
     cat_1 = Category(
         id=1, name="Potions"

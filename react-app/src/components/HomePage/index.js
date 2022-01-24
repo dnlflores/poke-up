@@ -24,7 +24,7 @@ function HomePage() {
 
     const handleEdit = event => {
         event.preventDefault();
-        console.log("THIS THE EVENT TARGET CLASS NAME => ", event.target.className);
+        
         const postId = event.target.className.split('-')[2];
 
         setEditButtonPopup(postId);

@@ -26,3 +26,9 @@ nav {
     position: relative;
     left: 15px;
 }
+
+.upper-nav-div {
+    display: flex;
+    justify-content: space-between;
+    width: 95vw;
+}

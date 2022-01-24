@@ -1,7 +1,5 @@
 from app.models import db, Post
 
-
-# Adds a demo user, you can add other users here if you want
 def seed_posts():
     demo_post1 = Post (
         title="Potion", user_id=1, category_id=1, image_url="https://i.etsystatic.com/7911747/r/il/65cf1f/1444728766/il_570xN.1444728766_h5ba.jpg", description="Just made some potions! Great for healing your Pokémon on the go!", price=20, quantity=10
