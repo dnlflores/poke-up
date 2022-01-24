@@ -25,7 +25,7 @@ class List(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     image_url = db.Column(db.String(255))
 
-    user = db.relationship('User', back_populates='lists', cascade="all, delete")
+    user = db.relationship('User', back_populates='lists')
     posts = db.relationship(
         'Post',
         secondary=posts_lists,

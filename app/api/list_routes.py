@@ -59,3 +59,17 @@ def create_list():
         db.session.commit()
         return new_list.to_dict()
     return {"errors": form.errors}
+
+
+
+@list_routes.route("/<int:id>", methods=["DELETE"])
+@login_required
+def delete_list(id):
+    listed = List.query.get(id)
+
+    print("         THIS IS THE LIST => ", listed)
+
+    db.session.delete(listed)
+    db.session.commit()
+
+    return listed.to_dict()

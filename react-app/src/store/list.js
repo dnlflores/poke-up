@@ -1,5 +1,6 @@
 const LOAD_LISTS = 'lists/LOAD_LISTS';
 const ADD_LIST = 'lists/ADD_LIST';
+const DELETE_LIST = 'lists/DELETE_LIST';
 
 const loadLists = lists => ({
     type: LOAD_LISTS,
@@ -8,6 +9,11 @@ const loadLists = lists => ({
 
 const addList = list => ({
     type: ADD_LIST,
+    payload: list
+});
+
+const deleteList = list => ({
+    type: DELETE_LIST,
     payload: list
 })
 
@@ -25,6 +31,21 @@ export const createList = list => async dispatch => {
     dispatch(addList(list))
 };
 
+export const removeList = listId => async dispatch => {
+    const response = await fetch(`/api/lists/${listId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type" : "application/json"
+        }
+    });
+
+    if(response.ok) {
+        const list = await response.json();
+        dispatch(deleteList(list));
+        return list;
+    }
+};
+
 export default function listReducer(state = {}, action) {
     switch(action.type) {
         case LOAD_LISTS:
@@ -33,10 +54,12 @@ export default function listReducer(state = {}, action) {
             return loadState;
         case ADD_LIST:
             const createState = {...state};
-            console.log("THIS IS THE CREATE STATE => ", createState);
-            console.log("THIS IS THE ACTION PAYLOAD => ", action.payload);
             createState[action.payload.id] = action.payload;
             return createState;
+        case DELETE_LIST:
+            const deleteState = {...state};
+            delete deleteState[action.payload.id];
+            return deleteState;
         default:
             return state;
     }

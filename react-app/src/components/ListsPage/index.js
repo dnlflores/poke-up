@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getLists } from '../../store/list';
+import { getLists, removeList } from '../../store/list';
 import CreateList from '../CreateList';
 import './ListsPage.css';
 
@@ -18,7 +18,13 @@ const ListsPage = props => {
         event.preventDefault();
 
         setListButtonPopup(!listButtonPopup);
-    }
+    };
+
+    const handleDelete = event => {
+        event.preventDefault();
+        const listId = event.target.className.split('-')[2];
+        dispatch(removeList(listId));
+    };
 
     return (
         <div>
@@ -28,9 +34,10 @@ const ListsPage = props => {
             <div className="list-container">
                 <button className="create-list-button" onClick={handleList}>Create List</button>
                 {lists?.map(list => (
-                    <div className='list-div'>
+                    <div className="list-div">
                         <img src={list.image_url} alt="list-cover"></img>
                         <h2 className="list-title">{list.name}</h2>
+                        <button className={`delete-list-${list.id}`} onClick={handleDelete}>Delete</button>
                     </div>
                 ))}
             </div>
