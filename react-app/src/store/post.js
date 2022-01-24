@@ -1,6 +1,7 @@
 const LOAD_POSTS = 'posts/LOAD_POSTS';
 const DELETE_POST = 'posts/DELETE_POST';
 const UPDATE_POST = 'posts/UPDATE_POST';
+const ADD_POST = 'posts/ADD_POST';
 
 const loadPosts = posts => ({
   type: LOAD_POSTS,
@@ -15,7 +16,12 @@ const deletePost = post => ({
 const updatePost = post => ({
     type: UPDATE_POST,
     payload: post
-})
+});
+
+const addPost = post => ({
+    type: ADD_POST,
+    payload: post
+});
 
 export const getPosts = () => async dispatch => {
     const response = await fetch('/api/posts/');
@@ -46,6 +52,10 @@ export const editPost = post => async dispatch => {
     dispatch(updatePost(post));
 };
 
+export const createPost = post => async dispatch => {
+    dispatch(addPost(post))
+}
+
 export default function postsReducer(state = {}, action) {
     switch(action.type){
         case LOAD_POSTS:
@@ -56,6 +66,10 @@ export default function postsReducer(state = {}, action) {
             const updateState = {...state};
             updateState[action.payload.id] = action.payload;
             return updateState;
+        case ADD_POST:
+            const addState = {...state};
+            addState[action.payload.id] = action.payload;
+            return addState;
         case DELETE_POST:
             const deleteState = {...state};
             delete deleteState[action.payload.id]

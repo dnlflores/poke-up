@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { getCategories } from "../../store/category";
+import { createPost } from "../../store/post";
 import './CreatePost.css'
 
 const CreatePost = (props) => {
-    const history = useHistory();
     const dispatch = useDispatch();
 
     const [errors, setErrors] = useState([]);
@@ -82,9 +81,10 @@ const CreatePost = (props) => {
             });
             
             if (response.ok) {
-                await response.json();
+                const newPost = await response.json();
+                dispatch(createPost(newPost));
                 setImageLoading(false);
-                history.push("/");
+                props.setTrigger(false);
             }else {
                 setImageLoading(false);
 
