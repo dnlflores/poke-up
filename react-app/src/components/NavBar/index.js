@@ -41,16 +41,13 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div>
-          <NavLink to='/' exact={true} activeClassName='active' className="nav-link">
-            Posts
-          </NavLink>
-        </div>
-        <div>
           <button className='create-post-button' onClick={handleCreate}>Create Post</button>
         </div>
-        <div>
-          <LogoutButton />
-        </div>
+        {user && (
+          <div>
+            <LogoutButton />
+          </div>
+        )}
       </nav>
       {createButtonPopup && (
         <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />

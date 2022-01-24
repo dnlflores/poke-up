@@ -1,1 +1,5 @@
 /* TODO Add site wide styles */
+.login-form, .signup-form {
+    position: relative;
+    top: 300px;
+}
