@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getCategories } from "../../store/category";
+import './CreatePost.css'
 
 const CreatePost = (props) => {
     const history = useHistory();
@@ -93,62 +94,65 @@ const CreatePost = (props) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit} id="create-post-form">
-                <ul>
-                    {errors.length > 0 && errors.map(err => (
-                        <li className="display-errors" key={err}>{err}</li>
-                    ))}
-                </ul>
-                <div>
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={updateImage}
-                    />
-                    <label>Title</label>
-                    <input
-                        type="text"
-                        name="title"
-                        className="title-input"
-                        onChange={updateTitle}
-                        value={title}
-                    ></input>
-                    <label>Category</label>
-                    <select name="categories" form="create-post-form" onChange={updateCategory}>
-                        {categories?.map(category => (
-                            <option value={category.id}>{category.name}</option>
+        <div className="create-post-background">
+            <div className="create-post-div">
+                <h2 className="create-post-title">Create Post</h2>
+                <form onSubmit={handleSubmit} id="create-post-form">
+                    <ul>
+                        {errors.length > 0 && errors.map(err => (
+                            <li className="display-errors" key={err}>{err}</li>
                         ))}
-                    </select>
-                    <label>Description</label>
-                    <input
-                        type="text"
-                        name="description"
-                        className="description-input"
-                        onChange={updateDescription}
-                        value={description}
-                    ></input>
-                    <label>Price</label>
-                    <input
-                        type="number"
-                        name="price"
-                        className="price-input"
-                        onChange={updatePrice}
-                        value={price}
-                    ></input>
-                    <label>Quantity</label>
-                    <input
-                        type="number"
-                        name="quantity"
-                        className="quantity-input"
-                        onChange={updateQuantity}
-                        value={quantity}
-                    ></input>
-                    <button className="submit-button" type="submit">Submit Post</button>
-                    <button className="cancel-button" onClick={event => props.setTrigger(false)}>Cancel</button>
-                    {imageLoading && <p>Loading...</p>}
-                </div>
-            </form>
+                    </ul>
+                    <div className="create-form-div">
+                        <label>Title</label>
+                        <input
+                            type="text"
+                            name="title"
+                            className="title-input"
+                            onChange={updateTitle}
+                            value={title}
+                        ></input>
+                        <label>Category</label>
+                        <select name="categories" form="create-post-form" onChange={updateCategory}>
+                            {categories?.map(category => (
+                                <option value={category.id}>{category.name}</option>
+                            ))}
+                        </select>
+                        <label>Description</label>
+                        <input
+                            type="text"
+                            name="description"
+                            className="description-input"
+                            onChange={updateDescription}
+                            value={description}
+                        ></input>
+                        <label>Price</label>
+                        <input
+                            type="number"
+                            name="price"
+                            className="price-input"
+                            onChange={updatePrice}
+                            value={price}
+                        ></input>
+                        <label>Quantity</label>
+                        <input
+                            type="number"
+                            name="quantity"
+                            className="quantity-input"
+                            onChange={updateQuantity}
+                            value={quantity}
+                        ></input>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={updateImage}
+                        />
+                        <button className="submit-button" type="submit">Submit Post</button>
+                        <button className="cancel-button" onClick={event => props.setTrigger(false)}>Cancel</button>
+                        {imageLoading && <p>Loading...</p>}
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

@@ -9,6 +9,4 @@ cat_route = Blueprint('categories', __name__)
 def get_categories():
     categories = Category.query.all()
 
-    print("         THIS IS JUST A TEST => ", [(category.id, category.name) for category in categories])
-
     return {"categories": [category.to_dict() for category in categories]}
