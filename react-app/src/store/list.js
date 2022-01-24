@@ -1,6 +1,7 @@
 const LOAD_LISTS = 'lists/LOAD_LISTS';
 const ADD_LIST = 'lists/ADD_LIST';
 const DELETE_LIST = 'lists/DELETE_LIST';
+const EDIT_LIST = 'lists/EDIT_LIST';
 
 const loadLists = lists => ({
     type: LOAD_LISTS,
@@ -15,7 +16,12 @@ const addList = list => ({
 const deleteList = list => ({
     type: DELETE_LIST,
     payload: list
-})
+});
+
+const editList = list => ({
+    type: EDIT_LIST,
+    payload: list
+});
 
 export const getLists = () => async dispatch => {
     const response = await fetch("/api/lists/");
@@ -46,6 +52,10 @@ export const removeList = listId => async dispatch => {
     }
 };
 
+export const updateList = list => async dispatch => {
+    dispatch(editList(list));
+}
+
 export default function listReducer(state = {}, action) {
     switch(action.type) {
         case LOAD_LISTS:
@@ -60,6 +70,10 @@ export default function listReducer(state = {}, action) {
             const deleteState = {...state};
             delete deleteState[action.payload.id];
             return deleteState;
+        case EDIT_LIST:
+            const editState = {...state};
+            editState[action.payload.id] = action.payload;
+            return editState;
         default:
             return state;
     }

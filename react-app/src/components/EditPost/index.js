@@ -15,7 +15,7 @@ const EditPost = (props) => {
     const [image, setImage] = useState('');
     const [category, setCategory] = useState(1)
     const user = useSelector(state => state.session.user);
-    const categories = useSelector(state => Object.values(state.categories))
+    const categories = useSelector(state => Object.values(state.categories));
 
     const [imageLoading, setImageLoading] = useState(false);
 

@@ -1,6 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.forms.create_list_form import CreateListForm
+from app.forms.edit_list_form import EditListForm
 from app.models import db, List
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
@@ -73,3 +74,44 @@ def delete_list(id):
     db.session.commit()
 
     return listed.to_dict()
+
+
+@list_routes.route('/<int:id>', methods=["PATCH"])
+@login_required
+def edit_list(id):
+    form = EditListForm()
+
+    new_list = List.query.get(id)
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if "image" not in request.files:
+        url = None
+    else:
+
+        image = request.files["image"]
+
+        if not allowed_file(image.filename):
+            return {"errors": "file type not permitted"}, 400
+
+        image.filename = get_unique_filename(image.filename)
+
+        upload = upload_file_to_s3(image)
+
+        if "url" not in upload:
+            # if the dictionary doesn't have a url key
+            # it means that there was an error when we tried to upload
+            # so we send back that error message
+            return upload, 400
+
+        url = upload["url"]
+
+    if form.validate_on_submit():
+        if form.data['name']:
+            new_list.name = form.data['name']
+        if url:
+            new_list.image_url = url
+
+        db.session.commit()
+        return new_list.to_dict()
+    return {"errors": form.errors}

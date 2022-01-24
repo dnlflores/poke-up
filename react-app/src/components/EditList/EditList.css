@@ -1,0 +1,14 @@
+.edit-list-div {
+    background-color: yellow;
+    position: relative;
+    width: 700px;
+    height: 500px;
+    left: 40vh;
+    top: 8vh;
+}
+
+.edit-list-title {
+    text-align: center;
+    position: relative;
+    top: 20px;
+}

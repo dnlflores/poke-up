@@ -31,7 +31,14 @@ const NavBar = () => {
             PokéUp
           </NavLink>
         </h2>
-        <button onClick={handleProfile}>profile</button>
+        <div className="nav-buttons-div">
+          <button>
+              <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
+                Lists
+              </NavLink>
+          </button>
+          <button onClick={handleProfile}>profile</button>
+        </div>
           {profilePopup && (
             <div class="profile-dropdown-div">
               <div>
