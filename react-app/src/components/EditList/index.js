@@ -23,8 +23,6 @@ const EditList = (props) => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        
-        console.log("THIS IS THE USER => ", user);
 
         const newErrors = [];
 
