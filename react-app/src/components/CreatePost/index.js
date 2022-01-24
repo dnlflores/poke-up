@@ -79,6 +79,7 @@ const CreatePost = (props) => {
                 method: "POST",
                 body: formData,
             });
+            
             if (response.ok) {
                 await response.json();
                 setImageLoading(false);
@@ -144,6 +145,7 @@ const CreatePost = (props) => {
                         value={quantity}
                     ></input>
                     <button className="submit-button" type="submit">Submit Post</button>
+                    <button className="cancel-button" onClick={event => props.setTrigger(false)}>Cancel</button>
                     {imageLoading && <p>Loading...</p>}
                 </div>
             </form>

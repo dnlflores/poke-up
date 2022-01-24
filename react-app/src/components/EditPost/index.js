@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
 import { getCategories } from "../../store/category";
 import { editPost } from "../../store/post";
+import "./EditPost.css";
 
 const EditPost = (props) => {
-    const history = useHistory();
     const dispatch = useDispatch();
 
     const [errors, setErrors] = useState([]);
@@ -56,7 +55,6 @@ const EditPost = (props) => {
         if(newErrors.length) setErrors(newErrors);
         else {
             const formData = new FormData();
-            console.log("THIS IS THE CATEGORY => ", category);
             formData.append("image", image);
 
             // aws uploads can be a bit slow—displaying
@@ -78,7 +76,7 @@ const EditPost = (props) => {
                 const updatedPost = await response.json();
                 dispatch(editPost(updatedPost));
                 setImageLoading(false);
-                history.push('/')
+                props.setTrigger(0);
             }else {
                 setImageLoading(false);
 
@@ -88,62 +86,65 @@ const EditPost = (props) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit} id="edit-post-form">
-                <ul>
-                    {errors.length > 0 && errors.map(err => (
-                        <li className="display-errors" key={err}>{err}</li>
-                    ))}
-                </ul>
-                <div>
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={updateImage}
-                    />
-                    <label>Title</label>
-                    <input
-                        type="text"
-                        name="title"
-                        className="title-input"
-                        onChange={updateTitle}
-                        value={title}
-                    ></input>
-                    <label>Category</label>
-                    <select name="categories" form="edit-post-form" onChange={updateCategory}>
-                        {categories?.map(category => (
-                            <option value={category.id}>{category.name}</option>
+        <div className="edit-background">
+            <div className="edit-post-div">
+                <h2 className="edit-post-title">Edit Post</h2>
+                <form onSubmit={handleSubmit} id="edit-post-form">
+                    <ul>
+                        {errors.length > 0 && errors.map(err => (
+                            <li className="display-errors" key={err}>{err}</li>
                         ))}
-                    </select>
-                    <label>Description</label>
-                    <input
-                        type="text"
-                        name="description"
-                        className="description-input"
-                        onChange={updateDescription}
-                        value={description}
-                    ></input>
-                    <label>Price</label>
-                    <input
-                        type="number"
-                        name="price"
-                        className="price-input"
-                        onChange={updatePrice}
-                        value={price}
-                    ></input>
-                    <label>Quantity</label>
-                    <input
-                        type="number"
-                        name="quantity"
-                        className="quantity-input"
-                        onChange={updateQuantity}
-                        value={quantity}
-                    ></input>
-                    <button className="submit-button" type="submit">Submit Post</button>
-                    <button onClick={event => props.setTrigger(0)}>Cancel</button>
-                    {imageLoading && <p>Loading...</p>}
-                </div>
-            </form>
+                    </ul>
+                    <div className="edit-form-div">
+                        <label>Title</label>
+                        <input
+                            type="text"
+                            name="title"
+                            className="title-input"
+                            onChange={updateTitle}
+                            value={title}
+                        ></input>
+                        <label>Category</label>
+                        <select name="categories" form="edit-post-form" onChange={updateCategory}>
+                            {categories?.map(category => (
+                                <option value={category.id}>{category.name}</option>
+                            ))}
+                        </select>
+                        <label>Description</label>
+                        <input
+                            type="text"
+                            name="description"
+                            className="description-input"
+                            onChange={updateDescription}
+                            value={description}
+                        ></input>
+                        <label>Price</label>
+                        <input
+                            type="number"
+                            name="price"
+                            className="price-input"
+                            onChange={updatePrice}
+                            value={price}
+                        ></input>
+                        <label>Quantity</label>
+                        <input
+                            type="number"
+                            name="quantity"
+                            className="quantity-input"
+                            onChange={updateQuantity}
+                            value={quantity}
+                        ></input>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={updateImage}
+                        />
+                        <button className="submit-button" type="submit">Submit Post</button>
+                        <button onClick={event => props.setTrigger(0)}>Cancel</button>
+                        {imageLoading && <p>Loading...</p>}
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

@@ -1,0 +1,28 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.nav-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-bar-div {
+    background-color: red;
+    border-bottom: 1px solid black;
+    box-shadow: rgba(0, 0, 0, .7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.site-title {
+    position: relative;
+    left: 15px;
+}

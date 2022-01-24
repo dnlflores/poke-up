@@ -1,0 +1,17 @@
+.image {
+    width: 205px;
+    height: 205px;
+}
+
+.post-container-div {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 145px;
+}
+
+.post-div {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
