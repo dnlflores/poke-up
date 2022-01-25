@@ -26,6 +26,7 @@ const NavBar = () => {
   return (
     <div className="nav-bar-div">
       <div className='upper-nav-div'>
+        <h2 className="background-title">PokéUp</h2>
         <h2 className="site-title">
           <NavLink to='/' exact={true} activeClassName='active' className="nav-link">
             PokéUp

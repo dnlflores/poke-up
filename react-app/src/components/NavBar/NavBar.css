@@ -1,7 +1,7 @@
 nav {
     display: flex;
     justify-content: space-around;
-    height: 50px;
+    height: 40px;
     align-items: center;
     margin-bottom: 10px;
 }
@@ -25,10 +25,22 @@ nav {
 .site-title {
     position: relative;
     left: 15px;
+    font-family: 'Pokemon Solid', sans-serif;
+    font-size: 35px;
+    color: Yellow;
 }
 
 .upper-nav-div {
     display: flex;
     justify-content: space-between;
     width: 95vw;
+}
+
+.background-title {
+    position: fixed;
+    left: 9px;
+    font-family: 'Pokemon Solid', sans-serif;
+    font-size: 38px;
+    color: blue;
+    top: -1px;
 }

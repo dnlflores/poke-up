@@ -39,15 +39,18 @@ const ListsPage = props => {
             {listButtonPopup && (
                 <CreateList trigger={listButtonPopup} setTrigger={setListButtonPopup} />
             )}
+            <h2 className='list-page-title'>Lists</h2>
+            <button className="create-list-button" onClick={showList}>Create List</button>
             <div className="list-container">
-                <button className="create-list-button" onClick={showList}>Create List</button>
                 {lists?.map(list => (
                     <>
                         <div className="list-div">
                             <img src={list.image_url} alt="list-cover"></img>
-                            <h2 className="list-title">{list.name}</h2>
-                            <button className={`delete-list-${list.id}`} onClick={handleDelete}>Delete</button>
-                            <button className={`edit-list-${list.id}`} onClick={showEdit}>Edit</button>
+                            <div className="title-buttons-div">
+                                <h2 className="list-title">{list.name}</h2>
+                                <button className={`delete-list-${list.id}`} onClick={handleDelete}>Delete</button>
+                                <button className={`edit-list-${list.id}`} onClick={showEdit}>Edit</button>
+                            </div>
                         </div>
                         {+editButtonPopup === list.id && (
                             <EditList trigger={editButtonPopup} setTrigger={setEditButtonPopup} list={list} />
