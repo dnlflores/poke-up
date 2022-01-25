@@ -5,10 +5,13 @@
     height: 500px;
     left: 40vh;
     top: 8vh;
+    border-radius: 10px;
+    border: solid 3px blue;
 }
 
 .edit-list-title {
     text-align: center;
     position: relative;
     top: 20px;
+    font-family: 'Righteous', cursive;
 }

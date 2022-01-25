@@ -3,3 +3,31 @@
     position: relative;
     top: 300px;
 }
+
+button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.button-default {
+    background-color: blue;
+    color: yellow;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'Righteous', cursive;
+}
+
+.button-pokeball {
+    background-image: url("https://pokeup.s3.us-west-1.amazonaws.com/Pokeball-PNG-Photos.png");
+    /* background-image: url("https://pngimg.com/uploads/pokeball/pokeball_PNG8.png"); */
+    width: 75px;
+    height: 75px;
+    background-size: 75px;
+    color: blue;
+}

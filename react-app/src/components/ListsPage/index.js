@@ -24,13 +24,14 @@ const ListsPage = props => {
 
     const showEdit = event => {
         event.preventDefault();
-        const listId = event.target.className.split('-')[2];
+        console.log("THIS IS THE CLASS NAME => ", event.target.className.split(' ')[1]);
+        const listId = event.target.className.split(' ')[1];
         setEditButtonPopup(listId);
     }
 
     const handleDelete = event => {
         event.preventDefault();
-        const listId = event.target.className.split('-')[2];
+        const listId = event.target.className.split(' ')[1];
         dispatch(removeList(listId));
     };
 
@@ -40,7 +41,7 @@ const ListsPage = props => {
                 <CreateList trigger={listButtonPopup} setTrigger={setListButtonPopup} />
             )}
             <h2 className='list-page-title'>Lists</h2>
-            <button className="create-list-button" onClick={showList}>Create List</button>
+            <button className="create-list-button button-pokeball" onClick={showList}>Create List</button>
             <div className="list-container">
                 {lists?.map(list => (
                     <>
@@ -48,8 +49,8 @@ const ListsPage = props => {
                             <img src={list.image_url} alt="list-cover"></img>
                             <div className="title-buttons-div">
                                 <h2 className="list-title">{list.name}</h2>
-                                <button className={`delete-list-${list.id}`} onClick={handleDelete}>Delete</button>
-                                <button className={`edit-list-${list.id}`} onClick={showEdit}>Edit</button>
+                                <button className={`delete-list ${list.id} button-default`} onClick={handleDelete}>Delete</button>
+                                <button className={`edit-list ${list.id} button-default`} onClick={showEdit}>Edit</button>
                             </div>
                         </div>
                         {+editButtonPopup === list.id && (

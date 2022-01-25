@@ -79,8 +79,8 @@ const EditList = (props) => {
                             accept="image/*"
                             onChange={updateImage}
                         />
-                        <button className="submit-button" type="submit">Submit Post</button>
-                        <button onClick={event => props.setTrigger(0)}>Cancel</button>
+                        <button className="submit-button button-default" type="submit">Submit Post</button>
+                        <button onClick={event => props.setTrigger(0)} className="button-default">Cancel</button>
                         {imageLoading && <p>Loading...</p>}
                     </div>
                 </form>

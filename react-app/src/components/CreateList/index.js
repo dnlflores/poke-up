@@ -82,8 +82,8 @@ const CreateList = (props) => {
                             accept="image/*"
                             onChange={updateImage}
                         />
-                        <button className="submit-button" type="submit">Create List!</button>
-                        <button className="cancel-button" onClick={event => props.setTrigger(false)}>Cancel</button>
+                        <button className="submit-button button-default" type="submit">Create List!</button>
+                        <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
                         {imageLoading && <p>Loading...</p>}
                     </div>
                 </form>
