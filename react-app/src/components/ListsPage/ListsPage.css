@@ -40,6 +40,20 @@
     bottom: 100px;
     right: 50px;
     z-index: 50;
+    font-family: 'Fredoka One', cursive;
+    font-size: 28px;
+    color: blue;
+}
+
+.background-create-text {
+    position: fixed;
+    bottom: 122px;
+    right: 59px;
+    z-index: 51;
+    font-family: 'Fredoka One', cursive;
+    font-size: 25px;
+    color: yellow;
+    cursor: pointer;
 }
 
 .list-page-title {
