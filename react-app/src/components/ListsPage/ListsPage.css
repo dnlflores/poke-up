@@ -37,7 +37,7 @@
 
 .create-list-button {
     position: fixed;
-    bottom: 100px;
+    bottom: 50px;
     right: 50px;
     z-index: 50;
     font-family: 'Fredoka One', cursive;
@@ -47,7 +47,7 @@
 
 .background-create-text {
     position: fixed;
-    bottom: 122px;
+    bottom: 72px;
     right: 59px;
     z-index: 51;
     font-family: 'Fredoka One', cursive;
