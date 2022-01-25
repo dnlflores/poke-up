@@ -32,13 +32,25 @@ const NavBar = () => {
             PokéUp
           </NavLink>
         </h2>
+        <label className="nav-button-selling">Selling</label>
+        <label className="nav-button-lists">
+          <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
+            Lists
+          </NavLink>
+        </label>
+        <label className="nav-button-profile" onClick={handleProfile}>Profile</label>
         <div className="nav-buttons-div">
-          <button>
+          <button className='button-pokeball nav-buttons'>
+            Selling
+          </button>
+          <button className="button-pokeball nav-buttons">
               <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
                 Lists
               </NavLink>
           </button>
-          <button onClick={handleProfile}>profile</button>
+          <button onClick={handleProfile} className='button-pokeball nav-buttons'>
+            Profile
+          </button>
         </div>
           {profilePopup && (
             <div class="profile-dropdown-div">
