@@ -1,0 +1,9 @@
+.post-container {
+    position: relative;
+    top: 175px;
+}
+
+.post-container h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 38px;
+}

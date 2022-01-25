@@ -43,6 +43,7 @@
     font-family: 'Fredoka One', cursive;
     font-size: 28px;
     color: blue;
+    transition: all ease-in-out;
 }
 
 .background-create-text {
@@ -54,6 +55,7 @@
     font-size: 25px;
     color: yellow;
     cursor: pointer;
+    transition: all ease-in-out;
 }
 
 .list-page-title {

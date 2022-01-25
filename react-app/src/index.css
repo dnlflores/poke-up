@@ -21,11 +21,17 @@ button {
     border-radius: 10px;
     margin: 5px;
     font-family: 'Righteous', cursive;
+    transition: ease-in-out all;
+}
+
+.button-default:hover {
+    background-color: rgb(0, 81, 255);
+    transform: translate(-2px, -1px);
+
 }
 
 .button-pokeball {
     background-image: url("https://pokeup.s3.us-west-1.amazonaws.com/Pokeball-PNG-Photos.png");
-    /* background-image: url("https://pngimg.com/uploads/pokeball/pokeball_PNG8.png"); */
     width: 75px;
     height: 75px;
     background-size: 75px;

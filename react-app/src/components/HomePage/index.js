@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
 import { getPosts, removePost } from '../../store/post';
 import EditPost from '../EditPost';
 import './HomePage.css';
 
-function HomePage() {
+const HomePage = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const posts = useSelector(state => Object.values(state.posts));
     const user = useSelector(state => state.session.user);
     const [editButtonPopup, setEditButtonPopup] = useState(0);
@@ -35,14 +37,13 @@ function HomePage() {
             {posts.map(post => (
                 <div>
                     <div className={`post-div ${post.id}`}>
-                        <img src={post.image_url} alt="post" className={`image ${post.id}`}></img>
-                        {/* <label>Post ID: {post.id} </label> */}
-                        <label>Title: {post.title} </label>
-                        {/* <label>User ID: {post.user_id} </label> */}
-                        {/* <label>Category ID: {post.category_id} </label> */}
-                        {/* <label>Description: {post.description} </label> */}
-                        <label>Price: {post.price} </label>
-                        {/* <label>Quantity: {post.quantity} </label> */}
+                        <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active'>
+                            <img src={post.image_url} alt="post" className={`image-post ${post.id}`}></img>
+                        </NavLink>
+                        <div className='image-info-div'>
+                            <label className="post-title">{post.title} </label>
+                            <label className="post-price">${post.price} </label>
+                        </div>
                         {user?.id === post.user_id && (
                             <div>
                                 <button onClick={handleDelete} className={`delete-post-${post.id}`}>Delete</button>

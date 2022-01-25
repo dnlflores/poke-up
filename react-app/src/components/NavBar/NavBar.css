@@ -14,7 +14,7 @@ nav {
 .nav-bar-div {
     background-color: red;
     border-bottom: 1px solid black;
-    box-shadow: rgba(0, 0, 0, .7);
+    box-shadow: 0 3px 10px black;
     position: fixed;
     top: 0;
     left: 0;

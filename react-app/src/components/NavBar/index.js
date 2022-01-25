@@ -43,11 +43,11 @@ const NavBar = () => {
           <button className='button-pokeball nav-buttons'>
             Selling
           </button>
-          <button className="button-pokeball nav-buttons">
-              <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
+            <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
+              <button className="button-pokeball nav-buttons">
                 Lists
-              </NavLink>
-          </button>
+              </button>
+            </NavLink>
           <button onClick={handleProfile} className='button-pokeball nav-buttons'>
             Profile
           </button>

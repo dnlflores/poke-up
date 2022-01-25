@@ -1,17 +1,41 @@
-.image {
+.image-post {
     width: 205px;
     height: 205px;
+    border-radius: 10px;
+    border: 2px solid blue;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.7);
+    transition: all ease-in-out;
 }
 
 .post-container-div {
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    top: 145px;
+    top: 200px;
 }
 
 .post-div {
     display: flex;
     flex-direction: column;
     margin: 15px;
+    cursor: pointer;
+}
+
+.post-title {
+    font-family: 'Fredoka One', cursive;
+}
+
+.image-post:hover {
+    transform: translate(-4px, -2px);
+}
+
+.image-info-div {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 5px;
+}
+
+.image-info-div:hover {
+    text-decoration: underline;
 }
