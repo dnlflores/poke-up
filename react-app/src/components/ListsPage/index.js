@@ -47,7 +47,7 @@ const ListsPage = props => {
                 {lists?.map(list => (
                     <>
                         <div className="list-div">
-                            <img src={list.image_url} alt="list-cover"></img>
+                            <img src={list.image_url} alt="list-cover" className="list-cover-image"></img>
                             <div className="title-buttons-div">
                                 <h2 className="list-title">{list.name}</h2>
                                 <button className={`delete-list ${list.id} button-default`} onClick={handleDelete}>Delete</button>

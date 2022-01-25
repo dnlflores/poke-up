@@ -25,8 +25,6 @@ const PostPage = props => {
             if(sellerPost.id !== post.id) return sellerPost;
         }
     });
-
-    console.log("THIS IS THE SELLER => ", users.find(user => user.id === post.user_id));
     
     useEffect(() => {
         dispatch(getPosts());
@@ -41,20 +39,27 @@ const PostPage = props => {
 
     return (
         <div className="post-container">
-            <div className="left-container">
-                <img src={post?.image_url} alt="post"></img>
-            </div>
-            <div className="right-container">
-                <h2>{post?.title}</h2>
-                <h2>${post?.price}</h2>
-                <label className="category-text">{category?.name}</label>
-                <button className="button-default">Buy</button>
-                <label className="quantity-text">Quantity: </label>
-                <h2>{post?.quantity}</h2>
-                <button>ADD TO LIST</button>
-                <div className="seller-container">
-                    <img src={seller?.profile_pic_url} alt="seller-profile"></img>
-                    <h2>{seller?.username}</h2>
+            <div className="upper-container">
+                <div className="left-container">
+                    <img src={post?.image_url} alt="post" className="post-page-image"></img>
+                </div>
+                <div className="right-container">
+                    <h2>{post?.title}</h2>
+                    <h2>${post?.price}</h2>
+                    <div className="quantity-category-container">
+                        <label className="category-text">{category?.name}</label>
+                        <label className="quantity-text">Quantity: </label>
+                        <h2 className="quantity-number">{post?.quantity}</h2>
+                    </div>
+                    <div className="post-buttons">
+                        <button className="button-default">Buy</button>
+                        <button class="add-to-list-button">ADD TO LIST
+                        <span className="material-icons list-icon">lists</span></button>
+                    </div>
+                    <div className="seller-container">
+                        <img src={seller?.profile_pic_url} alt="seller-profile" className="seller-profile-pic"></img>
+                        <h2 className='seller-username'>{seller?.username}</h2>
+                    </div>
                 </div>
             </div>
             <div className="description-container">
@@ -83,6 +88,10 @@ const PostPage = props => {
                     ))}
                 </div>
             </div>
+
+            <div className="line-div-1"></div>
+            <div className="line-div-2"></div>
+            <div className="line-div-3"></div>
         </div>
     )
 }

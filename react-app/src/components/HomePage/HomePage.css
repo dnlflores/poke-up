@@ -5,6 +5,7 @@
     border: 2px solid blue;
     box-shadow: 5px 5px 5px rgba(0,0,0,0.7);
     transition: all ease-in-out;
+    object-fit: cover;
 }
 
 .post-container-div {

@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getPosts, removePost } from '../../store/post';
 import EditPost from '../EditPost';
 import './HomePage.css';
 
 const HomePage = () => {
     const dispatch = useDispatch();
-    const history = useHistory();
     const posts = useSelector(state => Object.values(state.posts));
     const user = useSelector(state => state.session.user);
     const [editButtonPopup, setEditButtonPopup] = useState(0);

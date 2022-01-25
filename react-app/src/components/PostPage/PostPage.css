@@ -7,3 +7,95 @@
     font-family: 'Fredoka One', cursive;
     font-size: 38px;
 }
+
+.upper-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.post-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.seller-profile-pic {
+    width: 90px;
+    height: 90px;
+    border-radius: 100%;
+    object-fit: cover;
+    position: relative;
+    top: 30px;
+}
+
+.seller-container {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 30px;
+}
+
+.post-buttons > button {
+    margin: 15px;
+}
+
+.quantity-category-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.quantity-number {
+    position: relative;
+    bottom: 45px;
+}
+
+.post-page-image {
+    width: 650px;
+    object-fit: cover;
+    
+}
+
+h2.seller-username {
+    position: relative;
+    top: 35px;
+    right: 30px;
+    font-size: 30px;
+}
+
+.list-icon {
+    position: relative;
+    left: 10px;
+    top: 7px;
+    font-size: 25px;
+}
+
+.add-to-list-button {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 20px;
+    border: 2px solid blue;
+    border-radius: 10px;
+    color: blue;
+}
+
+.add-to-list-button:hover {
+    color: yellow;
+    border: 2px solid yellow;
+}
+
+.category-text {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 20px;
+}
+
+.quantity-text {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 20px;
+}
+
+.line-div-1 {
+    border-left: solid 1px black;
+    height: 500px;
+    position: absolute;
+    top: 100px;
+    right: 450px;
+}
