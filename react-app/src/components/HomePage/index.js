@@ -13,6 +13,7 @@ const HomePage = () => {
 
     useEffect(() => {
         dispatch(getPosts());
+        (function () {document.documentElement.scrollTop = 0})();
     }, [dispatch]);
 
     const handleDelete = event => {

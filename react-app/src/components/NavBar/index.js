@@ -1,15 +1,20 @@
 
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import CreatePost from '../CreatePost';
+import { getCategories } from '../../store/category';
 import './NavBar.css'
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
+  const categories = useSelector(state => Object.values(state.categories));
   const [createButtonPopup, setCreateButtonPopup] = useState(false);
   const [profilePopup, setProfilePopup] = useState(false);
+
+  console.log("THIS IS THE CATEGORIES => ", categories);
 
   const handleCreate = event => {
     event.preventDefault();
@@ -23,6 +28,10 @@ const NavBar = () => {
     setProfilePopup(!profilePopup);
   }
 
+  useEffect(() => {
+    dispatch(getCategories())
+  }, [dispatch])
+
   return (
     <div className="nav-bar-div">
       <div className='upper-nav-div'>
@@ -32,13 +41,6 @@ const NavBar = () => {
             PokéUp
           </NavLink>
         </h2>
-        <label className="nav-button-selling">Selling</label>
-        <label className="nav-button-lists">
-          <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
-            Lists
-          </NavLink>
-        </label>
-        <label className="nav-button-profile" onClick={handleProfile}>Profile</label>
         <div className="nav-buttons-div">
           <button className='button-pokeball nav-buttons'>
             Selling
@@ -80,7 +82,10 @@ const NavBar = () => {
             </div>)}
       </div>
       <nav>
-        <div>
+        <div className="categories-container">
+          {categories?.map(category => (
+            <label className="category-text">{category.name}</label>
+          ))}
         </div>
       </nav>
       {createButtonPopup && (

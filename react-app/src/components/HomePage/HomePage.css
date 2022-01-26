@@ -40,3 +40,7 @@
 .image-info-div:hover {
     text-decoration: underline;
 }
+
+.post-price {
+    font-family: 'Architects Daughter', cursive;
+}

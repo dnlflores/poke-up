@@ -35,6 +35,7 @@ const PostPage = props => {
           setUsers(responseData.users);
         }
         fetchData();
+        (function () {document.documentElement.scrollTop = 0})();
     }, [dispatch]);
 
     return (
@@ -62,36 +63,41 @@ const PostPage = props => {
                     </div>
                 </div>
             </div>
-            <div className="description-container">
-                <h2>Description</h2>
-                <p className="description-text">{post?.description}</p>
-            </div>
-            <div classname="similar-posts-container">
-                <h2>Similar Items</h2>
-                <div className="similar-posts-container">
-                    {similarPosts?.map(post => (
-                        <div className="similar-post-div">
-                            <img src={post.image_url} alt="similar-post"></img>
-                            <h2 className="similar-post-title">{post.title}</h2>
-                        </div>
-                    ))}
+            <div className="bottom-container">
+                <div className="description-container">
+                    <h2>Description</h2>
+                    <p className="description-text">{post?.description}</p>
+                </div>
+                <div classname="similar-posts-container">
+                    <h2>Similar Items</h2>
+                    <div className="similar-posts-container">
+                        {similarPosts?.map(post => (
+                            <div className="similar-post-div">
+                                <img src={post.image_url} alt="similar-post" className="image-post"></img>
+                                <h3 className="similar-post-title">{post.title}</h3>
+                                <label className="similar-post-price">${post.price}</label>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div classname="more-posts-container">
+                    <h2>More Items From This PokéSeller</h2>
+                    <div className="more-posts-container">
+                        {otherSellerPosts?.map(post => (
+                            <div className="more-post-div">
+                                <img src={post.image_url} alt="more-post" className='image-post'></img>
+                                <h3 className="more-post-title">{post.title}</h3>
+                                <label className="more-post-price">${post.price}</label>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
-            <div classname="more-posts-container">
-                <h2>More Items From This PokéSeller</h2>
-                <div className="more-posts-container">
-                    {otherSellerPosts?.map(post => (
-                        <div className="more-post-div">
-                            <img src={post.image_url} alt="more-post"></img>
-                            <h2 className="more-post-title">{post.title}</h2>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
             <div className="line-div-1"></div>
             <div className="line-div-2"></div>
             <div className="line-div-3"></div>
+            <div className="line-div-4"></div>
+            <div className="line-div-5"></div>
         </div>
     )
 }

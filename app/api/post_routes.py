@@ -130,8 +130,8 @@ def edit_post(id):
     return {"errors": form.errors}
     
 
-@post_routes.route('/<int:id>')
-def get_single_post(id):
-    post = Post.query.get(id)
+# @post_routes.route('/<int:id>')
+# def get_single_post(id):
+#     post = Post.query.get(id)
 
-    return post.to_dict()
+#     return post.to_dict()

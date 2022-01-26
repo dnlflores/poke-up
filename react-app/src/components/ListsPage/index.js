@@ -13,7 +13,8 @@ const ListsPage = props => {
     const [editButtonPopup, setEditButtonPopup] = useState(0)
 
     useEffect(() => {
-        dispatch(getLists())
+        dispatch(getLists());
+        (function () {document.documentElement.scrollTop = 0})();
     }, [dispatch]);
 
     const showList = event => {
@@ -42,7 +43,6 @@ const ListsPage = props => {
             )}
             <h2 className='list-page-title'>Lists</h2>
             <button className="create-list-button button-pokeball" onClick={showList}>New!</button>
-            <label className="background-create-text" onClick={showList}>New!</label>
             <div className="list-container">
                 {lists?.map(list => (
                     <>

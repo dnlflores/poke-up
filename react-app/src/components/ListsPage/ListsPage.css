@@ -42,8 +42,9 @@
     z-index: 50;
     font-family: 'Fredoka One', cursive;
     font-size: 28px;
-    color: blue;
+    color: yellow;
     transition: all ease-in-out;
+    text-shadow: 2px 2px 4px blue;
 }
 
 .background-create-text {

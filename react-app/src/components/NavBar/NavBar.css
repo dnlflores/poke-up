@@ -50,45 +50,21 @@ nav {
     height: 65px;
     width: 65px;
     margin: 10px;
-    color: blue;
+    color: yellow;
     font-family: "Fredoka One", cursive;
     font-size: 20px;
-}
-
-.nav-button-profile {
-    position: fixed;
-    color: yellow;
-    cursor: pointer;
-    font-family: "Fredoka One", cursive;
-    font-size: 18px;
-    right: 34px;
-    top: 31px;
-    z-index: 60;
-}
-
-.nav-button-lists {
-    position: fixed;
-    color: yellow;
-    cursor: pointer;
-    font-family: "Fredoka One", cursive;
-    font-size: 18px;
-    right: 128px;
-    top: 31px;
-    z-index: 60;
-}
-
-.nav-button-selling {
-    position: fixed;
-    color: yellow;
-    cursor: pointer;
-    font-family: "Fredoka One", cursive;
-    font-size: 18px;
-    right: 204px;
-    top: 31px;
-    z-index: 60;
+    text-shadow: 2px 2px 4px blue;
 }
 
 .nav-buttons-div {
     position: fixed;
     right: 20px;
+}
+
+.categories-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    color: yellow;
+    text-shadow: 2px 2px 4px blue;
 }
