@@ -84,7 +84,7 @@ const NavBar = () => {
       <nav>
         <div className="categories-container">
           {categories?.map(category => (
-            <label className="category-text">{category.name}</label>
+            <NavLink to={`/${category.name.split(' ').length > 1 ? 'tm' : category.name.toLowerCase()}`} className="category-text">{category.name}</NavLink>
           ))}
         </div>
       </nav>

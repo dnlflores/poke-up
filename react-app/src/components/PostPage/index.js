@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom';
 import { getPosts } from '../../store/post';
 import { getCategories } from '../../store/category';
 import './PostPage.css';
@@ -73,7 +73,9 @@ const PostPage = props => {
                     <div className="similar-posts-container">
                         {similarPosts?.map(post => (
                             <div className="similar-post-div">
-                                <img src={post.image_url} alt="similar-post" className="image-post"></img>
+                                <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () {document.documentElement.scrollTop = 0}}>
+                                    <img src={post.image_url} alt="similar-post" className={`image-post ${post.id}`}></img>
+                                </NavLink>
                                 <h3 className="similar-post-title">{post.title}</h3>
                                 <label className="similar-post-price">${post.price}</label>
                             </div>
@@ -85,7 +87,9 @@ const PostPage = props => {
                     <div className="more-posts-container">
                         {otherSellerPosts?.map(post => (
                             <div className="more-post-div">
-                                <img src={post.image_url} alt="more-post" className='image-post'></img>
+                                <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () {document.documentElement.scrollTop = 0}}>
+                                    <img src={post.image_url} alt="more-post" className={`image-post ${post.id}`}></img>
+                                </NavLink>
                                 <h3 className="more-post-title">{post.title}</h3>
                                 <label className="more-post-price">${post.price}</label>
                             </div>

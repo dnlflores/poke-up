@@ -65,6 +65,10 @@ nav {
     display: flex;
     justify-content: space-between;
     width: 90vw;
+}
+
+.categories-container a {
     color: yellow;
     text-shadow: 2px 2px 4px blue;
+    text-decoration: none;
 }

@@ -10,6 +10,12 @@ import User from './components/User';
 import HomePage from './components/HomePage';
 import ListsPage from './components/ListsPage';
 import PostPage from './components/PostPage';
+import PotionsPage from './components/PotionsPage';
+import PokemonPage from './components/PokemonPage';
+import PokeballsPage from './components/PokeballsPage';
+import ClothingPage from './components/ClothingPage';
+import TMPage from './components/TMPage';
+import BerriesPage from './components/BerriesPage';
 import { authenticate } from './store/session';
 
 function App() {
@@ -40,6 +46,24 @@ function App() {
         <Route path='/' exact={true}>
           <HomePage />
         </Route>
+        <Route path='/potions' exact={true}>
+          <PotionsPage />
+        </Route>
+        <Route path='/pokémon' exact={true}>
+          <PokemonPage />
+        </Route>
+        <Route path='/clothing' exact={true}>
+          <ClothingPage />
+        </Route>
+        <Route path='/tm' exact={true}>
+          <TMPage />
+        </Route>
+        <Route path='/pokéballs' exact={true}>
+          <PokeballsPage />
+        </Route>
+        <Route path='/berries' exact={true}>
+          <BerriesPage />
+        </Route>
         <Route path='/posts/:id' exact={true}>
           <PostPage />
         </Route>
@@ -51,9 +75,6 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
-        </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
