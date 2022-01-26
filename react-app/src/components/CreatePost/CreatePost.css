@@ -9,15 +9,16 @@
 }
 
 .create-post-div {
-    background-color: red;
+    background-color: yellow;
     position: relative;
     width: 700px;
     height: 500px;
     left: 40vh;
     top: 8vh;
-    border: 3px solid black;
+    border: 3px solid blue;
     border-radius: 1rem;
     font-family: 'Fredoka One', cursive;
+    color: blue;
 }
 
 .create-form-div {
@@ -47,7 +48,7 @@
     height: 30px;
     font-family: 'Architects Daughter', cursive;
     padding-left: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(235, 220, 21, 0.432);
 }
 
 #create-post-form {
@@ -103,7 +104,7 @@ button.cancel-button {
 }
 
 button.cancel-button:hover {
-    background-color: rgb(197, 3, 3);
+    background-color: rgba(255, 0, 0, 0.74);
 }
 
 button.submit-post-button {
@@ -116,6 +117,7 @@ button.submit-post-button {
 input.description-input {
     width: 500px;
     height: 70px;
+    color: blue;
 }
 
 .fake-file-input {
@@ -128,13 +130,14 @@ select.categories {
     border: none;
     appearance: none;
     outline: none;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(235, 220, 21, 0.432);
     border-radius: 1rem;
     height: 40px;
     width: 200px;
     padding: 10px;
     font-size: 16px;
     font-family: 'Architects Daughter', cursive;
+    color: blue;
 }
 
 .title-div, .description-div {
@@ -144,12 +147,12 @@ select.categories {
 
 .title-div {
     max-width: 320px;
+    color: blue;
 }
 
 input.price-input, input.quantity-input  {
     font-size: 30px;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: black;
+    color: blue;
     text-align: center;
 }
 
@@ -163,4 +166,25 @@ input.quantity-input::-webkit-inner-spin-button {
 
 input.price-input {
     width: 100px;
+}
+
+.loading-logo {
+    animation-name: spin;
+    animation-duration: 2000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    top: 10vh;
+    right: 25vw;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }

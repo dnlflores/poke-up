@@ -192,7 +192,9 @@ const CreatePost = (props) => {
                         <button className="submit-post-button button-default" type="submit">Submit Post</button>
                         <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
                     </div>
-                    {imageLoading && <p>Loading...</p>}
+                    {imageLoading && (
+                        <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo"></img>
+                    )}
                 </form>
             </div>
         </div>
