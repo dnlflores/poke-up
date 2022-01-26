@@ -93,6 +93,11 @@ const CreatePost = (props) => {
         }
     }
 
+    const handlePicture = event => {
+        const realBtn = document.getElementById('real-file-button');
+        realBtn.click();
+    }
+
     return (
         <div className="create-post-background">
             <div className="create-post-div">
@@ -146,8 +151,11 @@ const CreatePost = (props) => {
                             type="file"
                             accept="image/*"
                             onChange={updateImage}
+                            id="real-file-button"
                         />
-                        <button className="submit-button" type="submit">Submit Post</button>
+                        <button className="button-default fake-file-button">Choose a Picture!</button>
+                        <span className="file-name">No picture chosen.</span>
+                        <button className="submit-button" type="submit" onClick={handlePicture}>Submit Post</button>
                         <button className="cancel-button" onClick={event => props.setTrigger(false)}>Cancel</button>
                         {imageLoading && <p>Loading...</p>}
                     </div>
