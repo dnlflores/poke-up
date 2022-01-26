@@ -67,7 +67,9 @@ const HomePage = () => {
                     )}
                 </div>
             ))}
-            <button className="create-list-button button-pokeball" onClick={handleCreate}>New!</button>
+            {user && (
+                <button className="create-list-button button-pokeball" onClick={handleCreate}>New!</button>
+            )}
             {createButtonPopup && (
                 <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
             )}

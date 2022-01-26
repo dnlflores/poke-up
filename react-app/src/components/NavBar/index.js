@@ -10,7 +10,6 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
   const categories = useSelector(state => Object.values(state.categories));
-  const [profilePopup, setProfilePopup] = useState(false);
   const [userDrop, setUserDrop] = useState(false);
 
   const handleProfile = event => {
@@ -33,42 +32,31 @@ const NavBar = () => {
             PokéUp
           </NavLink>
         </h2>
-        <div className="nav-buttons-div">
-          <button className='button-pokeball nav-buttons'>
-            Selling
-          </button>
-            <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
-              <button className="button-pokeball nav-buttons">
-                Lists
-              </button>
+        {user && (
+          <div className="nav-buttons-div">
+            <button className='button-pokeball nav-buttons'>
+              Selling
+            </button>
+              <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
+                <button className="button-pokeball nav-buttons">
+                  Lists
+                </button>
+              </NavLink>
+            <button onClick={handleProfile} className='button-pokeball nav-buttons'>
+              Profile
+            </button>
+          </div>
+        )}
+        {!user && (
+          <div className="nav-buttons-div">
+            <NavLink to='/login' exact={true} activeClassName='active'>
+              <button className="button-pokeball nav-buttons login-button">Login!</button>
             </NavLink>
-          <button onClick={handleProfile} className='button-pokeball nav-buttons'>
-            Profile
-          </button>
-        </div>
-          {profilePopup && (
-            <div class="profile-dropdown-div">
-              <div>
-                <NavLink to='/login' exact={true} activeClassName='active' className="nav-link">
-                  Login
-                </NavLink>
-              </div>
-              <div>
-                <NavLink to='/sign-up' exact={true} activeClassName='active' className="nav-link">
-                  Sign Up
-                </NavLink>
-              </div>
-              <div>
-                <NavLink to='/users' exact={true} activeClassName='active' className="nav-link">
-                  Users
-                </NavLink>
-              </div>
-              {user && (
-                <div>
-                  <LogoutButton />
-                </div>
-              )}
-            </div>)}
+            <NavLink to='/sign-up' exact={true} activeClassName='active'>
+              <button className="button-pokeball nav-buttons signup-button">Sign Up!</button>
+            </NavLink>
+          </div>
+        )}
       </div>
       <nav>
         <div className="categories-container">
@@ -96,7 +84,7 @@ const NavBar = () => {
               </div>
             )}
           </div>
-          <LogoutButton />
+          <LogoutButton trigger={userDrop} setTrigger={setUserDrop}/>
         </div>
       )}
     </div>

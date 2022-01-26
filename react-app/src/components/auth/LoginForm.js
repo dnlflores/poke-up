@@ -26,6 +26,10 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+  const handleDemo = event => {
+    dispatch(login("demo@pokeup.com", "password"));
+  }
+
   if (user) {
     return <Redirect to='/' />;
   }
@@ -56,7 +60,8 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <button type='submit' className="button-default">Login</button>
+        <button className='button-default' onClick={handleDemo}>Demo</button>
       </div>
     </form>
   );

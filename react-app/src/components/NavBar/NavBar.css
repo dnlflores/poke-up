@@ -119,3 +119,8 @@ nav {
     right: 10px;
     top: 100px;
 }
+
+.signup-button {
+    position: relative;
+    bottom: 11px;
+}
