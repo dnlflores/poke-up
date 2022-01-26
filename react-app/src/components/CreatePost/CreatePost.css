@@ -9,26 +9,158 @@
 }
 
 .create-post-div {
-    background-color: yellow;
+    background-color: red;
     position: relative;
     width: 700px;
     height: 500px;
     left: 40vh;
     top: 8vh;
+    border: 3px solid black;
+    border-radius: 1rem;
+    font-family: 'Fredoka One', cursive;
 }
 
 .create-form-div {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 350px;
     align-items: center;
+    height: 200px;
+    align-items: center;
+    padding: 50px;
     position: relative;
-    top: 30px;
+    top: 70px;
 }
 
 .create-post-title {
     text-align: center;
-    position: relative;
+    position: absolute;
     top: 20px;
+    left: 30px;
+}
+
+.create-post-div input {
+    border: none;
+    appearance: none;
+    outline: none;
+    border-radius: 1rem;
+    height: 30px;
+    font-family: 'Architects Daughter', cursive;
+    padding-left: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#create-post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.first-layer-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.second-layer-form {
+    display: flex;
+}
+
+.third-layer-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    margin-top: 10px;
+}
+
+.price-div, .quantity-div, .category-div {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    align-items: center;
+}
+
+input.price-input, input.quantity-input {
+    width: 70px;
+    height: 70px;
+}
+
+.form-buttons {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+button.cancel-button {
+    height: 40px;
+    width: 70px;
+    padding: 0px;
+    margin: 5px;
+    background-color: red;
+    color: white;
+}
+
+button.cancel-button:hover {
+    background-color: rgb(197, 3, 3);
+}
+
+button.submit-post-button {
+    height: 40px;
+    width: 100px;
+    padding: 0px;
+    margin: 5px;
+}
+
+input.description-input {
+    width: 500px;
+    height: 70px;
+}
+
+.fake-file-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+select.categories {
+    border: none;
+    appearance: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 1rem;
+    height: 40px;
+    width: 200px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Architects Daughter', cursive;
+}
+
+.title-div, .description-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-div {
+    max-width: 320px;
+}
+
+input.price-input, input.quantity-input  {
+    font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+    text-align: center;
+}
+
+input.price-input::-webkit-outer-spin-button,
+input.price-input::-webkit-inner-spin-button,
+input.quantity-input::-webkit-outer-spin-button,
+input.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input.price-input {
+    width: 100px;
 }
