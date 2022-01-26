@@ -12,7 +12,7 @@ const LogoutButton = () => {
     await dispatch(logout());
   };
 
-  return <button onClick={onLogout}>Logout</button>;
+  return <button onClick={onLogout} className="logout-button button-default">Logout</button>;
 };
 
 export default LogoutButton;

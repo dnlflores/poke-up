@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
-import CreatePost from '../CreatePost';
 import { getCategories } from '../../store/category';
 import './NavBar.css'
 
@@ -11,21 +10,14 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user);
   const categories = useSelector(state => Object.values(state.categories));
-  const [createButtonPopup, setCreateButtonPopup] = useState(false);
   const [profilePopup, setProfilePopup] = useState(false);
-
-  console.log("THIS IS THE CATEGORIES => ", categories);
-
-  const handleCreate = event => {
-    event.preventDefault();
-
-    setCreateButtonPopup(true);
-  }
+  const [userDrop, setUserDrop] = useState(false);
 
   const handleProfile = event => {
     event.preventDefault();
 
-    setProfilePopup(!profilePopup);
+    // setProfilePopup(!profilePopup);
+    setUserDrop(!userDrop);
   }
 
   useEffect(() => {
@@ -71,9 +63,6 @@ const NavBar = () => {
                   Users
                 </NavLink>
               </div>
-              <div>
-                <button className='create-post-button' onClick={handleCreate}>Create Post</button>
-              </div>
               {user && (
                 <div>
                   <LogoutButton />
@@ -88,8 +77,27 @@ const NavBar = () => {
           ))}
         </div>
       </nav>
-      {createButtonPopup && (
-        <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
+      {userDrop && (
+        <div className="user-dropdown">
+          <div className="user-info">
+            {user && (
+              <div>
+                <div className="upper-dropdown">
+                  <img
+                    className="nav-avatar"
+                    src={user.profile_pic_url}
+                    alt="user-profile"
+                  />
+                  <label className="dropdown-username">{user.username}</label>
+                </div>
+                <div className="lower-dropdown">
+                  <label className="dropdown-email">{user.email}</label>
+                </div>
+              </div>
+            )}
+          </div>
+          <LogoutButton />
+        </div>
       )}
     </div>
   );

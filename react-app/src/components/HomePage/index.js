@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPosts, removePost } from '../../store/post';
 import EditPost from '../EditPost';
+import CreatePost from '../CreatePost';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -10,6 +11,7 @@ const HomePage = () => {
     const posts = useSelector(state => Object.values(state.posts));
     const user = useSelector(state => state.session.user);
     const [editButtonPopup, setEditButtonPopup] = useState(0);
+    const [createButtonPopup, setCreateButtonPopup] = useState(false);
 
     useEffect(() => {
         dispatch(getPosts());
@@ -19,7 +21,7 @@ const HomePage = () => {
     const handleDelete = event => {
         event.preventDefault();
 
-        const postId = event.target.className.split('-')[2];
+        const postId = event.target.className.split('-')[2].split(' ')[0];
 
         dispatch(removePost(postId));
     };
@@ -27,10 +29,17 @@ const HomePage = () => {
     const handleEdit = event => {
         event.preventDefault();
         
-        const postId = event.target.className.split('-')[2];
+        const postId = event.target.className.split('-')[2].split(' ')[0];
 
         setEditButtonPopup(postId);
     };
+
+
+    const handleCreate = event => {
+        event.preventDefault();
+
+        setCreateButtonPopup(true);
+    }
 
     return (
         <div className='post-container-div'>
@@ -46,8 +55,8 @@ const HomePage = () => {
                                 <label className="post-price">${post.price} </label>
                                 {user?.id === post.user_id && (
                                     <div>
-                                        <button onClick={handleDelete} className={`delete-post-${post.id}`}><span class="material-icons">delete_forever</span></button>
-                                        <button onClick={handleEdit} className={`edit-post-${post.id}`}><span class="material-icons">edit</span></button>
+                                        <button onClick={handleDelete}><span className={`delete-post-${post.id} material-icons`}>delete_forever</span></button>
+                                        <button onClick={handleEdit}><span className={`edit-post-${post.id} material-icons`}>edit</span></button>
                                     </div>
                                 )}
                             </div>
@@ -58,6 +67,10 @@ const HomePage = () => {
                     )}
                 </div>
             ))}
+            <button className="create-list-button button-pokeball" onClick={handleCreate}>New!</button>
+            {createButtonPopup && (
+                <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
+            )}
         </div>
     )
 }

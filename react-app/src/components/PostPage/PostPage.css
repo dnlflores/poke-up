@@ -172,3 +172,15 @@ h2.seller-username {
     display: flex;
     justify-content: center;
 }
+
+.more-posts-container,
+.similar-posts-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+}
+
+.more-post-div,
+.similar-post-div {
+    margin-right: 50px;
+}

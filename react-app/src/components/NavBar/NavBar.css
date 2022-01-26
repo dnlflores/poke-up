@@ -71,4 +71,51 @@ nav {
     color: yellow;
     text-shadow: 2px 2px 4px blue;
     text-decoration: none;
+    font-family: 'Fredoka One', cursive;
+}
+
+.user-dropdown {
+    border-radius: 1rem;
+    height: 130px;
+    width: 250px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    right: 2rem;
+    top: 4rem;
+    padding: 0.5rem 0rem;
+    border: solid 3px black;
+    background-color: red;
+    color: yellow;
+    text-shadow: 2px 2px 4px blue;
+    font-family: "Architects Daughter", cursive;
+}
+
+.nav-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.upper-dropdown {
+    display: flex;
+    justify-content: space-around;
+}
+
+.dropdown-username {
+    margin: 20px;
+}
+
+.dropdown-email {
+    margin-left: 10px;
+}
+
+.logout-button {
+    width: 60px;
+    height: 30px;
+    font-size: 13px;
+    padding: 0px;
+    position: absolute;
+    right: 10px;
+    top: 100px;
 }
