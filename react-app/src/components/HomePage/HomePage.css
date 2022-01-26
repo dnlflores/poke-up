@@ -44,3 +44,8 @@
 .post-price {
     font-family: 'Architects Daughter', cursive;
 }
+
+.price-control-container {
+    display: flex;
+    justify-content: space-between;
+}

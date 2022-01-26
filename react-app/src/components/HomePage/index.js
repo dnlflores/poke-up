@@ -42,14 +42,16 @@ const HomePage = () => {
                         </NavLink>
                         <div className='image-info-div'>
                             <label className="post-title">{post.title} </label>
-                            <label className="post-price">${post.price} </label>
-                        </div>
-                        {user?.id === post.user_id && (
-                            <div>
-                                <button onClick={handleDelete} className={`delete-post-${post.id}`}>Delete</button>
-                                <button onClick={handleEdit} className={`edit-post-${post.id}`}>Edit</button>
+                            <div className="price-control-container">
+                                <label className="post-price">${post.price} </label>
+                                {user?.id === post.user_id && (
+                                    <div>
+                                        <button onClick={handleDelete} className={`delete-post-${post.id}`}><span class="material-icons">delete_forever</span></button>
+                                        <button onClick={handleEdit} className={`edit-post-${post.id}`}><span class="material-icons">edit</span></button>
+                                    </div>
+                                )}
                             </div>
-                        )}
+                        </div>
                     </div>
                     {+editButtonPopup === post.id && (
                         <EditPost post={post} trigger={editButtonPopup} setTrigger={setEditButtonPopup} />
