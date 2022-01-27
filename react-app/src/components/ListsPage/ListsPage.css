@@ -99,4 +99,13 @@ button#create-list-button {
 .empty-page-text {
     font-family: "Fredoka One", cursive;
     color: yellow;
+    text-shadow: 2px 2px 4px blue;
+}
+
+img.empty-page-pic {
+    position: fixed;
+    object-fit: cover;
+    height: 300px;
+    bottom: 0;
+    left: 30vw;
 }

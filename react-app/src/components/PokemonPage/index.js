@@ -48,7 +48,7 @@ const PokemonPage = () => {
                         </div>
                         {user?.id === post.user_id && (
                             <div>
-                                <button onClick={handleDelete} className={`delete-post-${post.id}`}>Delete</button>
+                                <button onClick={handleDelete} className={`delete-post-${post.id}`}><span className={`delete-post-${post.id} material-icons`}>delete_forever</span></button>
                                 <button onClick={handleEdit} className={`edit-post-${post.id}`}>Edit</button>
                             </div>
                         )}

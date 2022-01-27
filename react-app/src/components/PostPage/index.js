@@ -37,10 +37,7 @@ const PostPage = props => {
 
         const listId = event.target.className.split(' ')[0].split('-')[1];
 
-        console.log("THIS IS THE POST ID => ", postId);
-        console.log("THIS IS THE LIST ID => ", listId);
         dispatch(createListPost(listId, postId))
-        // dispatch(getPostLists(postId));
         setShowListsToAdd(false);
     };
 
@@ -52,8 +49,6 @@ const PostPage = props => {
 
         })
     });
-
-    console.log("TESTING LISTS TO ADD => ", listsToAdd);
     
     useEffect(() => {
         dispatch(getPosts());

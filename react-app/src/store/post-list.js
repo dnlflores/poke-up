@@ -29,7 +29,6 @@ export const getListPosts = listId => async dispatch => {
     if(response.ok) {
         const posts = await response.json();
         dispatch(loadListPosts({ ...posts }));
-        console.log("after dispatch")
         return posts;
     }
 };
@@ -84,8 +83,6 @@ export default function listPostReducer(state = {}, action) {
             return createState;
         case DELETE_LIST_POST:
             const deleteState = JSON.parse(JSON.stringify(state));
-            console.log("THIS IS THE CREATE STATE => ", deleteState);
-            console.log("THIS IS THE ACTION PAYLOAD => ", action.payload);
             for(let i = 0; i < deleteState.length; i++ ){
                 if(deleteState[i]?.id === action.payload.id) delete deleteState[i];
             }
