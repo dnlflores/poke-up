@@ -1,4 +1,52 @@
 .list-post-container {
     position: relative;
     top: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list-post-image {
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 1rem;
+    border: blue 3px solid;
+    position: relative;
+    top: 1.5vh;
+}
+
+.list-post-div {
+    display: flex;
+    justify-content: space-around;
+    width: 45vw;
+    height: 25vh;
+    border: blue solid 3px;
+    border-radius: 1rem;
+    padding: 10px;
+    background-color: yellow;
+    box-shadow: 5px 5px 4px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.list-post-title {
+    font-family: 'Fredoka One', cursive;
+}
+
+.list-post-price {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 25px;
+    position: relative;
+    top: 10vh;
+    right: 20vw;
+}
+
+.link-post {
+    left: 40vw;
+}
+
+button.remove-list-post {
+    position: absolute;
+    top: 17vh;
+    left: 18vw;
 }

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import CreatePost from '../CreatePost';
 import { getCategories } from '../../store/category';
 import './NavBar.css'
 
@@ -11,20 +12,48 @@ const NavBar = () => {
   const user = useSelector(state => state.session.user);
   const categories = useSelector(state => Object.values(state.categories));
   const [userDrop, setUserDrop] = useState(false);
+  const [createButtonPopup, setCreateButtonPopup] = useState(false);
 
   const handleProfile = event => {
     event.preventDefault();
 
-    // setProfilePopup(!profilePopup);
     setUserDrop(!userDrop);
-  }
+  };
+
+  const handleCreate = event => {
+      event.preventDefault();
+
+      setCreateButtonPopup(true);
+  };
 
   useEffect(() => {
-    dispatch(getCategories())
-  }, [dispatch])
+    dispatch(getCategories());
+  }, [dispatch]);
 
   return (
-    <div className="nav-bar-div">
+    <div className="nav-bar-div" id="nav-bar">
+    {userDrop && (
+      <div className="user-dropdown">
+        <div className="user-info">
+          {user && (
+            <div>
+              <div className="upper-dropdown">
+                <img
+                  className="nav-avatar"
+                  src={user.profile_pic_url}
+                  alt="user-profile"
+                />
+                <label className="dropdown-username">{user.username}</label>
+              </div>
+              <div className="lower-dropdown">
+                <label className="dropdown-email">{user.email}</label>
+              </div>
+            </div>
+          )}
+        </div>
+        <LogoutButton trigger={userDrop} setTrigger={setUserDrop}/>
+      </div>
+    )}
       <div className='upper-nav-div'>
         <h2 className="background-title">PokéUp</h2>
         <h2 className="site-title">
@@ -62,27 +91,11 @@ const NavBar = () => {
           ))}
         </div>
       </nav>
-      {userDrop && (
-        <div className="user-dropdown">
-          <div className="user-info">
-            {user && (
-              <div>
-                <div className="upper-dropdown">
-                  <img
-                    className="nav-avatar"
-                    src={user.profile_pic_url}
-                    alt="user-profile"
-                  />
-                  <label className="dropdown-username">{user.username}</label>
-                </div>
-                <div className="lower-dropdown">
-                  <label className="dropdown-email">{user.email}</label>
-                </div>
-              </div>
-            )}
-          </div>
-          <LogoutButton trigger={userDrop} setTrigger={setUserDrop}/>
-        </div>
+      {createButtonPopup && (
+          <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
+      )}
+      {user && (
+          <button className="create-button button-pokeball" id="create-post-button" onClick={handleCreate}>New!</button>
       )}
     </div>
   );

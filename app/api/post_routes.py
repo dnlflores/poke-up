@@ -130,8 +130,9 @@ def edit_post(id):
     return {"errors": form.errors}
     
 
-# @post_routes.route('/<int:id>')
-# def get_single_post(id):
-#     post = Post.query.get(id)
+@post_routes.route('/<int:id>/lists')
+@login_required
+def get_lists(id):
+    list_post = Post.query.get(id)
 
-#     return post.to_dict()
+    return {"lists": [this_list.to_dict() for this_list in list_post.lists]}

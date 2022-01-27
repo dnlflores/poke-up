@@ -1,0 +1,73 @@
+.signup-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    bottom: 25vh;
+    left: 40vw;
+}
+
+.signup-form div {
+    margin: 10px;
+}
+
+.signup-username-div,
+.signup-email-div,
+.signup-password-div,
+.signup-repeat-password-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ash-pika-char-pic {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 275px;
+
+}
+
+.darkrai-pic {
+    position: absolute;
+    height: 350px;
+    bottom: 20vh;
+    left: 7vw;
+}
+
+.login-link {
+    font-size: 25px;
+    font-family: "Fredoka One", cursive;
+    position: absolute;
+    top: 3vh;
+    right: 3vw;
+    color: yellow;
+}
+
+.login-link:visited {
+    text-decoration: none;
+    color: blue;
+}
+
+.signup-email-label,
+.signup-password-label,
+.signup-username-label,
+.signup-repeat-password-label {
+    font-size: 20px;
+    font-family: 'Fredoka One', cursive;
+}
+
+.signup-email-input,
+.signup-password-input,
+.signup-repeat-password-input,
+.signup-username-input {
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    height: 10px;
+    width: 250px;
+    font-size: 16px;
+    font-family: 'Architects Daughter', cursive;
+    padding: 10px;
+}

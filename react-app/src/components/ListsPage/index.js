@@ -16,6 +16,11 @@ const ListsPage = props => {
     useEffect(() => {
         dispatch(getLists());
         (function () {document.documentElement.scrollTop = 0})();
+        if(window.location.href.split('/').length > 3) {
+          if (window.location.href.split('/')[3] === 'lists') {
+            document.getElementById('create-post-button').setAttribute('hidden', true);
+          }
+        } 
     }, [dispatch]);
 
     const showList = event => {
@@ -42,7 +47,7 @@ const ListsPage = props => {
                 <CreateList trigger={listButtonPopup} setTrigger={setListButtonPopup} />
             )}
             <h2 className='list-page-title'>Lists</h2>
-            <button className="create-button button-pokeball" onClick={showList}>New!</button>
+            <button className="create-button button-pokeball" id="create-list-button" onClick={showList}>New!</button>
             <div className="list-container">
                 {lists?.map(list => (
                     <>
@@ -50,7 +55,7 @@ const ListsPage = props => {
                             <img src={list.image_url} alt="list-cover" className="list-cover-image"></img>
                             <div className="title-buttons-div">
                                 <h2 className="list-title">{list.name}</h2>
-                                <button className={`delete-list ${list.id} button-default`} onClick={handleDelete}>Delete</button>
+                                <button className={`delete-list ${list.id} button-default-cancel`} onClick={handleDelete}>Delete</button>
                                 <button className={`edit-list ${list.id} button-default`} onClick={showEdit}>Edit</button>
                                 <NavLink to={`/lists/${list.id}`} exact={true} activeClassName="active" className="arrow-link"><span className="material-icons arrow-icon">arrow_forward_ios</span></NavLink>
                             </div>

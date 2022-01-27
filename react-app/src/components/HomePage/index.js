@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPosts, removePost } from '../../store/post';
 import EditPost from '../EditPost';
-import CreatePost from '../CreatePost';
 import './HomePage.css';
 
 const HomePage = () => {
@@ -11,11 +10,11 @@ const HomePage = () => {
     const posts = useSelector(state => Object.values(state.posts));
     const user = useSelector(state => state.session.user);
     const [editButtonPopup, setEditButtonPopup] = useState(0);
-    const [createButtonPopup, setCreateButtonPopup] = useState(false);
 
     useEffect(() => {
         dispatch(getPosts());
         (function () {document.documentElement.scrollTop = 0})();
+        document.getElementById('create-post-button')?.removeAttribute('hidden');
     }, [dispatch]);
 
     const handleDelete = event => {
@@ -34,13 +33,6 @@ const HomePage = () => {
         setEditButtonPopup(postId);
     };
 
-
-    const handleCreate = event => {
-        event.preventDefault();
-
-        setCreateButtonPopup(true);
-    }
-
     return (
         <div className='post-container-div'>
             {posts.map(post => (
@@ -52,7 +44,7 @@ const HomePage = () => {
                         <div className='image-info-div'>
                             <label className="post-title">{post.title} </label>
                             <div className="price-control-container">
-                                <label className="post-price">${post.price} </label>
+                                <label className="post-price">${post.price.toLocaleString("en-US")} </label>
                                 {user?.id === post.user_id && (
                                     <div>
                                         <button onClick={handleDelete}><span className={`delete-post-${post.id} material-icons`}>delete_forever</span></button>
@@ -67,12 +59,6 @@ const HomePage = () => {
                     )}
                 </div>
             ))}
-            {user && (
-                <button className="create-button button-pokeball" onClick={handleCreate}>New!</button>
-            )}
-            {createButtonPopup && (
-                <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
-            )}
         </div>
     )
 }

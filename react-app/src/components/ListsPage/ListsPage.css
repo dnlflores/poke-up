@@ -39,13 +39,12 @@
     position: fixed;
     top: 1vh;
     right: 15vw;
-    z-index: 50;
     font-family: 'Fredoka One', cursive;
     font-size: 28px;
     color: yellow;
     transition: all ease-in-out;
     text-shadow: 2px 2px 4px blue;
-    z-index: 200;
+    z-index: 101;
 }
 
 .background-create-text {
@@ -83,6 +82,16 @@
     left: 500px;
 }
 
+.arrow-link:visited {
+    text-decoration: none;
+    color: blue;
+}
+
 span.arrow-icon {
     font-size: 50px;
+}
+
+button#create-list-button {
+    top: 80vh;
+    right: 7vw;
 }

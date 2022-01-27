@@ -3,14 +3,19 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink } from 'react-router-dom';
 import { getPosts } from '../../store/post';
 import { getCategories } from '../../store/category';
+import { getLists } from '../../store/list';
 import './PostPage.css';
+import { getPostLists } from '../../store/post-list';
 
 const PostPage = props => {
     const dispatch = useDispatch();
     const { id } = useParams();
     const posts = useSelector(state => Object.values(state.posts));
     const categories = useSelector(state => Object.values(state.categories));
+    const postLists = useSelector(state => state.listPosts?.postLists);
+    const myLists = useSelector(state => Object.values(state.lists));
     const [users, setUsers] = useState([]);
+    const [addPostPopup, setAddPostPopup] = useState(false);
     
     const post = posts.find(post => post.id === +id);
     const category = categories.find(category => category.id === post?.category_id);
@@ -28,11 +33,25 @@ const PostPage = props => {
 
     const handleAddList = event => {
         event.preventDefault();
-    }
+    };
+
+    let listsToAdd = [];
+    myLists?.forEach( myList => {
+        if(postLists?.length === 0) listsToAdd = myLists;
+        postLists?.forEach(list => {
+            console.log(`TESTING EQUALITY FOR MY LIST ${myList.name} AND POST LIST ${list.name}`, list.id !== myList.id)
+            if(list.id !== myList.id) listsToAdd.push(myList);
+
+        })
+    });
+
+    console.log("TESTING LISTS TO ADD => ", listsToAdd);
     
     useEffect(() => {
         dispatch(getPosts());
         dispatch(getCategories());
+        dispatch(getLists());
+        dispatch(getPostLists(id));
         async function fetchData() {
           const response = await fetch('/api/users/');
           const responseData = await response.json();
@@ -40,7 +59,12 @@ const PostPage = props => {
         }
         fetchData();
         (function () {document.documentElement.scrollTop = 0})();
-    }, [dispatch]);
+        if(window.location.href.split('/').length === 5) {
+          if (window.location.href.split('/')[3] === 'posts') {
+            document.getElementById('create-post-button').setAttribute('hidden', true);
+          }
+        } 
+    }, [dispatch, id]);
 
     return (
         <div className="post-container">
@@ -50,7 +74,7 @@ const PostPage = props => {
                 </div>
                 <div className="right-container">
                     <h2>{post?.title}</h2>
-                    <h2>${post?.price}</h2>
+                    <h2>${post?.price.toLocaleString("en-US")}</h2>
                     <div className="quantity-category-container">
                         <label className="category-text">{category?.name}</label>
                         <label className="quantity-text">Quantity: </label>
@@ -58,7 +82,7 @@ const PostPage = props => {
                     </div>
                     <div className="post-buttons">
                         <button className="button-default">Buy</button>
-                        <button class="add-to-list-button" onClick={handleAddList}>ADD TO LIST<span className="material-icons list-icon">lists</span></button>
+                        <button className="add-to-list-button" onClick={event => setAddPostPopup(true)}>ADD TO LIST<span className="material-icons list-icon">lists</span></button>
                     </div>
                     <div className="seller-container">
                         <img src={seller?.profile_pic_url} alt="seller-profile" className="seller-profile-pic"></img>
@@ -71,7 +95,7 @@ const PostPage = props => {
                     <h2>Description</h2>
                     <p className="description-text">{post?.description}</p>
                 </div>
-                <div classname="similar-posts-container">
+                <div className="similar-posts-container">
                     <h2>Similar Items</h2>
                     <div className="similar-posts-container">
                         {similarPosts?.map(post => (
@@ -80,12 +104,12 @@ const PostPage = props => {
                                     <img src={post.image_url} alt="similar-post" className={`image-post ${post.id}`}></img>
                                 </NavLink>
                                 <h3 className="similar-post-title">{post.title}</h3>
-                                <label className="similar-post-price">${post.price}</label>
+                                <label className="similar-post-price">${post.price.toLocaleString("en-US")}</label>
                             </div>
                         ))}
                     </div>
                 </div>
-                <div classname="more-posts-container">
+                <div className="more-posts-container">
                     <h2>More Items From This PokéSeller</h2>
                     <div className="more-posts-container">
                         {otherSellerPosts?.map(post => (
@@ -94,7 +118,7 @@ const PostPage = props => {
                                     <img src={post.image_url} alt="more-post" className={`image-post ${post.id}`}></img>
                                 </NavLink>
                                 <h3 className="more-post-title">{post.title}</h3>
-                                <label className="more-post-price">${post.price}</label>
+                                <label className="more-post-price">${post.price.toLocaleString("en-US")}</label>
                             </div>
                         ))}
                     </div>
@@ -105,6 +129,11 @@ const PostPage = props => {
             <div className="line-div-3"></div>
             <div className="line-div-4"></div>
             <div className="line-div-5"></div>
+            {addPostPopup && (
+                <div className="add-list-post-container">
+
+                </div>
+            )}
         </div>
     )
 }

@@ -1,0 +1,99 @@
+.login-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Fredoka One', cursive;
+}
+
+.login-email-div, .login-password-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pikachu-ash-login{
+    height: 350px;
+    object-fit: cover;
+    position: absolute;
+}
+
+.pikachu-ash-login {
+    bottom: 0px;
+    left: 8vw;
+}
+
+.mew-login {
+    object-fit: cover;
+    bottom: 15vh;
+    right: 8vw;
+    position: absolute;
+    height: 250px;
+}
+
+.background-red {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: red;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+h2.login-front, h2.login-back {
+    position: absolute;
+    top: 0;
+    left: 40vw;
+}
+
+h2.login-back {
+    font-size: 90px;
+}
+
+h2.login-front {
+    font-size: 85px;
+}
+
+.login-form div {
+    margin: 20px;
+}
+
+.login-form {
+    position: absolute;
+    top: 35vh;
+}
+
+.login-email-label,
+.login-password-label {
+    font-size: 25px;
+}
+
+.login-email-input,
+.login-password-input {
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    height: 20px;
+    width: 250px;
+    font-size: 16px;
+    font-family: 'Architects Daughter', cursive;
+    padding: 10px;
+}
+
+label.signup-link {
+    position: absolute;
+    bottom: 2vh;
+    color: yellow;
+    font-size: 25px;
+    font-family: "Fredoka One", cursive;
+}
+
+.signup-link:visited {
+    text-decoration: none;
+    color: blue;
+}

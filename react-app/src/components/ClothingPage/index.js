@@ -15,6 +15,7 @@ const ClothingPage = () => {
     useEffect(() => {
         dispatch(getPosts());
         (function () {document.documentElement.scrollTop = 0})();
+        document.getElementById('create-post-button')?.removeAttribute('hidden');
     }, [dispatch]);
 
     const handleDelete = event => {
@@ -43,7 +44,7 @@ const ClothingPage = () => {
                         </NavLink>
                         <div className='image-info-div'>
                             <label className="post-title">{post.title} </label>
-                            <label className="post-price">${post.price} </label>
+                            <label className="post-price">${post.price.toLocaleString("en-US")} </label>
                         </div>
                         {user?.id === post.user_id && (
                             <div>

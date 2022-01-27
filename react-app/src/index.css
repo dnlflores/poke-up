@@ -30,6 +30,21 @@ button {
 
 }
 
+.button-default-cancel {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'Righteous', cursive;
+    transition: ease-in-out all;
+}
+
+.button-default-cancel:hover {
+    background-color: rgba(255, 0, 0, 0.747);
+    transform: translate(-2px, -1px);
+}
+
 .button-pokeball {
     background-image: url("https://pokeup.s3.us-west-1.amazonaws.com/Pokeball-PNG-Photos.png");
     width: 75px;
