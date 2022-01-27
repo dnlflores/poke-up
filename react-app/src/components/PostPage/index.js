@@ -25,6 +25,10 @@ const PostPage = props => {
             if(sellerPost.id !== post.id) return sellerPost;
         }
     });
+
+    const handleAddList = event => {
+        event.preventDefault();
+    }
     
     useEffect(() => {
         dispatch(getPosts());
@@ -54,8 +58,7 @@ const PostPage = props => {
                     </div>
                     <div className="post-buttons">
                         <button className="button-default">Buy</button>
-                        <button class="add-to-list-button">ADD TO LIST
-                        <span className="material-icons list-icon">lists</span></button>
+                        <button class="add-to-list-button" onClick={handleAddList}>ADD TO LIST<span className="material-icons list-icon">lists</span></button>
                     </div>
                     <div className="seller-container">
                         <img src={seller?.profile_pic_url} alt="seller-profile" className="seller-profile-pic"></img>

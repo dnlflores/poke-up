@@ -35,16 +35,17 @@
     bottom: 25px;
 }
 
-.create-list-button {
+.create-button {
     position: fixed;
-    bottom: 50px;
-    right: 50px;
+    top: 1vh;
+    right: 15vw;
     z-index: 50;
     font-family: 'Fredoka One', cursive;
     font-size: 28px;
     color: yellow;
     transition: all ease-in-out;
     text-shadow: 2px 2px 4px blue;
+    z-index: 200;
 }
 
 .background-create-text {

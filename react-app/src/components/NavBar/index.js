@@ -34,9 +34,6 @@ const NavBar = () => {
         </h2>
         {user && (
           <div className="nav-buttons-div">
-            <button className='button-pokeball nav-buttons'>
-              Selling
-            </button>
               <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
                 <button className="button-pokeball nav-buttons">
                   Lists
