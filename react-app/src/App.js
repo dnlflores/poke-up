@@ -16,6 +16,7 @@ import PokeballsPage from './components/PokeballsPage';
 import ClothingPage from './components/ClothingPage';
 import TMPage from './components/TMPage';
 import BerriesPage from './components/BerriesPage';
+import ListPostPage from './components/ListPostPage';
 import { authenticate } from './store/session';
 
 function App() {
@@ -67,6 +68,9 @@ function App() {
         <Route path='/posts/:id' exact={true}>
           <PostPage />
         </Route>
+        <ProtectedRoute path='/lists/:id' exact={true} >
+          <ListPostPage />
+        </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>

@@ -21,13 +21,14 @@ export const getPostLists = listId => async dispatch => {
     const response = await fetch(`/api/lists/${listId}`);
 
     if(response.ok) {
-        const lists = await response.json();
-        dispatch(loadPostLists(lists));
-        return lists;
+        const posts = await response.json();
+        console.log('posts againnnnnn => ', posts);
+        dispatch(loadPostLists({ ...posts }));
+        return posts;
     }
 };
 
-export const createList = list => async dispatch => {
+export const createPostList = list => async dispatch => {
     dispatch(addPostList(list))
 };
 
@@ -46,11 +47,13 @@ export const removePostList = listId => async dispatch => {
     }
 };
 
-export default function listReducer(state = {}, action) {
+export default function listPostReducer(state = {}, action) {
     switch(action.type) {
         case LOAD_POST_LISTS:
-            const loadState = {...state};
-            action.payload.lists?.forEach(list => loadState[list.id] = list);
+            const loadState = JSON.parse(JSON.stringify(state));;
+            console.log('THIS IS THE LOAD STATE => ', loadState);
+            console.log("THIS IS THE ACTION PAYLOAD => ", action.payload.posts);
+            action.payload.posts?.forEach(post => loadState[post.id] = post);
             return loadState;
         case ADD_POST_LIST:
             const createState = {...state};

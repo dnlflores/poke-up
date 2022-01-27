@@ -120,8 +120,14 @@ def edit_list(id):
 @list_routes.route('/<int:id>')
 @login_required
 def get_posts(id):
-    posts = Post.query.all()
+    post_list = List.query.get(id)
 
-    posts_from_list = [post for post in posts if post.lists.list_id == id]
+    return {"posts": [post.to_dict() for post in post_list.posts]}
 
-    return {"posts": [post for post in posts_from_list]}
+
+@list_routes.route('/<int:id>', methods=["POST"])
+@login_required
+def add_to_list(id):
+    post_list = List.query.get(id)
+
+    
