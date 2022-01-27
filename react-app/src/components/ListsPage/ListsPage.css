@@ -95,3 +95,8 @@ button#create-list-button {
     top: 80vh;
     right: 7vw;
 }
+
+.empty-page-text {
+    font-family: "Fredoka One", cursive;
+    color: yellow;
+}
