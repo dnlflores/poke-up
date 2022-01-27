@@ -71,7 +71,7 @@ export default function listPostReducer(state = {}, action) {
     switch(action.type) {
         case LOAD_LIST_POSTS:
             const loadState = JSON.parse(JSON.stringify(state));
-            loadState.listPosts = action.payload.posts;
+            // loadState.listPosts = action.payload.posts;
             return loadState;
         case ADD_LIST_POST:
             const createState = {...state};
