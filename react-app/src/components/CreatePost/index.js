@@ -96,7 +96,6 @@ const CreatePost = (props) => {
     const handlePicture = event => {
         const realBtn = document.getElementById('real-file-button');
         const fileName = document.getElementById('file-name');
-        console.log("THIS IS THE REAL BUTTON => ", realBtn);
         realBtn.click();
 
         realBtn.addEventListener('change', () => {
@@ -106,8 +105,8 @@ const CreatePost = (props) => {
                 fileName.innerHTML = name;
             }
             else fileName.innerHTML = 'No picture chosen!"'
-        })
-    }
+        });
+    };
 
     return (
         <div className="create-post-background">

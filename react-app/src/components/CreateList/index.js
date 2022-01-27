@@ -56,38 +56,68 @@ const CreateList = (props) => {
                 console.log("there was an error here is some info", response, response.formData, response.status);
             }
         }
-    }
+    };
+
+    const handlePicture = event => {
+        const realBtn = document.getElementById('real-file-button');
+        const fileName = document.getElementById('file-name');
+        realBtn.click();
+
+        realBtn.addEventListener('change', () => {
+            
+            if(realBtn.value) {
+                const name = realBtn.value.split("\\")[2];
+                fileName.innerHTML = name;
+            }
+            else fileName.innerHTML = 'No picture chosen!"'
+        });
+    };
 
     return (
-        <div className="create-list-background">
-            <div className="create-list-div">
-                <h2 className="create-list-title">Create List</h2>
-                <form onSubmit={handleSubmit} id="create-list-form">
+        <div className="create-post-background">
+            <div className="create-post-div">
+                <h2 className="create-post-title">Create List</h2>
+                <form onSubmit={handleSubmit} id="create-post-form">
                     <ul>
                         {errors.length > 0 && errors.map(err => (
                             <li className="display-errors" key={err}>{err}</li>
                         ))}
                     </ul>
-                    <div className="create-list-form-div">
-                        <label>Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            className="name-input"
-                            onChange={updateName}
-                            value={name}
-                        ></input>
+                    <div className="create-form-div">
+                        <div className="name-div">
+                            <label>Name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                className="name-input"
+                                onChange={updateName}
+                                value={name}
+                                placeholder="Name"
+                            ></input>
+                        </div>
                         <input
                             type="file"
                             accept="image/*"
                             onChange={updateImage}
+                            id="real-file-button"
+                            hidden
                         />
-                        <button className="submit-button button-default" type="submit">Create List!</button>
-                        <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
-                        {imageLoading && <p>Loading...</p>}
+                        <div className="fake-file-input">
+                            <span id="file-name">No picture chosen!</span>
+                            <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
+                        </div>
                     </div>
+                    <div className="form-buttons">
+                        <button className="submit-list-button button-default" type="submit">Submit Post</button>
+                        <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
+                    </div>
+                    {imageLoading && (
+                        <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo"></img>
+                    )}
                 </form>
             </div>
+            <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_23898.png" alt="pikachu" className="pikachu-pic"></img>
+            <img src="https://pokeup.s3.us-west-1.amazonaws.com/Ash-Ketchum-Transparent-Background.png" alt="pikachu" className="ash-pic"></img>
         </div>
     )
 }
