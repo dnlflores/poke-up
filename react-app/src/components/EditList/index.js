@@ -72,7 +72,7 @@ const EditList = (props) => {
 
     return (
         <div className="create-post-background">
-            <div className="create-post-div">
+            <div className="create-post-div edit-post-div">
                 <h2 className="create-post-title">Edit List</h2>
                 <form onSubmit={handleSubmit} id="create-post-form">
                     <ul>
@@ -81,7 +81,7 @@ const EditList = (props) => {
                         ))}
                     </ul>
                     <div className="create-form-div">
-                        <div className="name-div">
+                        <div className="name-div edit-name">
                             <label>Name</label>
                             <input
                                 type="text"
@@ -99,7 +99,7 @@ const EditList = (props) => {
                             id="real-file-button"
                             hidden
                         />
-                        <div className="fake-file-input">
+                        <div className="fake-file-input edit-fake">
                             <span id="file-name">No picture chosen!</span>
                             <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
                         </div>
@@ -111,10 +111,10 @@ const EditList = (props) => {
                     {imageLoading && (
                         <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo"></img>
                     )}
+                    <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_23898.png" alt="pikachu" className="pikachu-pic edit-pika"></img>
+                    <img src="https://pokeup.s3.us-west-1.amazonaws.com/Ash-Ketchum-Transparent-Background.png" alt="ash" className="ash-pic edit-ash"></img>
                 </form>
             </div>
-            <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_23898.png" alt="pikachu" className="pikachu-pic"></img>
-            <img src="https://pokeup.s3.us-west-1.amazonaws.com/Ash-Ketchum-Transparent-Background.png" alt="ash" className="ash-pic"></img>
         </div>
     )
 }

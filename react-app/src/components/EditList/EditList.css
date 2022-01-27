@@ -1,17 +1,21 @@
-.edit-list-div {
-    background-color: yellow;
-    position: relative;
-    width: 700px;
-    height: 500px;
-    left: 40vh;
-    top: 8vh;
-    border-radius: 10px;
-    border: solid 3px blue;
+div.edit-post-div {
+    top: 18vh;
 }
 
-.edit-list-title {
-    text-align: center;
+img.edit-ash {
+    bottom: -129px;
+}
+
+img.edit-pika {
+    bottom: -100px;
+}
+
+.edit-fake {
     position: relative;
-    top: 20px;
-    font-family: 'Righteous', cursive;
+    bottom: 30px;
+}
+
+.edit-name {
+    position: relative;
+    bottom: 90px;
 }

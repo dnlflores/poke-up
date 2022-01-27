@@ -14,7 +14,7 @@
     width: 700px;
     height: 500px;
     left: 45vh;
-    top: 8vh;
+    top: 18vh;
     border: 3px solid blue;
     border-radius: 1rem;
     font-family: 'Fredoka One', cursive;
@@ -90,8 +90,8 @@ input.price-input, input.quantity-input {
 }
 
 .form-buttons {
-    position: fixed;
-    bottom: 13vh;
+    position: absolute;
+    top: 330px;
     display: flex;
     justify-content: center;
 }
@@ -193,9 +193,9 @@ input.price-input {
 }
 
 .pikachu-and-ash-pic {
-    position: fixed;
-    top: 8.5vh;
-    right: 23vw;
+    position: absolute;
+    top: -40px;
+    right: 60px;
     height: 135px;
     object-fit: cover;
 }

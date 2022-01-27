@@ -37,19 +37,19 @@
 }
 
 .pikachu-pic {
-    position: fixed;
+    position: absolute;
     object-fit: cover;
     height: 250px;
-    top: 45vh;
-    left: 26vw;
+    bottom: -130px;
+    left: 50px;
     z-index: 100;
 }
 
 .ash-pic {
-    position: fixed;
+    position: absolute;
     height: 250px;
-    top: 48.5vh;
-    right: 20vw;
+    bottom: -160px;
+    right: 20px;
 }
 
 .name-div {

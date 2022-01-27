@@ -187,10 +187,10 @@ const EditPost = (props) => {
                                 <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
                             </div>
                         </div>
-                    </div>
-                    <div className="form-buttons">
-                        <button className="submit-post-button button-default" type="submit">Submit Post</button>
-                        <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
+                        <div className="form-buttons">
+                            <button className="submit-post-button button-default" type="submit">Submit Post</button>
+                            <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
+                        </div>
                     </div>
                     {imageLoading && (
                         <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo"></img>
