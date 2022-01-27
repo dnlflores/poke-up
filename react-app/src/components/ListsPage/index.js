@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { getLists, removeList } from '../../store/list';
 import CreateList from '../CreateList';
 import EditList from '../EditList';
@@ -25,7 +26,6 @@ const ListsPage = props => {
 
     const showEdit = event => {
         event.preventDefault();
-        console.log("THIS IS THE CLASS NAME => ", event.target.className.split(' ')[1]);
         const listId = event.target.className.split(' ')[1];
         setEditButtonPopup(listId);
     }
@@ -52,6 +52,7 @@ const ListsPage = props => {
                                 <h2 className="list-title">{list.name}</h2>
                                 <button className={`delete-list ${list.id} button-default`} onClick={handleDelete}>Delete</button>
                                 <button className={`edit-list ${list.id} button-default`} onClick={showEdit}>Edit</button>
+                                <NavLink to={`/lists/${list.id}`} exact={true} activeClassName="active" className="arrow-link"><span className="material-icons arrow-icon">arrow_forward_ios</span></NavLink>
                             </div>
                         </div>
                         {+editButtonPopup === list.id && (

@@ -1,4 +1,4 @@
-from app.models import db, List
+from app.models import db, List, Post
 
 def seed_lists():
     
@@ -17,6 +17,13 @@ def seed_lists():
     pikachu_list2 = List(
         name="BOMB Berries", user_id=2, image_url="https://bgr.com/wp-content/uploads/2017/02/pokemon-go-berries.jpg"
     )
+
+    pinap_berry = Post.query.get(6)
+    bulbasaur = Post.query.get(2)
+
+    pikachu_list2.posts.append(pinap_berry)
+
+    java_list2.posts.append(bulbasaur)
 
     db.session.add(java_list1)
     db.session.add(java_list2)

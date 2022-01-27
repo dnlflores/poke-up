@@ -17,8 +17,8 @@ const deletePostList = list => ({
     payload: list
 });
 
-export const getPostLists = () => async dispatch => {
-    const response = await fetch("/api/lists/");
+export const getPostLists = listId => async dispatch => {
+    const response = await fetch(`/api/lists/${listId}`);
 
     if(response.ok) {
         const lists = await response.json();

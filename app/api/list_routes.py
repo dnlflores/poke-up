@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.forms.create_list_form import CreateListForm
 from app.forms.edit_list_form import EditListForm
-from app.models import db, List
+from app.models import db, List, Post
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)
 
@@ -115,3 +115,13 @@ def edit_list(id):
         db.session.commit()
         return new_list.to_dict()
     return {"errors": form.errors}
+
+
+@list_routes.route('/<int:id>')
+@login_required
+def get_posts(id):
+    posts = Post.query.all()
+
+    posts_from_list = [post for post in posts if post.lists.list_id == id]
+
+    return {"posts": [post for post in posts_from_list]}

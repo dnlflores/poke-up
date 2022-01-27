@@ -76,3 +76,13 @@
 .list-cover-image {
     object-fit: cover;
 }
+
+.arrow-link {
+    position: absolute;
+    top: 70px;
+    left: 500px;
+}
+
+span.arrow-icon {
+    font-size: 50px;
+}

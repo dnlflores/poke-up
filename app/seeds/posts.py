@@ -1,4 +1,4 @@
-from app.models import db, Post
+from app.models import db, Post, List
 
 def seed_posts():
     demo_post1 = Post (
