@@ -188,3 +188,11 @@ input.price-input {
         transform:rotate(360deg);
     }
 }
+
+.pikachu-and-ash-pic {
+    position: fixed;
+    top: 8.5vh;
+    right: 28vw;
+    height: 135px;
+    object-fit: cover;
+}

@@ -91,7 +91,7 @@ const CreatePost = (props) => {
                 console.log("there was an error here is some info", response, response.formData, response.status);
             }
         }
-    }
+    };
 
     const handlePicture = event => {
         const realBtn = document.getElementById('real-file-button');
@@ -196,6 +196,7 @@ const CreatePost = (props) => {
                     )}
                 </form>
             </div>
+            <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_5254081.png" alt="pikachu-and-ash" className="pikachu-and-ash-pic"></img>
         </div>
     )
 }

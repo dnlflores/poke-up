@@ -83,67 +83,111 @@ const EditPost = (props) => {
                 console.log("there was an error here is some info", response, response.formData, response.status);
             }
         }
-    }
+    };
+
+    const handlePicture = event => {
+        const realBtn = document.getElementById('real-file-button');
+        const fileName = document.getElementById('file-name');
+        realBtn.click();
+
+        realBtn.addEventListener('change', () => {
+            
+            if(realBtn.value) {
+                const name = realBtn.value.split("\\")[2];
+                fileName.innerHTML = name;
+            }
+            else fileName.innerHTML = 'No picture chosen!"'
+        });
+    };
 
     return (
-        <div className="edit-background">
-            <div className="edit-post-div">
-                <h2 className="edit-post-title">Edit Post</h2>
-                <form onSubmit={handleSubmit} id="edit-post-form">
+        <div className="create-post-background">
+            <div className="create-post-div">
+                <h2 className="create-post-title">Edit Post</h2>
+                <form onSubmit={handleSubmit} id="create-post-form">
                     <ul>
                         {errors.length > 0 && errors.map(err => (
                             <li className="display-errors" key={err}>{err}</li>
                         ))}
                     </ul>
-                    <div className="edit-form-div">
-                        <label>Title</label>
-                        <input
-                            type="text"
-                            name="title"
-                            className="title-input"
-                            onChange={updateTitle}
-                            value={title}
-                        ></input>
-                        <label>Category</label>
-                        <select name="categories" form="edit-post-form" onChange={updateCategory}>
-                            {categories?.map(category => (
-                                <option value={category.id}>{category.name}</option>
-                            ))}
-                        </select>
-                        <label>Description</label>
-                        <input
-                            type="text"
-                            name="description"
-                            className="description-input"
-                            onChange={updateDescription}
-                            value={description}
-                        ></input>
-                        <label>Price</label>
-                        <input
-                            type="number"
-                            name="price"
-                            className="price-input"
-                            onChange={updatePrice}
-                            value={price}
-                        ></input>
-                        <label>Quantity</label>
-                        <input
-                            type="number"
-                            name="quantity"
-                            className="quantity-input"
-                            onChange={updateQuantity}
-                            value={quantity}
-                        ></input>
-                        <input
-                            type="file"
-                            accept="image/*"
-                            onChange={updateImage}
-                        />
-                        <button className="submit-button" type="submit">Submit Post</button>
-                        <button onClick={event => props.setTrigger(0)}>Cancel</button>
-                        {imageLoading && <p>Loading...</p>}
+                    <div className="create-form-div">
+                        <div className="first-layer-form">
+                            <div className="title-div">
+                                <label>Title</label>
+                                <input
+                                    type="text"
+                                    name="title"
+                                    className="title-input"
+                                    onChange={updateTitle}
+                                    value={title}
+                                    placeholder="Title"
+                                ></input>
+                            </div>
+                            <div className="description-div">
+                                <label>Description</label>
+                                <input
+                                    type="text"
+                                    name="description"
+                                    className="description-input"
+                                    onChange={updateDescription}
+                                    value={description}
+                                    placeholder="Description"
+                                ></input>
+                            </div>
+                        </div>
+                        <div className="second-layer-form">
+                            <div className="price-div">
+                                <label>Price</label>
+                                <input
+                                    type="number"
+                                    name="price"
+                                    className="price-input"
+                                    onChange={updatePrice}
+                                    value={price}
+                                ></input>
+                            </div>
+                            <div className="quantity-div">
+                                <label>Quantity</label>
+                                <input
+                                    type="number"
+                                    name="quantity"
+                                    className="quantity-input"
+                                    onChange={updateQuantity}
+                                    value={quantity}
+                                ></input>
+                            </div>
+                        </div>
+                        <div className="third-layer-form">
+                            <div className="category-div">
+                                <select className="categories" name="categories" form="create-post-form" onChange={updateCategory}>
+                                    <option disabled selected>Category</option>
+                                    {categories?.map(category => (
+                                        <option value={category.id}>{category.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={updateImage}
+                                id="real-file-button"
+                                hidden
+                            />
+                            <div className="fake-file-input">
+                                <span id="file-name">No picture chosen!</span>
+                                <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
+                            </div>
+                        </div>
                     </div>
+                    <div className="form-buttons">
+                        <button className="submit-post-button button-default" type="submit">Submit Post</button>
+                        <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
+                    </div>
+                    {imageLoading && (
+                        <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo"></img>
+                    )}
                 </form>
+                <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_5254081.png" alt="pikachu-and-ash" className="pikachu-and-ash-pic"></img>
             </div>
         </div>
     )

@@ -117,7 +117,7 @@ const CreateList = (props) => {
                 </form>
             </div>
             <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_23898.png" alt="pikachu" className="pikachu-pic"></img>
-            <img src="https://pokeup.s3.us-west-1.amazonaws.com/Ash-Ketchum-Transparent-Background.png" alt="pikachu" className="ash-pic"></img>
+            <img src="https://pokeup.s3.us-west-1.amazonaws.com/Ash-Ketchum-Transparent-Background.png" alt="ash" className="ash-pic"></img>
         </div>
     )
 }
