@@ -173,8 +173,8 @@ h2.seller-username {
     justify-content: center;
 }
 
-.more-posts-container,
-.similar-posts-container {
+.more-posts-div-container,
+.similar-posts-div-container {
     display: flex;
     flex-wrap: nowrap;
     overflow: scroll;
@@ -183,4 +183,19 @@ h2.seller-username {
 .more-post-div,
 .similar-post-div {
     margin-right: 50px;
+}
+
+.add-list-post-container {
+    position: fixed;
+    top: 20vh;
+    left: 60vh;
+    width: 500px;
+    height: 400px;
+    border: blue solid 3px;
+    border-radius: 1rem;
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

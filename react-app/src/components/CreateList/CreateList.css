@@ -41,15 +41,15 @@
     object-fit: cover;
     height: 250px;
     top: 45vh;
-    left: 22vw;
-    z-index: 200;
+    left: 26vw;
+    z-index: 100;
 }
 
 .ash-pic {
     position: fixed;
     height: 250px;
     top: 48.5vh;
-    right: 22vw;
+    right: 20vw;
 }
 
 .name-div {

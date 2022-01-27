@@ -23,6 +23,7 @@ const NavBar = () => {
   const handleCreate = event => {
       event.preventDefault();
 
+      setUserDrop(false);
       setCreateButtonPopup(true);
   };
 

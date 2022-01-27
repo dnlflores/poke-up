@@ -9,6 +9,7 @@ const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showErrors, setShowErrors] = useState(false);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -21,8 +22,8 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
-    }
-    document.getElementById('nav-bar').removeAttribute('hidden');
+      setShowErrors(true)
+    } else document.getElementById('nav-bar').removeAttribute('hidden');
   };
 
   const updateEmail = (e) => {
@@ -35,6 +36,7 @@ const LoginForm = () => {
 
   const handleDemo = event => {
     dispatch(login("demo@pokeup.com", "password"));
+    document.getElementById('nav-bar').removeAttribute('hidden');
   }
 
   if (user) {
@@ -50,10 +52,15 @@ const LoginForm = () => {
       </NavLink>
     </h2>
       <form onSubmit={onLogin} className='login-form'>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
+        <div className='login-form-container'>
+        {showErrors > 0 && (
+          <div className="errors-container login-signup">
+              {errors.length > 0 && errors.map(err => (
+                  <label className="display-errors" key={err}>{err}</label>
+              ))}
+              <button className="button-default" onClick={event => setShowErrors(false)}>Ok!</button>
+          </div>
+        )}
         </div>
         <div className='login-email-div'>
           <label htmlFor='email' className="login-email-label">Email</label>

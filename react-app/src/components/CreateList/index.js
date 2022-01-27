@@ -9,6 +9,7 @@ const CreateList = (props) => {
     const [errors, setErrors] = useState([]);
     const [name, setName] = useState('');
     const [image, setImage] = useState(null);
+    const [showErrors, setShowErrors] = useState(false);
     const user = useSelector(state => state.session.user);
 
     const [imageLoading, setImageLoading] = useState(false);
@@ -56,6 +57,7 @@ const CreateList = (props) => {
                 console.log("there was an error here is some info", response, response.formData, response.status);
             }
         }
+        if (errors.length > 0) setShowErrors(true);
     };
 
     const handlePicture = event => {
@@ -78,11 +80,16 @@ const CreateList = (props) => {
             <div className="create-post-div">
                 <h2 className="create-post-title">Create List</h2>
                 <form onSubmit={handleSubmit} id="create-post-form">
-                    <ul>
-                        {errors.length > 0 && errors.map(err => (
-                            <li className="display-errors" key={err}>{err}</li>
-                        ))}
-                    </ul>
+                    {showErrors > 0 && (
+                        <div className="background-errors">
+                            <div className="errors-container">
+                                {errors.length > 0 && errors.map(err => (
+                                    <label className="display-errors" key={err}>{err}</label>
+                                ))}
+                                <button className="button-default" onClick={event => setShowErrors(false)}>Ok!</button>
+                            </div>
+                        </div>
+                    )}
                     <div className="create-form-div">
                         <div className="name-div">
                             <label>Name</label>
@@ -108,7 +115,7 @@ const CreateList = (props) => {
                         </div>
                     </div>
                     <div className="form-buttons">
-                        <button className="submit-list-button button-default" type="submit">Submit Post</button>
+                        <button className="submit-list-button button-default" type="submit">Create List</button>
                         <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
                     </div>
                     {imageLoading && (

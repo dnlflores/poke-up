@@ -1,11 +1,11 @@
-.create-post-background {
+.create-post-background, .background-errors, .background-modal {
     position: fixed;
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 100vh;
-    z-index: 101;
+    z-index: 150;
 }
 
 .create-post-div {
@@ -13,7 +13,7 @@
     position: relative;
     width: 700px;
     height: 500px;
-    left: 40vh;
+    left: 45vh;
     top: 8vh;
     border: 3px solid blue;
     border-radius: 1rem;
@@ -55,6 +55,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    top: 40px;
 }
 
 .first-layer-form {
@@ -88,8 +90,8 @@ input.price-input, input.quantity-input {
 }
 
 .form-buttons {
-    position: absolute;
-    bottom: 20px;
+    position: fixed;
+    bottom: 13vh;
     display: flex;
     justify-content: center;
 }
@@ -173,11 +175,12 @@ input.price-input {
     animation-duration: 2000ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear; 
-    width: 80px;
-    height: 80px;
+    width: 160px;
+    height: 160px;
     position: fixed;
-    top: 10vh;
-    right: 25vw;
+    top: 35vh;
+    right: 45vw;
+    z-index: 300;
 }
 
 @keyframes spin {
@@ -192,7 +195,25 @@ input.price-input {
 .pikachu-and-ash-pic {
     position: fixed;
     top: 8.5vh;
-    right: 28vw;
+    right: 23vw;
     height: 135px;
     object-fit: cover;
+}
+
+.errors-container {
+    position: fixed;
+    z-index: 250;
+    list-style-type: none;
+    color: white;
+    top: 30vh;
+    left: 35vw;
+    border: solid black 3px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    border-radius: 1rem;
 }

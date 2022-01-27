@@ -125,9 +125,29 @@ def get_posts(id):
     return {"posts": [post.to_dict() for post in post_list.posts]}
 
 
-@list_routes.route('/<int:id>', methods=["POST"])
+@list_routes.route('/<int:listId>/<int:postId>', methods=["POST"])
 @login_required
-def add_to_list(id):
-    post_list = List.query.get(id)
+def add_to_list(listId, postId):
+    post_list = List.query.get(listId)
 
+    post = Post.query.get(postId)
+
+    post_list.posts.append(post)
     
+    db.session.commit()
+
+    return post.to_dict() 
+
+
+@list_routes.route('/<int:listId>/<int:postId>', methods=["DELETE"])
+@login_required
+def remove_from_list(listId, postId):
+    post_list = List.query.get(listId)
+
+    post = Post.query.get(postId)
+
+    post_list.posts.remove(post)
+    
+    db.session.commit()
+
+    return post.to_dict() 

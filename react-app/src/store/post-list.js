@@ -24,16 +24,12 @@ const deleteListPost = post => ({
 });
 
 export const getListPosts = listId => async dispatch => {
-    if(listId === 0) {
-        dispatch(loadListPosts({ posts: [] }));
-        return { posts: [] }
-    }
-
     const response = await fetch(`/api/lists/${listId}`);
 
     if(response.ok) {
         const posts = await response.json();
         dispatch(loadListPosts({ ...posts }));
+        console.log("after dispatch")
         return posts;
     }
 };
@@ -48,12 +44,23 @@ export const getPostLists = postId => async dispatch => {
     }
 };
 
-export const createListPost = list => async dispatch => {
-    dispatch(addListPost(list))
+export const createListPost = (listId, postId) => async dispatch => {
+    const response = await fetch(`/api/lists/${listId}/${postId}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if(response.ok) {
+        const post = await response.json();
+        dispatch(addListPost(post));
+        return post;
+    }
 };
 
-export const removeListPost = listId => async dispatch => {
-    const response = await fetch(`/api/lists/${listId}`, {
+export const removeListPost = (listId, postId) => async dispatch => {
+    const response = await fetch(`/api/lists/${listId}/${postId}`, {
         method: "DELETE",
         headers: {
             "Content-Type" : "application/json"
@@ -61,25 +68,27 @@ export const removeListPost = listId => async dispatch => {
     });
 
     if(response.ok) {
-        const list = await response.json();
-        dispatch(deleteListPost(list));
-        return list;
+        const post = await response.json();
+        dispatch(deleteListPost(post));
+        return post;
     }
 };
 
 export default function listPostReducer(state = {}, action) {
     switch(action.type) {
         case LOAD_LIST_POSTS:
-            const loadState = JSON.parse(JSON.stringify(state));
-            // loadState.listPosts = action.payload.posts;
+            const loadState = action.payload.posts;
             return loadState;
         case ADD_LIST_POST:
             const createState = {...state};
-            createState[action.payload.id] = action.payload;
             return createState;
         case DELETE_LIST_POST:
-            const deleteState = {...state};
-            delete deleteState[action.payload.id];
+            const deleteState = JSON.parse(JSON.stringify(state));
+            console.log("THIS IS THE CREATE STATE => ", deleteState);
+            console.log("THIS IS THE ACTION PAYLOAD => ", action.payload);
+            for(let i = 0; i < deleteState.length; i++ ){
+                if(deleteState[i]?.id === action.payload.id) delete deleteState[i];
+            }
             return deleteState;
         case LOAD_POST_LISTS:
             const loadsState = JSON.parse(JSON.stringify(state));

@@ -12,8 +12,9 @@
     object-fit: cover;
     border-radius: 1rem;
     border: blue 3px solid;
-    position: relative;
-    top: 1.5vh;
+    position: absolute;
+    left: 3vw;
+    top: 3vh;
 }
 
 .list-post-div {
@@ -27,18 +28,21 @@
     background-color: yellow;
     box-shadow: 5px 5px 4px rgba(0,0,0,0.5);
     position: relative;
+    margin: 15px;
 }
 
 .list-post-title {
     font-family: 'Fredoka One', cursive;
+    position: absolute;
+    left: 15vw;
 }
 
 .list-post-price {
     font-family: 'Architects Daughter', cursive;
     font-size: 25px;
-    position: relative;
+    position: absolute;
+    left: 15vw;
     top: 10vh;
-    right: 20vw;
 }
 
 .link-post {
@@ -48,5 +52,5 @@
 button.remove-list-post {
     position: absolute;
     top: 17vh;
-    left: 18vw;
+    left: 14.5vw;
 }

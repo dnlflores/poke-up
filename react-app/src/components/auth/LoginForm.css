@@ -97,3 +97,9 @@ label.signup-link {
     text-decoration: none;
     color: blue;
 }
+
+div.login-signup {
+    background-color: yellow;
+    color: blue;
+    font-family: "Fredoka One", cursive;
+}

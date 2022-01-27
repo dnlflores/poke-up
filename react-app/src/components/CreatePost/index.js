@@ -14,6 +14,7 @@ const CreatePost = (props) => {
     const [quantity, setQuantity] = useState('');
     const [image, setImage] = useState(null);
     const [category, setCategory] = useState('1')
+    const [showErrors, setShowErrors] = useState(false);
     const user = useSelector(state => state.session.user);
     const categories = useSelector(state => Object.values(state.categories))
 
@@ -91,6 +92,7 @@ const CreatePost = (props) => {
                 console.log("there was an error here is some info", response, response.formData, response.status);
             }
         }
+        if (errors.length > 0) setShowErrors(true);
     };
 
     const handlePicture = event => {
@@ -113,11 +115,16 @@ const CreatePost = (props) => {
             <div className="create-post-div">
                 <h2 className="create-post-title">Create Post</h2>
                 <form onSubmit={handleSubmit} id="create-post-form">
-                    <ul>
-                        {errors.length > 0 && errors.map(err => (
-                            <li className="display-errors" key={err}>{err}</li>
-                        ))}
-                    </ul>
+                    {showErrors > 0 && (
+                        <div className="background-errors">
+                            <div className="errors-container">
+                                {errors.length > 0 && errors.map(err => (
+                                    <label className="display-errors" key={err}>{err}</label>
+                                ))}
+                                <button className="button-default" onClick={event => setShowErrors(false)}>Ok!</button>
+                            </div>
+                        </div>
+                    )}
                     <div className="create-form-div">
                         <div className="first-layer-form">
                             <div className="title-div">

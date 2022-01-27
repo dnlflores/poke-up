@@ -5,26 +5,27 @@ import { getPosts } from '../../store/post';
 import { getCategories } from '../../store/category';
 import { getLists } from '../../store/list';
 import './PostPage.css';
-import { getPostLists } from '../../store/post-list';
+import { getPostLists, createListPost } from '../../store/post-list';
 
 const PostPage = props => {
     const dispatch = useDispatch();
-    const { id } = useParams();
+    const { id: postId } = useParams();
     const posts = useSelector(state => Object.values(state.posts));
     const categories = useSelector(state => Object.values(state.categories));
     const postLists = useSelector(state => state.listPosts?.postLists);
     const myLists = useSelector(state => Object.values(state.lists));
     const [users, setUsers] = useState([]);
-    const [addPostPopup, setAddPostPopup] = useState(false);
+    const [showListsToAdd, setShowListsToAdd] = useState(false);
+    const user = useSelector(state => state.session.user);
     
-    const post = posts.find(post => post.id === +id);
+    const post = posts.find(post => post.id === +postId);
     const category = categories.find(category => category.id === post?.category_id);
     const similarPosts = posts.filter(similarPost => {
         if(similarPost.category_id === category?.id){
             if(similarPost.id !== post.id) return similarPost;
         }
     });
-    const seller = users.find(user => user.id === post?.user_id);
+    const seller = users?.find(user => user.id === post?.user_id);
     const otherSellerPosts = posts.filter(sellerPost => {
         if(sellerPost.user_id === seller?.id){
             if(sellerPost.id !== post.id) return sellerPost;
@@ -33,13 +34,20 @@ const PostPage = props => {
 
     const handleAddList = event => {
         event.preventDefault();
+
+        const listId = event.target.className.split(' ')[0].split('-')[1];
+
+        console.log("THIS IS THE POST ID => ", postId);
+        console.log("THIS IS THE LIST ID => ", listId);
+        dispatch(createListPost(listId, postId))
+        // dispatch(getPostLists(postId));
+        setShowListsToAdd(false);
     };
 
     let listsToAdd = [];
     myLists?.forEach( myList => {
         if(postLists?.length === 0) listsToAdd = myLists;
         postLists?.forEach(list => {
-            console.log(`TESTING EQUALITY FOR MY LIST ${myList.name} AND POST LIST ${list.name}`, list.id !== myList.id)
             if(list.id !== myList.id) listsToAdd.push(myList);
 
         })
@@ -51,7 +59,7 @@ const PostPage = props => {
         dispatch(getPosts());
         dispatch(getCategories());
         dispatch(getLists());
-        dispatch(getPostLists(id));
+        dispatch(getPostLists(postId));
         async function fetchData() {
           const response = await fetch('/api/users/');
           const responseData = await response.json();
@@ -61,10 +69,10 @@ const PostPage = props => {
         (function () {document.documentElement.scrollTop = 0})();
         if(window.location.href.split('/').length === 5) {
           if (window.location.href.split('/')[3] === 'posts') {
-            document.getElementById('create-post-button').setAttribute('hidden', true);
+            document.getElementById('create-post-button')?.setAttribute('hidden', true);
           }
         } 
-    }, [dispatch, id]);
+    }, [dispatch, postId]);
 
     return (
         <div className="post-container">
@@ -80,10 +88,15 @@ const PostPage = props => {
                         <label className="quantity-text">Quantity: </label>
                         <h2 className="quantity-number">{post?.quantity}</h2>
                     </div>
-                    <div className="post-buttons">
-                        <button className="button-default">Buy</button>
-                        <button className="add-to-list-button" onClick={event => setAddPostPopup(true)}>ADD TO LIST<span className="material-icons list-icon">lists</span></button>
-                    </div>
+                    {user && (
+                        <div className="post-buttons">
+                            <button className="button-default">Buy</button>
+                            <button className="add-to-list-button" onClick={event => setShowListsToAdd(true)}>ADD TO LIST<span className="material-icons list-icon">lists</span></button>
+                        </div>
+                    )}
+                    {!user && (
+                        <div className="post-buttons" />
+                    )}
                     <div className="seller-container">
                         <img src={seller?.profile_pic_url} alt="seller-profile" className="seller-profile-pic"></img>
                         <h2 className='seller-username'>{seller?.username}</h2>
@@ -97,7 +110,7 @@ const PostPage = props => {
                 </div>
                 <div className="similar-posts-container">
                     <h2>Similar Items</h2>
-                    <div className="similar-posts-container">
+                    <div className="similar-posts-div-container">
                         {similarPosts?.map(post => (
                             <div className="similar-post-div">
                                 <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () {document.documentElement.scrollTop = 0}}>
@@ -111,7 +124,7 @@ const PostPage = props => {
                 </div>
                 <div className="more-posts-container">
                     <h2>More Items From This PokéSeller</h2>
-                    <div className="more-posts-container">
+                    <div className="more-posts-div-container">
                         {otherSellerPosts?.map(post => (
                             <div className="more-post-div">
                                 <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () {document.documentElement.scrollTop = 0}}>
@@ -129,9 +142,15 @@ const PostPage = props => {
             <div className="line-div-3"></div>
             <div className="line-div-4"></div>
             <div className="line-div-5"></div>
-            {addPostPopup && (
-                <div className="add-list-post-container">
-
+            {showListsToAdd && (
+                <div className="background-modal">
+                    <div className="add-list-post-container">
+                        <h2>Your Lists!</h2>
+                        {listsToAdd?.map(list => (
+                            <button className={`list-${list.id}-button button-default`} onClick={handleAddList}>{list.name}</button>
+                        ))}
+                        <button className='button-default-cancel' onClick={event => setShowListsToAdd(false)}>Cancel</button>
+                    </div>
                 </div>
             )}
         </div>

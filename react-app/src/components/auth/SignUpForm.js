@@ -10,6 +10,7 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [showErrors, setShowErrors] = useState(false);
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -22,10 +23,13 @@ const SignUpForm = () => {
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
-        setErrors(data)
-      }
+        setErrors(data);
+        setShowErrors(true);
+      } else document.getElementById('nav-bar').removeAttribute('hidden');
+    }else {
+      errors.push('Passwords must match.')
+      setShowErrors(true);
     }
-    document.getElementById('nav-bar').removeAttribute('hidden');
   };
 
   const updateUsername = (e) => {
@@ -57,10 +61,15 @@ const SignUpForm = () => {
       </NavLink>
     </h2>
       <form onSubmit={onSignUp} className='signup-form'>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
+        <div className="signup-form-container">
+        {showErrors > 0 && (
+          <div className="errors-container login-signup">
+              {errors.length > 0 && errors.map(err => (
+                  <label className="display-errors" key={err}>{err}</label>
+              ))}
+              <button className="button-default" onClick={event => setShowErrors(false)}>Ok!</button>
+          </div>
+        )}
         </div>
         <div className="signup-username-div">
           <label className='signup-username-label'>User Name</label>
