@@ -21,7 +21,7 @@ const ClothingPage = () => {
     const handleDelete = event => {
         event.preventDefault();
 
-        const postId = event.target.className.split('-')[2];
+        const postId = event.target.className.split('-')[2].split(' ')[0];
 
         dispatch(removePost(postId));
     };
@@ -29,7 +29,7 @@ const ClothingPage = () => {
     const handleEdit = event => {
         event.preventDefault();
         
-        const postId = event.target.className.split('-')[2];
+        const postId = event.target.className.split('-')[2].split(' ')[0];
 
         setEditButtonPopup(postId);
     };
