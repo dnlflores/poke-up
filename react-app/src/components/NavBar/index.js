@@ -96,7 +96,7 @@ const NavBar = () => {
           <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
       )}
       {user && (
-          <button className="create-button button-pokeball" id="create-post-button" onClick={handleCreate}>New!</button>
+          <button className="create-button button-pokeball" id="create-post-button" onClick={handleCreate}>Create Post!</button>
       )}
     </div>
   );

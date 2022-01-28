@@ -11,6 +11,14 @@
 .upper-container {
     display: flex;
     justify-content: space-around;
+    position: relative;
+    top: 13vh;
+}
+
+.bottom-container {
+    position: relative;
+    top: 16vh;
+    margin-left: 50px;
 }
 
 .post-buttons {
@@ -129,7 +137,7 @@ h2.seller-username {
 .line-div-5 {
     border-top: 1px solid black;
     position: absolute;
-    top: 140vh;
+    top: 131vh;
     right: 3vw;
     width: 1150px;
 }
@@ -142,10 +150,6 @@ h2.seller-username {
 .description-text {
     font-family: 'Architects Daughter', cursive;
     font-size: 23px;
-}
-
-.bottom-container {
-    margin-left: 50px;
 }
 
 .more-post-title, 
@@ -182,7 +186,7 @@ h2.seller-username {
 
 .more-post-div,
 .similar-post-div {
-    margin-right: 50px;
+    margin: 20px;
 }
 
 .add-list-post-container {

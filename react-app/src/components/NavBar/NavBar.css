@@ -127,3 +127,8 @@ nav {
     position: relative;
     bottom: 11px;
 }
+
+#create-post-button,
+#create-list-button {
+    font-size: 20px;
+}
