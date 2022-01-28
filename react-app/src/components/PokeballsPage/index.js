@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPosts, removePost } from '../../store/post';
 import EditPost from '../EditPost';
-import './PokeballsPage.css';
 
 const PokeballsPage = () => {
     const dispatch = useDispatch();

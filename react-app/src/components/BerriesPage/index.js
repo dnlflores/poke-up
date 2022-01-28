@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPosts, removePost } from '../../store/post';
 import EditPost from '../EditPost';
-import './BerriesPage.css';
 
 const BerriesPage = () => {
     const dispatch = useDispatch();

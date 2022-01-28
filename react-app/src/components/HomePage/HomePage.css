@@ -12,7 +12,8 @@
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    top: 200px;
+    margin-top: 200px;
+    padding-bottom: 80px;
 }
 
 .post-div {

@@ -127,13 +127,7 @@ h2.seller-username {
     border-top: 1px solid black;
     position: absolute;
     width: 670px;
-    top: 0;
-}
-
-.line-div-5 {
-    border-top: 1px solid black;
-    position: absolute;
-    width: 1150px;
+    top: 11px;
 }
 
 .description-container {

@@ -51,3 +51,23 @@ button {
     height: 75px;
     background-size: 75px;
 }
+
+.about-links {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 35vw;
+    justify-content: space-around;
+    width: 300px;
+    margin: 20px 0px;
+    z-index: 300;
+}
+
+.about-links a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+#root {
+    position: relative;
+}

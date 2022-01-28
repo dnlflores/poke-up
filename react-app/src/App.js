@@ -18,6 +18,8 @@ import TMPage from './components/TMPage';
 import BerriesPage from './components/BerriesPage';
 import ListPostPage from './components/ListPostPage';
 import { authenticate } from './store/session';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -81,6 +83,10 @@ function App() {
           <User />
         </ProtectedRoute>
       </Switch>
+      <div className="about-links">
+          <a href="https://github.com/dnlflores"><FontAwesomeIcon icon={faGithub} size="2x" spin /></a>
+          <a href="https://www.linkedin.com/in/daniel-flores-764a0b21b/"><FontAwesomeIcon icon={faLinkedin} size="2x" spin /></a>
+      </div>
     </BrowserRouter>
   );
 }
