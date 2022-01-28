@@ -73,6 +73,7 @@ const PostPage = props => {
         <div className="post-container">
             <div className="upper-container">
                 <div className="left-container">
+                    <div className="line-div-1"></div>
                     <img src={post?.image_url} alt="post" className="post-page-image"></img>
                 </div>
                 <div className="right-container">
@@ -93,6 +94,8 @@ const PostPage = props => {
                         <div className="post-buttons" />
                     )}
                     <div className="seller-container">
+                        <div className="line-div-2"></div>
+                        <div className="line-div-3"></div>
                         <img src={seller?.profile_pic_url} alt="seller-profile" className="seller-profile-pic"></img>
                         <h2 className='seller-username'>{seller?.username}</h2>
                     </div>
@@ -100,6 +103,7 @@ const PostPage = props => {
             </div>
             <div className="bottom-container">
                 <div className="description-container">
+                    <div className="line-div-4"></div>
                     <h2>Description</h2>
                     <p className="description-text">{post?.description}</p>
                 </div>
@@ -132,11 +136,6 @@ const PostPage = props => {
                     </div>
                 </div>
             </div>
-            <div className="line-div-1"></div>
-            <div className="line-div-2"></div>
-            <div className="line-div-3"></div>
-            <div className="line-div-4"></div>
-            <div className="line-div-5"></div>
             {showListsToAdd && (
                 <div className="background-modal">
                     <div className="add-list-post-container">
