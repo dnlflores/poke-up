@@ -68,8 +68,6 @@ def create_list():
 def delete_list(id):
     listed = List.query.get(id)
 
-    print("         THIS IS THE LIST => ", listed)
-
     db.session.delete(listed)
     db.session.commit()
 

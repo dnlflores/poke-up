@@ -13,7 +13,7 @@ const EditPost = (props) => {
     const [price, setPrice] = useState(0);
     const [quantity, setQuantity] = useState(0);
     const [image, setImage] = useState('');
-    const [category, setCategory] = useState(1);
+    const [category, setCategory] = useState(props.post.category_id);
     const [showErrors, setShowErrors] = useState(false);
     const user = useSelector(state => state.session.user);
     const categories = useSelector(state => Object.values(state.categories));
