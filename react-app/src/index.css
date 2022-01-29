@@ -60,7 +60,6 @@ button {
     justify-content: space-around;
     width: 300px;
     margin: 20px 0px;
-    z-index: 300;
 }
 
 .about-links a:visited {

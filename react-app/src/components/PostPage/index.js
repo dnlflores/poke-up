@@ -42,13 +42,6 @@ const PostPage = props => {
     };
 
     let listsToAdd = [];
-    myLists?.forEach( myList => {
-        if(postLists?.length === 0) listsToAdd = myLists;
-        postLists?.forEach(list => {
-            if(list.id !== myList.id) listsToAdd.push(myList);
-
-        })
-    });
     
     useEffect(() => {
         dispatch(getPosts());
@@ -66,7 +59,8 @@ const PostPage = props => {
           if (window.location.href.split('/')[3] === 'posts') {
             document.getElementById('create-post-button')?.setAttribute('hidden', true);
           }
-        } 
+        }
+        document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch, postId]);
 
     return (

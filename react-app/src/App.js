@@ -83,7 +83,7 @@ function App() {
           <User />
         </ProtectedRoute>
       </Switch>
-      <div className="about-links">
+      <div className="about-links" id="about-links">
           <a href="https://github.com/dnlflores"><FontAwesomeIcon icon={faGithub} size="2x" spin /></a>
           <a href="https://www.linkedin.com/in/daniel-flores-764a0b21b/"><FontAwesomeIcon icon={faLinkedin} size="2x" spin /></a>
       </div>

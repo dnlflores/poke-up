@@ -23,7 +23,8 @@ const ListPostPage = props => {
           if (window.location.href.split('/')[3] === 'lists') {
             document.getElementById('create-post-button').setAttribute('hidden', true);
           }
-        } 
+        }
+        document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch, listId])
 
     return (

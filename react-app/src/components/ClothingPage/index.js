@@ -15,6 +15,8 @@ const ClothingPage = () => {
         dispatch(getPosts());
         (function () {document.documentElement.scrollTop = 0})();
         document.getElementById('create-post-button')?.removeAttribute('hidden');
+        document.getElementById('root').setAttribute('style', 'position: relative');
+        document.getElementById('about-links').setAttribute('style', 'display: flex');
     }, [dispatch]);
 
     const handleDelete = event => {

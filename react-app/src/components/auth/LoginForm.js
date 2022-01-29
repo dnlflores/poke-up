@@ -15,6 +15,8 @@ const LoginForm = () => {
 
   useEffect(() => {
     document.getElementById('nav-bar').setAttribute('hidden', true);
+    document.getElementById('about-links').setAttribute('style', 'display: none');
+    document.getElementById('root').setAttribute('style', 'position: static');
   }, [])
 
   const onLogin = async (e) => {
