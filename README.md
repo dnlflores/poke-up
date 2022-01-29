@@ -1,6 +1,6 @@
-# Flask React Project
+# PokéUp
 
-This is the starter for the Flask React project.
+This is a clone of the popular application OfferUp.
 
 ## Getting started
 
@@ -132,3 +132,30 @@ of your Heroku app in the url and tag name:
    ```bash=3
    docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
    ```
+
+### Features
+
+1. Posts
+   You can view all posts on PokéUp. All posts are apart of 6 categories. Potions, Pokémon, Clothing, Technical Machines, Pokéballs, and Berries. From any of the pages if you are the owner of the post, you can edit and delete the post.
+
+2. Lists
+   If you have an account on PokéUp you can add posts that you are interested in to your own list. You can create lists from the lists page. If you want to delete a list or change the name or even add a picture that can all be done from the lists page. 
+
+3. Adding Posts to Lists
+   If you want to add posts to lists you have created, you can. When you go to a post's page, if you are logged in, you have the option to add the post to a list you have created. From the lists page you can click on the arrow of the list to see the posts that are apart of that list. If you want to get rid of a post from a list, you can click on the Remove button. 
+
+4. Categories
+   Categories are used to narrow down what you are looking for on PokéUp. 
+
+
+#### Technologies Used
+1. React
+2. Flask
+3. AWS
+4. Javascript
+5. Node.js
+6. Redux
+7. Python
+8. PostgreSQL
+9. HTML
+10. CSS
