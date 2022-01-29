@@ -1,6 +1,6 @@
 # PokéUp
 
-This is a clone of the popular application OfferUp.
+This is a clone of the popular application OfferUp. On PokéUp you can find everything you need for your Pokémon from potions to clothing to berries. You can find it all here and even add them to lists that you have curated! Ever wanted to get rid of some old stuff from your last Poké adventure? Make some money by selling to the next person who may need it on their next adventure! It's free for anyone to join.
 
 ## Getting started
 
