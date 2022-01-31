@@ -44,10 +44,12 @@ const PostPage = props => {
     let listsToAdd = [];
     myLists?.forEach( myList => {
         if(postLists?.length === 0) listsToAdd = myLists;
-        postLists?.forEach(list => {
-            if(list.id !== myList.id) listsToAdd.push(myList);
+        if(postLists?.length !== myLists.length){
+            postLists?.forEach(list => {
+                if(list.id !== myList.id) listsToAdd.push(myList);
 
-        })
+            })
+        }
     });
     
     useEffect(() => {
