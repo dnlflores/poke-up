@@ -148,7 +148,7 @@ of your Heroku app in the url and tag name:
    Categories are used to narrow down what you are looking for on PokéUp. 
 
 
-#### Technologies Used
+### Technologies Used
 1. React
 2. Flask
 3. AWS
@@ -159,3 +159,9 @@ of your Heroku app in the url and tag name:
 8. PostgreSQL
 9. HTML
 10. CSS
+
+### Wiki Links
+DB Schema: https://github.com/dnlflores/poke-up/wiki/DB-Schema
+Feature List: https://github.com/dnlflores/poke-up/wiki/Feature-List
+User Stories: https://github.com/dnlflores/poke-up/wiki/User-Stories
+Wireframes: https://github.com/dnlflores/poke-up/wiki/Wireframes
