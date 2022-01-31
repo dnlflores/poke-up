@@ -217,3 +217,7 @@ input.price-input {
     background-color: red;
     border-radius: 1rem;
 }
+
+input.title-input {
+    color: blue;
+}
