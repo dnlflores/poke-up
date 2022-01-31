@@ -134,7 +134,7 @@ def add_to_list(listId, postId):
     
     db.session.commit()
 
-    return post.to_dict() 
+    return post_list.to_dict() 
 
 
 @list_routes.route('/<int:listId>/<int:postId>', methods=["DELETE"])

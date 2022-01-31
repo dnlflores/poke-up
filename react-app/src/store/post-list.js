@@ -1,5 +1,5 @@
 const LOAD_LIST_POSTS = 'lists/LOAD_LIST_POSTS';
-const ADD_LIST_POST = 'lists/ADD_LIST_POST';
+const ADD_POST_LIST = 'lists/ADD_POST_LIST';
 const DELETE_LIST_POST = 'lists/DELETE_LIST_POST';
 const LOAD_POST_LISTS = 'posts/LOAD_POST_LIST'
 
@@ -13,9 +13,9 @@ const loadPostLists = lists => ({
     payload: lists
 })
 
-const addListPost = post => ({
-    type: ADD_LIST_POST,
-    payload: post
+const addPostList = list => ({
+    type: ADD_POST_LIST,
+    payload: list
 });
 
 const deleteListPost = post => ({
@@ -52,9 +52,9 @@ export const createListPost = (listId, postId) => async dispatch => {
     });
 
     if(response.ok) {
-        const post = await response.json();
-        dispatch(addListPost(post));
-        return post;
+        const list = await response.json();
+        dispatch(addPostList(list));
+        return list;
     }
 };
 
@@ -78,9 +78,12 @@ export default function listPostReducer(state = {}, action) {
         case LOAD_LIST_POSTS:
             const loadState = action.payload.posts;
             return loadState;
-        case ADD_LIST_POST:
+        case ADD_POST_LIST:
             const createState = JSON.parse(JSON.stringify(state));
             console.log("ACTION PAYLOAD => ", action.payload);
+            console.log("THIS IS THE ORIG STATE => ", state);
+            console.log("THIS IS THE CREATE STATE => ", createState);
+            createState.postLists.push(action.payload);
             return createState;
         case DELETE_LIST_POST:
             const deleteState = JSON.parse(JSON.stringify(state));
