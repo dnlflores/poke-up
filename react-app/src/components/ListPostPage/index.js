@@ -38,6 +38,13 @@ const ListPostPage = props => {
                     <button className={`button-default-cancel remove-list-post ${post?.id}`} onClick={handleRemove}>Remove</button>
                 </div>
             ))}
+            {posts?.length === 0 && (
+                    <div>
+                        <h2 className="empty-page-text 1">No Posts yet!</h2>
+                        <h2 className="empty-page-text 2">Try adding some!</h2>
+                        <img src="https://pokeup.s3.us-west-1.amazonaws.com/toppng.com-okemon-characters-png-download-image-pokemon-pikachu-980x490.png" alt="starters-together" className="empty-page-pic"></img>
+                    </div>
+                )}
         </div>
     )
 };
