@@ -59,6 +59,7 @@ export const createListPost = (listId, postId) => async dispatch => {
 };
 
 export const removeListPost = (listId, postId) => async dispatch => {
+    console.log("THIS IS THE POST ID FROM THE THUNK => ", postId);
     const response = await fetch(`/api/lists/${listId}/${postId}`, {
         method: "DELETE",
         headers: {
@@ -86,7 +87,7 @@ export default function listPostReducer(state = {}, action) {
             const deleteState = JSON.parse(JSON.stringify(state));
             console.log("DELETE STATE => ", deleteState);
             for(let i = 0; i < deleteState?.length; i++ ){
-                if(deleteState[i]?.id === action.payload.id) delete deleteState[i];
+                if(deleteState[i]?.id === action.payload.id) deleteState.splice(i, 1);
             }
             return deleteState;
         case LOAD_POST_LISTS:

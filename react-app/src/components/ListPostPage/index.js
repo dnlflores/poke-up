@@ -14,6 +14,8 @@ const ListPostPage = props => {
 
         const postId = event.target.className.split(' ')[2];
 
+        console.log("THIS IS THE POST ID FROM THE FRONT", postId);
+
         dispatch(removeListPost(listId, postId));
     }
 
