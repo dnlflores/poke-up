@@ -190,4 +190,10 @@ h2.seller-username {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: scroll;
+}
+
+.list-buttons-container {
+    display: flex;
+    flex-direction: column;
 }

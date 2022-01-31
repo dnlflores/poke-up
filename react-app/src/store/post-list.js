@@ -80,8 +80,7 @@ export default function listPostReducer(state = {}, action) {
             return loadState;
         case ADD_LIST_POST:
             const createState = JSON.parse(JSON.stringify(state));
-            console.log("THIS IS THE ORIG STATE => ", state);
-            console.log("THIS IS THE CREATE STATE => ", createState);
+            console.log("ACTION PAYLOAD => ", action.payload);
             return createState;
         case DELETE_LIST_POST:
             const deleteState = JSON.parse(JSON.stringify(state));

@@ -41,16 +41,16 @@ const PostPage = props => {
         setShowListsToAdd(false);
     };
 
-    let listsToAdd = [];
-    myLists?.forEach( myList => {
-        if(postLists?.length === 0) listsToAdd = myLists;
-        if(postLists?.length !== myLists.length){
-            postLists?.forEach(list => {
-                if(list.id !== myList.id) listsToAdd.push(myList);
+    const listsToAdd = new Set();
+    const postListsSet = new Set();
 
-            })
-        }
-    });
+    for(let i = 0; i < postLists?.length; i++) {
+        postListsSet.add(postLists[i].id);
+    }
+
+    for(let i = 0; i < myLists.length; i++) {
+        if(!postListsSet.has(myLists[i].id)) listsToAdd.add(myLists[i]);
+    }
     
     useEffect(() => {
         dispatch(getPosts());
@@ -143,9 +143,11 @@ const PostPage = props => {
                 <div className="background-modal">
                     <div className="add-list-post-container">
                         <h2>Your Lists!</h2>
-                        {listsToAdd?.map(list => (
-                            <button className={`list-${list.id}-button button-default`} onClick={handleAddList}>{list.name}</button>
-                        ))}
+                        <div className="list-buttons-container">
+                            {Array.from(listsToAdd)?.map(list => (
+                                <button className={`list-${list.id}-button button-default`} onClick={handleAddList}>{list.name}</button>
+                            ))}
+                        </div>
                         <button className='button-default-cancel' onClick={event => setShowListsToAdd(false)}>Cancel</button>
                     </div>
                 </div>
