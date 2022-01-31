@@ -42,6 +42,13 @@ const PostPage = props => {
     };
 
     let listsToAdd = [];
+    myLists?.forEach( myList => {
+        if(postLists?.length === 0) listsToAdd = myLists;
+        postLists?.forEach(list => {
+            if(list.id !== myList.id) listsToAdd.push(myList);
+
+        })
+    });
     
     useEffect(() => {
         dispatch(getPosts());
