@@ -85,7 +85,6 @@ export default function listPostReducer(state = {}, action) {
             return createState;
         case DELETE_LIST_POST:
             const deleteState = JSON.parse(JSON.stringify(state));
-            console.log("DELETE STATE => ", deleteState);
             for(let i = 0; i < deleteState?.length; i++ ){
                 if(deleteState[i]?.id === action.payload.id) deleteState.splice(i, 1);
             }
