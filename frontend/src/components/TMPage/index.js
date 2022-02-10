@@ -45,14 +45,16 @@ const TMPage = () => {
                         </NavLink>
                         <div className='image-info-div'>
                             <label className="post-title">{post.title} </label>
-                            <label className="post-price">${post.price.toLocaleString("en-US")} </label>
-                        </div>
-                        {user?.id === post.user_id && (
-                            <div>
-                                <button onClick={handleDelete} className={`delete-post-${post.id}`}><span className={`delete-post-${post.id} material-icons`}>delete_forever</span></button>
-                                <button onClick={handleEdit} className={`edit-post-${post.id}`}><span className={`edit-post-${post.id} material-icons`}>edit</span></button>
+                            <div className="price-control-container">
+                                <label className="post-price">${post.price.toLocaleString("en-US")} </label>
+                                {user?.id === post.user_id && (
+                                    <div>
+                                        <button onClick={handleDelete}><span className={`delete-post-${post.id} material-icons`}>delete_forever</span></button>
+                                        <button onClick={handleEdit}><span className={`edit-post-${post.id} material-icons`}>edit</span></button>
+                                    </div>
+                                )}
                             </div>
-                        )}
+                        </div>
                     </div>
                     {+editButtonPopup === post.id && (
                         <EditPost post={post} trigger={editButtonPopup} setTrigger={setEditButtonPopup} />

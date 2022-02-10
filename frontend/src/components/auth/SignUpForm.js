@@ -58,7 +58,7 @@ const SignUpForm = () => {
     <div className='signup-form-container'>
     <h2 className="background-title login-back">PokéUp</h2>
     <h2 className="site-title login-front">
-      <NavLink to='/' exact={true} activeClassName='active' className="nav-link">
+      <NavLink to='/' exact={true} activeClassName='active' className="nav-link" onClick={event => document.getElementById('nav-bar').removeAttribute('hidden')}>
         PokéUp
       </NavLink>
     </h2>
@@ -81,6 +81,7 @@ const SignUpForm = () => {
             onChange={updateUsername}
             value={username}
             className='signup-username-input'
+            placeholder='Username'
           ></input>
         </div>
         <div className="signup-email-div">
@@ -91,6 +92,7 @@ const SignUpForm = () => {
             onChange={updateEmail}
             value={email}
             className="signup-email-input"
+            placeholder='Email'
           ></input>
         </div>
         <div className="signup-password-div">
@@ -101,10 +103,11 @@ const SignUpForm = () => {
             onChange={updatePassword}
             value={password}
             className="signup-password-input"
+            placeholder='Password'
           ></input>
         </div>
         <div className="signup-repeat-password-div">
-          <label className="signup-repeat-password-label">Repeat Password</label>
+          <label className="signup-repeat-password-label">Confirm Password</label>
           <input
             type='password'
             name='repeat_password'
@@ -112,6 +115,7 @@ const SignUpForm = () => {
             value={repeatPassword}
             required={true}
             className="signup-repeat-password-input"
+            placeholder='Confirm Password'
           ></input>
         </div>
         <button type='submit' className="button-default">Sign Up!</button>

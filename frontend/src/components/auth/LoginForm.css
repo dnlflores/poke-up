@@ -8,6 +8,8 @@
     display: flex;
     flex-direction: column;
     font-family: 'Fredoka One', cursive;
+    position: relative;
+    left: 31rem;
 }
 
 .login-email-div, .login-password-div {

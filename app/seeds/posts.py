@@ -1,7 +1,4 @@
-from unicodedata import category
-
-from sqlalchemy import desc
-from app.models import db, Post, List
+from app.models import db, Post
 
 def seed_posts():
     demo_post1 = Post (

@@ -32,15 +32,6 @@ const PostPage = props => {
         }
     });
 
-    const handleAddList = event => {
-        event.preventDefault();
-
-        const listId = event.target.className.split(' ')[0].split('-')[1];
-
-        dispatch(createListPost(listId, postId))
-        setShowListsToAdd(false);
-    };
-
     const listsToAdd = new Set();
     const postListsSet = new Set();
 
@@ -51,24 +42,39 @@ const PostPage = props => {
     for(let i = 0; i < myLists.length; i++) {
         if(!postListsSet.has(myLists[i].id)) listsToAdd.add(myLists[i]);
     }
+
+    const handleAddList = event => {
+        event.preventDefault();
+
+        const listId = event.target.className.split(' ')[0].split('-')[1];
+
+        dispatch(createListPost(listId, postId))
+        setShowListsToAdd(false);
+    };
+
     
+
     useEffect(() => {
         dispatch(getPosts());
         dispatch(getCategories());
         dispatch(getLists());
         dispatch(getPostLists(postId));
+
         async function fetchData() {
           const response = await fetch('/api/users/');
           const responseData = await response.json();
           setUsers(responseData.users);
         }
         fetchData();
+
         (function () {document.documentElement.scrollTop = 0})();
+
         if(window.location.href.split('/').length === 5) {
           if (window.location.href.split('/')[3] === 'posts') {
             document.getElementById('create-post-button')?.setAttribute('hidden', true);
           }
         }
+
         document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch, postId]);
 
