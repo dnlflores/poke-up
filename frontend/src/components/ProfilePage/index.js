@@ -13,20 +13,26 @@ export default function ProfilePage(props) {
 
     useEffect(() => {
         async function fetchData() {
-        const response = await fetch('/api/users/');
-        const responseData = await response.json();
-        setUsers(responseData.users);
+            const response = await fetch('/api/users/');
+            const responseData = await response.json();
+            setUsers(responseData.users);
         }
+
         fetchData();
         dispatch(getPosts());
-        (function () {document.documentElement.scrollTop = 0})();
+
+        (function () { document.documentElement.scrollTop = 0 })();
+
+        if (window.location.href.split('/').length === 5) {
+            if (window.location.href.split('/')[3] === 'users') {
+                document.getElementById('create-post-button')?.setAttribute('hidden', true);
+            }
+        }
+
+        console.log("WINDOW HREF => ", window.location.href.split('/'))
     }, [dispatch]);
 
     const user = Object.values(users).find(user => user.id === +userId);
-
-    // console.log("USERS => ", users);
-    // console.log("USER ID => ", userId);
-    // console.log("USER => ", Object.values(users).find(user => user.id === +userId));
 
     return (
         <div className="profile-page-container">
@@ -45,7 +51,7 @@ export default function ProfilePage(props) {
                 <div className="similar-posts-div-container">
                     {userPosts?.map(post => (
                         <div className="similar-post-div" key={post.id}>
-                            <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () {document.documentElement.scrollTop = 0}}>
+                            <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () { document.documentElement.scrollTop = 0 }}>
                                 <img src={post.image_url} alt="similar-post" className={`image-post ${post.id}`}></img>
                             </NavLink>
                             <h3 className="similar-post-title">{post.title}</h3>
