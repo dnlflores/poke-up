@@ -37,7 +37,7 @@ const HomePage = ({ posts }) => {
     return (
         <div className='post-container-div'>
             {posts.map(post => (
-                <div>
+                <div key={post.id}>
                     <div className={`post-div ${post.id}`}>
                         <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active'>
                             <img src={post.image_url} alt="post" className={`image-post ${post.id}`}></img>

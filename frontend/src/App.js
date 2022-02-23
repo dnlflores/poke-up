@@ -84,6 +84,18 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <Route>
+          <h2>PAGE NOT FOUND</h2>
+          <h2>PAGE NOT FOUND</h2>
+          <h2>PAGE NOT FOUND</h2>
+          <h2>PAGE NOT FOUND</h2>
+          <h2>PAGE NOT FOUND</h2>
+          <h2>PAGE NOT FOUND</h2>
+          <h2>PAGE NOT FOUND</h2>
+          <h2>PAGE NOT FOUND</h2>
+          <h2>PAGE NOT FOUND</h2>
+          <h2>PAGE NOT FOUND</h2>
+        </Route>
       </Switch>
       <div className="about-links" id="about-links">
         <a href="https://github.com/dnlflores" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub} size="2x" spin /></a>

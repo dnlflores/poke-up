@@ -22,7 +22,18 @@ const CreatePost = (props) => {
 
     useEffect(() => {
         dispatch(getCategories());
-    }, [dispatch]);
+
+        const newErrors = [];
+
+        if(!image) newErrors.push("Please upload an image.");
+        if(!title) newErrors.push("Please enter a title.");
+        if(!description) newErrors.push("Please enter a description of the item.");
+        if(!price) newErrors.push("Please enter a price.");
+        if(!quantity) newErrors.push("Please enter a quantity.");
+        if(!category) newErrors.push("Please choose a category");
+
+        if(newErrors.length > 0) setErrors(newErrors);
+    }, [dispatch, image, title, description, price, quantity, category]);
 
     const updateTitle = event => {
         setTitle(event.target.value);
@@ -51,17 +62,24 @@ const CreatePost = (props) => {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        const newErrors = [];
+        // // console.log("HERES SOME INFO => ", image, title, description, price, quantity, category);
 
-        if(!image) newErrors.push("Please upload an image.");
-        if(!title) newErrors.push("Please enter a title.");
-        if(!description) newErrors.push("Please enter a description of the item.");
-        if(!price) newErrors.push("Please enter a price.");
-        if(!quantity) newErrors.push("Please enter a quantity.");
-        if(!category) newErrors.push("Please choose a category");
+        // const newErrors = [];
 
-        if(newErrors.length) setErrors(newErrors);
-        else {
+        // if(!image) newErrors.push("Please upload an image.");
+        // if(!title) newErrors.push("Please enter a title.");
+        // if(!description) newErrors.push("Please enter a description of the item.");
+        // if(!price) newErrors.push("Please enter a price.");
+        // if(!quantity) newErrors.push("Please enter a quantity.");
+        // if(!category) newErrors.push("Please choose a category");
+
+
+        // if(errors.length > 0) {
+        //     console.log("THIS IS THE NEW ERRORS ARRAY => ", newErrors, newErrors.length);
+        //     setErrors(newErrors);
+        //     console.log("AFTER SET ERRORS IS EXECUTED => ", errors);
+        // }
+        if(!errors.length) {
             const formData = new FormData();
             formData.append("image", image);
 
@@ -92,6 +110,7 @@ const CreatePost = (props) => {
                 console.log("there was an error here is some info", response, response.formData, response.status);
             }
         }
+        console.log("THIS IS THE ERRORS ARRAY => ", errors);
         if (errors.length > 0) setShowErrors(true);
     };
 
@@ -176,10 +195,10 @@ const CreatePost = (props) => {
                         </div>
                         <div className="third-layer-form">
                             <div className="category-div">
-                                <select className="categories" name="categories" form="create-post-form" onChange={updateCategory}>
-                                    <option disabled selected>Category</option>
+                                <select className="categories" name="categories" form="create-post-form" onChange={updateCategory} defaultValue={"DEFAULT"}>
+                                    <option disabled value="DEFAULT">Category</option>
                                     {categories?.map(category => (
-                                        <option value={category.id}>{category.name}</option>
+                                        <option key={category.id} value={category.id}>{category.name}</option>
                                     ))}
                                 </select>
                             </div>
