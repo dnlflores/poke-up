@@ -1,0 +1,58 @@
+.profile-page-container {
+    position: relative;
+    margin-top: 100px;
+    top: 100px;
+}
+
+.upper-profile-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+}
+
+.pro-pic-name-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pro-pic {
+    width: 150px;
+    height: 150px;
+    border: solid blue 5px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+.profile-username {
+    margin-left: 20px;
+    font-family: 'Acme', sans-serif;
+}
+
+.bio-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: solid blue 5px;
+    border-radius: 1rem;
+    padding: 0 30px;
+    background-color: yellow;
+    width: 500px;
+    height: 200px;
+    position: relative;
+    top: 5vh;
+}
+
+.profile-posts-container {
+    padding: 0 30px;
+}
+
+.bio-text {
+    font-family: 'Acme', sans-serif;
+    font-size: 30px;
+}
+
+.profile-bio-text {
+    font-family: 'Architects Daughter', cursive;
+    font-size: 20px;
+}

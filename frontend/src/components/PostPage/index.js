@@ -124,7 +124,7 @@ const PostPage = props => {
                     <h2>Similar Items</h2>
                     <div className="similar-posts-div-container">
                         {similarPosts?.map(post => (
-                            <div className="similar-post-div">
+                            <div className="similar-post-div" key={post.id}>
                                 <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () {document.documentElement.scrollTop = 0}}>
                                     <img src={post.image_url} alt="similar-post" className={`image-post ${post.id}`}></img>
                                 </NavLink>
@@ -138,7 +138,7 @@ const PostPage = props => {
                     <h2>More Items From This PokéSeller</h2>
                     <div className="more-posts-div-container">
                         {otherSellerPosts?.map(post => (
-                            <div className="more-post-div">
+                            <div className="more-post-div" key={post.id}>
                                 <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () {document.documentElement.scrollTop = 0}}>
                                     <img src={post.image_url} alt="more-post" className={`image-post ${post.id}`}></img>
                                 </NavLink>
