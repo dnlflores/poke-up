@@ -6,6 +6,9 @@
     width: 100vw;
     height: 100vh;
     z-index: 150;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .create-post-div {
@@ -13,8 +16,6 @@
     position: relative;
     width: 700px;
     height: 500px;
-    left: 35vh;
-    top: 15vh;
     border: 3px solid blue;
     border-radius: 1rem;
     font-family: 'Fredoka One', cursive;

@@ -8,15 +8,6 @@
     z-index: 101;
 }
 
-.edit-post-div {
-    background-color: yellow;
-    position: relative;
-    width: 700px;
-    height: 500px;
-    left: 40vh;
-    top: 8vh;
-}
-
 .edit-form-div {
     display: flex;
     flex-direction: column;

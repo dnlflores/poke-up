@@ -159,6 +159,7 @@ const CreatePost = (props) => {
                                     className="price-input"
                                     onChange={updatePrice}
                                     value={price}
+                                    placeholder="0"
                                 ></input>
                             </div>
                             <div className="quantity-div">
@@ -169,6 +170,7 @@ const CreatePost = (props) => {
                                     className="quantity-input"
                                     onChange={updateQuantity}
                                     value={quantity}
+                                    placeholder="0"
                                 ></input>
                             </div>
                         </div>
