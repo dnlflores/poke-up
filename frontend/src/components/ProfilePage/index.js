@@ -29,7 +29,6 @@ export default function ProfilePage(props) {
             }
         }
 
-        console.log("WINDOW HREF => ", window.location.href.split('/'))
     }, [dispatch]);
 
     const user = Object.values(users).find(user => user.id === +userId);

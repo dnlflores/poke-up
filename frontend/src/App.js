@@ -5,8 +5,6 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
 import HomePage from './components/HomePage';
 import ListsPage from './components/ListsPage';
 import PostPage from './components/PostPage';
@@ -80,14 +78,8 @@ function App() {
         <ProtectedRoute path='/lists/:id' exact={true} >
           <ListPostPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
         <ProtectedRoute path='/lists' exact={true} >
           <ListsPage />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
         </ProtectedRoute>
         <Route>
           <PageNotFound />
