@@ -105,8 +105,12 @@ const PostPage = props => {
                     <div className="seller-container">
                         <div className="line-div-2"></div>
                         <div className="line-div-3"></div>
-                        <img src={seller?.profile_pic_url} alt="seller-profile" className="seller-profile-pic"></img>
-                        <h2 className='seller-username'>{seller?.username}</h2>
+                        <NavLink to={`/users/${seller?.id}`}>
+                            <img src={seller?.profile_pic_url} alt="seller-profile" className="seller-profile-pic" onClick={event => document.getElementById("about-links").setAttribute("style", "display: flex")}></img>
+                        </NavLink>
+                        <h2 className='seller-username' onClick={event => document.getElementById("about-links").setAttribute("style", "display: flex")}>
+                            <NavLink to={`/users/${seller?.id}`}>{seller?.username}</NavLink>
+                        </h2>
                     </div>
                 </div>
             </div>

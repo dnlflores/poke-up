@@ -12,6 +12,7 @@ import ListsPage from './components/ListsPage';
 import PostPage from './components/PostPage';
 import ListPostPage from './components/ListPostPage';
 import PageNotFound from './components/PageNotFound';
+import ProfilePage from './components/ProfilePage';
 import { authenticate } from './store/session';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -72,6 +73,9 @@ function App() {
         </Route>
         <Route path='/posts/:id' exact={true}>
           <PostPage />
+        </Route>
+        <Route path='/users/:userId' exact={true}>
+          <ProfilePage />
         </Route>
         <ProtectedRoute path='/lists/:id' exact={true} >
           <ListPostPage />

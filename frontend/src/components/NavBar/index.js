@@ -41,12 +41,18 @@ const NavBar = () => {
             {user && (
               <div>
                 <div className="upper-dropdown">
-                  <img
-                    className="nav-avatar"
-                    src={user.profile_pic_url}
-                    alt="user-profile"
-                  />
-                  <label className="dropdown-username">{user.username}</label>
+                  
+                  <NavLink to={`/users/${user?.id}`}>
+                    <img
+                      className="nav-avatar"
+                      src={user.profile_pic_url}
+                      alt="user-profile"
+                      onClick={event => setUserDrop(false)}
+                    />
+                  </NavLink>
+                  <label className="dropdown-username" onClick={event => setUserDrop(false)}>
+                    <NavLink to={`/users/${user?.id}`}>{user.username}</NavLink>
+                  </label>
                 </div>
                 <div className="lower-dropdown">
                   <label className="dropdown-email">{user.email}</label>

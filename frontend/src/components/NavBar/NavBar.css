@@ -19,7 +19,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 150;
+    z-index: 100;
 }
 
 .site-title {
@@ -107,10 +107,14 @@ nav {
     justify-content: space-around;
 }
 
-.dropdown-username {
+.dropdown-username > a,
+.dropdown-username > a:visited{
     margin: 20px 0px;
     position: relative;
     right: 60px;
+    top: 15px;
+    color: yellow;
+    text-decoration: none;
 }
 
 .dropdown-email {
@@ -121,6 +125,10 @@ nav {
     width: 60px;
     height: 30px;
     font-size: 13px;
+    padding: 0px;
+    position: absolute;
+    right: 90px;
+    top: 100px;
 }
 
 #create-post-button,

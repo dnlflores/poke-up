@@ -197,3 +197,9 @@ h2.seller-username {
     display: flex;
     flex-direction: column;
 }
+
+.seller-username > a,
+.seller-username > a:visited {
+    text-decoration: none;
+    color: black;
+}
