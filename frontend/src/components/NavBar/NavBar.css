@@ -19,7 +19,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 150;
 }
 
 .site-title {
@@ -61,6 +61,8 @@ nav {
     top: 2vh;
     right: 1vw;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .categories-container {
@@ -90,7 +92,7 @@ nav {
     color: yellow;
     text-shadow: 2px 2px 4px blue;
     font-family: "Architects Daughter", cursive;
-    z-index: 200;
+    z-index: 250;
 }
 
 .nav-avatar {
@@ -119,15 +121,6 @@ nav {
     width: 60px;
     height: 30px;
     font-size: 13px;
-    padding: 0px;
-    position: absolute;
-    right: 90px;
-    top: 100px;
-}
-
-.signup-button {
-    position: relative;
-    bottom: 11px;
 }
 
 #create-post-button,
@@ -142,4 +135,12 @@ nav {
     transition: all ease-in-out;
     text-shadow: 2px 2px 4px blue;
     z-index: 101;
+}
+
+.user-drop-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, 0.2);
 }

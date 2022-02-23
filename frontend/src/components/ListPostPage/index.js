@@ -33,24 +33,27 @@ const ListPostPage = props => {
     }, [dispatch, listId])
 
     return (
-        <div className="list-post-container">
+        <div>
             <h2 className='list-post-page-title'>{list?.name}</h2>
-            {posts?.map(post => (
-                <div className='list-post-div' key={post.id} onClick={event => history.push(`/posts/${post?.id}`)}>
-                    <img src={`${post?.image_url}`} alt="post" className='list-post-image'></img>
-                    <h2 className='list-post-title'>{post?.title}</h2>
-                    <label className='list-post-price'>${post?.price?.toLocaleString("en-US")}</label>
-                    <NavLink to={`/posts/${post?.id}`} exact={true} activeClassName="active" className="arrow-link link-post"><span className="material-icons arrow-icon">arrow_forward_ios</span></NavLink>
-                    <button className={`button-default-cancel remove-list-post ${post?.id}`} onClick={handleRemove}>Remove</button>
-                </div>
-            ))}
-            {posts?.length === 0 && (
-                    <div>
-                        <h2 className="empty-page-text 1">No Posts yet!</h2>
-                        <h2 className="empty-page-text 2">Try adding some!</h2>
-                        <img src="https://pokeup.s3.us-west-1.amazonaws.com/toppng.com-okemon-characters-png-download-image-pokemon-pikachu-980x490.png" alt="starters-together" className="empty-page-pic"></img>
+            <div className="list-post-container">
+                {posts?.map(post => (
+                    <div className='list-post-div' key={post.id}>
+                        <div className="list-post-background"  onClick={event => history.push(`/posts/${post?.id}`)}/>
+                        <img src={`${post?.image_url}`} alt="post" className='list-post-image'></img>
+                        <h2 className='list-post-title'>{post?.title}</h2>
+                        <label className='list-post-price'>${post?.price?.toLocaleString("en-US")}</label>
+                        <NavLink to={`/posts/${post?.id}`} exact={true} activeClassName="active" className="arrow-link link-post"><span className="material-icons arrow-icon">arrow_forward_ios</span></NavLink>
+                        <button className={`button-default-cancel remove-list-post ${post?.id}`} onClick={handleRemove}>Remove</button>
                     </div>
-                )}
+                ))}
+            </div>
+            {posts?.length === 0 && (
+                <div>
+                    <h2 className="empty-page-text 1">No Posts yet!</h2>
+                    <h2 className="empty-page-text 2">Try adding some!</h2>
+                    <img src="https://pokeup.s3.us-west-1.amazonaws.com/toppng.com-okemon-characters-png-download-image-pokemon-pikachu-980x490.png" alt="starters-together" className="empty-page-pic"></img>
+                </div>
+            )}
         </div>
     )
 };

@@ -1,9 +1,12 @@
 .list-post-container {
     position: relative;
-    top: 40vh;
+    top: 20vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 15px;
+    width: 70vw;
+    margin-left: 12vw;
 }
 
 .list-post-image {
@@ -32,11 +35,11 @@
 }
 
 h2.list-post-page-title {
-    font-family: 'Acme', sans-serif;
+    position: relative;
+    top: 150px;
     font-size: 60px;
-    position: absolute;
-    left: 5vw;
-    top: -150px;
+    margin-left: 150px;
+    font-family: 'Acme', sans-serif;
 }
 
 .list-post-title {
@@ -61,4 +64,26 @@ button.remove-list-post {
     position: absolute;
     top: 17vh;
     left: 14.5vw;
+}
+
+.list-post-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+}
+
+.list-post-image,
+.list-post-price,
+.list-post-title,
+.link-post,
+.remove-list-post{
+    z-index: 100;
+}
+
+
+.list-post-title,
+.list-post-price,
+.remove-list-post{
+    margin-left: 40px;
 }

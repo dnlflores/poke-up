@@ -192,7 +192,7 @@ const EditPost = (props) => {
                             </div>
                         </div>
                         <div className="form-buttons">
-                            <button className="submit-post-button button-default" type="submit">Submit Post</button>
+                            <button className="submit-post-button button-default" type="submit">Submit Edit</button>
                             <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
                         </div>
                     </div>

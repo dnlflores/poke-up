@@ -53,7 +53,8 @@ const ListsPage = props => {
             <div className="list-container">
                 {lists?.map(list => (
                     <div key={list.id}>
-                        <div className="list-div" onClick={event => history.push(`/lists/${list.id}`)}>
+                        <div className="list-div">
+                            <div className="list-background" onClick={event => history.push(`/lists/${list.id}`)} />
                             <img src={list.image_url} alt="list-cover" className="list-cover-image"></img>
                             <div className="title-buttons-div">
                                 <h2 className="list-title">{list.name}</h2>

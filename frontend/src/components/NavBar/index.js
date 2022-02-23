@@ -34,26 +34,29 @@ const NavBar = () => {
   return (
     <div className="nav-bar-div" id="nav-bar">
     {userDrop && (
-      <div className="user-dropdown">
-        <div className="user-info">
-          {user && (
-            <div>
-              <div className="upper-dropdown">
-                <img
-                  className="nav-avatar"
-                  src={user.profile_pic_url}
-                  alt="user-profile"
-                />
-                <label className="dropdown-username">{user.username}</label>
+      <>
+        <div className="user-drop-background" onClick={event => setUserDrop(false)} />
+        <div className="user-dropdown">
+          <div className="user-info">
+            {user && (
+              <div>
+                <div className="upper-dropdown">
+                  <img
+                    className="nav-avatar"
+                    src={user.profile_pic_url}
+                    alt="user-profile"
+                  />
+                  <label className="dropdown-username">{user.username}</label>
+                </div>
+                <div className="lower-dropdown">
+                  <label className="dropdown-email">{user.email}</label>
+                </div>
               </div>
-              <div className="lower-dropdown">
-                <label className="dropdown-email">{user.email}</label>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
+          <LogoutButton trigger={userDrop} setTrigger={setUserDrop}/>
         </div>
-        <LogoutButton trigger={userDrop} setTrigger={setUserDrop}/>
-      </div>
+      </>
     )}
       <div className='upper-nav-div'>
         <h2 className="background-title">PokéUp</h2>
