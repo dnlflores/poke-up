@@ -3,7 +3,7 @@
     top: 15vh;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 15px;
     width: 70vw;
     margin-left: 12vw;
@@ -80,6 +80,7 @@ span.arrow-icon {
 }
 
 button#create-list-button {
+    position: fixed;
     top: 80vh;
     right: 7vw;
 }

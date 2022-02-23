@@ -1,6 +1,6 @@
 .list-post-container {
     position: relative;
-    top: 30vh;
+    top: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,6 +29,14 @@
     box-shadow: 5px 5px 4px rgba(0,0,0,0.5);
     position: relative;
     margin: 15px;
+}
+
+h2.list-post-page-title {
+    font-family: 'Acme', sans-serif;
+    font-size: 60px;
+    position: absolute;
+    left: 5vw;
+    top: -150px;
 }
 
 .list-post-title {

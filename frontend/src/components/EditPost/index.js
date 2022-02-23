@@ -22,7 +22,17 @@ const EditPost = (props) => {
 
     useEffect(() => {
         dispatch(getCategories());
-    }, [dispatch]);
+
+        const newErrors = [];
+
+        if(title.length > 20) newErrors.push("Title must be less than 20 characters!");
+        if(+quantity > 1000) newErrors.push("Quantity is too large. Must be lower than 1,000!");
+        if(+quantity < 0) newErrors.push("Quantity must be greater than 0!");
+        if(+price < 0) newErrors.push("Price must be greater than or equal to $0!");
+        if(+price > 1000000000) newErrors.push("Price must be less than $1,000,000,000!");
+
+        setErrors(newErrors);
+    }, [dispatch, title, quantity, price]);
 
     const updateTitle = event => {
         setTitle(event.target.value);
@@ -51,13 +61,7 @@ const EditPost = (props) => {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        const newErrors = [];
-
-        if(newErrors.length) {
-            setErrors(newErrors);
-            setShowErrors(true);
-        }
-        else {
+        if(!errors.length){
             const formData = new FormData();
             formData.append("image", image);
 
@@ -86,7 +90,7 @@ const EditPost = (props) => {
 
                 console.log("there was an error here is some info", response, response.formData, response.status);
             }
-        }
+        } else setShowErrors(true);
     };
 
     const handlePicture = event => {
@@ -168,10 +172,10 @@ const EditPost = (props) => {
                         </div>
                         <div className="third-layer-form">
                             <div className="category-div">
-                                <select className="categories" name="categories" form="create-post-form" onChange={updateCategory}>
-                                    <option disabled selected>Category</option>
+                                <select className="categories" name="categories" form="create-post-form" onChange={updateCategory} defaultValue={"DEFAULT"}>
+                                    <option disabled value={"DEFAULT"}>Category</option>
                                     {categories?.map(category => (
-                                        <option value={category.id}>{category.name}</option>
+                                        <option key={category.id} value={category.id}>{category.name}</option>
                                     ))}
                                 </select>
                             </div>

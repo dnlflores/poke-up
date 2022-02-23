@@ -23,16 +23,30 @@ const CreatePost = (props) => {
     useEffect(() => {
         dispatch(getCategories());
 
-        const newErrors = [];
+        let newErrors = [];
 
-        if(!image) newErrors.push("Please upload an image.");
+        if(!image) {
+            console.log("here?? => ", image);
+            newErrors.push("Please upload an image.");
+        }
         if(!title) newErrors.push("Please enter a title.");
         if(!description) newErrors.push("Please enter a description of the item.");
         if(!price) newErrors.push("Please enter a price.");
         if(!quantity) newErrors.push("Please enter a quantity.");
         if(!category) newErrors.push("Please choose a category");
+        if(title.length < 3) newErrors.push("Title must be longer than 3 characters!");
+        if(title.length > 20) newErrors.push("Title must be less than 20 characters!");
+        if(+quantity > 1000) newErrors.push("Quantity is too large. Must be lower than 1,000!");
+        if(+quantity < 0) newErrors.push("Quantity must be greater than 0!");
+        if(+price < 0) newErrors.push("Price must be greater than or equal to $0!");
+        if(+price > 1000000000) newErrors.push("Price must be less than $1,000,000,000!");
 
-        if(newErrors.length > 0) setErrors(newErrors);
+        if(newErrors.length > 0) {
+            setErrors(newErrors);
+            newErrors = [];
+        }
+
+        console.log("IMAGE => ", image);
     }, [dispatch, image, title, description, price, quantity, category]);
 
     const updateTitle = event => {
@@ -62,24 +76,9 @@ const CreatePost = (props) => {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        // // console.log("HERES SOME INFO => ", image, title, description, price, quantity, category);
+        console.log("THESE ARE ERRORS => ", errors)
 
-        // const newErrors = [];
-
-        // if(!image) newErrors.push("Please upload an image.");
-        // if(!title) newErrors.push("Please enter a title.");
-        // if(!description) newErrors.push("Please enter a description of the item.");
-        // if(!price) newErrors.push("Please enter a price.");
-        // if(!quantity) newErrors.push("Please enter a quantity.");
-        // if(!category) newErrors.push("Please choose a category");
-
-
-        // if(errors.length > 0) {
-        //     console.log("THIS IS THE NEW ERRORS ARRAY => ", newErrors, newErrors.length);
-        //     setErrors(newErrors);
-        //     console.log("AFTER SET ERRORS IS EXECUTED => ", errors);
-        // }
-        if(!errors.length) {
+        // if(!errors.length) {
             const formData = new FormData();
             formData.append("image", image);
 
@@ -109,8 +108,8 @@ const CreatePost = (props) => {
 
                 console.log("there was an error here is some info", response, response.formData, response.status);
             }
-        }
-        console.log("THIS IS THE ERRORS ARRAY => ", errors);
+        // }
+        
         if (errors.length > 0) setShowErrors(true);
     };
 

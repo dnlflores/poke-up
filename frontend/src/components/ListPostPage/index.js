@@ -1,13 +1,16 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import './ListPostPage.css'
+import { useParams, NavLink, useHistory } from 'react-router-dom';
 import { getListPosts, removeListPost } from '../../store/post-list';
-import { useParams, NavLink } from 'react-router-dom';
+import { getLists } from '../../store/list';
+import './ListPostPage.css'
 
 const ListPostPage = props => {
     const { id: listId } = useParams()
     const dispatch = useDispatch();
+    const history = useHistory();
     const posts = useSelector(state => Object.values(state.listPosts));
+    const list = useSelector(state => Object.values(state.lists).find(list => list.id === +listId))
 
     const handleRemove = event => {
         event.preventDefault();
@@ -19,6 +22,8 @@ const ListPostPage = props => {
 
     useEffect(() => {
         dispatch(getListPosts(listId));
+        dispatch(getLists());
+
         if(window.location.href.split('/').length > 3) {
           if (window.location.href.split('/')[3] === 'lists') {
             document.getElementById('create-post-button').setAttribute('hidden', true);
@@ -29,8 +34,9 @@ const ListPostPage = props => {
 
     return (
         <div className="list-post-container">
+            <h2 className='list-post-page-title'>{list?.name}</h2>
             {posts?.map(post => (
-                <div className='list-post-div'>
+                <div className='list-post-div' key={post.id} onClick={event => history.push(`/posts/${post?.id}`)}>
                     <img src={`${post?.image_url}`} alt="post" className='list-post-image'></img>
                     <h2 className='list-post-title'>{post?.title}</h2>
                     <label className='list-post-price'>${post?.price?.toLocaleString("en-US")}</label>
