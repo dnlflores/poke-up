@@ -41,7 +41,7 @@ export default function ProfilePage(props) {
                 </div>
             </div>
             <div className="similar-posts-container profile-posts-container">
-                <h2>Items From This PokéSeller</h2>
+                <h2 className="profile-posts-title">Items From This PokéSeller</h2>
                 <div className="similar-posts-div-container">
                     {userPosts?.map(post => (
                         <div className="similar-post-div" key={post.id}>
