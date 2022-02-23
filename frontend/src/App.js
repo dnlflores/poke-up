@@ -11,6 +11,7 @@ import HomePage from './components/HomePage';
 import ListsPage from './components/ListsPage';
 import PostPage from './components/PostPage';
 import ListPostPage from './components/ListPostPage';
+import PageNotFound from './components/PageNotFound';
 import { authenticate } from './store/session';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -85,16 +86,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route>
-          <h2>PAGE NOT FOUND</h2>
-          <h2>PAGE NOT FOUND</h2>
-          <h2>PAGE NOT FOUND</h2>
-          <h2>PAGE NOT FOUND</h2>
-          <h2>PAGE NOT FOUND</h2>
-          <h2>PAGE NOT FOUND</h2>
-          <h2>PAGE NOT FOUND</h2>
-          <h2>PAGE NOT FOUND</h2>
-          <h2>PAGE NOT FOUND</h2>
-          <h2>PAGE NOT FOUND</h2>
+          <PageNotFound />
         </Route>
       </Switch>
       <div className="about-links" id="about-links">

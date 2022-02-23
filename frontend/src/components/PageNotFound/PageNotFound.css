@@ -1,0 +1,28 @@
+#pikachu-confused-img,
+#psyduck-confused-img {
+    height: 400px;
+}
+
+.page-not-found-container {
+    height: 65vh;
+}
+
+#page-not-found-title {
+    position: fixed;
+    top: 50vh;
+    left: 40vw;
+    font-family: 'Acme', sans-serif;
+    font-size: 30px;
+}
+
+#pikachu-confused-img {
+    position: fixed;
+    top: 30vh;
+    left: 5vw;
+}
+
+#psyduck-confused-img {
+    position: fixed;
+    right: 5vw;
+    top: 30vh;
+}
