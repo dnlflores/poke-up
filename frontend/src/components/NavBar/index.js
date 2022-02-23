@@ -64,13 +64,21 @@ const NavBar = () => {
         </h2>
         {user && (
           <div className="nav-buttons-div">
-              <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
-                <button className="button-pokeball nav-buttons">
-                  Lists
-                </button>
-              </NavLink>
+            <NavLink to='/inbox' exact={true} activeClassName='active' className="nav-link">
+              <button className="button-pokeball nav-buttons">
+                Inbox
+              </button>
+            </NavLink>
+            <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
+              <button className="button-pokeball nav-buttons">
+                Lists
+              </button>
+            </NavLink>
             <button onClick={handleProfile} className='button-pokeball nav-buttons'>
               Profile
+            </button>
+            <button className="create-button button-pokeball" id="create-post-button" onClick={handleCreate}>
+              Create Post!
             </button>
           </div>
         )}
@@ -94,9 +102,6 @@ const NavBar = () => {
       </nav>
       {createButtonPopup && (
           <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
-      )}
-      {user && (
-          <button className="create-button button-pokeball" id="create-post-button" onClick={handleCreate}>Create Post!</button>
       )}
     </div>
   );

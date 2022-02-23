@@ -35,18 +35,6 @@
     bottom: 25px;
 }
 
-.create-button {
-    position: fixed;
-    top: 1vh;
-    right: 15vw;
-    font-family: 'Fredoka One', cursive;
-    font-size: 28px;
-    color: yellow;
-    transition: all ease-in-out;
-    text-shadow: 2px 2px 4px blue;
-    z-index: 101;
-}
-
 .background-create-text {
     position: fixed;
     bottom: 72px;

@@ -55,7 +55,7 @@ button {
 .about-links {
     display: flex;
     position: absolute;
-    bottom: 0;
+    bottom: -200px;
     right: 35vw;
     justify-content: space-around;
     width: 300px;

@@ -5,9 +5,8 @@ import { getPosts, removePost } from '../../store/post';
 import EditPost from '../EditPost';
 import './HomePage.css';
 
-const HomePage = () => {
+const HomePage = ({ posts }) => {
     const dispatch = useDispatch();
-    const posts = useSelector(state => Object.values(state.posts));
     const user = useSelector(state => state.session.user);
     const [editButtonPopup, setEditButtonPopup] = useState(0);
 

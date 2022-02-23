@@ -10,23 +10,25 @@ import User from './components/User';
 import HomePage from './components/HomePage';
 import ListsPage from './components/ListsPage';
 import PostPage from './components/PostPage';
-import PotionsPage from './components/PotionsPage';
-import PokemonPage from './components/PokemonPage';
-import PokeballsPage from './components/PokeballsPage';
-import ClothingPage from './components/ClothingPage';
-import TMPage from './components/TMPage';
-import BerriesPage from './components/BerriesPage';
 import ListPostPage from './components/ListPostPage';
 import { authenticate } from './store/session';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { useSelector } from 'react-redux';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const posts = useSelector(state => Object.values(state.posts));
+  const potionPosts = posts?.filter(post => +post.category_id === 1);
+  const pokemonPosts = posts?.filter(post => +post.category_id === 2);
+  const clothingPosts = posts?.filter(post => +post.category_id === 3);
+  const tmPosts = posts?.filter(post => +post.category_id === 4);
+  const pokeballPosts = posts?.filter(post => +post.category_id === 5);
+  const berryPosts = posts?.filter(post => +post.category_id === 6);
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -47,25 +49,25 @@ function App() {
           <SignUpForm />
         </Route>
         <Route path='/' exact={true}>
-          <HomePage />
+          <HomePage posts={posts}/>
         </Route>
         <Route path='/potions' exact={true}>
-          <PotionsPage />
+          <HomePage posts={potionPosts}/>
         </Route>
         <Route path='/pokémon' exact={true}>
-          <PokemonPage />
+          <HomePage posts={pokemonPosts}/>
         </Route>
         <Route path='/clothing' exact={true}>
-          <ClothingPage />
+          <HomePage posts={clothingPosts}/>
         </Route>
         <Route path='/tm' exact={true}>
-          <TMPage />
+          <HomePage posts={tmPosts} />
         </Route>
         <Route path='/pokéballs' exact={true}>
-          <PokeballsPage />
+          <HomePage posts={pokeballPosts}/>
         </Route>
         <Route path='/berries' exact={true}>
-          <BerriesPage />
+          <HomePage posts={berryPosts}/>
         </Route>
         <Route path='/posts/:id' exact={true}>
           <PostPage />
@@ -74,7 +76,7 @@ function App() {
           <ListPostPage />
         </ProtectedRoute>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/lists' exact={true} >
           <ListsPage />
@@ -84,8 +86,8 @@ function App() {
         </ProtectedRoute>
       </Switch>
       <div className="about-links" id="about-links">
-          <a href="https://github.com/dnlflores" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub} size="2x" spin /></a>
-          <a href="https://www.linkedin.com/in/daniel-flores-764a0b21b/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} size="2x" spin /></a>
+        <a href="https://github.com/dnlflores" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub} size="2x" spin /></a>
+        <a href="https://www.linkedin.com/in/daniel-flores-764a0b21b/" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faLinkedin} size="2x" spin /></a>
       </div>
     </BrowserRouter>
   );

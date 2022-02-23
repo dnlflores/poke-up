@@ -58,7 +58,9 @@ nav {
 
 .nav-buttons-div {
     position: fixed;
-    right: 20px;
+    top: 2vh;
+    right: 1vw;
+    display: flex;
 }
 
 .categories-container {
@@ -131,4 +133,13 @@ nav {
 #create-post-button,
 #create-list-button {
     font-size: 20px;
+}
+
+.create-button {
+    font-family: 'Fredoka One', cursive;
+    font-size: 28px;
+    color: yellow;
+    transition: all ease-in-out;
+    text-shadow: 2px 2px 4px blue;
+    z-index: 101;
 }
