@@ -1,11 +1,12 @@
 import { useParams, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getPosts } from '../../store/post';
-import './ProfilePage.css'
+import { getPosts, removePost } from '../../store/post';
+import { updateUser } from '../../store/session';
+import EditPost from '../EditPost';
 import EditBio from '../EditBio';
 import EditProPic from '../EditProPic';
-import { updateUser } from '../../store/session';
+import './ProfilePage.css'
 
 export default function ProfilePage(props) {
     const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export default function ProfilePage(props) {
     const [showPicEditButton, setShowPicEditButton] = useState(false);
     const [editBioButtonPopup, setEditBioButtonPopup] = useState(false);
     const [editProPicButtonPopup, setEditProPicButtonPopup] = useState(false);
+    const [editButtonPopup, setEditButtonPopup] = useState(0);
     const posts = useSelector(state => Object.values(state.posts));
     const currentUser = useSelector(state => state.session.user);
     const profileUserPosts = posts.filter(post => post.user_id === +userId);
@@ -37,9 +39,26 @@ export default function ProfilePage(props) {
                 document.getElementById('create-post-button')?.setAttribute('hidden', true);
             }
         }
-
+        
         document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch, currentUser]);
+
+
+    const handleDelete = event => {
+        event.preventDefault();
+
+        const postId = event.target.className.split('-')[2].split(' ')[0];
+
+        dispatch(removePost(postId));
+    };
+
+    const handleEdit = event => {
+        event.preventDefault();
+        
+        const postId = event.target.className.split('-')[2].split(' ')[0];
+
+        setEditButtonPopup(postId);
+    };
 
     return (
         <div className="profile-page-container">
@@ -71,8 +90,21 @@ export default function ProfilePage(props) {
                                 <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () { document.documentElement.scrollTop = 0 }}>
                                     <img src={post.image_url} alt="similar-post" className={`image-post ${post.id}`}></img>
                                 </NavLink>
-                                <h3 className="similar-post-title">{post.title}</h3>
-                                <label className="similar-post-price">${post.price.toLocaleString("en-US")}</label>
+                                <div className='profile-posts-info-div'>
+                                    <div>
+                                        <h3 className="similar-post-title">{post.title}</h3>
+                                        <label className="similar-post-price">${post.price.toLocaleString("en-US")}</label>
+                                    </div>
+                                    {currentUser?.id === post.user_id && (
+                                        <div>
+                                            <button onClick={handleDelete}><span className={`delete-post-${post.id} material-icons`}>delete_forever</span></button>
+                                            <button onClick={handleEdit}><span className={`edit-post-${post.id} material-icons`}>edit</span></button>
+                                        </div>
+                                    )}
+                                </div>
+                                {+editButtonPopup === post.id && (
+                                    <EditPost post={post} trigger={editButtonPopup} setTrigger={setEditButtonPopup} />
+                                )}
                             </div>
                         ))}
                     </div>

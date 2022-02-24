@@ -76,3 +76,9 @@
     bottom: 0;
     left: 180px;
 }
+
+.profile-posts-info-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
