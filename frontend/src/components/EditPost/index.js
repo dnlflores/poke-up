@@ -138,14 +138,13 @@ const EditPost = (props) => {
                             </div>
                             <div className="description-div">
                                 <label>Description</label>
-                                <input
-                                    type="text"
+                                <textarea
                                     name="description"
                                     className="description-input"
                                     onChange={updateDescription}
                                     value={description}
                                     placeholder="Description"
-                                ></input>
+                                ></textarea>
                             </div>
                         </div>
                         <div className="second-layer-form">

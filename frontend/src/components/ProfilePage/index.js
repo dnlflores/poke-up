@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPosts } from '../../store/post';
 import './ProfilePage.css'
+import EditBio from '../EditBio';
+import EditProPic from '../EditProPic';
+import { updateUser } from '../../store/session';
 
 export default function ProfilePage(props) {
     const dispatch = useDispatch();
@@ -10,9 +13,12 @@ export default function ProfilePage(props) {
     const [users, setUsers] = useState([]);
     const [showBioEditButton, setShowBioEditButton] = useState(false);
     const [showPicEditButton, setShowPicEditButton] = useState(false);
+    const [editBioButtonPopup, setEditBioButtonPopup] = useState(false);
+    const [editProPicButtonPopup, setEditProPicButtonPopup] = useState(false);
     const posts = useSelector(state => Object.values(state.posts));
     const currentUser = useSelector(state => state.session.user);
     const profileUserPosts = posts.filter(post => post.user_id === +userId);
+    const profileUser = Object.values(users).find(user => user.id === +userId);
 
     useEffect(() => {
         async function fetchData() {
@@ -23,7 +29,7 @@ export default function ProfilePage(props) {
 
         fetchData();
         dispatch(getPosts());
-
+        dispatch(updateUser(currentUser));
         (function () { document.documentElement.scrollTop = 0 })();
 
         if (window.location.href.split('/').length === 5) {
@@ -32,9 +38,7 @@ export default function ProfilePage(props) {
             }
         }
 
-    }, [dispatch]);
-
-    const profileUser = Object.values(users).find(user => user.id === +userId);
+    }, [dispatch, currentUser]);
 
     return (
         <div className="profile-page-container">
@@ -43,14 +47,14 @@ export default function ProfilePage(props) {
                     <img src={profileUser?.profile_pic_url} alt="user-profile" className="pro-pic"></img>
                     <h1 className="profile-username">{profileUser?.username}</h1>
                     {profileUser?.id === currentUser?.id && showPicEditButton && (
-                        <button className='button-default edit-pro-pic-button'>Edit</button>
+                        <button className='button-default edit-pro-pic-button' onClick={event => setEditProPicButtonPopup(true)}>Edit</button>
                     )}
                 </div>
                 <div className="bio-div" onMouseEnter={event => setShowBioEditButton(true)} onMouseLeave={event => setShowBioEditButton(false)}>
                     <h2 className="bio-text">Bio</h2>
                     <p className="profile-bio-text">{profileUser?.description}</p>
                     {profileUser?.id === currentUser?.id && showBioEditButton && (
-                        <button className='button-default edit-bio-button'>Edit</button>
+                        <button className='button-default edit-bio-button' onClick={event => setEditBioButtonPopup(true)}>Edit</button>
                     )}
                 </div>
             </div>
@@ -68,6 +72,12 @@ export default function ProfilePage(props) {
                     ))}
                 </div>
             </div>
+            {editBioButtonPopup && (
+                <EditBio user={currentUser} trigger={editBioButtonPopup} setTrigger={setEditBioButtonPopup} />
+            )}
+            {editProPicButtonPopup && (
+                <EditProPic user={currentUser} trigger={editProPicButtonPopup} setTrigger={setEditProPicButtonPopup} />
+            )}
         </div>
     )
 }

@@ -70,3 +70,14 @@ button {
 #root {
     position: relative;
 }
+
+textarea {
+    font-size: 15px;
+    border: none;
+    appearance: none;
+    outline: none;
+    border-radius: 1rem;
+    font-family: 'Architects Daughter', cursive;
+    padding-left: 10px;
+    background-color: rgba(235, 220, 21, 0.432);
+}

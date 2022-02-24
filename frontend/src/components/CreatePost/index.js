@@ -17,7 +17,6 @@ const CreatePost = (props) => {
     const [showErrors, setShowErrors] = useState(false);
     const user = useSelector(state => state.session.user);
     const categories = useSelector(state => Object.values(state.categories))
-
     const [imageLoading, setImageLoading] = useState(false);
 
     useEffect(() => {
@@ -26,7 +25,6 @@ const CreatePost = (props) => {
         let newErrors = [];
 
         if(!image) {
-            console.log("here?? => ", image);
             newErrors.push("Please upload an image.");
         }
         if(!title) newErrors.push("Please enter a title.");
@@ -46,7 +44,6 @@ const CreatePost = (props) => {
             newErrors = [];
         }
 
-        console.log("IMAGE => ", image);
     }, [dispatch, image, title, description, price, quantity, category]);
 
     const updateTitle = event => {
@@ -75,8 +72,6 @@ const CreatePost = (props) => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-
-        console.log("THESE ARE ERRORS => ", errors)
 
         // if(!errors.length) {
             const formData = new FormData();
@@ -158,14 +153,13 @@ const CreatePost = (props) => {
                             </div>
                             <div className="description-div">
                                 <label>Description</label>
-                                <input
-                                    type="text"
+                                <textarea
                                     name="description"
                                     className="description-input"
                                     onChange={updateDescription}
                                     value={description}
                                     placeholder="Description"
-                                ></input>
+                                ></textarea>
                             </div>
                         </div>
                         <div className="second-layer-form">

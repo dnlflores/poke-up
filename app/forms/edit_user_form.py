@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField
+from wtforms import TextAreaField
 
 class EditUserForm(FlaskForm):
-    description = StringField("Description")
+    description = TextAreaField("Description")

@@ -1,0 +1,13 @@
+.togepi-pic {
+    position: absolute;
+    bottom: -50px;
+    left: 25px;
+    height: 150px;
+}
+
+.celebi-pic {
+    position: absolute;
+    bottom: 75px;
+    right: 50px;
+    height: 200px;
+}

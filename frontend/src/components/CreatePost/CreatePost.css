@@ -5,7 +5,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 100vh;
-    z-index: 150;
+    z-index: 650;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,7 +117,7 @@ button.submit-post-button {
     margin: 5px;
 }
 
-input.description-input {
+.description-input {
     width: 500px;
     height: 70px;
     color: blue;

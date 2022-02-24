@@ -33,7 +33,6 @@
 .bio-div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     border: solid blue 5px;
     border-radius: 1rem;
     padding: 0 30px;
@@ -56,6 +55,8 @@
 .profile-bio-text {
     font-family: 'Architects Daughter', cursive;
     font-size: 20px;
+    position: absolute;
+    top: 60px;
 }
 
 .profile-posts-title {

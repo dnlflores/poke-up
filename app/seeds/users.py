@@ -4,7 +4,7 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@pokeup.com', password='password', description='I am the demo account. Simple.', profile_pic_url="https://pokeup.s3.us-west-1.amazonaws.com/aa+logo.png")
+        username='Demo', email='demo@pokeup.com', password='password', description='This the Demo User. Welcome! Try to edit me by hovering over this box and clicking edit! You can do the same with your profile pic!', profile_pic_url="https://pokeup.s3.us-west-1.amazonaws.com/aa+logo.png")
     pikachu = User(
         username='Pikachu', email='pikachu@pokeup.com', password='password', description="I know I'm a Pokémon, but I'm not selling other Pokémon! I only buy berries and sell my old clothes!", profile_pic_url="https://pokeup.s3.us-west-1.amazonaws.com/pikachu-magnify-glass.jpg")
     java = User(

@@ -103,19 +103,8 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
-export const updateUser = userId => async dispatch => {
-  const response = await fetch(`/users/${userId}`, {
-      method: "PATCH",
-      headers: {
-          "Content-Type": "application/json"
-      }
-  });
-
-  if(response.ok) {
-      const user = await response.json();
-      dispatch(editUser(user));
-      return user;
-  }
+export const updateUser = user => async dispatch => {
+  dispatch(editUser(user))
 }
 
 export default function reducer(state = initialState, action) {
@@ -125,7 +114,8 @@ export default function reducer(state = initialState, action) {
     case REMOVE_USER:
       return { user: null }
     case EDIT_USER:
-      return { user: action.payload}
+      const newState = {user: action.payload};
+      return newState
     default:
       return state;
   }
