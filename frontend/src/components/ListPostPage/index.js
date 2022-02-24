@@ -23,7 +23,7 @@ const ListPostPage = props => {
     useEffect(() => {
         dispatch(getListPosts(listId));
         dispatch(getLists());
-
+        (function () {document.documentElement.scrollTop = 0})();
         if(window.location.href.split('/').length > 3) {
           if (window.location.href.split('/')[3] === 'lists') {
             document.getElementById('create-post-button').setAttribute('hidden', true);
