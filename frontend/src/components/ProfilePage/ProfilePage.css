@@ -14,6 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .pro-pic {
@@ -60,4 +61,16 @@
 .profile-posts-title {
     font-family: 'Acme', sans-serif;
     font-size: 30px;
+}
+
+.edit-bio-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.edit-pro-pic-button {
+    position: absolute;
+    bottom: 25px;
+    right: 10px;
 }

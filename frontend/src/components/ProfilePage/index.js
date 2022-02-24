@@ -8,8 +8,11 @@ export default function ProfilePage(props) {
     const dispatch = useDispatch();
     const { userId } = useParams();
     const [users, setUsers] = useState([]);
+    const [showBioEditButton, setShowBioEditButton] = useState(false);
+    const [showPicEditButton, setShowPicEditButton] = useState(false);
     const posts = useSelector(state => Object.values(state.posts));
-    const userPosts = posts.filter(post => post.user_id === +userId);
+    const currentUser = useSelector(state => state.session.user);
+    const profileUserPosts = posts.filter(post => post.user_id === +userId);
 
     useEffect(() => {
         async function fetchData() {
@@ -31,24 +34,30 @@ export default function ProfilePage(props) {
 
     }, [dispatch]);
 
-    const user = Object.values(users).find(user => user.id === +userId);
+    const profileUser = Object.values(users).find(user => user.id === +userId);
 
     return (
         <div className="profile-page-container">
             <div className="upper-profile-container">
-                <div className="pro-pic-name-div">
-                    <img src={user?.profile_pic_url} alt="user-profile" className="pro-pic"></img>
-                    <h1 className="profile-username">{user?.username}</h1>
+                <div className="pro-pic-name-div" onMouseEnter={event => setShowPicEditButton(true)} onMouseLeave={event => setShowPicEditButton(false)}>
+                    <img src={profileUser?.profile_pic_url} alt="user-profile" className="pro-pic"></img>
+                    <h1 className="profile-username">{profileUser?.username}</h1>
+                    {profileUser?.id === currentUser?.id && showPicEditButton && (
+                        <button className='button-default edit-pro-pic-button'>Edit</button>
+                    )}
                 </div>
-                <div className="bio-div">
+                <div className="bio-div" onMouseEnter={event => setShowBioEditButton(true)} onMouseLeave={event => setShowBioEditButton(false)}>
                     <h2 className="bio-text">Bio</h2>
-                    <p className="profile-bio-text">{user?.description}</p>
+                    <p className="profile-bio-text">{profileUser?.description}</p>
+                    {profileUser?.id === currentUser?.id && showBioEditButton && (
+                        <button className='button-default edit-bio-button'>Edit</button>
+                    )}
                 </div>
             </div>
             <div className="similar-posts-container profile-posts-container">
                 <h2 className="profile-posts-title">Items From This PokéSeller</h2>
                 <div className="similar-posts-div-container">
-                    {userPosts?.map(post => (
+                    {profileUserPosts?.map(post => (
                         <div className="similar-post-div" key={post.id}>
                             <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () { document.documentElement.scrollTop = 0 }}>
                                 <img src={post.image_url} alt="similar-post" className={`image-post ${post.id}`}></img>
