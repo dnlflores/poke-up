@@ -107,6 +107,11 @@ nav {
     justify-content: space-around;
 }
 
+.lower-dropdown {
+    display: flex;
+    justify-content: center;
+}
+
 .dropdown-username > a,
 .dropdown-username > a:visited{
     margin: 20px 0px;
@@ -115,10 +120,6 @@ nav {
     top: 15px;
     color: yellow;
     text-decoration: none;
-}
-
-.dropdown-email {
-    margin-left: 45px;
 }
 
 .logout-button {

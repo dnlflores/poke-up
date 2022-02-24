@@ -38,6 +38,7 @@ export default function ProfilePage(props) {
             }
         }
 
+        document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch, currentUser]);
 
     return (
@@ -61,20 +62,22 @@ export default function ProfilePage(props) {
                     )}
                 </div>
             </div>
-            <div className="similar-posts-container profile-posts-container">
-                <h2 className="profile-posts-title">Items From This PokéSeller</h2>
-                <div className="similar-posts-div-container">
-                    {profileUserPosts?.map(post => (
-                        <div className="similar-post-div" key={post.id}>
-                            <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () { document.documentElement.scrollTop = 0 }}>
-                                <img src={post.image_url} alt="similar-post" className={`image-post ${post.id}`}></img>
-                            </NavLink>
-                            <h3 className="similar-post-title">{post.title}</h3>
-                            <label className="similar-post-price">${post.price.toLocaleString("en-US")}</label>
-                        </div>
-                    ))}
+            {profileUserPosts.length > 0 && (
+                <div className="similar-posts-container profile-posts-container">
+                    <h2 className="profile-posts-title">Items From This PokéSeller</h2>
+                    <div className="similar-posts-div-container">
+                        {profileUserPosts?.map(post => (
+                            <div className="similar-post-div" key={post.id}>
+                                <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active' onClick={function () { document.documentElement.scrollTop = 0 }}>
+                                    <img src={post.image_url} alt="similar-post" className={`image-post ${post.id}`}></img>
+                                </NavLink>
+                                <h3 className="similar-post-title">{post.title}</h3>
+                                <label className="similar-post-price">${post.price.toLocaleString("en-US")}</label>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
             {editBioButtonPopup && (
                 <EditBio user={currentUser} trigger={editBioButtonPopup} setTrigger={setEditBioButtonPopup} />
             )}

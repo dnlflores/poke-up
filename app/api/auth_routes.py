@@ -66,7 +66,8 @@ def sign_up():
             username=form.data['username'],
             email=form.data['email'],
             password=form.data['password'],
-            profile_pic_url="https://pokeup.s3.us-west-1.amazonaws.com/Pokeball-PNG-Photos.png"
+            profile_pic_url="https://pokeup.s3.us-west-1.amazonaws.com/Pokeball-PNG-Photos.png",
+            description="Welcome! Try to edit me by hovering over this box and clicking edit! You can do the same with your profile pic!"
         )
         db.session.add(user)
         db.session.commit()
