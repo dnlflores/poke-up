@@ -1,6 +1,12 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const EDIT_USER = 'users/EDIT_USER';
+
+const editUser = user => ({
+    type: EDIT_USER,
+    payload: user
+});
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -97,12 +103,29 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
+export const updateUser = userId => async dispatch => {
+  const response = await fetch(`/users/${userId}`, {
+      method: "PATCH",
+      headers: {
+          "Content-Type": "application/json"
+      }
+  });
+
+  if(response.ok) {
+      const user = await response.json();
+      dispatch(editUser(user));
+      return user;
+  }
+}
+
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }
     case REMOVE_USER:
       return { user: null }
+    case EDIT_USER:
+      return { user: action.payload}
     default:
       return state;
   }
