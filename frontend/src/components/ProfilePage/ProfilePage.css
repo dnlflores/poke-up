@@ -25,7 +25,8 @@
     object-fit: cover;
 }
 
-.profile-username {
+.profile-username,
+.profile-email {
     margin-left: 20px;
     font-family: 'Acme', sans-serif;
 }
@@ -66,12 +67,12 @@
 
 .edit-bio-button {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
 }
 
 .edit-pro-pic-button {
     position: absolute;
-    bottom: 25px;
-    right: 10px;
+    bottom: 0;
+    right: 135px;
 }

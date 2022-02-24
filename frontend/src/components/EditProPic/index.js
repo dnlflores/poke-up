@@ -7,12 +7,16 @@ export default function EditProPic(props) {
     const dispatch = useDispatch()
     const [image, setImage] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
 
     const handleEditProPic = async event => {
         event.preventDefault();
 
         const formData = new FormData();
         formData.append("image", image);
+        formData.append("name", name);
+        formData.append("email", email);
 
         setImageLoading(true);
 
@@ -51,12 +55,42 @@ export default function EditProPic(props) {
         setImage(event.target.files[0]);
     };
 
+    const updateEmail = event => {
+        setEmail(event.target.value);
+    };
+
+    const updateName = event => {
+        setName(event.target.value);
+    };
+
     return (
         <div className="create-post-background">
             <div className="create-post-div edit-post-div edit-pro-pic-div">
                 <h2 className="create-post-title edit-pro-pic-title">Edit Profile Picture</h2>
                 <form onSubmit={handleEditProPic} id="create-post-form">
                     <div className="create-form-div">
+                        <div className="name-div edit">
+                            <label>Name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                className="name-input"
+                                onChange={updateName}
+                                value={name}
+                                placeholder="Name"
+                            ></input>
+                        </div>
+                        <div className="name-div edit-email">
+                            <label>email</label>
+                            <input
+                                type="text"
+                                name="email"
+                                className="name-input email-input"
+                                onChange={updateEmail}
+                                value={email}
+                                placeholder="Name"
+                            ></input>
+                        </div>
                         <input
                             type="file"
                             accept="image/*"

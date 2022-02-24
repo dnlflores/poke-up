@@ -51,6 +51,10 @@ def edit_user(id):
         url = upload["url"]
 
     if form.validate_on_submit():
+        if form.data['email']:
+            user.email = form.data['email']
+        if form.data['name']:
+            user.username = form.data['name']
         if form.data['description']:
             user.description = form.data['description']
         if url:

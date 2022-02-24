@@ -45,7 +45,10 @@ export default function ProfilePage(props) {
             <div className="upper-profile-container">
                 <div className="pro-pic-name-div" onMouseEnter={event => setShowPicEditButton(true)} onMouseLeave={event => setShowPicEditButton(false)}>
                     <img src={profileUser?.profile_pic_url} alt="user-profile" className="pro-pic"></img>
-                    <h1 className="profile-username">{profileUser?.username}</h1>
+                    <div className="profile-info-div">
+                        <h1 className="profile-username">{profileUser?.username}</h1>
+                        <h2 className="profile-email">{profileUser?.email}</h2>
+                    </div>
                     {profileUser?.id === currentUser?.id && showPicEditButton && (
                         <button className='button-default edit-pro-pic-button' onClick={event => setEditProPicButtonPopup(true)}>Edit</button>
                     )}
