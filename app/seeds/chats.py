@@ -3,6 +3,8 @@ from app.models import db, Chat, Post
 def seed_chats():
     demo_chat1 = Chat(buyer_id=2, post_id=1)
     demo_chat2 = Chat(buyer_id=3, post_id=2)
+    demo_chat3 = Chat(buyer_id=4, post_id=2)
+    demo_chat4 = Chat(buyer_id=5, post_id=1)
 
     pikachu_chat1 = Chat(buyer_id=4, post_id=10)
     pikachu_chat2 = Chat(buyer_id=6, post_id=12)
@@ -20,7 +22,9 @@ def seed_chats():
     java_celebi = Post.query.get(24)
 
     demo_potion.chats.append(demo_chat1)
+    demo_potion.chats.append(demo_chat4)
     demo_bulb.chats.append(demo_chat2)
+    demo_bulb.chats.append(demo_chat3)
 
     pikachu_shirt.chats.append(pikachu_chat1)
     pikachu_hat.chats.append(pikachu_chat2)
@@ -30,6 +34,8 @@ def seed_chats():
 
     db.session.add(demo_chat1)
     db.session.add(demo_chat2)
+    db.session.add(demo_chat3)
+    db.session.add(demo_chat4)
     db.session.add(pikachu_chat1)
     db.session.add(pikachu_chat2)
     db.session.add(java_chat1)

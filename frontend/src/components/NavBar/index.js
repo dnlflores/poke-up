@@ -75,7 +75,7 @@ const NavBar = () => {
           <div className="nav-buttons-div">
             <NavLink to='/chats' exact={true} activeClassName='active' className="nav-link">
               <button className="button-pokeball nav-buttons">
-                Chats
+                Inbox
               </button>
             </NavLink>
             <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
