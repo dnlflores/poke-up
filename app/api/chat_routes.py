@@ -13,5 +13,22 @@ chat_routes = Blueprint('chats', __name__)
 @login_required
 def get_chats():
     chats = Chat.query.all()
+    posts = Post.query.where(Post.user_id == current_user.id).all()
 
-    return {"chats": [chat.to_dict() for chat in chats]}
+    post_chats = []
+
+    for post in posts:
+        for chat in chats:
+            if post.id == chat.post_id:
+                post_chats.append(chat)
+
+    return {"chats": [chat.to_dict() for chat in post_chats]}
+
+@chat_routes.route('/<int:chatId>/messages')
+@login_required
+def get_messages(chatId):
+    messages = Message.query.filter_by(chat_id=chatId).all()
+
+    print("these are the messages", messages)
+
+    return {"messages": [message.to_dict() for message in messages]}

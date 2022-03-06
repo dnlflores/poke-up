@@ -12,6 +12,7 @@ import ListPostPage from './components/ListPostPage';
 import PageNotFound from './components/PageNotFound';
 import ProfilePage from './components/ProfilePage';
 import ChatsPage from './components/ChatsPage';
+import MessagesPage from './components/MessagesPage';
 import { authenticate } from './store/session';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -82,9 +83,12 @@ function App() {
         <ProtectedRoute path='/lists' exact={true} >
           <ListsPage />
         </ProtectedRoute>
-        <Route path='/chats' exact={true} >
+        <ProtectedRoute path='/chats' exact={true} >
           <ChatsPage />
-        </Route>
+        </ProtectedRoute>
+        <ProtectedRoute path='/chats/:chatId/messages' exact={true} >
+          <MessagesPage />
+        </ProtectedRoute>
         <Route>
           <PageNotFound />
         </Route>

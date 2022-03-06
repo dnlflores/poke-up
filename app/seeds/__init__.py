@@ -4,6 +4,7 @@ from .posts import seed_posts, undo_posts
 from .categories import seed_categories, undo_categories
 from .lists import seed_lists, undo_lists
 from .chats import seed_chats, undo_chats
+from .messages import seed_messages, undo_messages
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -18,6 +19,7 @@ def seed():
     seed_posts()
     seed_lists()
     seed_chats()
+    seed_messages()
     # Add other seed functions here
 
 
@@ -29,4 +31,5 @@ def undo():
     undo_posts()
     undo_lists()
     undo_chats()
+    undo_messages()
     # Add other undo functions here
