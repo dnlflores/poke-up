@@ -33,8 +33,8 @@ const ListPostPage = props => {
     }, [dispatch, listId])
 
     return (
-        <div>
-            <h2 className='list-post-page-title'>{list?.name}</h2>
+        <div className="page-container">
+            <h2 className='page-title'>{list?.name}</h2>
             <div className="list-post-container">
                 {posts?.map(post => (
                     <div className='list-post-div' key={post.id}>

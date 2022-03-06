@@ -12,6 +12,7 @@ const ChatsPage = props => {
     const history = useHistory();
     const chats = useSelector(state => Object.values(state.chats || {}));
     const posts = useSelector(state => state.posts);
+    const currentUser = useSelector(state => state.session.user);
     const [users, setUsers] = useState([]);
     const { postId } = useParams();
 
@@ -42,13 +43,13 @@ const ChatsPage = props => {
 
     return (
         <div className="page-container">
-            <h1>{post?.title}</h1>
+            <h2 className="page-title">{post?.title}</h2>
             {filteredChats.map(chat => (
-                <div key={chat.id}>
-                    <div className="inbox-container" key={post.id}>
-                        <div className="inbox-background" onClick={event => history.push(`/chats/${post.id}/messages/${users.find(user => user.id === chat.buyer_id)?.id}`)} />
-                        <img className="inbox-item-image" src={users.find(user => user.id === chat.buyer_id)?.profile_pic_url} alt="post" />
-                        <h2>{users.find(user => user.id === chat.buyer_id)?.username}</h2>
+                <div key={chat?.id}>
+                    <div className="chats-container inbox-container" key={post?.id}>
+                        <div className="chats-background inbox-background" onClick={event => history.push(`/chats/${post?.id}/messages/${chat?.id}`)} />
+                        <img className="chats-item-image inbox-item-image" src={chat?.buyer_id !== currentUser.id ? users.find(user => user?.id === chat?.buyer_id)?.profile_pic_url : users.find(user => user?.id === post?.user_id)?.profile_pic_url} alt="post" />
+                        <h2 className="inbox-item-title">{chat?.buyer_id !== currentUser.id ? users.find(user => user?.id === chat?.buyer_id)?.username : users.find(user => user?.id === post?.user_id)?.username}</h2>
                     </div>
                 </div>
             ))}

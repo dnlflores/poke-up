@@ -44,12 +44,12 @@ const ListsPage = props => {
     };
 
     return (
-        <div>
+        <div className="page-container">
             {listButtonPopup && (
                 <CreateList trigger={listButtonPopup} setTrigger={setListButtonPopup} />
             )}
-            <h2 className='list-page-title'>Your Lists</h2>
             <button className="create-button button-pokeball" id="create-list-button" onClick={showList}>Create List!</button>
+            <h2 className='page-title'>Your Lists</h2>
             <div className="list-container">
                 {lists?.map(list => (
                     <div key={list.id}>

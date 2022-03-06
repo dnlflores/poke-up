@@ -13,14 +13,17 @@ chat_routes = Blueprint('chats', __name__)
 @login_required
 def get_chats():
     chats = Chat.query.all()
-    posts = Post.query.where(Post.user_id == current_user.id).all()
+    selling_posts = Post.query.where(Post.user_id == current_user.id).all()
 
     post_chats = []
 
-    for post in posts:
+    for post in selling_posts:
         for chat in chats:
             if post.id == chat.post_id:
                 post_chats.append(chat)
+    for chat in chats:
+        if chat.buyer_id == current_user.id:
+            post_chats.append(chat)
 
     return {"chats": [chat.to_dict() for chat in post_chats]}
 

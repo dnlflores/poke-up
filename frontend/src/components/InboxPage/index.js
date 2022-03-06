@@ -14,15 +14,20 @@ const InboxPage = props => {
     const chats = useSelector(state => state.chats);
     const posts = useSelector(state => state.posts);
     const chatsArr = Object.values(chats || {});
+    const currentUser = useSelector(state => state.session.user);
 
-    const convos = new Set();
+    const sellingConvos = new Set();
+    const buyingConvos = new Set();
 
     for(let chat in chats) {
-        if(posts[chats[chat].post_id]) convos.add(posts[chats[chat].post_id]);
+        if(posts[chats[chat].post_id]) {
+            if(chats[chat].buyer_id !== currentUser.id) {
+                sellingConvos.add(posts[chats[chat].post_id]);
+            } else {
+                buyingConvos.add(posts[chats[chat].post_id]);
+            }
+        }
     }
-
-    console.log("these are the chats", chats);
-    console.log("these are the convos", convos);
 
     useEffect(() => {
         dispatch(getChats());
@@ -37,12 +42,24 @@ const InboxPage = props => {
         document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch]);
 
+    console.log("these are the selling convos", sellingConvos);
+    console.log("these are the buying convos", buyingConvos);
+
     return (
-        <div className="inbox-page-container">
-            <h2>Inbox</h2>
-            {Array.from(convos).map(post => (
-                <div className="inbox-container" key={post.id}>
-                    <div className="inbox-background" onClick={event => history.push(`/chats/${post.id}`)} />
+        <div className="page-container">
+            <h1 className="page-title">Inbox</h1>
+            <h2>Selling</h2>
+            {Array.from(sellingConvos).map(post => (
+                <div className="inbox-container" key={post?.id}>
+                    <div className="inbox-background" onClick={event => history.push(`/chats/${post?.id}`)} />
+                    <img className="inbox-item-image" src={post?.image_url} alt="post" />
+                    <h2 className="inbox-item-title">{post?.title}</h2>
+                </div>
+            ))}
+            <h2>Buying</h2>
+            {Array.from(buyingConvos).map(post => (
+                <div className="inbox-container" key={post?.id}>
+                    <div className="inbox-background" onClick={event => history.push(`/chats/${post?.id}`)} />
                     <img className="inbox-item-image" src={post?.image_url} alt="post" />
                     <h2 className="inbox-item-title">{post?.title}</h2>
                 </div>

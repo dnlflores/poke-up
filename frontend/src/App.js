@@ -90,7 +90,7 @@ function App() {
         <ProtectedRoute path='/chats/:postId' exact={true} >
           <ChatsPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/chats/:postId/messages/:buyerId' exact={true} >
+        <ProtectedRoute path='/chats/:postId/messages/:chatId' exact={true} >
           <MessagingPage />
         </ProtectedRoute>
         <Route>
