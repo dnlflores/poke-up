@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
 
     lists = db.relationship('List', back_populates="user", cascade="all, delete")
     posts = db.relationship('Post', back_populates="user", cascade="all, delete")
+    chats = db.relationship('Chat', back_populates="user", cascade="all, delete")
 
     @property
     def password(self):
