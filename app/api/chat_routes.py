@@ -29,6 +29,4 @@ def get_chats():
 def get_messages(chatId):
     messages = Message.query.filter_by(chat_id=chatId).all()
 
-    print("these are the messages", messages)
-
     return {"messages": [message.to_dict() for message in messages]}
