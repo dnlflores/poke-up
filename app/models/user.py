@@ -2,7 +2,6 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -15,7 +14,8 @@ class User(db.Model, UserMixin):
 
     lists = db.relationship('List', back_populates="user", cascade="all, delete")
     posts = db.relationship('Post', back_populates="user", cascade="all, delete")
-    chats = db.relationship('Chat', back_populates="user", cascade="all, delete")
+    buying = db.relationship('Chat', back_populates="buyer", cascade="all, delete")
+    messages = db.relationship('Message', back_populates="user", cascade="all, delete")
 
     @property
     def password(self):

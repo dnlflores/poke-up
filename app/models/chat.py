@@ -5,17 +5,15 @@ class Chat(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     buyer_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    seller_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), nullable=False)
 
-    buyer = db.relationship('User', back_populates="chats")
-    seller = db.relationship('User', back_populates="chats")
+    buyer = db.relationship('User', back_populates="buying")
     post = db.relationship('Post', back_populates="chats")
+    messages = db.relationship('Message', back_populates="chat")
 
     def to_dict(self):
         return {
             "id": self.id,
-            "user_id": self.user_id,
-            "message": self.message,
-            "timestamp": self.timestamp
+            "buyer_id": self.buyer_id,
+            "post_id": self.post_id
         }

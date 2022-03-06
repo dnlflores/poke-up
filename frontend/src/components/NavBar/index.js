@@ -73,9 +73,9 @@ const NavBar = () => {
         </h2>
         {user && (
           <div className="nav-buttons-div">
-            <NavLink to='/inbox' exact={true} activeClassName='active' className="nav-link">
+            <NavLink to='/chats' exact={true} activeClassName='active' className="nav-link">
               <button className="button-pokeball nav-buttons">
-                Inbox
+                Chats
               </button>
             </NavLink>
             <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">

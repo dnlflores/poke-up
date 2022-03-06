@@ -13,6 +13,5 @@ chat_routes = Blueprint('chats', __name__)
 @login_required
 def get_chats():
     chats = Chat.query.all()
-    
 
-    return {"chats": [chat.to_dict() for chat in chats if chat.buyer_id == current_user.id or chat.seller_id == current_user.id]}
+    return {"chats": [chat.to_dict() for chat in chats]}

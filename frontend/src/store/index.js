@@ -5,13 +5,15 @@ import posts from './post';
 import categories from './category';
 import lists from './list';
 import listPosts from './post-list';
+import chats from './chat';
 
 const rootReducer = combineReducers({
   session,
   posts,
   categories,
   lists,
-  listPosts
+  listPosts,
+  chats
 });
 
 
