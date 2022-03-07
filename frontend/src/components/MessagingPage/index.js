@@ -50,12 +50,19 @@ const MessagingPage = props => {
             {messagesArray.map(message => (
                 <div className={message.user_id === currentUser.id ? "talk-bubble tri-right border round btm-right-in user-bubble" : "talk-bubble tri-right border round btm-left-in buyer-bubble"} key={message.id}>
                     <div className="talktext">
-                        <h1>{users.find(user => user.id === message.user_id)?.username}</h1>
-                        <h2>{message.content}</h2>
-                        <p>{message.timestamp}</p>
+                        <div className="top-message">
+                            <img src={users.find(user => user.id === message.user_id)?.profile_pic_url} alt="profile" className="message-profile-pic" />
+                            <h2 className="message-user-text">{users.find(user => user.id === message.user_id)?.username}</h2>
+                        </div>
+                        <p className="message-content">{message.content}</p>
+                        <p className="message-timestamp">{message.timestamp}</p>
                     </div>
                 </div>
             ))}
+            <form className="message-form">
+                <input type="text" className="message-input" placeholder="Type a message..." />
+                <button className="message-send-button button-default" type="submit">Send</button>
+            </form>
         </div>
     )
 }

@@ -1,8 +1,4 @@
 .inbox-container {
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -38,4 +34,18 @@
     width: 100%;
     height: 100%;
     left: 0;
+}
+
+.switch-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px;
+    font-size: 30px;
+    font-family: 'Architects Daughter', cursive;
+}
+
+#selling-button {
+    color: blue; 
+    font-size: 40px;
 }

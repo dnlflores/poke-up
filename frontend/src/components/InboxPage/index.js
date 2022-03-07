@@ -15,6 +15,8 @@ const InboxPage = props => {
     const posts = useSelector(state => state.posts);
     const chatsArr = Object.values(chats || {});
     const currentUser = useSelector(state => state.session.user);
+    const [showBuying, setShowBuying] = useState(false);
+    const [showSelling, setShowSelling] = useState(true);
 
     const sellingConvos = new Set();
     const buyingConvos = new Set();
@@ -42,22 +44,32 @@ const InboxPage = props => {
         document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch]);
 
-    console.log("these are the selling convos", sellingConvos);
-    console.log("these are the buying convos", buyingConvos);
 
     return (
         <div className="page-container">
             <h1 className="page-title">Inbox</h1>
-            <h2>Selling</h2>
-            {Array.from(sellingConvos).map(post => (
+            <div className="switch-buttons">
+                <button id="selling-button" onClick={e => {
+                    setShowSelling(true);
+                    setShowBuying(false);
+                    document.getElementById('selling-button').setAttribute('style', 'color: blue; font-size: 40px;');
+                    document.getElementById('buying-button').setAttribute('style', 'color: black; font-size: 30px;');
+                }}>Selling</button>
+                <button id="buying-button" onClick={e => {
+                    setShowSelling(false);
+                    setShowBuying(true);
+                    document.getElementById('buying-button').setAttribute('style', 'color: blue; font-size: 40px;');
+                    document.getElementById('selling-button').setAttribute('style', 'color: black; font-size: 30px;');
+                }}>Buying</button>
+            </div>
+            {showSelling && Array.from(sellingConvos).map(post => (
                 <div className="inbox-container" key={post?.id}>
                     <div className="inbox-background" onClick={event => history.push(`/chats/${post?.id}`)} />
                     <img className="inbox-item-image" src={post?.image_url} alt="post" />
                     <h2 className="inbox-item-title">{post?.title}</h2>
                 </div>
             ))}
-            <h2>Buying</h2>
-            {Array.from(buyingConvos).map(post => (
+            {showBuying && Array.from(buyingConvos).map(post => (
                 <div className="inbox-container" key={post?.id}>
                     <div className="inbox-background" onClick={event => history.push(`/chats/${post?.id}`)} />
                     <img className="inbox-item-image" src={post?.image_url} alt="post" />
