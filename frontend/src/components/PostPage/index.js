@@ -112,8 +112,12 @@ const PostPage = props => {
                     </div>
                     {user && (
                         <div className="post-buttons">
-                            <button className="button-default" onClick={event => setShowOfferModal(true)}>Offer</button>
-                            <button className="add-to-list-button" onClick={event => setShowListsToAdd(true)}>ADD TO LIST<span className="material-icons list-icon">lists</span></button>
+                            {user.id !== post?.user_id && (
+                                <>
+                                    <button className="button-default" onClick={event => setShowOfferModal(true)}>Offer</button>
+                                    <button className="add-to-list-button" onClick={event => setShowListsToAdd(true)}>ADD TO LIST<span className="material-icons list-icon">lists</span></button>
+                                </>
+                            )}
                         </div>
                     )}
                     {!user && (
