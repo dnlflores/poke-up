@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
-import { getChats } from '../../store/chat';
+import { useParams, useHistory } from 'react-router-dom';
+import { getChats, deleteChat } from '../../store/chat';
 import { getPosts } from '../../store/post';
 import { getCategories } from '../../store/category';
 import './ChatsPage.css';
@@ -19,8 +18,6 @@ const ChatsPage = props => {
     const post = posts[postId];
 
     const filteredChats = chats.filter(chat => chat.post_id === +postId);
-
-    console.log("these are the chats", filteredChats);
     
     useEffect(() => {
         dispatch(getChats());
@@ -38,6 +35,7 @@ const ChatsPage = props => {
                 document.getElementById('create-post-button').setAttribute('hidden', true);
             }
         }
+
         document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch]);
 
@@ -45,12 +43,15 @@ const ChatsPage = props => {
         <div className="page-container">
             <h2 className="page-title">{post?.title}</h2>
             {filteredChats.map(chat => (
-                <div key={chat?.id}>
-                    <div className="chats-container inbox-container" key={post?.id}>
-                        <div className="chats-background inbox-background" onClick={event => history.push(`/chats/${post?.id}/messages/${chat?.id}`)} />
-                        <img className="chats-item-image inbox-item-image" src={chat?.buyer_id !== currentUser.id ? users.find(user => user?.id === chat?.buyer_id)?.profile_pic_url : users.find(user => user?.id === post?.user_id)?.profile_pic_url} alt="post" />
-                        <h2 className="inbox-item-title">{chat?.buyer_id !== currentUser.id ? users.find(user => user?.id === chat?.buyer_id)?.username : users.find(user => user?.id === post?.user_id)?.username}</h2>
-                    </div>
+                <div className="chats-container inbox-container" key={chat?.id}>
+                    <div className="chats-background inbox-background" onClick={event => history.push(`/chats/${post?.id}/messages/${chat?.id}`)} />
+                    <img className="chats-item-image inbox-item-image" src={chat?.buyer_id !== currentUser.id ? users.find(user => user?.id === chat?.buyer_id)?.profile_pic_url : users.find(user => user?.id === post?.user_id)?.profile_pic_url} alt="post" />
+                    <h2 className="inbox-item-title">{chat?.buyer_id !== currentUser.id ? users.find(user => user?.id === chat?.buyer_id)?.username : users.find(user => user?.id === post?.user_id)?.username}</h2>
+                    <button className="button-default-cancel delete-chat-button" onClick={() => {
+                        dispatch(deleteChat(chat.id));
+                        dispatch(getChats());
+                        if(filteredChats.length === 1) history.push('/chats');
+                    }}>Delete</button>
                 </div>
             ))}
         </div>

@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.forms.edit_user_form import EditUserForm
+from app.forms import EditUserForm
 from app.models import db, User
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)

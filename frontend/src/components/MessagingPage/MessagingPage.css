@@ -46,12 +46,12 @@
     border: solid 3px blue;
     border-radius: 50%;
     object-fit: cover;
+    margin: 20px;
 }
 
 .top-message {
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
 
 .message-content {
@@ -84,155 +84,162 @@
 /* container */
 .container {
     padding: 5% 5%;
-  }
-  
-  /* CSS talk bubble */
-  .talk-bubble {
-      margin: 40px;
+}
+
+/* CSS talk bubble */
+.talk-bubble {
+    margin: 40px;
     display: inline-block;
     position: relative;
-      width: 200px;
-      height: auto;
-      background-color: yellow;
-  }
-  .border{
+    max-width: 500px;
+    height: auto;
+    background-color: yellow;
+}
+
+.border {
     border: 4px solid blue;
-  }
-  .round{
+}
+
+.round {
     border-radius: 30px;
-      -webkit-border-radius: 30px;
-      -moz-border-radius: 30px;
-  
-  }
-  
-  /* Right triangle placed top left flush. */
-  .tri-right.border.left-top:before {
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+}
+
+/* Right triangle placed top left flush. */
+.tri-right.border.left-top:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: -20px;
-      right: auto;
+    right: auto;
     top: -8px;
-      bottom: auto;
-      border: 16px solid;
-      border-color: blue transparent transparent transparent;
-  }
-  .tri-right.left-top:after{
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    bottom: auto;
+    border: 16px solid;
+    border-color: blue transparent transparent transparent;
+}
+
+.tri-right.left-top:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: -10px;
-      right: auto;
+    right: auto;
     top: 0px;
-      bottom: auto;
-      border: 11px solid;
-      border-color: yellow transparent transparent transparent;
-  }
-  
-  /* Right triangle, left side slightly down */
-  .tri-right.border.left-in:before {
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    bottom: auto;
+    border: 11px solid;
+    border-color: yellow transparent transparent transparent;
+}
+
+/* Right triangle, left side slightly down */
+.tri-right.border.left-in:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: -80px;
-      right: auto;
+    right: auto;
     top: 15px;
-      bottom: auto;
-      border: 10px solid;
-      border-color: blue blue transparent transparent;
-  }
-  .tri-right.left-in:after{
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    bottom: auto;
+    border: 10px solid;
+    border-color: blue blue transparent transparent;
+}
+
+.tri-right.left-in:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: -40px;
-      right: auto;
+    right: auto;
     top: 19px;
-      bottom: auto;
-      border: 6px solid;
-      border-color: yellow yellow transparent transparent;
-  }
-  
-  /*Right triangle, placed bottom left side slightly in*/
-  .tri-right.border.btm-left:before {
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
-      left: -4px;
+    bottom: auto;
+    border: 6px solid;
+    border-color: yellow yellow transparent transparent;
+}
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -4px;
     right: auto;
     top: auto;
-      bottom: -20px;
-      border: 16px solid;
-      border-color: transparent transparent transparent blue;
-  }
-  .tri-right.btm-left:after{
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
-      left: 0px;
+    bottom: -20px;
+    border: 16px solid;
+    border-color: transparent transparent transparent blue;
+}
+
+.tri-right.btm-left:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0px;
     right: auto;
     top: auto;
-      bottom: -10px;
-      border: 11px solid;
-      border-color: transparent transparent transparent yellow;
-  }
-  
-  /*Right triangle, placed bottom left side slightly in*/
-  .tri-right.border.btm-left-in:before {
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
-      left: 30px;
+    bottom: -10px;
+    border: 11px solid;
+    border-color: transparent transparent transparent yellow;
+}
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left-in:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 30px;
     right: auto;
     top: auto;
-      bottom: -20px;
-      border: 10px solid;
-      border-color: blue transparent transparent blue;
-  }
-  .tri-right.btm-left-in:after{
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
-      left: 34px;
+    bottom: -20px;
+    border: 10px solid;
+    border-color: blue transparent transparent blue;
+}
+
+.tri-right.btm-left-in:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 34px;
     right: auto;
     top: auto;
-      bottom: -10px;
-      border: 6px solid;
-      border-color: yellow transparent transparent yellow;
-  }
-  
-  /*Right triangle, placed bottom right side slightly in*/
-  .tri-right.border.btm-right-in:before {
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    bottom: -10px;
+    border: 6px solid;
+    border-color: yellow transparent transparent yellow;
+}
+
+/*Right triangle, placed bottom right side slightly in*/
+.tri-right.border.btm-right-in:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: auto;
-      right: 15px;
-      bottom: -20px;
-      border: 10px solid;
-      border-color: blue blue transparent transparent;
-  }
-  .tri-right.btm-right-in:after{
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    right: 15px;
+    bottom: -20px;
+    border: 10px solid;
+    border-color: blue blue transparent transparent;
+}
+
+.tri-right.btm-right-in:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: auto;
-      right: 19px;
-      bottom: -10px;
-      border: 6px solid;
-      border-color: yellow yellow transparent transparent;
-  }
-  /*
+    right: 19px;
+    bottom: -10px;
+    border: 6px solid;
+    border-color: yellow yellow transparent transparent;
+}
+
+/*
       left: -8px;
     right: auto;
     top: auto;
@@ -247,89 +254,93 @@
       border-color: transparent transparent transparent yellow;
   
   /*Right triangle, placed bottom right side slightly in*/
-  .tri-right.border.btm-right:before {
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+.tri-right.border.btm-right:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: auto;
-      right: -4px;
-      bottom: -20px;
-      border: 10px solid;
-      border-color: blue blue transparent transparent;
-  }
-  .tri-right.btm-right:after{
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    right: -4px;
+    bottom: -20px;
+    border: 10px solid;
+    border-color: blue blue transparent transparent;
+}
+
+.tri-right.btm-right:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: auto;
-      right: 0px;
-      bottom: -10px;
-      border: 6px solid;
-      border-color: yellow yellow transparent transparent;
-  }
-  
-  /* Right triangle, right side slightly down*/
-  .tri-right.border.right-in:before {
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    right: 0px;
+    bottom: -10px;
+    border: 6px solid;
+    border-color: yellow yellow transparent transparent;
+}
+
+/* Right triangle, right side slightly down*/
+.tri-right.border.right-in:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: auto;
-      right: -20px;
+    right: -20px;
     top: 15px;
-      bottom: auto;
-      border: 10px solid;
-      border-color: blue transparent transparent blue;
-  }
-  .tri-right.right-in:after{
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    bottom: auto;
+    border: 10px solid;
+    border-color: blue transparent transparent blue;
+}
+
+.tri-right.right-in:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: auto;
-      right: -10px;
+    right: -10px;
     top: 19px;
-      bottom: auto;
-      border: 6px solid;
-      border-color: yellow transparent transparent yellow;
-  }
-  
-  /* Right triangle placed top right flush. */
-  .tri-right.border.right-top:before {
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    bottom: auto;
+    border: 6px solid;
+    border-color: yellow transparent transparent yellow;
+}
+
+/* Right triangle placed top right flush. */
+.tri-right.border.right-top:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: auto;
-      right: -20px;
+    right: -20px;
     top: -4px;
-      bottom: auto;
-      border: 16px solid;
-      border-color: blue transparent transparent transparent;
-  }
-  .tri-right.right-top:after{
-      content: ' ';
-      position: absolute;
-      width: 0;
-      height: 0;
+    bottom: auto;
+    border: 16px solid;
+    border-color: blue transparent transparent transparent;
+}
+
+.tri-right.right-top:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
     left: auto;
-      right: -10px;
+    right: -10px;
     top: 0px;
-      bottom: auto;
-      border: 10px solid;
-      border-color: yellow transparent transparent transparent;
-  }
-  
-  /* talk bubble contents */
-  .talktext{
+    bottom: auto;
+    border: 10px solid;
+    border-color: yellow transparent transparent transparent;
+}
+
+/* talk bubble contents */
+.talktext {
     padding: 1em;
-      text-align: left;
+    text-align: left;
     line-height: 1.5em;
-  }
-  .talktext p{
+}
+
+.talktext p {
     /* remove webkit p margins */
     -webkit-margin-before: 0em;
     -webkit-margin-after: 0em;
-  }
+}

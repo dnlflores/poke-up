@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import ProtectedRoute from '../auth/ProtectedRoute';
-import ChatsPage from '../ChatsPage';
 import { getChats } from '../../store/chat';
 import { getPosts } from '../../store/post';
 import { getCategories } from '../../store/category';
@@ -13,7 +11,6 @@ const InboxPage = props => {
     const history = useHistory();
     const chats = useSelector(state => state.chats);
     const posts = useSelector(state => state.posts);
-    const chatsArr = Object.values(chats || {});
     const currentUser = useSelector(state => state.session.user);
     const [showBuying, setShowBuying] = useState(false);
     const [showSelling, setShowSelling] = useState(true);

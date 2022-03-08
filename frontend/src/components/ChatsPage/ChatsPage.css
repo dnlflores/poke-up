@@ -2,3 +2,9 @@
     position: absolute;
     top: 25vh;
 }
+
+.delete-chat-button {
+    position: absolute;
+    right: 50px;
+    z-index: 99;
+}

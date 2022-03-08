@@ -1,7 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.forms.create_list_form import CreateListForm
-from app.forms.edit_list_form import EditListForm
+from app.forms import CreateListForm, EditListForm
 from app.models import db, List, Post
 from app.s3_helpers import (
     upload_file_to_s3, allowed_file, get_unique_filename)

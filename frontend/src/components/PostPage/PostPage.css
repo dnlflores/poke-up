@@ -200,3 +200,28 @@ h2.seller-username {
     text-decoration: none;
     color: black;
 }
+
+.offer-input {
+    border: none;
+    appearance: none;
+    outline: none;
+    border-radius: 1rem;
+    height: 30px;
+    font-family: 'Architects Daughter', cursive;
+    padding-left: 10px;
+    background-color: rgba(235, 220, 21, 0.432);
+    margin: 20px;
+}
+
+.offer-input::-webkit-outer-spin-button,
+.offer-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.offer-post-container {
+    z-index: 651;
+    position: fixed;
+    top: 20%;
+    left: 30%;
+}

@@ -4,8 +4,9 @@ import { useParams, NavLink } from 'react-router-dom';
 import { getPosts } from '../../store/post';
 import { getCategories } from '../../store/category';
 import { getLists } from '../../store/list';
-import './PostPage.css';
 import { getPostLists, createListPost } from '../../store/post-list';
+import { createOffer, getChats, sendMessage } from '../../store/chat';
+import './PostPage.css';
 
 const PostPage = props => {
     const dispatch = useDispatch();
@@ -14,26 +15,30 @@ const PostPage = props => {
     const categories = useSelector(state => Object.values(state.categories));
     const postLists = useSelector(state => state.listPosts?.postLists);
     const myLists = useSelector(state => Object.values(state.lists));
+    const chats = useSelector(state => state.chats);
     const [users, setUsers] = useState([]);
     const [showListsToAdd, setShowListsToAdd] = useState(false);
+    const [showOfferModal, setShowOfferModal] = useState(false);
     const user = useSelector(state => state.session.user);
-    
     const post = posts.find(post => post.id === +postId);
+    const [offer, setOffer] = useState(post?.price);
     const category = categories.find(category => category.id === post?.category_id);
     const similarPosts = posts.filter(similarPost => {
         if(similarPost.category_id === category?.id){
             if(similarPost.id !== post.id) return similarPost;
         }
+        return null;
     });
     const seller = users?.find(user => user.id === post?.user_id);
     const otherSellerPosts = posts.filter(sellerPost => {
         if(sellerPost.user_id === seller?.id){
             if(sellerPost.id !== post.id) return sellerPost;
         }
+        return null;
     });
-
     const listsToAdd = new Set();
     const postListsSet = new Set();
+    let existingChat = null;
 
     for(let i = 0; i < postLists?.length; i++) {
         postListsSet.add(postLists[i].id);
@@ -43,22 +48,18 @@ const PostPage = props => {
         if(!postListsSet.has(myLists[i].id)) listsToAdd.add(myLists[i]);
     }
 
-    const handleAddList = event => {
-        event.preventDefault();
-
-        const listId = event.target.className.split(' ')[0].split('-')[1];
-
-        dispatch(createListPost(listId, postId))
-        setShowListsToAdd(false);
-    };
-
-    
+    for(let key in chats) {
+        if(chats[key].post_id === post.id) {
+            existingChat = chats[key];
+        }
+    }
 
     useEffect(() => {
         dispatch(getPosts());
         dispatch(getCategories());
         dispatch(getLists());
         dispatch(getPostLists(postId));
+        dispatch(getChats());
 
         async function fetchData() {
           const response = await fetch('/api/users/');
@@ -78,6 +79,22 @@ const PostPage = props => {
         document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch, postId]);
 
+    const makeOffer = event => {
+        event.preventDefault();
+        setShowOfferModal(false);
+        if(!existingChat) dispatch(createOffer(offer.toLocaleString("en-US"), post));
+        else dispatch(sendMessage(existingChat.id, `Hi there! I'm interested in your ${post?.title}. Would you take $${offer.toLocaleString("en-US")}?`));
+    }
+
+    const handleAddList = event => {
+        event.preventDefault();
+
+        const listId = event.target.className.split(' ')[0].split('-')[1];
+
+        dispatch(createListPost(listId, postId))
+        setShowListsToAdd(false);
+    };
+
     return (
         <div className="post-container">
             <div className="upper-container">
@@ -95,7 +112,7 @@ const PostPage = props => {
                     </div>
                     {user && (
                         <div className="post-buttons">
-                            <button className="button-default">Buy</button>
+                            <button className="button-default" onClick={event => setShowOfferModal(true)}>Offer</button>
                             <button className="add-to-list-button" onClick={event => setShowListsToAdd(true)}>ADD TO LIST<span className="material-icons list-icon">lists</span></button>
                         </div>
                     )}
@@ -162,6 +179,16 @@ const PostPage = props => {
                     </div>
                 </div>
             )}
+            {showOfferModal && (
+                <div>
+                    <div className="background-modal" onClick={e => setShowOfferModal(false)} />
+                    <div className="offer-post-container add-list-post-container">
+                        <h2>Offer</h2>
+                        <input required type="number" className="offer-input" placeholder={post?.price} onChange={event => setOffer(event.target.value)} value={offer}></input>
+                        <button className="button-default" onClick={makeOffer}>Offer</button>
+                    </div>
+                </div>
+        )}
         </div>
     )
 }

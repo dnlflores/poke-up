@@ -9,7 +9,7 @@ class Chat(db.Model):
 
     buyer = db.relationship('User', back_populates="buying")
     post = db.relationship('Post', back_populates="chats")
-    messages = db.relationship('Message', back_populates="chat")
+    messages = db.relationship('Message', back_populates="chat", cascade="all, delete")
 
     def to_dict(self):
         return {

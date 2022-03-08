@@ -7,7 +7,7 @@ class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     chat_id = db.Column(db.Integer, db.ForeignKey('chats.id'), nullable=False)
-    content = db.Column(db.String(255), nullable=False)
+    content = db.Column(db.String, nullable=False)
     timestamp = db.Column(db.DateTime, nullable=False, server_default=func.now(), onupdate=func.now())
     
     user = db.relationship('User', back_populates="messages")
