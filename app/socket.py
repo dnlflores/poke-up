@@ -14,32 +14,11 @@ else:
 # initialize your socket instance
 socketio = SocketIO(cors_allowed_origins=origins)
 
-def ack():
-    print('message was received!')
-
 # handle messages from the client
 @socketio.on('message')
 def handle_message(data):
-    # chat = data['chat']
     print("received message: ", data)
     send(data, broadcast=True)
-    return None
-    # emit('new_message', data, to=chat)
-
-@socketio.on('json')
-def handle_json(json):
-    print('received json: ' + str(json))
-    send(json, json=True)
-
-@socketio.on('my_event')
-def handle_my_custom_event(arg1, arg2, arg3):
-    print('received args: ' + arg1 + arg2 + arg3)
-
-@socketio.on('my event')
-def handle_my_custom_event(json):
-    print('received json: ' + str(json))
-    emit('my response', json, callback=ack, broadcast=True)
-    return 'one', 2
 
 @socketio.on('join')
 def on_join(data):
