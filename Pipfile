@@ -31,6 +31,7 @@ botocore = "==1.23.31"
 flask_socketio = "==5.1.1"
 eventlet = "==0.33.0"
 gevent = "==21.12.0"
+gevent-websocket = "==0.10.1"
 
 [dev-packages]
 psycopg2-binary = "==2.7.5"

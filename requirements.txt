@@ -37,3 +37,4 @@ werkzeug==2.0.1
 wtforms==2.3.3
 eventlet==0.33.0
 gevent==21.12.0
+gevent-websocket==0.10.1
