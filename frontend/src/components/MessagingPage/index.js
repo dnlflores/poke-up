@@ -6,7 +6,8 @@ import { getMessages, sendMessage } from "../../store/chat";
 import { getPosts } from "../../store/post";
 import { io } from "socket.io-client";
 import './MessagingPage.css';
-let socket = io.connect("http://localhost:3000");
+let socket 
+// = io.connect("http://localhost:3000");
 
 const MessagingPage = props => {
     // const footerRef = useRef();
@@ -45,6 +46,7 @@ const MessagingPage = props => {
         document.getElementById('about-links').setAttribute('style', 'display: none');
         // open socket connection
         // create websocket
+        socket = io();
         socket.on("connect", () => {
             console.log("connected to server");
         });
