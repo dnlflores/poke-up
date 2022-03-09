@@ -53,6 +53,7 @@ const MessagingPage = props => {
         socket.on("message", data => {
             console.log("message received on frontend", data);
             dispatch(getMessages(chatId));
+            // scrollToRef.current.scrollIntoView();
         })
         // when component unmounts, disconnect
         return () => {
@@ -63,10 +64,10 @@ const MessagingPage = props => {
     const handleSubmit = event => {
         event.preventDefault();
         // footerRef.current.scrollIntoView();
-        scrollToRef.current.scrollIntoView();
         dispatch(sendMessage(chatId, message));
         socket.emit("message", message)
         setMessage("");
+        scrollToRef.current.scrollIntoView();
     }
 
     const updateMessage = event => {
