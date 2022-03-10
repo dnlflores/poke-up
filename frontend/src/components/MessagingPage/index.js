@@ -1,4 +1,4 @@
-import { useEffect, useState, createRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getCategories } from "../../store/category";
@@ -10,8 +10,7 @@ let socket
 // = io.connect("http://localhost:3000");
 
 const MessagingPage = props => {
-    // const footerRef = useRef();
-    const scrollToRef = createRef();
+    const footerRef = useRef();
     const dispatch = useDispatch();
     const { chatId, postId } = useParams();
     const messages = useSelector(state => state.chats[chatId]?.messages);
@@ -36,7 +35,7 @@ const MessagingPage = props => {
         }
         fetchData();
 
-        scrollToRef.current.scrollIntoView();
+        footerRef.current.scrollIntoView();
 
         if (window.location.href.split('/').length > 3) {
             if (window.location.href.split('/')[3] === 'chats') {
@@ -44,6 +43,7 @@ const MessagingPage = props => {
             }
         }
         document.getElementById('about-links').setAttribute('style', 'display: none');
+        document.getElementsByTagName('iframe')[0]?.setAttribute('style', 'display: none');
         // open socket connection
         // create websocket
         socket = io();
@@ -53,7 +53,7 @@ const MessagingPage = props => {
         socket.on("message", data => {
             console.log("message received on frontend", data);
             dispatch(getMessages(chatId));
-            // scrollToRef.current.scrollIntoView();
+            footerRef.current.scrollIntoView();
         })
         // when component unmounts, disconnect
         return () => {
@@ -67,7 +67,7 @@ const MessagingPage = props => {
         dispatch(sendMessage(chatId, message));
         socket.emit("message", message)
         setMessage("");
-        scrollToRef.current.scrollIntoView();
+        footerRef.current.scrollIntoView();
     }
 
     const updateMessage = event => {
@@ -92,9 +92,9 @@ const MessagingPage = props => {
                     </div>
                 </div>
             ))}
-            <form className="message-form" onSubmit={handleSubmit} ref={scrollToRef}>
-                <input type="text" className="message-input" name="content" value={message} onChange={updateMessage} placeholder="Type a message..." />
-                <button className="message-send-button button-default" type="submit" onClick={e => scrollToRef.current.scrollIntoView()}>Send</button>
+            <form className="message-form" onSubmit={handleSubmit}>
+                <input ref={footerRef} type="text" className="message-input" name="content" value={message} onChange={updateMessage} placeholder="Type a message..." />
+                <button className="message-send-button button-default" type="submit" onClick={e => footerRef.current.scrollIntoView()}>Send</button>
             </form>
         </div>
     )

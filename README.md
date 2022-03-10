@@ -145,8 +145,13 @@ of your Heroku app in the url and tag name:
    If you want to add posts to lists you have created, you can. When you go to a post's page, if you are logged in, you have the option to add the post to a list you have created. From the lists page you can click on the arrow of the list to see the posts that are apart of that list. If you want to get rid of a post from a list, you can click on the Remove button. 
 
 4. Categories
-   Categories are used to narrow down what you are looking for on PokéUp. 
+   Categories are used to narrow down what you are looking for on PokéUp.
 
+5. Profile
+   Can view and edit your own profile! See what items you are currently selling.
+
+6. Messaging
+   Can message people about their product to offer them a price you both can agree on. In your inbox you can see the different items you are conversating about. The tabs at the top switch between the conversations about what you are selling and what you are trying to buy. Each conversation is updated in realtime and can be viewed by both parties at the same time
 
 ### Technologies Used
 1. React
@@ -159,9 +164,10 @@ of your Heroku app in the url and tag name:
 8. PostgreSQL
 9. HTML
 10. CSS
+11. WebSockets
 
 ### Wiki Links
-DB Schema: https://github.com/dnlflores/poke-up/wiki/DB-Schema
-Feature List: https://github.com/dnlflores/poke-up/wiki/Feature-List
-User Stories: https://github.com/dnlflores/poke-up/wiki/User-Stories
-Wireframes: https://github.com/dnlflores/poke-up/wiki/Wireframes
+# DB Schema: https://github.com/dnlflores/poke-up/wiki/DB-Schema
+# Feature List: https://github.com/dnlflores/poke-up/wiki/Feature-List
+# User Stories: https://github.com/dnlflores/poke-up/wiki/User-Stories
+# Wireframes: https://github.com/dnlflores/poke-up/wiki/Wireframes
