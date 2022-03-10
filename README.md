@@ -136,22 +136,22 @@ of your Heroku app in the url and tag name:
 ### Features
 
 1. Posts
-   You can view all posts on PokéUp. All posts are apart of 6 categories. Potions, Pokémon, Clothing, Technical Machines, Pokéballs, and Berries. From any of the pages if you are the owner of the post, you can edit and delete the post.
+*   You can view all posts on PokéUp. All posts are apart of 6 categories. Potions, Pokémon, Clothing, Technical Machines, Pokéballs, and Berries. From any of the pages if you are the owner of the post, you can edit and delete the post.
 
 2. Lists
-   If you have an account on PokéUp you can add posts that you are interested in to your own list. You can create lists from the lists page. If you want to delete a list or change the name or even add a picture that can all be done from the lists page. 
+*   If you have an account on PokéUp you can add posts that you are interested in to your own list. You can create lists from the lists page. If you want to delete a list or change the name or even add a picture that can all be done from the lists page. 
 
 3. Adding Posts to Lists
-   If you want to add posts to lists you have created, you can. When you go to a post's page, if you are logged in, you have the option to add the post to a list you have created. From the lists page you can click on the arrow of the list to see the posts that are apart of that list. If you want to get rid of a post from a list, you can click on the Remove button. 
+*   If you want to add posts to lists you have created, you can. When you go to a post's page, if you are logged in, you have the option to add the post to a list you have created. From the lists page you can click on the arrow of the list to see the posts that are apart of that list. If you want to get rid of a post from a list, you can click on the Remove button. 
 
 4. Categories
-   Categories are used to narrow down what you are looking for on PokéUp.
+*   Categories are used to narrow down what you are looking for on PokéUp.
 
 5. Profile
-   Can view and edit your own profile! See what items you are currently selling.
+*   Can view and edit your own profile! See what items you are currently selling.
 
 6. Messaging
-   Can message people about their product to offer them a price you both can agree on. In your inbox you can see the different items you are conversating about. The tabs at the top switch between the conversations about what you are selling and what you are trying to buy. Each conversation is updated in realtime and can be viewed by both parties at the same time
+*   Can message people about their product to offer them a price you both can agree on. In your inbox you can see the different items you are conversating about. The tabs at the top switch between the conversations about what you are selling and what you are trying to buy. Each conversation is updated in realtime and can be viewed by both parties at the same time
 
 ### Technologies Used
 1. React
@@ -167,7 +167,7 @@ of your Heroku app in the url and tag name:
 11. WebSockets
 
 ### Wiki Links
-# DB Schema: https://github.com/dnlflores/poke-up/wiki/DB-Schema
-# Feature List: https://github.com/dnlflores/poke-up/wiki/Feature-List
-# User Stories: https://github.com/dnlflores/poke-up/wiki/User-Stories
-# Wireframes: https://github.com/dnlflores/poke-up/wiki/Wireframes
+* DB Schema: https://github.com/dnlflores/poke-up/wiki/DB-Schema
+* Feature List: https://github.com/dnlflores/poke-up/wiki/Feature-List
+* User Stories: https://github.com/dnlflores/poke-up/wiki/User-Stories
+* Wireframes: https://github.com/dnlflores/poke-up/wiki/Wireframes
