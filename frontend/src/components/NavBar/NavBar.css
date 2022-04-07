@@ -173,17 +173,17 @@ nav {
     }
 
     .background-title {
-        left: 37vw;
-        font-size: 50px;
+        left: 34vw;
+        font-size: 40px;
     }
 
     .site-title {
-        left: 38.5vw;
-        font-size: 50px;
+        left: 35.5vw;
+        font-size: 40px;
     }
 
     .nav-bar-div {
-        height: 10rem;
+        height: 8rem;
     }
 
     .mobile-nav-menu {
@@ -199,6 +199,6 @@ nav {
     }
 
     .mobile-nav-menu-button {
-        font-size: 70px;
+        font-size: 48px;
     }
 }

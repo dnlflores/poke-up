@@ -56,4 +56,17 @@
     .user-options { 
         display: none;
     }
+
+    .image-post {
+        width: 150px;
+        height: 150px;
+    }
+
+    .post-container-div {
+        top: 150px;
+    }
+
+    .post-title {
+        max-width: 150px;
+    }
 }
