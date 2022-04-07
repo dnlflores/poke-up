@@ -106,7 +106,7 @@ const PostPage = props => {
                     <h2>{post?.title}</h2>
                     <h2>${post?.price.toLocaleString("en-US")}</h2>
                     <div className="quantity-category-container">
-                        <label className="category-text">{category?.name}</label>
+                        <label className="category-page-text">{category?.name}</label>
                         <label className="quantity-text">Quantity: </label>
                         <h2 className="quantity-number">{post?.quantity}</h2>
                     </div>

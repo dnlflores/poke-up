@@ -49,12 +49,7 @@
 .quantity-category-container {
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
-}
-
-.quantity-number {
-    position: relative;
-    bottom: 45px;
+    align-items: center;
 }
 
 .post-page-image {
@@ -67,8 +62,6 @@
 
 h2.seller-username {
     position: relative;
-    /* top: 35px;
-    right: 30px; */
     font-size: 30px;
 }
 
@@ -92,9 +85,10 @@ h2.seller-username {
     background-color: blue;
 }
 
-.category-text {
+.category-page-text {
     font-family: 'Architects Daughter', cursive;
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .quantity-text {
