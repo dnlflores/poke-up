@@ -98,3 +98,9 @@ textarea {
     padding-left: 10px;
     background-color: rgba(235, 220, 21, 0.432);
 }
+
+@media (max-width: 600px) {
+    .about-links {
+        right: 20vw;
+    }
+}

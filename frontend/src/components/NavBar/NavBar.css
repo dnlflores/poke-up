@@ -24,7 +24,7 @@ nav {
 
 .site-title {
     position: relative;
-    left: 15px;
+    left: 1.5vw;
     font-family: 'Pokemon Solid', sans-serif;
     font-size: 35px;
     color: Yellow;
@@ -38,7 +38,7 @@ nav {
 
 .background-title {
     position: fixed;
-    left: 9px;
+    left: 1vw;
     font-family: 'Pokemon Solid', sans-serif;
     font-size: 38px;
     color: blue;
@@ -156,4 +156,49 @@ nav {
 
 .category-text {
     font-size: 20px;
+}
+
+.mobile-nav-menu {
+    display: none;
+}
+
+
+@media (max-width: 600px) {
+    .nav-buttons-div {
+        display: none;
+    }
+
+    .categories-container {
+        display: none;
+    }
+
+    .background-title {
+        left: 37vw;
+        font-size: 50px;
+    }
+
+    .site-title {
+        left: 38.5vw;
+        font-size: 50px;
+    }
+
+    .nav-bar-div {
+        height: 10rem;
+    }
+
+    .mobile-nav-menu {
+        display: flex;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        color: yellow;
+        text-shadow: 6px 6px 6px blue;
+        align-items: center;
+        justify-content: center;
+        height: inherit;
+    }
+
+    .mobile-nav-menu-button {
+        font-size: 70px;
+    }
 }

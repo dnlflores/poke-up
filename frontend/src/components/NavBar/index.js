@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import CreatePost from '../CreatePost';
 import { getCategories } from '../../store/category';
-import './NavBar.css'
+import './NavBar.css';
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -33,6 +33,7 @@ const NavBar = () => {
 
   return (
     <div className="nav-bar-div" id="nav-bar">
+      <button className="mobile-nav-menu"><span className="material-icons mobile-nav-menu-button">menu</span></button>
     {userDrop && (
       <>
         <div className="user-drop-background" onClick={event => setUserDrop(false)} />
