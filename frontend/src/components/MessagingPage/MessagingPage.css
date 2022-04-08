@@ -344,3 +344,46 @@
     -webkit-margin-before: 0em;
     -webkit-margin-after: 0em;
 }
+
+@media (max-width: 600px) {
+    .message-page-post-image {
+        width: 75px;
+        height: 75px;
+    }
+
+    .message-page-title {
+        font-size: 18px;
+    }
+
+    .message-page-post-container {
+        top: 20vh;
+    }
+
+    .message-user-text {
+        font-size: 18px;
+    }
+
+    .talk-bubble {
+        position: relative;
+        max-width: 150px;
+        min-height: 75px;
+    }
+    
+    .top-message {
+        max-height: 50px;
+        position: relative;
+        right: 1rem;
+    }
+
+    .message-page-container {
+        width: 50vw;
+    }
+
+    .user-bubble {
+        right: 0;
+    }
+
+    .message-form {
+        width: 80vw;
+    }
+}

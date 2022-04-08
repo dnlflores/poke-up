@@ -78,7 +78,7 @@ const MessagingPage = props => {
         <div className="page-container">
             <div className="message-page-post-container">
                 <img src={post?.image_url} alt="post" className="message-page-post-image" />
-                <h2>{post?.title}</h2>
+                <h2 className="message-page-title">{post?.title}</h2>
             </div>
             {messagesArray.map(message => (
                 <div className={message.user_id === currentUser.id ? "talk-bubble tri-right border round btm-right-in user-bubble" : "talk-bubble tri-right border round btm-left-in buyer-bubble"} key={message.id}>
@@ -88,7 +88,7 @@ const MessagingPage = props => {
                             <h2 className="message-user-text">{users.find(user => user.id === message.user_id)?.username}</h2>
                         </div>
                         <p className="message-content">{message?.content}</p>
-                        <p className="message-timestamp">{message?.timestamp}</p>
+                        <p className="message-timestamp">{(new Date(message?.timestamp)).toLocaleString()}</p>
                     </div>
                 </div>
             ))}
