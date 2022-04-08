@@ -71,3 +71,32 @@
     font-family: 'Architects Daughter', cursive;
     padding: 10px;
 }
+
+@media (max-width: 600px) {
+    .darkrai-pic {
+        height: 100px;
+        bottom: 0vh;
+        left: 3vw;
+    }
+
+    .ash-pika-char-pic {
+        height: 110px;
+        bottom: 0vh;
+    }
+
+    .signup-form-container {
+        background-color: red;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .signup-form {
+        bottom: 20vh;
+        left: 13vw;
+    }
+
+    label.login-link {
+        font-size: 20px;
+        right: 11vw;
+    }
+}
