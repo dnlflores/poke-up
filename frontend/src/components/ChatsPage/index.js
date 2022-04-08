@@ -51,7 +51,9 @@ const ChatsPage = props => {
                         dispatch(deleteChat(chat.id));
                         dispatch(getChats());
                         if(filteredChats.length === 1) history.push('/chats');
-                    }}>Delete</button>
+                    }}><span className="material-icons">
+                    delete
+                    </span></button>
                 </div>
             ))}
         </div>

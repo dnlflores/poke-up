@@ -41,6 +41,8 @@ const InboxPage = props => {
         document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch]);
 
+    console.log("window size", window.innerWidth);
+
 
     return (
         <div className="page-container">
@@ -49,14 +51,24 @@ const InboxPage = props => {
                 <button id="selling-button" onClick={e => {
                     setShowSelling(true);
                     setShowBuying(false);
-                    document.getElementById('selling-button').setAttribute('style', 'color: blue; font-size: 40px;');
-                    document.getElementById('buying-button').setAttribute('style', 'color: black; font-size: 30px;');
+                    if(window.innerWidth > 600) {
+                        document.getElementById('selling-button').setAttribute('style', 'color: blue; font-size: 40px;');
+                        document.getElementById('buying-button').setAttribute('style', 'color: black; font-size: 30px;');
+                    } else {
+                        document.getElementById('selling-button').setAttribute('style', 'color: blue; font-size: 30px;');
+                        document.getElementById('buying-button').setAttribute('style', 'color: black; font-size: 20px;');
+                    }
                 }}>Selling</button>
                 <button id="buying-button" onClick={e => {
                     setShowSelling(false);
                     setShowBuying(true);
-                    document.getElementById('buying-button').setAttribute('style', 'color: blue; font-size: 40px;');
-                    document.getElementById('selling-button').setAttribute('style', 'color: black; font-size: 30px;');
+                    if(window.innerWidth > 600) {
+                        document.getElementById('buying-button').setAttribute('style', 'color: blue; font-size: 40px;');
+                        document.getElementById('selling-button').setAttribute('style', 'color: black; font-size: 30px;');
+                    } else {
+                        document.getElementById('buying-button').setAttribute('style', 'color: blue; font-size: 30px;');
+                        document.getElementById('selling-button').setAttribute('style', 'color: black; font-size: 20px;');
+                    }
                 }}>Buying</button>
             </div>
             {showSelling && Array.from(sellingConvos).map(post => (

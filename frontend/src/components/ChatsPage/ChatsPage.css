@@ -8,3 +8,9 @@
     right: 50px;
     z-index: 99;
 }
+
+@media (max-width: 600px) {
+    button.delete-chat-button {
+        right: 1rem;
+    }
+}
