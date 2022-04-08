@@ -4,6 +4,7 @@ from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
+from .socket import socketio
 
 from .models import db, User, Category, List, Post
 from .api.user_routes import user_routes
@@ -42,22 +43,12 @@ app.register_blueprint(chat_routes, url_prefix='/api/chats')
 db.init_app(app)
 Migrate(app, db)
 
-# Application Security
-CORS(app)
-
-# import your socketio object (with the other imports at the
-# top of the file)
-# in this example, the file from the previous step is named socket.py
-from .socket import socketio
-
 # initialize the app with the socket instance
 # you could include this line right after Migrate(app, db)
 socketio.init_app(app)
 
-# at the bottom of the file, use this to run the app
-if __name__ == '__main__':
-    socketio.run(app)
-
+# Application Security
+CORS(app)
     
 # Since we are deploying with Docker and Flask,
 # we won't be using a buildpack when we deploy to Heroku.
@@ -91,3 +82,8 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
+
+
+# at the bottom of the file, use this to run the app
+if __name__ == '__main__':
+    socketio.run(app)

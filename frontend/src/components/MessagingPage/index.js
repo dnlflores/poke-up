@@ -47,18 +47,16 @@ const MessagingPage = props => {
         // open socket connection
         // create websocket
         socket = io();
-        socket.on("connect", () => {
-            console.log("connected to server");
-        });
+        
         socket.on("message", data => {
             console.log("message received on frontend", data);
             dispatch(getMessages(chatId));
             footerRef.current.scrollIntoView();
         })
         // when component unmounts, disconnect
-        return () => {
+        return (() => {
           socket.disconnect();
-        };
+        });
     }, [dispatch, chatId]);
 
     const handleSubmit = event => {
