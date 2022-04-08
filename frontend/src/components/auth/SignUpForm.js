@@ -15,7 +15,7 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    document.getElementById('nav-bar').setAttribute('hidden', true);
+    document.getElementById('nav-bar').setAttribute('style', 'display: none');
     document.getElementById('about-links').setAttribute('style', 'display: none');
     document.getElementById('root').setAttribute('style', 'position: static');
   }, [])

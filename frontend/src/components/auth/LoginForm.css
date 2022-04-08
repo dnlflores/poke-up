@@ -102,6 +102,10 @@ div.login-signup {
 @media (max-width: 600px) {
     .login-form-container {
         width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background-color: red;
+        z-index: -1;
     }
 
     h2.login-front{
@@ -121,8 +125,9 @@ div.login-signup {
     }
 
     .login-form {
-        left: -5vw;
-        top: 21vh;
+        position: absolute;
+        left: 11vw;
+        top: 28vh;
     }
 
     .mew-login {
@@ -139,5 +144,14 @@ div.login-signup {
 
     label.signup-link {
         font-size: 20px;
+        bottom: 90vh;
+    }
+
+    .background-red {
+        display: none;
+    }
+
+    body {
+        margin: 0;
     }
 }

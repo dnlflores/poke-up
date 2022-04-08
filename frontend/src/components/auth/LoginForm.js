@@ -54,7 +54,6 @@ const LoginForm = () => {
       </NavLink>
     </h2>
       <form onSubmit={onLogin} className='login-form'>
-        <div className='login-form-container'>
         {showErrors > 0 && (
           <div className="errors-container login-signup">
               {errors.length > 0 && errors.map(err => (
@@ -63,7 +62,6 @@ const LoginForm = () => {
               <button className="button-default" onClick={event => setShowErrors(false)}>Ok!</button>
           </div>
         )}
-        </div>
         <div className='login-email-div'>
           <label htmlFor='email' className="login-email-label">Email</label>
           <input
