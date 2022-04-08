@@ -316,4 +316,8 @@ h2.seller-username {
         font-size: 30px;
         padding-left: 1rem;
     }
+
+    .add-to-list-button {
+        padding: 1rem;
+    }
 }
