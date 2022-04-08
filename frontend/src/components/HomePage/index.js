@@ -16,6 +16,7 @@ const HomePage = ({ posts }) => {
         document.getElementById('create-post-button')?.removeAttribute('hidden');
         document.getElementById('root').setAttribute('style', 'position: relative');
         document.getElementById('about-links').setAttribute('style', 'display: flex');
+        document.getElementById('nav-bar').setAttribute('style', 'display: flex');
     }, [dispatch]);
 
     const handleDelete = event => {

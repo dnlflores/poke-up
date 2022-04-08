@@ -37,6 +37,10 @@ function App() {
     })();
   }, [dispatch]);
 
+  useEffect(() => {
+    document.querySelector('iframe')?.setAttribute('style', 'display: none');
+  },[]);
+
   if (!loaded) {
     return null;
   }

@@ -14,7 +14,7 @@ const LoginForm = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    document.getElementById('nav-bar').setAttribute('hidden', true);
+    document.getElementById('nav-bar').setAttribute('style', 'display: none');
     document.getElementById('about-links').setAttribute('style', 'display: none');
     document.getElementById('root').setAttribute('style', 'position: static');
   }, [])
@@ -36,8 +36,8 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleDemo = event => {
-    dispatch(login("demo@pokeup.com", "password"));
+  const handleDemo = async event => {
+    await dispatch(login("demo@pokeup.com", "password"));
     document.getElementById('nav-bar').removeAttribute('hidden');
   }
 
