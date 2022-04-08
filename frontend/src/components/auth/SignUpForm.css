@@ -88,10 +88,13 @@
         background-color: red;
         width: 100vw;
         height: 100vh;
+        position: absolute;
+        z-index: -1;
     }
 
     .signup-form {
-        bottom: 20vh;
+        position: absolute;
+        bottom: 30vh;
         left: 13vw;
     }
 
