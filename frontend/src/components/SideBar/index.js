@@ -24,6 +24,20 @@ export default function SideBar(props) {
         <>
             <div className="mobile-sidebar-background" onClick={() => props.setTrigger(false)} style={props.trigger ? { transform: 'translateX(100vw)' } : {}}></div>
             <div className="mobile-sidebar" style={props.trigger ? { transform: 'translateX(100vw)' } : {}}>
+            {props.currentUser && (
+                    <div className="sidebar-buttons-div">
+                        <NavLink to='/chats' exact={true} activeClassName='active' className="nav-link">
+                            <button className="button-pokeball nav-buttons">
+                                Inbox
+                            </button>
+                        </NavLink>
+                        <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
+                            <button className="button-pokeball nav-buttons">
+                                Lists
+                            </button>
+                        </NavLink>
+                    </div>
+                )}
                 <NavLink to='/' exact={true} onClick={() => props.setTrigger(false)} className="mobile-category-text">
                     Home
                 </NavLink>

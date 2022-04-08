@@ -52,6 +52,12 @@
     justify-content: space-between;
 }
 
+@media (min-width: 601px) {
+    button.mobile-create-button {
+        display: none;
+    }
+}
+
 @media (max-width: 600px) {
     .user-options { 
         display: none;
@@ -68,5 +74,12 @@
 
     .post-title {
         max-width: 150px;
+    }
+
+    button.mobile-create-button {
+        display: block;
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
     }
 }

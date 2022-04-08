@@ -3,21 +3,29 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPosts, removePost } from '../../store/post';
 import EditPost from '../EditPost';
+import CreatePost from '../CreatePost';
 import './HomePage.css';
 
 const HomePage = ({ posts }) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const [editButtonPopup, setEditButtonPopup] = useState(0);
+    const [createButtonPopup, setCreateButtonPopup] = useState(false);
 
     useEffect(() => {
         dispatch(getPosts());
-        (function () {document.documentElement.scrollTop = 0})();
+        (function () { document.documentElement.scrollTop = 0 })();
         document.getElementById('create-post-button')?.removeAttribute('hidden');
         document.getElementById('root').setAttribute('style', 'position: relative');
         document.getElementById('about-links').setAttribute('style', 'display: flex');
         document.getElementById('nav-bar').setAttribute('style', 'display: flex');
     }, [dispatch]);
+
+    const handleCreate = event => {
+        event.preventDefault();
+
+        setCreateButtonPopup(true);
+    };
 
     const handleDelete = event => {
         event.preventDefault();
@@ -29,7 +37,7 @@ const HomePage = ({ posts }) => {
 
     const handleEdit = event => {
         event.preventDefault();
-        
+
         const postId = event.target.className.split('-')[2].split(' ')[0];
 
         setEditButtonPopup(postId);
@@ -61,6 +69,14 @@ const HomePage = ({ posts }) => {
                     )}
                 </div>
             ))}
+            {user && (
+                <button className="create-button button-pokeball mobile-create-button" id="create-post-button" onClick={handleCreate}>
+                    Create Post!
+                </button>
+            )}
+            {createButtonPopup && (
+                <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
+            )}
         </div>
     )
 }
