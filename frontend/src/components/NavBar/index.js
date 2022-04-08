@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import CreatePost from '../CreatePost';
+import SideBar from '../SideBar';
 import { getCategories } from '../../store/category';
 import './NavBar.css';
 
@@ -13,6 +14,9 @@ const NavBar = () => {
   const categories = useSelector(state => Object.values(state.categories));
   const [userDrop, setUserDrop] = useState(false);
   const [createButtonPopup, setCreateButtonPopup] = useState(false);
+  const [showSideBar, setShowSideBar] = useState(false);
+
+  console.log("show side bar => ", showSideBar);
 
   const handleProfile = event => {
     event.preventDefault();
@@ -33,7 +37,8 @@ const NavBar = () => {
 
   return (
     <div className="nav-bar-div" id="nav-bar">
-      <button className="mobile-nav-menu"><span className="material-icons mobile-nav-menu-button">menu</span></button>
+      <button className="mobile-nav-menu" onClick={() => setShowSideBar(true)}><span className="material-icons mobile-nav-menu-button">menu</span></button>
+      <SideBar categories={categories} setTrigger={setShowSideBar} trigger={showSideBar} currentUser={user} />
     {userDrop && (
       <>
         <div className="user-drop-background" onClick={event => setUserDrop(false)} />
@@ -61,7 +66,7 @@ const NavBar = () => {
               </div>
             )}
           </div>
-          <LogoutButton trigger={userDrop} setTrigger={setUserDrop}/>
+          <LogoutButton trigger={userDrop} setTrigger={setUserDrop} />
         </div>
       </>
     )}
