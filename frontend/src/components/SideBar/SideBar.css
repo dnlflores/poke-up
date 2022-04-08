@@ -34,7 +34,7 @@
         flex-direction: column;
         align-items: center;
         position: fixed;
-        bottom: 6rem;
+        bottom: 2rem;
         text-shadow: 2px 2px 4px blue;
         font-family: "Architects Daughter", cursive;
     }

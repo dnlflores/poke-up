@@ -41,9 +41,6 @@ const InboxPage = props => {
         document.getElementById('about-links').setAttribute('style', 'display: none');
     }, [dispatch]);
 
-    console.log("window size", window.innerWidth);
-
-
     return (
         <div className="page-container">
             <h1 className="page-title">Inbox</h1>

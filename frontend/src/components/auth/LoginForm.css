@@ -10,6 +10,7 @@
     font-family: 'Fredoka One', cursive;
     position: absolute;
     left: 40vw;
+    top: 35vh;
 }
 
 .login-email-div, .login-password-div {
@@ -22,9 +23,6 @@
     height: 350px;
     object-fit: cover;
     position: absolute;
-}
-
-.pikachu-ash-login {
     bottom: 0px;
     left: 8vw;
 }
@@ -65,11 +63,6 @@ h2.login-front {
     margin: 20px;
 }
 
-.login-form {
-    position: absolute;
-    top: 35vh;
-}
-
 .login-email-label,
 .login-password-label {
     font-size: 25px;
@@ -104,4 +97,47 @@ div.login-signup {
     background-color: yellow;
     color: blue;
     font-family: "Fredoka One", cursive;
+}
+
+@media (max-width: 600px) {
+    .login-form-container {
+        width: 100vw;
+    }
+
+    h2.login-front{
+        left: 30vw;
+        font-size: 45px;
+    }
+
+    h2.login-back {
+        left: 31vw;
+        font-size: 45px;
+    }
+
+    h2.login-front,
+    h2.login-back {
+        position: absolute;
+        top: 10vh;
+    }
+
+    .login-form {
+        left: -5vw;
+        top: 21vh;
+    }
+
+    .mew-login {
+        height: 150px;
+        bottom: 8vh;
+        right: 1vw;
+    }
+
+    .pikachu-ash-login {
+        height: 200px;
+        bottom: 0px;
+        left: 0px;
+    }
+
+    label.signup-link {
+        font-size: 20px;
+    }
 }

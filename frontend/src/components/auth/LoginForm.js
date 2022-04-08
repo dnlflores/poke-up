@@ -49,7 +49,7 @@ const LoginForm = () => {
     <div className="login-form-container">
     <h2 className="background-title login-back">PokéUp</h2>
     <h2 className="site-title login-front">
-      <NavLink to='/' exact={true} activeClassName='active' className="nav-link" onClick={event => document.getElementById('nav-bar').removeAttribute('hidden')}>
+      <NavLink to='/' exact={true} activeClassName='active' className="nav-link login-back" onClick={event => document.getElementById('nav-bar').removeAttribute('hidden')}>
         PokéUp
       </NavLink>
     </h2>
