@@ -98,17 +98,17 @@ const PostPage = props => {
     return (
         <div className="post-container">
             <div className="upper-container">
-                <div className="left-container">
+                <div className="left-container top-container-mobile">
                     <div className="line-div-1"></div>
                     <img src={post?.image_url} alt="post" className="post-page-image"></img>
                 </div>
-                <div className="right-container">
-                    <h2>{post?.title}</h2>
-                    <h2>${post?.price.toLocaleString("en-US")}</h2>
+                <div className="right-container bottom-container-mobile">
+                    <h2 className="post-page-title">{post?.title}</h2>
+                    <h2 className="post-page-price">${post?.price.toLocaleString("en-US")}</h2>
                     <div className="quantity-category-container">
                         <label className="category-page-text">{category?.name}</label>
-                        <label className="quantity-text">Quantity: </label>
-                        <h2 className="quantity-number">{post?.quantity}</h2>
+                        {/* <label className="quantity-text">Quantity: </label>
+                        <h2 className="quantity-number">{post?.quantity}</h2> */}
                     </div>
                     {user && (
                         <div className="post-buttons">
@@ -138,11 +138,11 @@ const PostPage = props => {
             <div className="bottom-container">
                 <div className="description-container">
                     <div className="line-div-4"></div>
-                    <h2>Description</h2>
+                    <h2 className="description-title">Description</h2>
                     <p className="description-text">{post?.description}</p>
                 </div>
                 <div className="similar-posts-container">
-                    <h2>Similar Items</h2>
+                    <h2 className="similar-title">Similar Items</h2>
                     <div className="similar-posts-div-container">
                         {similarPosts?.map(post => (
                             <div className="similar-post-div" key={post.id}>
@@ -156,7 +156,7 @@ const PostPage = props => {
                     </div>
                 </div>
                 <div className="more-posts-container">
-                    <h2>More Items From This PokéSeller</h2>
+                    <h2 className="more-title">More Items From This PokéSeller</h2>
                     <div className="more-posts-div-container">
                         {otherSellerPosts?.map(post => (
                             <div className="more-post-div" key={post.id}>
