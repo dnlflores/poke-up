@@ -77,16 +77,16 @@ const NavBar = () => {
                 {user && (
                     <div className="nav-buttons-div">
                         <NavLink to='/chats' exact={true} activeClassName='active' className="nav-link">
-                            <button className="button-pokeball nav-buttons">
+                            <button className="button-pokeball nav-buttons non-sidebar-buttons">
                                 Inbox
                             </button>
                         </NavLink>
                         <NavLink to='/lists' exact={true} activeClassName='active' className="nav-link">
-                            <button className="button-pokeball nav-buttons">
+                            <button className="button-pokeball nav-buttons non-sidebar-buttons">
                                 Lists
                             </button>
                         </NavLink>
-                        <button onClick={handleProfile} className='button-pokeball nav-buttons'>
+                        <button onClick={handleProfile} className='button-pokeball nav-buttons non-sidebar-buttons'>
                             Profile
                         </button>
                         <button className="create-button button-pokeball" id="create-post-button" onClick={handleCreate}>

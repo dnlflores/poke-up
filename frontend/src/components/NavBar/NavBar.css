@@ -233,7 +233,7 @@ nav {
         right: 6vw;
     }
 
-    .nav-buttons {
+    .non-sidebar-buttons {
         display: none;
     }
 }
