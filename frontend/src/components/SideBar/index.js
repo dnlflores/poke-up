@@ -12,12 +12,14 @@ export default function SideBar(props) {
         e.preventDefault();
         props.setTrigger(false);
         await dispatch(logout());
+        history.push('/login');
     };
 
     const handleDemo = async e => {
         e.preventDefault();
         await dispatch(login("demo@pokeup.com", "password"));
         document.getElementById('nav-bar').removeAttribute('hidden');
+        props.setTrigger(false);
     }
 
     return (
