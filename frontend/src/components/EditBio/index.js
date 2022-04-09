@@ -6,7 +6,7 @@ import './EditBio.css'
 export default function EditBio(props) {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
-    const [description, setDescription] = useState('');
+    const [description, setDescription] = useState(props.user.description);
 
     const handleEditBio = async event => {
         event.preventDefault();
@@ -32,7 +32,8 @@ export default function EditBio(props) {
     };
 
     return (
-        <div className="create-post-background">
+        <div>
+            <div className="create-post-background" onClick={() => props.setTrigger(false)}/>
             <div className="create-post-div edit-post-div edit-bio-div">
                 <h2 className="create-post-title">Edit Bio</h2>
                 <form onSubmit={handleEditBio} id="create-post-form">
@@ -54,7 +55,7 @@ export default function EditBio(props) {
                         </div>
                         <div className="form-buttons bio-form-buttons">
                             <button className="submit-bio-button button-default" type="submit">Submit Edit</button>
-                            <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
+                            <button className="button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
                         </div>
                     </div>
                 </form>

@@ -1,26 +1,28 @@
 .edit-bio-div {
-    width: 500px;
-    height: 300px;
+    width: 35vw;
+    height: 45vh;
+    left: 30vw;
+    top: 25vh;
 }
 
 .edit-bio {
     position: relative;
-    bottom: 125px;
+    bottom: 18vh;
 }
 
 textarea.bio-input {
-    height: 100px;
-    width: 300px;
+    height: 15vh;
+    width: 25vw;
 }
 
 .bio-form-buttons {
     position: relative;
-    top: -105px;
+    top: -15vh;
 }
 
 .dragonite-pic {
     position: absolute;
-    height: 100px;
+    height: 15vh;
     top: 0;
-    right: 20px;
+    right: 1.5vw;
 }
