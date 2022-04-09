@@ -64,6 +64,9 @@ const HomePage = ({ posts }) => {
                             </div>
                         </div>
                     </div>
+                    {createButtonPopup && (
+                        <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
+                    )}
                     {+editButtonPopup === post.id && (
                         <EditPost post={post} trigger={editButtonPopup} setTrigger={setEditButtonPopup} />
                     )}
@@ -73,9 +76,6 @@ const HomePage = ({ posts }) => {
                 <button className="create-button button-pokeball mobile-create-button" id="create-post-button" onClick={handleCreate}>
                     Create Post!
                 </button>
-            )}
-            {createButtonPopup && (
-                <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
             )}
         </div>
     )

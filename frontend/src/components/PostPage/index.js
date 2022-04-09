@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, NavLink } from 'react-router-dom';
-import { getPosts } from '../../store/post';
+import { useParams, NavLink, useHistory } from 'react-router-dom';
+import EditPost from '../EditPost';
+import { getPosts, removePost } from '../../store/post';
 import { getCategories } from '../../store/category';
 import { getLists } from '../../store/list';
 import { getPostLists, createListPost } from '../../store/post-list';
@@ -10,6 +11,7 @@ import './PostPage.css';
 
 const PostPage = props => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { id: postId } = useParams();
     const posts = useSelector(state => Object.values(state.posts));
     const categories = useSelector(state => Object.values(state.categories));
@@ -19,6 +21,7 @@ const PostPage = props => {
     const [users, setUsers] = useState([]);
     const [showListsToAdd, setShowListsToAdd] = useState(false);
     const [showOfferModal, setShowOfferModal] = useState(false);
+    const [editButtonPopup, setEditButtonPopup] = useState(false);
     const user = useSelector(state => state.session.user);
     const post = posts.find(post => post.id === +postId);
     const [offer, setOffer] = useState(post?.price);
@@ -95,6 +98,13 @@ const PostPage = props => {
         setShowListsToAdd(false);
     };
 
+    const handleDelete = event => {
+        event.preventDefault();
+
+        dispatch(removePost(postId));
+        history.push('/');
+    }
+
     return (
         <div className="post-container">
             <div className="upper-container">
@@ -116,6 +126,12 @@ const PostPage = props => {
                                 <>
                                     <button className="button-default" onClick={event => setShowOfferModal(true)}>Offer</button>
                                     <button className="add-to-list-button" onClick={event => setShowListsToAdd(true)}>ADD TO LIST<span className="material-icons list-icon">lists</span></button>
+                                </>
+                            )}
+                            {user.id === post?.user_id && window.innerWidth < 600 && (
+                                <>
+                                    <button className="button-default" onClick={() => setEditButtonPopup(true)}>Edit</button>
+                                    <button className="button-default-cancel" onClick={handleDelete}>Delete</button>
                                 </>
                             )}
                         </div>
@@ -192,6 +208,9 @@ const PostPage = props => {
                         <button className="button-default" onClick={makeOffer}>Offer</button>
                     </div>
                 </div>
+        )}
+        {editButtonPopup && (
+            <EditPost post={post} trigger={editButtonPopup} setTrigger={setEditButtonPopup} />
         )}
         </div>
     )

@@ -13,13 +13,16 @@
 
 .create-post-div {
     background-color: yellow;
-    position: relative;
-    width: 700px;
-    height: 500px;
+    position: fixed;
+    width: 44rem;
+    height: 31rem;
     border: 3px solid blue;
     border-radius: 1rem;
     font-family: 'Fredoka One', cursive;
     color: blue;
+    z-index: 651;
+    left: 21.5vw;
+    top: 13.5vh;
 }
 
 .create-form-div {

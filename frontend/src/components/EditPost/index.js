@@ -8,11 +8,11 @@ const EditPost = (props) => {
     const dispatch = useDispatch();
 
     const [errors, setErrors] = useState([]);
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [price, setPrice] = useState(0);
+    const [title, setTitle] = useState(props.post.title);
+    const [description, setDescription] = useState(props.post.description);
+    const [price, setPrice] = useState(+props.post.price);
     const [quantity, setQuantity] = useState(0);
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(props.post.image_url);
     const [category, setCategory] = useState(props.post.category_id);
     const [showErrors, setShowErrors] = useState(false);
     const user = useSelector(state => state.session.user);
@@ -109,7 +109,8 @@ const EditPost = (props) => {
     };
 
     return (
-        <div className="create-post-background">
+        <>
+            <div className="create-post-background" onClick={() => props.setTrigger(false)}/>
             <div className="create-post-div">
                 <h2 className="create-post-title">Edit Post</h2>
                 <form onSubmit={handleSubmit} id="create-post-form">
@@ -171,8 +172,7 @@ const EditPost = (props) => {
                         </div>
                         <div className="third-layer-form">
                             <div className="category-div">
-                                <select className="categories" name="categories" form="create-post-form" onChange={updateCategory} defaultValue={"DEFAULT"}>
-                                    <option disabled value={"DEFAULT"}>Category</option>
+                                <select className="categories" name="categories" form="create-post-form" onChange={updateCategory} value={category}>
                                     {categories?.map(category => (
                                         <option key={category.id} value={category.id}>{category.name}</option>
                                     ))}
@@ -201,7 +201,7 @@ const EditPost = (props) => {
                     <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_5254081.png" alt="pikachu-and-ash" className="pikachu-and-ash-pic"></img>
                 </form>
             </div>
-        </div>
+        </>
     )
 }
 

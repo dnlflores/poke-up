@@ -16,8 +16,6 @@ const NavBar = () => {
     const [createButtonPopup, setCreateButtonPopup] = useState(false);
     const [showSideBar, setShowSideBar] = useState(false);
 
-    console.log("show side bar => ", showSideBar);
-
     const handleProfile = event => {
         event.preventDefault();
 

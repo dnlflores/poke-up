@@ -124,7 +124,8 @@ const CreatePost = (props) => {
     };
 
     return (
-        <div className="create-post-background">
+        <>
+            <div className="create-post-background" onClick={() => props.setTrigger(false)}/>
             <div className="create-post-div">
                 <h2 className="create-post-title">Create Post</h2>
                 <form onSubmit={handleSubmit} id="create-post-form">
@@ -218,7 +219,7 @@ const CreatePost = (props) => {
                     <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_5254081.png" alt="pikachu-and-ash" className="pikachu-and-ash-pic"></img>
                 </form>
             </div>
-        </div>
+        </>
     )
 }
 
