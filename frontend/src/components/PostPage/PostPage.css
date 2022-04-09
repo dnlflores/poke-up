@@ -173,8 +173,8 @@ h2.seller-username {
 }
 
 .add-list-post-container {
-    width: 500px;
-    height: 400px;
+    width: 35vw;
+    height: 60vh;
     border: blue solid 3px;
     border-radius: 1rem;
     background-color: yellow;
@@ -183,6 +183,10 @@ h2.seller-username {
     justify-content: center;
     align-items: center;
     overflow: scroll;
+    position: fixed;
+    top: 20vh;
+    left: 30vw;
+    z-index: 651;
 }
 
 .list-buttons-container {
@@ -217,8 +221,8 @@ h2.seller-username {
 .offer-post-container {
     z-index: 651;
     position: fixed;
-    top: 20%;
-    left: 30%;
+    top: 20vh;
+    left: 30vw;
 }
 
 @media (min-width: 601px) {
@@ -313,5 +317,11 @@ h2.seller-username {
 
     .add-to-list-button {
         padding: 1rem;
+    }
+
+    .add-list-post-container {
+        width: 90vw;
+        top: 20vh;
+        left: 5vw;
     }
 }

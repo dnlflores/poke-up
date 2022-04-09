@@ -74,7 +74,7 @@ export default function SideBar(props) {
                 )}
                 {props.currentUser && (
                     <div className="mobile-sidebar-profile">
-                        <NavLink to={`/users/${props.currentUser?.id}`}>
+                        <NavLink to={`/users/${props.currentUser?.id}`} onClick={() => props.setTrigger(false)}>
                             <img
                                 className="nav-avatar"
                                 src={props.currentUser.profile_pic_url}

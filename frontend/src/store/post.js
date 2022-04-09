@@ -62,8 +62,8 @@ export const createPost = post => async dispatch => {
     dispatch(addPost(post))
 };
 
-export const getPost = post => async dispatch => {
-    const response = await fetch(`api/posts/${post.id}`);
+export const getPost = id => async dispatch => {
+    const response = await fetch(`api/posts/${id}`);
 
     if(response.ok) {
         const post = await response.json();

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, NavLink, useHistory } from 'react-router-dom';
 import EditPost from '../EditPost';
-import { getPosts, removePost } from '../../store/post';
+import { getPosts, removePost, getPost } from '../../store/post';
 import { getCategories } from '../../store/category';
 import { getLists } from '../../store/list';
 import { getPostLists, createListPost } from '../../store/post-list';
@@ -14,6 +14,7 @@ const PostPage = props => {
     const history = useHistory();
     const { id: postId } = useParams();
     const posts = useSelector(state => Object.values(state.posts));
+    const post = useSelector(state => state.posts[postId]);
     const categories = useSelector(state => Object.values(state.categories));
     const postLists = useSelector(state => state.listPosts?.postLists);
     const myLists = useSelector(state => Object.values(state.lists));
@@ -23,7 +24,6 @@ const PostPage = props => {
     const [showOfferModal, setShowOfferModal] = useState(false);
     const [editButtonPopup, setEditButtonPopup] = useState(false);
     const user = useSelector(state => state.session.user);
-    const post = posts.find(post => post.id === +postId);
     const [offer, setOffer] = useState(post?.price);
     const category = categories.find(category => category.id === post?.category_id);
     const similarPosts = posts.filter(similarPost => {
@@ -59,6 +59,7 @@ const PostPage = props => {
 
     useEffect(() => {
         dispatch(getPosts());
+        dispatch(getPost(postId));
         dispatch(getCategories());
         dispatch(getLists());
         dispatch(getPostLists(postId));
@@ -104,6 +105,9 @@ const PostPage = props => {
         dispatch(removePost(postId));
         history.push('/');
     }
+
+    console.log("this is the post", post);
+    console.log("this is the offer", offer);
 
     return (
         <div className="post-container">
@@ -187,7 +191,8 @@ const PostPage = props => {
                 </div>
             </div>
             {showListsToAdd && (
-                <div className="background-modal">
+                <div>
+                    <div className="background-modal" onClick={() => setShowListsToAdd(false)}/>
                     <div className="add-list-post-container">
                         <h2>Your Lists!</h2>
                         <div className="list-buttons-container">
@@ -204,8 +209,12 @@ const PostPage = props => {
                     <div className="background-modal" onClick={e => setShowOfferModal(false)} />
                     <div className="offer-post-container add-list-post-container">
                         <h2>Offer</h2>
-                        <input required type="number" className="offer-input" placeholder={post?.price} onChange={event => setOffer(event.target.value)} value={offer}></input>
+                        <div>
+                            <label style={{fontFamily: "'Fredoka One', cursive"}}>$</label>
+                            <input required type="number" className="offer-input" placeholder={post?.price} onChange={event => setOffer(event.target.value)} defaultValue={post?.price} value={offer}></input>
+                        </div>
                         <button className="button-default" onClick={makeOffer}>Offer</button>
+                        <button className="button-default-cancel" onClick={e => setShowOfferModal(false)}>Cancel</button>
                     </div>
                 </div>
         )}
