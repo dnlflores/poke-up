@@ -15,3 +15,9 @@ img.edit-pika {
     position: relative;
     bottom: 90px;
 }
+
+@media (max-width: 600px) {
+    .edit-name {
+        bottom: 5vh;
+    }
+}

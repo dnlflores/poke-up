@@ -71,10 +71,11 @@ const EditList = (props) => {
     };
 
     return (
-        <div className="create-post-background">
+        <div>
+            <div className="create-post-background" onClick={() => props.setTrigger(false)} />
             <div className="create-post-div edit-post-div">
                 <h2 className="create-post-title">Edit List</h2>
-                <form onSubmit={handleSubmit} id="create-post-form">
+                <form onSubmit={handleSubmit} id="create-list-form">
                     <ul>
                         {errors.length > 0 && errors.map(err => (
                             <li className="display-errors" key={err}>{err}</li>
