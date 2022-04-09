@@ -179,9 +179,9 @@ input.quantity-input::-webkit-inner-spin-button {
 
 .pikachu-and-ash-pic {
     position: absolute;
-    top: -40px;
-    right: 60px;
-    height: 135px;
+    bottom: 30.75vh;
+    right: 4vw;
+    height: 19.5vh;
     object-fit: cover;
 }
 
@@ -222,7 +222,8 @@ input.title-input {
     }
     
     .pikachu-and-ash-pic {
-        display: none;
+        height: 15vh;
+        bottom: 34.25vh;
     }
 
     .description-div {
