@@ -97,10 +97,10 @@ const NavBar = () => {
                 {!user && (
                     <div className="nav-buttons-div">
                         <NavLink to='/login' exact={true} activeClassName='active'>
-                            <button className="button-pokeball nav-buttons login-button">Login!</button>
+                            <button className="button-pokeball nav-buttons login-button non-sidebar-buttons">Login!</button>
                         </NavLink>
                         <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                            <button className="button-pokeball nav-buttons signup-button">Sign Up!</button>
+                            <button className="button-pokeball nav-buttons signup-button non-sidebar-buttons">Sign Up!</button>
                         </NavLink>
                     </div>
                 )}
