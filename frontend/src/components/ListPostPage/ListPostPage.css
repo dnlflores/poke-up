@@ -27,7 +27,7 @@
     border-radius: 1rem;
     padding: 10px;
     background-color: yellow;
-    box-shadow: 5px 5px 4px rgba(0,0,0,0.5);
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
     position: relative;
     margin: 15px;
 }
@@ -67,13 +67,44 @@ button.remove-list-post {
 .list-post-price,
 .list-post-title,
 .link-post,
-.remove-list-post{
+.remove-list-post {
     z-index: 100;
 }
 
 
 .list-post-title,
 .list-post-price,
-.remove-list-post{
+.remove-list-post {
     margin-left: 40px;
+}
+
+@media (max-width: 600px) {
+    .list-post-div {
+        width: 80vw;
+        height: 20vh;
+    }
+
+    .list-post-image {
+        width: 100px;
+        height: 100px;
+        left: 5vw;
+        top: 5vh;
+    }
+
+    .list-post-title,
+    .list-post-price,
+    .remove-list-post {
+        margin-left: 21vw;
+        position: absolute;
+        bottom: 10vh;
+    }
+
+    button.remove-list-post {
+        height: 5vh;
+        top: 14vh;
+    }
+
+    .link-post {
+        display: none;
+    }
 }
