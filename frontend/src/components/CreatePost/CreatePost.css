@@ -14,8 +14,8 @@
 .create-post-div {
     background-color: yellow;
     position: fixed;
-    width: 44rem;
-    height: 31rem;
+    width: 53vw;
+    height: 75vh;
     border: 3px solid blue;
     border-radius: 1rem;
     font-family: 'Fredoka One', cursive;
@@ -30,18 +30,17 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 200px;
-    align-items: center;
+    height: 30vh;
     padding: 50px;
     position: relative;
-    top: 70px;
+    top: 10vh;
 }
 
 .create-post-title {
     text-align: center;
     position: absolute;
-    top: 20px;
-    left: 30px;
+    top: 2vh;
+    left: 2vw;
 }
 
 .create-post-div input {
@@ -49,7 +48,7 @@
     appearance: none;
     outline: none;
     border-radius: 1rem;
-    height: 30px;
+    height: 5vh;
     font-family: 'Architects Daughter', cursive;
     padding-left: 10px;
     background-color: rgba(235, 220, 21, 0.432);
@@ -60,7 +59,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    top: 40px;
+    top: 5.75vh;
 }
 
 .first-layer-form {
@@ -77,8 +76,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 500px;
-    margin-top: 10px;
+    width: 35vw;
 }
 
 .price-div, .quantity-div, .category-div {
@@ -89,40 +87,27 @@
 }
 
 input.price-input, input.quantity-input {
-    width: 70px;
-    height: 70px;
+    width: 5vw;
+    height: 10vh;
 }
 
 .form-buttons {
     position: absolute;
-    top: 330px;
+    top: 50vh;
     display: flex;
     justify-content: center;
 }
 
-button.cancel-button {
-    height: 40px;
-    width: 70px;
-    padding: 0px;
-    margin: 5px;
-    background-color: red;
-    color: white;
-}
-
-button.cancel-button:hover {
-    background-color: rgba(255, 0, 0, 0.74);
-}
-
 button.submit-post-button {
-    height: 40px;
-    width: 100px;
+    height: 5.75vh;
+    width: 8vw;
     padding: 0px;
     margin: 5px;
 }
 
 .description-input {
-    width: 500px;
-    height: 70px;
+    width: 33vw;
+    height: 13vh;
     color: blue;
 }
 
@@ -138,8 +123,8 @@ select.categories {
     outline: none;
     background-color: rgba(235, 220, 21, 0.432);
     border-radius: 1rem;
-    height: 40px;
-    width: 200px;
+    height: 5.75vh;
+    width: 12vw;
     padding: 10px;
     font-size: 16px;
     font-family: 'Architects Daughter', cursive;
@@ -152,7 +137,7 @@ select.categories {
 }
 
 .title-div {
-    max-width: 320px;
+    max-width: 20vw;
     color: blue;
 }
 
@@ -168,10 +153,6 @@ input.quantity-input::-webkit-outer-spin-button,
 input.quantity-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-input.price-input {
-    width: 100px;
 }
 
 .loading-logo {
@@ -224,4 +205,105 @@ input.price-input {
 
 input.title-input {
     color: blue;
+}
+
+@media (max-width: 600px) {
+    .create-post-background {
+        /* display: none; */
+        background-color: transparent;
+    }
+
+    .create-post-div {
+        width: 90vw;
+        left: 4.5vw;
+        top: 3vh;
+        height: 90vh;
+        z-index: 1000;
+    }
+    
+    .pikachu-and-ash-pic {
+        display: none;
+    }
+
+    .description-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5vh;
+    }
+
+    .description-input {
+        width: 60vw;
+    }
+
+    .title-div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .price-div {
+        /* display: none; */
+        height: 5vh;
+    }
+
+    .quantity-div {
+        /* display: none; */
+        height: 5vh;
+    }
+
+    input.price-input,
+    input.quantity-input {
+        width: 15vw;
+    }
+
+    .first-layer-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 3vh;
+    }
+
+    .create-form-div {
+        top: 17vh;
+    }
+
+    .third-layer-form {
+        margin-top: 5vh;
+        padding: 1rem;
+        width: 80vw;
+        position: relative;
+        left: 3vw;
+    }
+
+    .category-div {
+        width: 20vw;
+    }
+
+    select.categories {
+        width: 40vw;
+    }
+
+    .form-buttons {
+        top: 55vh;
+        width: 80vw;
+    }
+
+    button.submit-post-button {
+        width: 27vw;
+        height: 5.75vh;
+        margin: 5px;
+    }
+
+    button.cancel-post-button {
+        width: 20vw;
+        height: 5.75vh;
+        margin: 5px;
+    }
+
+    .loading-logo {
+        top: 37vh;
+        right: 29vw;
+    }
 }

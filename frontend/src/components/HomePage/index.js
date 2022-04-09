@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getPosts, removePost } from '../../store/post';
+import { getCategories } from '../../store/category';
 import EditPost from '../EditPost';
 import CreatePost from '../CreatePost';
 import './HomePage.css';
@@ -11,9 +12,12 @@ const HomePage = ({ posts }) => {
     const user = useSelector(state => state.session.user);
     const [editButtonPopup, setEditButtonPopup] = useState(0);
     const [createButtonPopup, setCreateButtonPopup] = useState(false);
+    const categories = useSelector(state => Object.values(state.categories));
+    console.log("categories from homepage", categories);
 
     useEffect(() => {
         dispatch(getPosts());
+        dispatch(getCategories());
         (function () { document.documentElement.scrollTop = 0 })();
         document.getElementById('create-post-button')?.removeAttribute('hidden');
         document.getElementById('root').setAttribute('style', 'position: relative');
@@ -23,7 +27,6 @@ const HomePage = ({ posts }) => {
 
     const handleCreate = event => {
         event.preventDefault();
-
         setCreateButtonPopup(true);
     };
 
@@ -65,18 +68,13 @@ const HomePage = ({ posts }) => {
                         </div>
                     </div>
                     {createButtonPopup && (
-                        <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
+                        <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} categories={categories} />
                     )}
                     {+editButtonPopup === post.id && (
                         <EditPost post={post} trigger={editButtonPopup} setTrigger={setEditButtonPopup} />
                     )}
                 </div>
             ))}
-            {user && (
-                <button className="create-button button-pokeball mobile-create-button" id="create-post-button" onClick={handleCreate}>
-                    Create Post!
-                </button>
-            )}
         </div>
     )
 }

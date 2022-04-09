@@ -16,30 +16,28 @@ const CreatePost = (props) => {
     const [category, setCategory] = useState('1')
     const [showErrors, setShowErrors] = useState(false);
     const user = useSelector(state => state.session.user);
-    const categories = useSelector(state => Object.values(state.categories))
+    const { categories } = props;
     const [imageLoading, setImageLoading] = useState(false);
 
     useEffect(() => {
-        dispatch(getCategories());
-
         let newErrors = [];
 
-        if(!image) {
+        if (!image) {
             newErrors.push("Please upload an image.");
         }
-        if(!title) newErrors.push("Please enter a title.");
-        if(!description) newErrors.push("Please enter a description of the item.");
-        if(!price) newErrors.push("Please enter a price.");
-        if(!quantity) newErrors.push("Please enter a quantity.");
-        if(!category) newErrors.push("Please choose a category");
-        if(title.length < 3) newErrors.push("Title must be longer than 3 characters!");
-        if(title.length > 20) newErrors.push("Title must be less than 20 characters!");
-        if(+quantity > 1000) newErrors.push("Quantity is too large. Must be lower than 1,000!");
-        if(+quantity < 0) newErrors.push("Quantity must be greater than 0!");
-        if(+price < 0) newErrors.push("Price must be greater than or equal to $0!");
-        if(+price > 1000000000) newErrors.push("Price must be less than $1,000,000,000!");
+        if (!title) newErrors.push("Please enter a title.");
+        if (!description) newErrors.push("Please enter a description of the item.");
+        if (!price) newErrors.push("Please enter a price.");
+        if (!quantity) newErrors.push("Please enter a quantity.");
+        if (!category) newErrors.push("Please choose a category");
+        if (title.length < 3) newErrors.push("Title must be longer than 3 characters!");
+        if (title.length > 20) newErrors.push("Title must be less than 20 characters!");
+        if (+quantity > 1000) newErrors.push("Quantity is too large. Must be lower than 1,000!");
+        if (+quantity < 0) newErrors.push("Quantity must be greater than 0!");
+        if (+price < 0) newErrors.push("Price must be greater than or equal to $0!");
+        if (+price > 1000000000) newErrors.push("Price must be less than $1,000,000,000!");
 
-        if(newErrors.length > 0) {
+        if (newErrors.length > 0) {
             setErrors(newErrors);
             newErrors = [];
         }
@@ -74,37 +72,37 @@ const CreatePost = (props) => {
         event.preventDefault();
 
         // if(!errors.length) {
-            const formData = new FormData();
-            formData.append("image", image);
+        const formData = new FormData();
+        formData.append("image", image);
 
-            // aws uploads can be a bit slow—displaying
-            // some sort of loading message is a good idea
-            setImageLoading(true);
+        // aws uploads can be a bit slow—displaying
+        // some sort of loading message is a good idea
+        setImageLoading(true);
 
-            formData.append("title", title);
-            formData.append("description", description);
-            formData.append("price", price);
-            formData.append("quantity", quantity);
-            formData.append("user_id", user.id);
-            formData.append("category_id", category)
+        formData.append("title", title);
+        formData.append("description", description);
+        formData.append("price", price);
+        formData.append("quantity", quantity);
+        formData.append("user_id", user.id);
+        formData.append("category_id", category)
 
-            const response = await fetch("/api/posts/", {
-                method: "POST",
-                body: formData,
-            });
-            
-            if (response.ok) {
-                const newPost = await response.json();
-                dispatch(createPost(newPost));
-                setImageLoading(false);
-                props.setTrigger(false);
-            }else {
-                setImageLoading(false);
+        const response = await fetch("/api/posts/", {
+            method: "POST",
+            body: formData,
+        });
 
-                console.log("there was an error here is some info", response, response.formData, response.status);
-            }
+        if (response.ok) {
+            const newPost = await response.json();
+            dispatch(createPost(newPost));
+            setImageLoading(false);
+            props.setTrigger(false);
+        } else {
+            setImageLoading(false);
+
+            console.log("there was an error here is some info", response, response.formData, response.status);
+        }
         // }
-        
+
         if (errors.length > 0) setShowErrors(true);
     };
 
@@ -114,8 +112,8 @@ const CreatePost = (props) => {
         realBtn.click();
 
         realBtn.addEventListener('change', () => {
-            
-            if(realBtn.value) {
+
+            if (realBtn.value) {
                 const name = realBtn.value.split("\\")[2];
                 fileName.innerHTML = name;
             }
@@ -125,7 +123,7 @@ const CreatePost = (props) => {
 
     return (
         <>
-            <div className="create-post-background" onClick={() => props.setTrigger(false)}/>
+            <div className="create-post-background" onClick={() => props.setTrigger(false)} />
             <div className="create-post-div">
                 <h2 className="create-post-title">Create Post</h2>
                 <form onSubmit={handleSubmit} id="create-post-form">
@@ -210,7 +208,7 @@ const CreatePost = (props) => {
                         </div>
                         <div className="form-buttons">
                             <button className="submit-post-button button-default" type="submit">Submit Post</button>
-                            <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
+                            <button className="cancel-post-button button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
                         </div>
                     </div>
                     {imageLoading && (

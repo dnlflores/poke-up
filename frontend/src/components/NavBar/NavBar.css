@@ -176,10 +176,6 @@ nav {
 }
 
 @media (max-width: 600px) {
-    .nav-buttons-div {
-        display: none;
-    }
-
     .categories-container {
         display: none;
     }
@@ -229,5 +225,15 @@ nav {
         align-items: center;
         box-shadow: 0 3px 10px black;
         border-right: 1px solid black;
+    }
+
+    button#create-post-button {
+        position: fixed;
+        bottom: 3vh;
+        right: 6vw;
+    }
+
+    .nav-buttons {
+        display: none;
     }
 }

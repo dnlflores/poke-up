@@ -113,7 +113,7 @@ const NavBar = () => {
                 </div>
             </nav>
             {createButtonPopup && (
-                <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} />
+                <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} categories={categories} />
             )}
         </div>
     );
