@@ -82,3 +82,29 @@
     justify-content: space-between;
     align-items: center;
 }
+
+@media (max-width: 600px) {
+    .upper-profile-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pro-pic{
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-info-div {
+        font-size: 12px;
+    }
+
+    .bio-div {
+        width: 63vw;
+        height: 45vh;
+    }
+
+    .edit-delete-post-profile {
+        display: none;
+    }
+}

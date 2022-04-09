@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../store/session';
 import './EditBio.css'
@@ -7,9 +7,15 @@ export default function EditBio(props) {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
     const [description, setDescription] = useState(props.user.description);
+    const [showErrors, setShowErrors] = useState(false);
 
     const handleEditBio = async event => {
         event.preventDefault();
+
+        if(errors.length > 0) {
+            setShowErrors(true);
+            return;
+        }
 
         const formData = new FormData();
         formData.append("description", description);
@@ -31,17 +37,28 @@ export default function EditBio(props) {
         setDescription(event.target.value);
     };
 
+    useEffect(() => {
+        let newErrors = [];
+        if (description.length > 200) newErrors.push('Description must be less than 200 characters');
+        setErrors(newErrors);
+    }, [description]);
+
     return (
         <div>
             <div className="create-post-background" onClick={() => props.setTrigger(false)}/>
             <div className="create-post-div edit-post-div edit-bio-div">
                 <h2 className="create-post-title">Edit Bio</h2>
                 <form onSubmit={handleEditBio} id="create-post-form">
-                    <ul>
-                        {errors.length > 0 && errors.map(err => (
-                            <li className="display-errors" key={err}>{err}</li>
-                        ))}
-                    </ul>
+                    {showErrors > 0 && (
+                        <div className="background-errors">
+                            <div className="errors-container">
+                                {errors.length > 0 && errors.map(err => (
+                                    <label className="display-errors" key={err}>{err}</label>
+                                ))}
+                                <button className="button-default" onClick={event => setShowErrors(false)}>Ok!</button>
+                            </div>
+                        </div>
+                    )}
                     <div className="create-form-div edit-bio-form-div">
                         <div className="name-div edit-bio">
                             <label>Bio</label>

@@ -96,7 +96,7 @@ export default function ProfilePage(props) {
                                         <label className="similar-post-price">${post.price.toLocaleString("en-US")}</label>
                                     </div>
                                     {currentUser?.id === post.user_id && (
-                                        <div>
+                                        <div className="edit-delete-post-profile">
                                             <button onClick={handleDelete}><span className={`delete-post-${post.id} material-icons`}>delete_forever</span></button>
                                             <button onClick={handleEdit}><span className={`edit-post-${post.id} material-icons`}>edit</span></button>
                                         </div>

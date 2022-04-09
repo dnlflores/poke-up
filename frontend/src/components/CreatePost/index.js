@@ -71,6 +71,13 @@ const CreatePost = (props) => {
     const handleSubmit = async event => {
         event.preventDefault();
 
+
+
+        if (errors.length > 0){
+            setShowErrors(true);
+            return;
+        }
+
         // if(!errors.length) {
         const formData = new FormData();
         formData.append("image", image);
@@ -102,8 +109,6 @@ const CreatePost = (props) => {
             console.log("there was an error here is some info", response, response.formData, response.status);
         }
         // }
-
-        if (errors.length > 0) setShowErrors(true);
     };
 
     const handlePicture = event => {

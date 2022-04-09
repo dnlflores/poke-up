@@ -7,7 +7,7 @@
 
 .edit-bio {
     position: relative;
-    bottom: 18vh;
+    bottom: 12vh;
 }
 
 textarea.bio-input {
@@ -17,7 +17,7 @@ textarea.bio-input {
 
 .bio-form-buttons {
     position: relative;
-    top: -15vh;
+    top: -10vh;
 }
 
 .dragonite-pic {
