@@ -40,7 +40,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 500px;
+    width: 50vw;
     font-size: 30px;
     font-family: 'Architects Daughter', cursive;
 }
@@ -50,7 +50,7 @@
     font-size: 40px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) and (min-width: 350px) {
     div.page-container {
         display: flex;
         justify-content: center;
@@ -71,6 +71,54 @@
     .switch-buttons {
         font-size: 20px;
         justify-content: space-evenly;
+        width: 100vw;
+    }
+
+    #selling-button {
+        font-size: 30px;
+    }
+
+    .inbox-item-title {
+        font-size: 23px;
+        text-align: center;
+    }
+
+    .inbox-container > img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .page-title {
+        right: 0;
+    }
+
+    body {
+        height: 100vh;
+    }
+}
+
+@media (max-width: 349px) {
+    div.page-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        max-width: 100vw;
+        padding: 0;
+        top: 25vh;
+        padding-bottom: 2rem;
+    }
+
+    .inbox-container {
+        max-width: 70vw;
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .switch-buttons {
+        font-size: 20px;
+        justify-content: space-evenly;
+        width: 100vw;
     }
 
     #selling-button {

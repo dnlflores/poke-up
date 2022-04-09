@@ -81,6 +81,11 @@
     width: 50vw;
 }
 
+.messages-container {
+    display: flex;
+    flex-direction: column;
+}
+
 /* container */
 .container {
     padding: 5% 5%;
@@ -356,7 +361,9 @@
     }
 
     .message-page-post-container {
-        top: 20vh;
+        top: 23vh;
+        max-width: 27vw;
+        text-align: center;
     }
 
     .message-user-text {
@@ -365,8 +372,8 @@
 
     .talk-bubble {
         position: relative;
-        max-width: 150px;
-        min-height: 75px;
+        max-width: 45vw;
+        min-height: 15vh;
     }
     
     .top-message {
@@ -385,5 +392,10 @@
 
     .message-form {
         width: 80vw;
+    }
+
+    .messages-container {
+        position: relative;
+        left: 10vw;
     }
 }

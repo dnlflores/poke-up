@@ -78,18 +78,20 @@ const MessagingPage = props => {
                 <img src={post?.image_url} alt="post" className="message-page-post-image" />
                 <h2 className="message-page-title">{post?.title}</h2>
             </div>
-            {messagesArray.map(message => (
-                <div className={message.user_id === currentUser.id ? "talk-bubble tri-right border round btm-right-in user-bubble" : "talk-bubble tri-right border round btm-left-in buyer-bubble"} key={message.id}>
-                    <div className="talktext message-container">
-                        <div className="top-message">
-                            <img src={users.find(user => user.id === message.user_id)?.profile_pic_url} alt="profile" className="message-profile-pic" />
-                            <h2 className="message-user-text">{users.find(user => user.id === message.user_id)?.username}</h2>
+            <div className="messages-container">
+                {messagesArray.map(message => (
+                    <div className={message.user_id === currentUser.id ? "talk-bubble tri-right border round btm-right-in user-bubble" : "talk-bubble tri-right border round btm-left-in buyer-bubble"} key={message.id}>
+                        <div className="talktext message-container">
+                            <div className="top-message">
+                                <img src={users.find(user => user.id === message.user_id)?.profile_pic_url} alt="profile" className="message-profile-pic" />
+                                <h2 className="message-user-text">{users.find(user => user.id === message.user_id)?.username}</h2>
+                            </div>
+                            <p className="message-content">{message?.content}</p>
+                            <p className="message-timestamp">{(new Date(message?.timestamp)).toLocaleString()}</p>
                         </div>
-                        <p className="message-content">{message?.content}</p>
-                        <p className="message-timestamp">{(new Date(message?.timestamp)).toLocaleString()}</p>
                     </div>
-                </div>
-            ))}
+                ))}
+            </div>
             <form className="message-form" onSubmit={handleSubmit}>
                 <input ref={footerRef} type="text" className="message-input" name="content" value={message} onChange={updateMessage} placeholder="Type a message..." />
                 <button className="message-send-button button-default" type="submit" onClick={e => footerRef.current.scrollIntoView()}>Send</button>

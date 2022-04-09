@@ -56,7 +56,7 @@ class Post(db.Model):
     
     user = db.relationship('User', back_populates="posts")
     category = db.relationship('Category', back_populates="posts")
-    chats = db.relationship('Chat', back_populates="post")
+    chats = db.relationship('Chat', back_populates="post", cascade="all, delete")
 
     lists = db.relationship(
         'List',

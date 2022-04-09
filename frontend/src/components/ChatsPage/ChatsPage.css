@@ -1,16 +1,44 @@
-.page-container {
-    position: absolute;
-    top: 25vh;
-}
-
 .delete-chat-button {
     position: absolute;
     right: 50px;
     z-index: 99;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 600px) and (min-width: 321px) {
     button.delete-chat-button {
         right: 1rem;
+    }
+
+    .page-title {
+        max-width: 100vw;
+        font-size: 25px;
+        right: 0;
+    }
+
+    body {
+        height: 100vh;
+    }
+}
+
+@media (max-width: 320px) {
+    button.delete-chat-button {
+        right: 0.5rem;
+        height: 2rem;
+        width: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page-title {
+        max-width: 100vw;
+        font-size: 25px;
+        right: 0;
+    }
+
+    body {
+        height: 100vh;
+        z-index: -1;
+        position: relative;
     }
 }
