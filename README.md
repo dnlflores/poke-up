@@ -154,7 +154,6 @@ of your Heroku app in the url and tag name:
 
 6. **Messaging**  
       Can message people about their product to offer them a price you both can agree on. In your inbox you can see the different items you are conversating about. The tabs at the top switch between the conversations about what you are selling and what you are trying to buy. Each conversation is updated in realtime and can be viewed by both parties at the same time  
-(*Websockets currently being developed so instant messaging is currently unavailable*)
 
 ### *Technologies Used*
 1. React
