@@ -387,7 +387,11 @@
     }
 
     .user-bubble {
-        right: 0;
+        right: -10vw;
+    }
+
+    .buyer-bubble {
+        left: 0;
     }
 
     .message-form {

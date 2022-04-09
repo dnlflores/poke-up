@@ -153,5 +153,7 @@ div.login-signup {
 
     body {
         margin: 0;
+        z-index: -1;
+        position: relative;
     }
 }
