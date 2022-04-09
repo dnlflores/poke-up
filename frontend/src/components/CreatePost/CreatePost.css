@@ -141,7 +141,7 @@ select.categories {
     color: blue;
 }
 
-input.price-input, input.quantity-input  {
+input.price-input, input.quantity-input {
     font-size: 30px;
     color: blue;
     text-align: center;
@@ -151,15 +151,15 @@ input.price-input::-webkit-outer-spin-button,
 input.price-input::-webkit-inner-spin-button,
 input.quantity-input::-webkit-outer-spin-button,
 input.quantity-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .loading-logo {
     animation-name: spin;
     animation-duration: 2000ms;
     animation-iteration-count: infinite;
-    animation-timing-function: linear; 
+    animation-timing-function: linear;
     width: 160px;
     height: 160px;
     position: fixed;
@@ -170,10 +170,11 @@ input.quantity-input::-webkit-inner-spin-button {
 
 @keyframes spin {
     from {
-        transform:rotate(0deg);
+        transform: rotate(0deg);
     }
+
     to {
-        transform:rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -216,11 +217,11 @@ input.title-input {
     .create-post-div {
         width: 90vw;
         left: 4.5vw;
-        top: 3vh;
-        height: 90vh;
+        top: 5vh;
+        height: 75vh;
         z-index: 1000;
     }
-    
+
     .pikachu-and-ash-pic {
         height: 15vh;
         bottom: 34.25vh;

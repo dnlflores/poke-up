@@ -15,7 +15,7 @@
     border: 3px solid blue;
     border-radius: 10px;
     box-shadow:  10px 10px 10px rgba(0, 0, 0, 0.5);
-    width: 700px;
+    width: 55vw;
     background-color: yellow;
     position: relative;
 }
@@ -104,4 +104,55 @@ img.empty-page-pic {
     width: 100%;
     height: 100%;
     left: 0;
+}
+
+@media (max-width: 600px) {
+    img.list-cover-image {
+        width: 75px;
+        height: 75px;
+    }
+
+    .list-title {
+        font-size: 26px;
+        position: relative;
+        bottom: 0vh;
+        right: 2vw;
+    }
+
+    .delete-list,
+    .edit-list {
+        font-size: 15px;
+        height: 30px;
+        width: 30px;
+        top: 7vh;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .delete-list {
+        right: 15vw;
+    }
+
+    .edit-list {
+        left: 13vw;
+        color: white;
+    }
+
+    .title-buttons-div {
+        display: flex;
+        position: relative;
+        justify-content: space-around;
+        bottom: 1vh;
+        width: 60vw;
+    }
+
+    .arrow-link {
+        display: none;
+    }
+
+    button#create-list-button {
+        top: 75vh
+    }
 }

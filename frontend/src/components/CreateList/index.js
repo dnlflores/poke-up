@@ -76,10 +76,11 @@ const CreateList = (props) => {
     };
 
     return (
-        <div className="create-post-background">
+        <div>
+            <div  className="create-post-background" onClick={() => props.setTrigger(false)}/>
             <div className="create-post-div">
                 <h2 className="create-post-title">Create List</h2>
-                <form onSubmit={handleSubmit} id="create-post-form">
+                <form onSubmit={handleSubmit} id="create-list-form">
                     {showErrors > 0 && (
                         <div className="background-errors">
                             <div className="errors-container">
@@ -109,7 +110,7 @@ const CreateList = (props) => {
                             id="real-file-button"
                             hidden
                         />
-                        <div className="fake-file-input">
+                        <div className="fake-file-input fake-list-input">
                             <span id="file-name">No picture chosen!</span>
                             <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
                         </div>
