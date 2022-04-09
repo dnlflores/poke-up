@@ -112,7 +112,7 @@ const EditPost = (props) => {
         <>
             <div className="create-post-background" onClick={() => props.setTrigger(false)}/>
             <div className="create-post-div">
-                <h2 className="create-post-title">Edit Post</h2>
+                <h2 className="create-post-title" id="edit-post-title">Edit Post</h2>
                 <form onSubmit={handleSubmit} id="create-post-form">
                     {showErrors > 0 && (
                         <div className="background-errors">
@@ -192,7 +192,7 @@ const EditPost = (props) => {
                         </div>
                         <div className="form-buttons">
                             <button className="submit-post-button button-default" type="submit">Submit Edit</button>
-                            <button className="cancel-button button-default" onClick={event => props.setTrigger(false)}>Cancel</button>
+                            <button className="cancel-button button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
                         </div>
                     </div>
                     {imageLoading && (

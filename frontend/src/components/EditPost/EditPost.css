@@ -18,8 +18,8 @@
     top: 30px;
 }
 
-.edit-post-title {
-    text-align: center;
-    position: relative;
-    top: 20px;
+@media (max-width: 600px) {
+    h2#edit-post-title {
+        font-size: 1.5em;
+    }
 }
