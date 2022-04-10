@@ -107,4 +107,9 @@
     .edit-delete-post-profile {
         display: none;
     }
+
+    .edit-pro-pic-button {
+        bottom: 8vh;
+        left: 65vw;
+    }
 }

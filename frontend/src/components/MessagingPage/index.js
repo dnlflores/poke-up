@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getCategories } from "../../store/category";
 import { getMessages, sendMessage } from "../../store/chat";
 import { getPosts } from "../../store/post";
@@ -12,6 +12,7 @@ let socket
 const MessagingPage = props => {
     const footerRef = useRef();
     const dispatch = useDispatch();
+    const history = useHistory();
     const { chatId, postId } = useParams();
     const messages = useSelector(state => state.chats[chatId]?.messages);
     const [users, setUsers] = useState([]);
@@ -74,7 +75,7 @@ const MessagingPage = props => {
 
     return (
         <div className="page-container">
-            <div className="message-page-post-container">
+            <div className="message-page-post-container" onClick={() => history.push(`/posts/${postId}`)}>
                 <img src={post?.image_url} alt="post" className="message-page-post-image" />
                 <h2 className="message-page-title">{post?.title}</h2>
             </div>

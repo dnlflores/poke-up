@@ -26,3 +26,18 @@ textarea.bio-input {
     top: 0;
     right: 1.5vw;
 }
+
+@media (max-width: 600px) {
+    .edit-bio-div {
+        left: 5vw;
+        width: 90vw;
+    }
+
+    .edit-bio-form-div {
+        top: 10vh;
+    }
+
+    textarea.bio-input {
+        width: 60vw;
+    }
+}

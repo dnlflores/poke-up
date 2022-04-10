@@ -11,3 +11,23 @@
     right: 30px;
     height: 200px;
 }
+
+@media (max-width: 600px) {
+    .togepi-pic {
+        height: 100px;
+        bottom: -25vh;
+    }
+
+    .celebi-pic {
+        height: 100px;
+        bottom: 30vh;
+    }
+
+    .edit-pro-info-div {
+        top: 12vh;
+    }
+
+    .edit-pro-info-buttons {
+        top: 47vh;
+    }
+}

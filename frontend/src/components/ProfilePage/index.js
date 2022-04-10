@@ -69,14 +69,20 @@ export default function ProfilePage(props) {
                         <h1 className="profile-username">{profileUser?.username}</h1>
                         <h2 className="profile-email">{profileUser?.email}</h2>
                     </div>
-                    {profileUser?.id === currentUser?.id && showPicEditButton && (
+                    {(profileUser?.id === currentUser?.id) && showPicEditButton && (window.innerWidth > 600) && (
+                        <button className='button-default edit-pro-pic-button' onClick={event => setEditProPicButtonPopup(true)}>Edit</button>
+                    )}
+                    {(profileUser?.id === currentUser?.id) && (window.innerWidth <= 600) && (
                         <button className='button-default edit-pro-pic-button' onClick={event => setEditProPicButtonPopup(true)}>Edit</button>
                     )}
                 </div>
                 <div className="bio-div" onMouseEnter={event => setShowBioEditButton(true)} onMouseLeave={event => setShowBioEditButton(false)}>
                     <h2 className="bio-text">Bio</h2>
                     <p className="profile-bio-text">{profileUser?.description}</p>
-                    {profileUser?.id === currentUser?.id && showBioEditButton && (
+                    {profileUser?.id === currentUser?.id && showBioEditButton && window.innerWidth > 600 && (
+                        <button className='button-default edit-bio-button' onClick={event => setEditBioButtonPopup(true)}>Edit</button>
+                    )}
+                    {profileUser?.id === currentUser?.id && window.innerWidth <= 600 && (
                         <button className='button-default edit-bio-button' onClick={event => setEditBioButtonPopup(true)}>Edit</button>
                     )}
                 </div>

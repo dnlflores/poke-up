@@ -99,9 +99,13 @@ button.remove-list-post {
         bottom: 10vh;
     }
 
+    .list-post-title {
+        max-width: 180px;
+    }
+
     button.remove-list-post {
         height: 5vh;
-        top: 14vh;
+        top: 15vh;
     }
 
     .link-post {

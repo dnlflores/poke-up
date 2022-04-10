@@ -67,9 +67,9 @@ export default function EditProPic(props) {
         <div>
             <div className="create-post-background" onClick={() => props.setTrigger(false)}/>
             <div className="create-post-div edit-post-div edit-pro-pic-div">
-                <h2 className="create-post-title edit-pro-pic-title">Edit Profile Picture</h2>
+                <h2 className="create-post-title edit-pro-pic-title">Edit Profile Info</h2>
                 <form onSubmit={handleEditProPic} id="create-post-form">
-                    <div className="create-form-div">
+                    <div className="create-form-div edit-pro-info-div">
                         <div className="name-div edit">
                             <label>Name</label>
                             <input
@@ -104,7 +104,7 @@ export default function EditProPic(props) {
                             <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
                         </div>
                     </div>
-                    <div className="form-buttons">
+                    <div className="form-buttons edit-pro-info-buttons">
                         <button className="submit-list-button button-default" type="submit">Submit Edit</button>
                         <button className="button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
                     </div>
