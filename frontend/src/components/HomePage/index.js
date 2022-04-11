@@ -13,7 +13,6 @@ const HomePage = ({ posts }) => {
     const [editButtonPopup, setEditButtonPopup] = useState(0);
     const [createButtonPopup, setCreateButtonPopup] = useState(false);
     const categories = useSelector(state => Object.values(state.categories));
-    console.log("categories from homepage", categories);
 
     useEffect(() => {
         dispatch(getPosts());
@@ -24,11 +23,6 @@ const HomePage = ({ posts }) => {
         document.getElementById('about-links').setAttribute('style', 'display: flex');
         document.getElementById('nav-bar').setAttribute('style', 'display: flex');
     }, [dispatch]);
-
-    const handleCreate = event => {
-        event.preventDefault();
-        setCreateButtonPopup(true);
-    };
 
     const handleDelete = event => {
         event.preventDefault();

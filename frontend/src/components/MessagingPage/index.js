@@ -50,7 +50,7 @@ const MessagingPage = props => {
         socket = io();
         
         socket.on("message", data => {
-            console.log("message received on frontend", data);
+            // console.log("message received on frontend", data);
             dispatch(getMessages(chatId));
             footerRef.current.scrollIntoView();
         })

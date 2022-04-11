@@ -17,7 +17,6 @@ socketio = SocketIO(cors_allowed_origins=origins)
 # handle messages from the client
 @socketio.on('message')
 def handle_message(data):
-    print("received message ==============> ", data)
     emit("message", data, broadcast=True)
 
 @socketio.on('connect')

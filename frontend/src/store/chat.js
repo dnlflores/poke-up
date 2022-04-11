@@ -102,7 +102,6 @@ export const createOffer = (offer, post) => async dispatch => {
 
         if(second.ok) {
             const newMessage = await second.json();
-            console.log("this is the new chat => ", newChat.chat.id);
             dispatch(createMessage(newChat.chat.id, newMessage));
         }
         return newChat;

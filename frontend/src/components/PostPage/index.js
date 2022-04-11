@@ -106,9 +106,6 @@ const PostPage = props => {
         history.push('/');
     }
 
-    console.log("this is the post", post);
-    console.log("this is the offer", offer);
-
     return (
         <div className="post-container">
             <div className="upper-container">

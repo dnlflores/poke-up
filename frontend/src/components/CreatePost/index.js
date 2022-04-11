@@ -22,7 +22,6 @@ const CreatePost = (props) => {
     useEffect(() => {
         let newErrors = [];
 
-        console.log("image in useEffect => ",image)
         if (!image) {
             newErrors.push("Please upload an image.");
         }
@@ -70,14 +69,6 @@ const CreatePost = (props) => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-
-        console.log("title", title);
-        console.log("description", description);
-        console.log("price", price);
-        console.log("quantity", quantity);
-        console.log("image", image);
-        console.log("category", category);
-        console.log("errors", errors);
 
         if (errors.length > 0){
             setShowErrors(true);
