@@ -101,6 +101,9 @@ button.remove-list-post {
 
     .list-post-title {
         max-width: 180px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
 
     button.remove-list-post {
