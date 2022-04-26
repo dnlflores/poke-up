@@ -38,9 +38,9 @@ const ListPostPage = props => {
             <div className="list-post-container">
                 {posts?.map(post => (
                     <div className='list-post-div' key={post.id}>
-                        <div className="list-post-background"  onClick={event => history.push(`/posts/${post?.id}`)}/>
+                        <div className="list-post-background" onClick={event => history.push(`/posts/${post?.id}`)}/>
                         <img src={`${post?.image_url}`} alt="post" className='list-post-image'></img>
-                        <h2 className='list-post-title'>{post?.title}</h2>
+                        <h2 className='list-post-title' onClick={event => history.push(`/posts/${post?.id}`)}>{post?.title}</h2>
                         <label className='list-post-price'>${post?.price?.toLocaleString("en-US")}</label>
                         <NavLink to={`/posts/${post?.id}`} exact={true} activeClassName="active" className="arrow-link link-post"><span className="material-icons arrow-icon">arrow_forward_ios</span></NavLink>
                         <button className={`button-default-cancel remove-list-post ${post?.id}`} onClick={handleRemove}>Remove</button>
