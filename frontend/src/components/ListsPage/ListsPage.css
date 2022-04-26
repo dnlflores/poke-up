@@ -117,6 +117,10 @@ img.empty-page-pic {
         position: relative;
         bottom: 0vh;
         right: 2vw;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 105px;
     }
 
     .delete-list,

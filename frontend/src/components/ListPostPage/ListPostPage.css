@@ -111,4 +111,13 @@ button.remove-list-post {
     .link-post {
         display: none;
     }
+
+    img.empty-page-pic {
+        left: 10vw;
+        height: 150px;
+    }
+
+    .empty-page-text {
+        bottom: 0;
+    }
 }

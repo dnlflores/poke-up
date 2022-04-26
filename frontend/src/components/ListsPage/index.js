@@ -58,7 +58,7 @@ const ListsPage = props => {
                             <img src={list.image_url} alt="list-cover" className="list-cover-image"></img>
                             <div className="title-buttons-div">
                                 <h2 className="list-title">{list.name}</h2>
-                                <button className={`delete-list ${list.id} button-default-cancel`} onClick={handleDelete}><span className={`material-icons delete-list-text`}>delete_forever</span></button>
+                                <button className={`delete-list ${list.id} button-default-cancel`} onClick={handleDelete}><span className={`material-icons ${list.id} delete-list-text`}>delete_forever</span></button>
                                 <button className={`edit-list ${list.id} button-default`} onClick={showEdit}><span className={`material-icons edit-list-text`}>edit</span></button>
                                 <NavLink to={`/lists/${list.id}`} exact={true} activeClassName="active" className="arrow-link"><span className="material-icons arrow-icon">arrow_forward_ios</span></NavLink>
                             </div>
