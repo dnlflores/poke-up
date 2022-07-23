@@ -33,7 +33,9 @@ const ListsPage = props => {
 
     const showEdit = event => {
         event.preventDefault();
+        console.log("ive been clicked");
         const listId = event.target.className.split(' ')[1];
+        console.log("this is the list id => ", listId);
         setEditButtonPopup(listId);
     }
 
@@ -59,7 +61,7 @@ const ListsPage = props => {
                             <div className="title-buttons-div">
                                 <h2 className="list-title" onClick={event => history.push(`/lists/${list.id}`)}>{list.name}</h2>
                                 <button className={`delete-list ${list.id} button-default-cancel`} onClick={handleDelete}><span className={`material-icons ${list.id} delete-list-text`}>delete_forever</span></button>
-                                <button className={`edit-list ${list.id} button-default`} onClick={showEdit}><span className={`material-icons edit-list-text`}>edit</span></button>
+                                <button className={`edit-list button-default`} onClick={showEdit}><span className={`material-icons ${list.id} edit-list-text`}>edit</span></button>
                                 <NavLink to={`/lists/${list.id}`} exact={true} activeClassName="active" className="arrow-link"><span className="material-icons arrow-icon">arrow_forward_ios</span></NavLink>
                             </div>
                         </div>

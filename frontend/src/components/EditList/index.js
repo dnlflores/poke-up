@@ -73,7 +73,7 @@ const EditList = (props) => {
     return (
         <div>
             <div className="create-post-background" onClick={() => props.setTrigger(false)} />
-            <div className="create-post-div edit-post-div">
+            <div className="create-post-div edit-post-div edit-list-div">
                 <h2 className="create-post-title">Edit List</h2>
                 <form onSubmit={handleSubmit} id="create-list-form">
                     <ul>
