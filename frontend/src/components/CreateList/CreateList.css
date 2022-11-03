@@ -34,13 +34,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 30px;
-    position: relative;
-    bottom: 40px;
+    font-size: 20px;
 }
 
 input.name-input {
-    width: 25vw;
+    width: 20rem;
     font-size: 25px;
     color: blue;
 }
@@ -64,8 +62,9 @@ input.name-input {
     }
 
     input.name-input {
-        width: 60vw;
-        height: 4vh;
+        width: 12rem;
+        height: 2rem;
+        font-size: 20px;
     }
     
     .fake-list-input {

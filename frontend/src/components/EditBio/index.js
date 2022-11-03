@@ -12,7 +12,7 @@ export default function EditBio(props) {
     const handleEditBio = async event => {
         event.preventDefault();
 
-        if(errors.length > 0) {
+        if (errors.length > 0) {
             setShowErrors(true);
             return;
         }
@@ -28,7 +28,7 @@ export default function EditBio(props) {
             const updatedUser = await response.json();
             dispatch(updateUser(updatedUser));
             props.setTrigger(false);
-        }else {
+        } else {
             console.log("there was an error here is some info", response, response.formData, response.status);
         }
     };
@@ -44,11 +44,10 @@ export default function EditBio(props) {
     }, [description]);
 
     return (
-        <div>
-            <div className="create-post-background" onClick={() => props.setTrigger(false)}/>
+        <div className="create-post-background" onClick={() => props.setTrigger(false)}>
             <div className="create-post-div edit-post-div edit-bio-div">
                 <h2 className="create-post-title">Edit Bio</h2>
-                <form onSubmit={handleEditBio} id="create-post-form">
+                <form onSubmit={handleEditBio} className="create-post-form">
                     {showErrors > 0 && (
                         <div className="background-errors">
                             <div className="errors-container">
@@ -59,21 +58,19 @@ export default function EditBio(props) {
                             </div>
                         </div>
                     )}
-                    <div className="create-form-div edit-bio-form-div">
-                        <div className="name-div edit-bio">
-                            <label>Bio</label>
-                            <textarea
-                                name="bio"
-                                className="bio-input"
-                                onChange={updateDescription}
-                                value={description}
-                                placeholder="Bio"
-                            ></textarea>
-                        </div>
-                        <div className="form-buttons bio-form-buttons">
-                            <button className="submit-bio-button button-default" type="submit">Submit Edit</button>
-                            <button className="button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
-                        </div>
+                    <div className="name-div edit-bio">
+                        <label>Bio</label>
+                        <textarea
+                            name="bio"
+                            className="bio-input"
+                            onChange={updateDescription}
+                            value={description}
+                            placeholder="Bio"
+                        ></textarea>
+                    </div>
+                    <div className="form-buttons bio-form-buttons">
+                        <button className="submit-bio-button button-default" type="submit">Submit Edit</button>
+                        <button className="button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
                     </div>
                 </form>
                 <img src="https://pokeup.s3.us-west-1.amazonaws.com/Daco_4212459.png" alt="dragonite" className="dragonite-pic"></img>

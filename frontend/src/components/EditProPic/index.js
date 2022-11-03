@@ -64,45 +64,42 @@ export default function EditProPic(props) {
     };
 
     return (
-        <>
-            <div className="create-post-background" onClick={() => props.setTrigger(false)} />
+        <div className="create-post-background" onClick={() => props.setTrigger(false)}>
             <div className="create-post-div edit-post-div edit-pro-pic-div">
                 <h2 className="create-post-title edit-pro-pic-title">Edit Profile Info</h2>
-                <form onSubmit={handleEditProPic} id="create-post-form">
-                    <div className="create-form-div edit-pro-info-div">
-                        <div className="name-div edit">
-                            <label>Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                className="name-input"
-                                onChange={updateName}
-                                value={name}
-                                placeholder="Name"
-                            ></input>
-                        </div>
-                        <div className="name-div edit-email">
-                            <label>email</label>
-                            <input
-                                type="text"
-                                name="email"
-                                className="name-input email-input"
-                                onChange={updateEmail}
-                                value={email}
-                                placeholder="Name"
-                            ></input>
-                        </div>
+                <form onSubmit={handleEditProPic} className="create-post-form">
+                    <div className="name-div edit">
+                        <label>Name</label>
                         <input
-                            type="file"
-                            accept="image/*"
-                            onChange={updateImage}
-                            id="real-file-button"
-                            hidden
-                        />
-                        <div className="fake-file-input edit-fake">
-                            <span id="file-name">No picture chosen!</span>
-                            <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
-                        </div>
+                            type="text"
+                            name="name"
+                            className="name-input"
+                            onChange={updateName}
+                            value={name}
+                            placeholder="Name"
+                        ></input>
+                    </div>
+                    <div className="name-div edit-email">
+                        <label>email</label>
+                        <input
+                            type="text"
+                            name="email"
+                            className="name-input email-input"
+                            onChange={updateEmail}
+                            value={email}
+                            placeholder="Name"
+                        ></input>
+                    </div>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onChange={updateImage}
+                        id="real-file-button"
+                        hidden
+                    />
+                    <div className="fake-file-input edit-fake">
+                        <span id="file-name">No picture chosen!</span>
+                        <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
                     </div>
                     <div className="form-buttons edit-pro-info-buttons">
                         <button className="submit-list-button button-default" type="submit">Submit Edit</button>
@@ -115,6 +112,6 @@ export default function EditProPic(props) {
                 <img src="https://pokeup.s3.us-west-1.amazonaws.com/pngaaa.com-785576.png" alt="togepi" className="togepi-pic" />
                 <img src="https://pokeup.s3.us-west-1.amazonaws.com/toppng.com-anime-pokemon-transparent-background-transparent-background-pokemon-transparent-851x1248.png" alt="celebi" className="celebi-pic" />
             </div>
-        </>
+        </div>
     )
 }
