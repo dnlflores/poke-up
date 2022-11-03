@@ -10,7 +10,8 @@
 
 .upper-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     position: relative;
     top: 5vh;
     margin-bottom: 10rem;
@@ -226,7 +227,6 @@ h2.seller-username {
 
     .upper-container {
         flex-direction: column;
-        width: 100vw;
     }
 
     .post-page-image {
@@ -235,7 +235,6 @@ h2.seller-username {
         object-fit: cover;
         position: relative;
         top: 0rem;
-        /* right: 35.4vw; */
     }
 
     .line-div-1,
@@ -252,20 +251,17 @@ h2.seller-username {
     .bottom-container-mobile {
         display: flex;
         flex-direction: column;
-        width: 100vw;
         justify-content: center;
         align-items: center;
-        min-width: 0;
     }
 
     .top-container-mobile {
         position: relative;
-        right: 0.5rem;
     }
 
     .bottom-container-mobile {
-        min-height: 0;
-        min-width: 0;
+        padding-left: 0;
+        border-left: none;
     }
 
     .post-page-title,
