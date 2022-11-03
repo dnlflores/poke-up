@@ -70,7 +70,8 @@
     }
 
     .post-container-div {
-        top: 150px;
+        margin: 0;
+        margin-top: 10rem;
     }
 
     .post-title {
