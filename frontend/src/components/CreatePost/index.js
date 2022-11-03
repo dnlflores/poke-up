@@ -139,79 +139,77 @@ const CreatePost = (props) => {
                             </div>
                         </div>
                     )}
-                    <div className="create-form-div">
-                        <div className="first-layer-form">
-                            <div className="title-div">
-                                <label>Title</label>
-                                <input
-                                    type="text"
-                                    name="title"
-                                    className="title-input"
-                                    onChange={updateTitle}
-                                    value={title}
-                                    placeholder="Title"
-                                ></input>
-                            </div>
-                            <div className="description-div">
-                                <label>Description</label>
-                                <textarea
-                                    name="description"
-                                    className="description-input"
-                                    onChange={updateDescription}
-                                    value={description}
-                                    placeholder="Description"
-                                ></textarea>
-                            </div>
-                        </div>
-                        <div className="second-layer-form">
-                            <div className="price-div">
-                                <label>Price</label>
-                                <input
-                                    type="number"
-                                    name="price"
-                                    className="price-input"
-                                    onChange={updatePrice}
-                                    value={price}
-                                    placeholder="0"
-                                ></input>
-                            </div>
-                            <div className="quantity-div">
-                                <label>Quantity</label>
-                                <input
-                                    type="number"
-                                    name="quantity"
-                                    className="quantity-input"
-                                    onChange={updateQuantity}
-                                    value={quantity}
-                                    placeholder="0"
-                                ></input>
-                            </div>
-                        </div>
-                        <div className="third-layer-form">
-                            <div className="category-div">
-                                <select className="categories" name="categories" form="create-post-form" onChange={updateCategory} defaultValue={"DEFAULT"}>
-                                    <option disabled value="DEFAULT">Category</option>
-                                    {categories?.map(category => (
-                                        <option key={category.id} value={category.id}>{category.name}</option>
-                                    ))}
-                                </select>
-                            </div>
+                    <div className="first-layer-form">
+                        <div className="title-div">
+                            <label>Title</label>
                             <input
-                                type="file"
-                                accept="image/*"
-                                onChange={updateImage}
-                                id="real-file-button"
-                                hidden
-                            />
-                            <div className="fake-file-input">
-                                <span id="file-name">No picture chosen!</span>
-                                <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
-                            </div>
+                                type="text"
+                                name="title"
+                                className="title-input"
+                                onChange={updateTitle}
+                                value={title}
+                                placeholder="Title"
+                            ></input>
                         </div>
-                        <div className="form-buttons">
-                            <button className="submit-post-button button-default" type="submit">Submit Post</button>
-                            <button className="cancel-post-button button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
+                        <div className="description-div">
+                            <label>Description</label>
+                            <textarea
+                                name="description"
+                                className="description-input"
+                                onChange={updateDescription}
+                                value={description}
+                                placeholder="Description"
+                            ></textarea>
                         </div>
+                    </div>
+                    <div className="second-layer-form">
+                        <div className="price-div">
+                            <label>Price</label>
+                            <input
+                                type="number"
+                                name="price"
+                                className="price-input"
+                                onChange={updatePrice}
+                                value={price}
+                                placeholder="0"
+                            ></input>
+                        </div>
+                        <div className="quantity-div">
+                            <label>Quantity</label>
+                            <input
+                                type="number"
+                                name="quantity"
+                                className="quantity-input"
+                                onChange={updateQuantity}
+                                value={quantity}
+                                placeholder="0"
+                            ></input>
+                        </div>
+                    </div>
+                    <div className="third-layer-form">
+                        <div className="category-div">
+                            <select className="categories" name="categories" form="create-post-form" onChange={updateCategory} defaultValue={"DEFAULT"}>
+                                <option disabled value="DEFAULT">Category</option>
+                                {categories?.map(category => (
+                                    <option key={category.id} value={category.id}>{category.name}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={updateImage}
+                            id="real-file-button"
+                            hidden
+                        />
+                        <div className="fake-file-input">
+                            <span id="file-name">No picture chosen!</span>
+                            <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
+                        </div>
+                    </div>
+                    <div className="form-buttons">
+                        <button className="submit-post-button button-default" type="submit">Submit Post</button>
+                        <button className="cancel-post-button button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
                     </div>
                     {imageLoading && (
                         <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo" />
