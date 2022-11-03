@@ -26,21 +26,19 @@ const ListsPage = props => {
     }, [dispatch]);
 
     const showList = event => {
-        event.preventDefault();
+        event.stopPropagation();
 
         setListButtonPopup(!listButtonPopup);
     };
 
     const showEdit = event => {
-        event.preventDefault();
-        console.log("ive been clicked");
+        event.stopPropagation();
         const listId = event.target.className.split(' ')[1];
-        console.log("this is the list id => ", listId);
         setEditButtonPopup(listId);
     }
 
     const handleDelete = event => {
-        event.preventDefault();
+        event.stopPropagation();
         const listId = event.target.className.split(' ')[1];
         dispatch(removeList(listId));
     };
@@ -55,15 +53,16 @@ const ListsPage = props => {
             <div className="list-container">
                 {lists?.map(list => (
                     <div key={list.id}>
-                        <div className="list-div">
-                            <div className="list-background" onClick={event => history.push(`/lists/${list.id}`)} />
-                            <img src={list.image_url} alt="list-cover" className="list-cover-image"></img>
-                            <div className="title-buttons-div">
-                                <h2 className="list-title" onClick={event => history.push(`/lists/${list.id}`)}>{list.name}</h2>
-                                <button className={`delete-list ${list.id} button-default-cancel`} onClick={handleDelete}><span className={`material-icons ${list.id} delete-list-text`}>delete_forever</span></button>
-                                <button className={`edit-list button-default`} onClick={showEdit}><span className={`material-icons ${list.id} edit-list-text`}>edit</span></button>
-                                <NavLink to={`/lists/${list.id}`} exact={true} activeClassName="active" className="arrow-link"><span className="material-icons arrow-icon">arrow_forward_ios</span></NavLink>
+                        <div className="list-div" onClick={() => history.push(`/lists/${list.id}`)}>
+                            <div className="flx-ctr">
+                                <img src={list.image_url} alt="list-cover" className="list-cover-image"></img>
+                                <div className="title-buttons-div">
+                                    <h2 className="list-title" onClick={event => history.push(`/lists/${list.id}`)}>{list.name}</h2>
+                                    <button className={`delete-list ${list.id} button-default-cancel`} onClick={handleDelete}><span className={`material-icons ${list.id} delete-list-text`}>delete_forever</span></button>
+                                    <button className={`edit-list button-default`} onClick={showEdit}><span className={`material-icons ${list.id} edit-list-text`}>edit</span></button>
+                                </div>
                             </div>
+                            <NavLink to={`/lists/${list.id}`} exact={true} activeClassName="active" className="arrow-link"><span className="material-icons arrow-icon">arrow_forward_ios</span></NavLink>
                         </div>
                         {+editButtonPopup === list.id && (
                             <EditList trigger={editButtonPopup} setTrigger={setEditButtonPopup} list={list} />

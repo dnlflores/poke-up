@@ -9,23 +9,14 @@
 
 .list-div {
     display: flex;
-    justify-content: flex-start;
-    margin: 40px;
-    padding: 25px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
     border: 3px solid blue;
     border-radius: 10px;
     box-shadow:  10px 10px 10px rgba(0, 0, 0, 0.5);
-    width: 55vw;
+    width: 40rem;
     background-color: yellow;
-    position: relative;
-}
-
-.list-div > img {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    border: 3px solid blue;
-    background-color: white;
 }
 
 .title-buttons-div {
@@ -53,12 +44,15 @@
 
 .list-cover-image {
     object-fit: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    border: 3px solid blue;
+    background-color: white;
 }
 
 .arrow-link {
-    position: absolute;
-    top: 70px;
-    left: 500px;
+    
 }
 
 .arrow-link:visited {

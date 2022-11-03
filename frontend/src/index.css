@@ -80,8 +80,6 @@ button {
 .page-title {
     font-family: 'Acme', sans-serif;
     font-size: 40px;
-    position: relative;
-    right: 25vw;
 }
 
 textarea {
