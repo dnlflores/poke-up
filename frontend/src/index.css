@@ -1,4 +1,8 @@
 /* TODO Add site wide styles */
+body {
+    margin: 0;
+}
+
 .login-form, .signup-form {
     position: relative;
     top: 300px;
@@ -68,13 +72,12 @@ button {
 }
 
 .page-container {
-    position: absolute;
-    top: 25vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px;
-    width: 100%;
+    justify-content: center;
+    padding: 2rem;
+    margin-top: 10rem;
 }
 
 .page-title {
