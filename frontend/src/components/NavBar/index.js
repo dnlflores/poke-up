@@ -36,6 +36,14 @@ const NavBar = () => {
 
     return (
         <div className="nav-bar-div" id="nav-bar">
+            <div className="site-title-logo">
+                <h2 className="background-title">PokéUp</h2>
+                <h2 className="site-title">
+                    <NavLink to='/' exact={true} activeClassName='active' className="nav-link">
+                        PokéUp
+                    </NavLink>
+                </h2>
+            </div>
             <button className="mobile-nav-menu" onClick={() => setShowSideBar(true)}><span className="material-icons mobile-nav-menu-button">menu</span></button>
             <SideBar categories={categories} setTrigger={setShowSideBar} trigger={showSideBar} currentUser={user} />
             {userDrop && (
@@ -68,12 +76,6 @@ const NavBar = () => {
                 </>
             )}
             <div className='upper-nav-div'>
-                <h2 className="background-title">PokéUp</h2>
-                <h2 className="site-title">
-                    <NavLink to='/' exact={true} activeClassName='active' className="nav-link">
-                        PokéUp
-                    </NavLink>
-                </h2>
                 {user && (
                     <div className="nav-buttons-div">
                         <NavLink to='/chats' exact={true} activeClassName='active' className="nav-link">
