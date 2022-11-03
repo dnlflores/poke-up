@@ -72,7 +72,7 @@ Once you are logged in, you can upload an item to PokéUp with a picture of your
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/CreateAndAddToList.gif)
 
-You can create lists to store your favorite items on PokéUp, or ones that you plan to purchase late.
+You can create lists to store your favorite items on PokéUp, or ones that you plan to purchase later. Give it a name and you can choose an image to represent what this list will be about.
 
 ### Navigating Between Posts
 
