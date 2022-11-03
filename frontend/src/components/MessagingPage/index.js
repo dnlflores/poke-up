@@ -81,7 +81,7 @@ const MessagingPage = props => {
             </div>
             <div className="messages-container">
                 {messagesArray.map(message => (
-                    <div className={message.user_id === currentUser.id ? "talk-bubble tri-right border round btm-right-in user-bubble" : "talk-bubble tri-right border round btm-left-in buyer-bubble"} key={message.id}>
+                    <div className={message.user_id === currentUser.id ? "talk-bubble tri-right border round btm-left-in user-bubble" : "talk-bubble tri-right border round btm-right-in buyer-bubble"} key={message.id}>
                         <div className="talktext message-container">
                             <div className="top-message">
                                 <img src={users.find(user => user.id === message.user_id)?.profile_pic_url} alt="profile" className="message-profile-pic" />
