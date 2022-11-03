@@ -71,7 +71,7 @@ const EditList = ({ list, setTrigger }) => {
 
     return (
         <div className="create-post-background" onClick={() => setTrigger(false)}>
-            <div className="create-post-div edit-post-div edit-list-div">
+            <div className="create-post-div edit-post-div edit-list-div" onClick={e => e.stopPropagation()}>
                 <h2 className="create-post-title">Edit List</h2>
                 <form onSubmit={handleSubmit} className="create-list-form">
                     <ul>

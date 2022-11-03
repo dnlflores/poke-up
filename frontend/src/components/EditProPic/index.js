@@ -65,7 +65,7 @@ export default function EditProPic(props) {
 
     return (
         <div className="create-post-background" onClick={() => props.setTrigger(false)}>
-            <div className="create-post-div edit-post-div edit-pro-pic-div">
+            <div className="create-post-div edit-post-div edit-pro-pic-div" onClick={e => e.stopPropagation()}>
                 <h2 className="create-post-title edit-pro-pic-title">Edit Profile Info</h2>
                 <form onSubmit={handleEditProPic} className="create-post-form">
                     <div className="name-div edit">

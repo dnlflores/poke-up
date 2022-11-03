@@ -77,7 +77,7 @@ const CreateList = (props) => {
 
     return (
         <div className="create-post-background" onClick={() => props.setTrigger(false)}>
-            <div className="create-post-div">
+            <div className="create-post-div" onClick={e => e.stopPropagation()}>
                 <h2 className="create-post-title">Create List</h2>
                 <form onSubmit={handleSubmit} className="create-list-form">
                     {showErrors > 0 && (

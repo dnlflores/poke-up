@@ -110,7 +110,7 @@ const EditPost = (props) => {
 
     return (
         <div className="create-post-background" onClick={() => props.setTrigger(false)}>
-            <div className="create-post-div">
+            <div className="create-post-div" onClick={e => e.stopPropagation()}>
                 <h2 className="create-post-title" id="edit-post-title">Edit Post</h2>
                 <form onSubmit={handleSubmit} className="create-post-form">
                     {showErrors > 0 && (

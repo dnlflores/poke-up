@@ -125,7 +125,7 @@ const CreatePost = (props) => {
 
     return (
         <div className="create-post-background" onClick={() => props.setTrigger(false)}>
-            <div className="create-post-div">
+            <div className="create-post-div" onClick={e => e.stopPropagation()}>
                 <h2 className="create-post-title">Create Post</h2>
                 <form onSubmit={handleSubmit} className="create-post-form">
                     {showErrors > 0 && (
@@ -197,6 +197,7 @@ const CreatePost = (props) => {
                         <input
                             type="file"
                             accept="image/*"
+                            onClick={e => e.stopPropagation()}
                             onChange={updateImage}
                             id="real-file-button"
                             hidden

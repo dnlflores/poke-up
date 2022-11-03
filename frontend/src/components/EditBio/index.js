@@ -45,7 +45,7 @@ export default function EditBio(props) {
 
     return (
         <div className="create-post-background" onClick={() => props.setTrigger(false)}>
-            <div className="create-post-div edit-post-div edit-bio-div">
+            <div className="create-post-div edit-post-div edit-bio-div" onClick={e => e.stopPropagation()}>
                 <h2 className="create-post-title">Edit Bio</h2>
                 <form onSubmit={handleEditBio} className="create-post-form">
                     {showErrors > 0 && (
