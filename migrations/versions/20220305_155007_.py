@@ -31,7 +31,7 @@ def upgrade():
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('chat_id', sa.Integer(), nullable=False),
     sa.Column('content', sa.String(), nullable=False),
-    sa.Column('timestamp', sa.DateTime(), server_default=sa.text('now()'), nullable=False),
+    sa.Column('timestamp', sa.DateTime(), server_default=sa.sql.func.now(), nullable=False),
     sa.ForeignKeyConstraint(['chat_id'], ['chats.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
