@@ -156,6 +156,7 @@ nav {
     height: 100vh;
     z-index: 200;
     background-color: rgba(0, 0, 0, 0.2);
+    top: 0;
 }
 
 .category-text {

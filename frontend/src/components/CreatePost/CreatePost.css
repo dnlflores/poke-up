@@ -15,15 +15,14 @@
 
 .create-post-div {
     background-color: yellow;
-    position: fixed;
-    width: 53vw;
-    height: 75vh;
+    position: relative;
     border: 3px solid blue;
     border-radius: 1rem;
     font-family: 'Fredoka One', cursive;
     color: blue;
     z-index: 651;
-    left: 21.5vw;
+    width: 40rem;
+    height: 40rem;
 }
 
 .create-form-div {
@@ -43,7 +42,20 @@
     left: 1rem;
 }
 
-#create-post-form input {
+.create-post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+}
+
+.create-post-form > div {
+    margin: 1rem;
+}
+
+.create-post-form input {
     border: none;
     appearance: none;
     outline: none;
@@ -52,14 +64,6 @@
     font-family: 'Architects Daughter', cursive;
     padding-left: 10px;
     background-color: rgba(235, 220, 21, 0.432);
-}
-
-#create-post-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    position: relative;
 }
 
 .first-layer-form {
@@ -74,9 +78,8 @@
 
 .third-layer-form {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    width: 35vw;
 }
 
 .price-div,
@@ -84,7 +87,7 @@
 .category-div {
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 0 2rem;
     align-items: center;
 }
 
@@ -117,8 +120,6 @@ select.categories {
     outline: none;
     background-color: rgba(235, 220, 21, 0.432);
     border-radius: 1rem;
-    height: 5.75vh;
-    width: 12vw;
     padding: 10px;
     font-size: 16px;
     font-family: 'Architects Daughter', cursive;
@@ -141,6 +142,7 @@ input.quantity-input {
     font-size: 30px;
     color: blue;
     text-align: center;
+    height: 4rem;
 }
 
 input.price-input::-webkit-outer-spin-button,
@@ -178,7 +180,7 @@ input.quantity-input::-webkit-inner-spin-button {
     position: absolute;
     top: 0;
     right: 1rem;
-    height: 225px;
+    height: 175px;
     object-fit: cover;
 }
 
@@ -206,28 +208,22 @@ input.title-input {
 
 @media (max-width: 600px) {
     .create-post-background {
-        /* display: none; */
         background-color: transparent;
     }
 
     .create-post-div {
         width: 90vw;
-        left: 1rem;
-        top: 10rem;
-        height: 33rem;
-        z-index: 1000;
+        height: 35rem;
     }
 
     .pikachu-and-ash-pic {
-        height: 15vh;
-        bottom: 34.25vh;
+        height: 100px;
     }
 
     .description-div {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 5vh;
     }
 
     .description-input {
@@ -241,13 +237,18 @@ input.title-input {
     }
 
     .price-div {
-        /* display: none; */
-        height: 5vh;
+        height: 5rem;
+        justify-content: center;
     }
 
     .quantity-div {
-        /* display: none; */
-        height: 5vh;
+        height: 5rem;
+        justify-content: center;
+    }
+
+    .price-div input,
+    .quantity-div input {
+        height: 5rem
     }
 
     input.price-input,
@@ -256,39 +257,20 @@ input.title-input {
     }
 
     .first-layer-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 3vh;
+        margin-top: 5rem;
     }
 
     .third-layer-form {
-        margin-top: 5vh;
-        padding: 1rem;
-        width: 80vw;
-        position: relative;
-        left: 3vw;
+        width: 25rem;
+        margin: 1rem 0;
     }
 
     .category-div {
-        width: 20vw;
+        margin: 0;
     }
 
     select.categories {
         width: 40vw;
-    }
-
-    button.submit-post-button {
-        width: 27vw;
-        height: 5.75vh;
-        margin: 5px;
-    }
-
-    button.cancel-post-button {
-        width: 20vw;
-        height: 5.75vh;
-        margin: 5px;
     }
 
     .loading-logo {

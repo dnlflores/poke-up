@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateList } from "../../store/list";
-import "./EditList.css";
 
-const EditList = (props) => {
+const EditList = ({ list, setTrigger }) => {
     const dispatch = useDispatch();
 
     const [errors, setErrors] = useState([]);
-    const [name, setName] = useState('');
-    const [image, setImage] = useState('');
+    const [name, setName] = useState(list.name);
+    const [image, setImage] = useState(list.image);
     const user = useSelector(state => state.session.user);
 
     const [imageLoading, setImageLoading] = useState(false);
@@ -38,7 +37,7 @@ const EditList = (props) => {
             formData.append("name", name);
             formData.append("user_id", user.id);
 
-            const response = await fetch(`/api/lists/${props.list.id}`, {
+            const response = await fetch(`/api/lists/${list.id}`, {
                 method: "PATCH",
                 body: formData,
             });
@@ -46,7 +45,7 @@ const EditList = (props) => {
                 const updatedList = await response.json();
                 dispatch(updateList(updatedList));
                 setImageLoading(false);
-                props.setTrigger(0);
+                setTrigger(0);
             } else {
                 setImageLoading(false);
 
@@ -71,11 +70,10 @@ const EditList = (props) => {
     };
 
     return (
-        <div className="edit-list-modal">
-            <div className="create-post-background" onClick={() => props.setTrigger(false)} />
+        <div className="create-post-background" onClick={() => setTrigger(false)}>
             <div className="create-post-div edit-post-div edit-list-div">
                 <h2 className="create-post-title">Edit List</h2>
-                <form onSubmit={handleSubmit} id="create-list-form">
+                <form onSubmit={handleSubmit} className="create-list-form">
                     <ul>
                         {errors.length > 0 && errors.map(err => (
                             <li className="display-errors" key={err}>{err}</li>
@@ -87,7 +85,7 @@ const EditList = (props) => {
                             <input
                                 type="text"
                                 name="name"
-                                className="name-input"
+                                className="form-input"
                                 onChange={updateName}
                                 value={name}
                                 placeholder="Name"
@@ -107,7 +105,7 @@ const EditList = (props) => {
                     </div>
                     <div className="form-buttons">
                         <button className="submit-list-button button-default" type="submit">Submit Edit</button>
-                        <button className="button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
+                        <button className="button-default-cancel" onClick={event => setTrigger(false)}>Cancel</button>
                     </div>
                     {imageLoading && (
                         <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo"></img>

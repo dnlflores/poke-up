@@ -18,14 +18,14 @@
 .pikachu-pic {
     position: absolute;
     object-fit: cover;
-    height: 250px;
+    height: 150px;
     right: 1rem;
     top: 1rem;
 }
 
 .ash-pic {
     position: absolute;
-    height: 350px;
+    height: 250px;
     bottom: 0;
     left: 0;
 }
@@ -45,7 +45,7 @@ input.name-input {
     color: blue;
 }
 
-#create-list-form {
+.create-list-form {
     display: flex;
     flex-direction: column;
     justify-content: center;

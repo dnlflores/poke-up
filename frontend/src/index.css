@@ -96,6 +96,17 @@ textarea {
     background-color: rgba(235, 220, 21, 0.432);
 }
 
+.form-input {
+    border: none;
+    appearance: none;
+    outline: none;
+    border-radius: 1rem;
+    height: 5vh;
+    font-family: 'Architects Daughter', cursive;
+    padding-left: 10px;
+    background-color: rgba(235, 220, 21, 0.432);
+}
+
 @media (max-width: 600px) {
     .about-links {
         right: 9vw;

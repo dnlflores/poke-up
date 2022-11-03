@@ -124,11 +124,10 @@ const CreatePost = (props) => {
     };
 
     return (
-        <div>
-            <div className="create-post-background" onClick={() => props.setTrigger(false)} />
+        <div className="create-post-background" onClick={() => props.setTrigger(false)}>
             <div className="create-post-div">
                 <h2 className="create-post-title">Create Post</h2>
-                <form onSubmit={handleSubmit} id="create-post-form">
+                <form onSubmit={handleSubmit} className="create-post-form">
                     {showErrors > 0 && (
                         <div className="background-errors">
                             <div className="errors-container">

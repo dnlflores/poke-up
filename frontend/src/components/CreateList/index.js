@@ -76,11 +76,10 @@ const CreateList = (props) => {
     };
 
     return (
-        <div>
-            <div className="create-post-background" onClick={() => props.setTrigger(false)} />
+        <div className="create-post-background" onClick={() => props.setTrigger(false)}>
             <div className="create-post-div">
                 <h2 className="create-post-title">Create List</h2>
-                <form onSubmit={handleSubmit} id="create-list-form">
+                <form onSubmit={handleSubmit} className="create-list-form">
                     {showErrors > 0 && (
                         <div className="background-errors">
                             <div className="errors-container">
@@ -97,7 +96,7 @@ const CreateList = (props) => {
                             <input
                                 type="text"
                                 name="name"
-                                className="name-input"
+                                className="form-input"
                                 onChange={updateName}
                                 value={name}
                                 placeholder="Name"
