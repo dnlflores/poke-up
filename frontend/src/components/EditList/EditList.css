@@ -1,11 +1,3 @@
-img.edit-ash {
-    bottom: -129px;
-}
-
-img.edit-pika {
-    bottom: -100px;
-}
-
 .edit-fake {
     position: relative;
     bottom: 30px;
@@ -25,4 +17,14 @@ img.edit-pika {
         height: 75vh;
         top: 12vh;
     }
+}
+
+.edit-list-modal {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
 }

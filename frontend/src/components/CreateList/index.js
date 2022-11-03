@@ -27,9 +27,9 @@ const CreateList = (props) => {
 
         const newErrors = [];
 
-        if(!name) newErrors.push("Please enter a name for this list.");
+        if (!name) newErrors.push("Please enter a name for this list.");
 
-        if(newErrors.length) setErrors(newErrors);
+        if (newErrors.length) setErrors(newErrors);
         else {
             const formData = new FormData();
             formData.append("image", image);
@@ -45,13 +45,13 @@ const CreateList = (props) => {
                 method: "POST",
                 body: formData,
             });
-            
+
             if (response.ok) {
                 const newList = await response.json();
                 dispatch(createList(newList));
                 setImageLoading(false);
                 props.setTrigger(false);
-            }else {
+            } else {
                 setImageLoading(false);
 
                 console.log("there was an error here is some info", response, response.formData, response.status);
@@ -66,8 +66,8 @@ const CreateList = (props) => {
         realBtn.click();
 
         realBtn.addEventListener('change', () => {
-            
-            if(realBtn.value) {
+
+            if (realBtn.value) {
                 const name = realBtn.value.split("\\")[2];
                 fileName.innerHTML = name;
             }
@@ -77,7 +77,7 @@ const CreateList = (props) => {
 
     return (
         <div>
-            <div  className="create-post-background" onClick={() => props.setTrigger(false)}/>
+            <div className="create-post-background" onClick={() => props.setTrigger(false)} />
             <div className="create-post-div">
                 <h2 className="create-post-title">Create List</h2>
                 <form onSubmit={handleSubmit} id="create-list-form">
@@ -122,9 +122,9 @@ const CreateList = (props) => {
                     {imageLoading && (
                         <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo"></img>
                     )}
-                    <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_23898.png" alt="pikachu" className="pikachu-pic"></img>
-                    <img src="https://pokeup.s3.us-west-1.amazonaws.com/Ash-Ketchum-Transparent-Background.png" alt="ash" className="ash-pic"></img>
                 </form>
+                <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_23898.png" alt="pikachu" className="pikachu-pic"></img>
+                <img src="https://pokeup.s3.us-west-1.amazonaws.com/Ash-Ketchum-Transparent-Background.png" alt="ash" className="ash-pic"></img>
             </div>
         </div>
     )

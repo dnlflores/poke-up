@@ -1,4 +1,6 @@
-.create-post-background, .background-errors, .background-modal {
+.create-post-background,
+.background-errors,
+.background-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -22,7 +24,6 @@
     color: blue;
     z-index: 651;
     left: 21.5vw;
-    top: 13.5vh;
 }
 
 .create-form-div {
@@ -33,14 +34,13 @@
     height: 30vh;
     padding: 50px;
     position: relative;
-    top: 10vh;
 }
 
 .create-post-title {
     text-align: center;
     position: absolute;
-    top: 2vh;
-    left: 2vw;
+    top: 1rem;
+    left: 1rem;
 }
 
 .create-post-div input {
@@ -58,8 +58,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
-    top: 5.75vh;
+    height: 100%;
 }
 
 .first-layer-form {
@@ -79,30 +80,24 @@
     width: 35vw;
 }
 
-.price-div, .quantity-div, .category-div {
+.price-div,
+.quantity-div,
+.category-div {
     display: flex;
     flex-direction: column;
     margin: 20px;
     align-items: center;
 }
 
-input.price-input, input.quantity-input {
+input.price-input,
+input.quantity-input {
     width: 5vw;
     height: 10vh;
 }
 
 .form-buttons {
-    position: absolute;
-    top: 50vh;
     display: flex;
     justify-content: center;
-}
-
-button.submit-post-button {
-    height: 5.75vh;
-    width: 8vw;
-    padding: 0px;
-    margin: 5px;
 }
 
 .description-input {
@@ -131,7 +126,8 @@ select.categories {
     color: blue;
 }
 
-.title-div, .description-div {
+.title-div,
+.description-div {
     display: flex;
     flex-direction: column;
 }
@@ -141,7 +137,8 @@ select.categories {
     color: blue;
 }
 
-input.price-input, input.quantity-input {
+input.price-input,
+input.quantity-input {
     font-size: 30px;
     color: blue;
     text-align: center;
@@ -180,9 +177,9 @@ input.quantity-input::-webkit-inner-spin-button {
 
 .pikachu-and-ash-pic {
     position: absolute;
-    bottom: 30.75vh;
-    right: 4vw;
-    height: 19.5vh;
+    top: 0;
+    right: 1rem;
+    height: 225px;
     object-fit: cover;
 }
 
@@ -216,9 +213,9 @@ input.title-input {
 
     .create-post-div {
         width: 90vw;
-        left: 4.5vw;
-        top: 5vh;
-        height: 89vh;
+        left: 1rem;
+        top: 10rem;
+        height: 33rem;
         z-index: 1000;
     }
 
@@ -267,10 +264,6 @@ input.title-input {
         margin-bottom: 3vh;
     }
 
-    .create-form-div {
-        top: 17vh;
-    }
-
     .third-layer-form {
         margin-top: 5vh;
         padding: 1rem;
@@ -285,11 +278,6 @@ input.title-input {
 
     select.categories {
         width: 40vw;
-    }
-
-    .form-buttons {
-        top: 55vh;
-        width: 80vw;
     }
 
     button.submit-post-button {

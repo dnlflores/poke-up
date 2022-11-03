@@ -4,7 +4,6 @@
     flex-direction: column;
     align-items: center;
     padding: 15px;
-    width: 70vw;
 }
 
 .list-post-image {
@@ -13,54 +12,44 @@
     object-fit: cover;
     border-radius: 1rem;
     border: blue 3px solid;
-    position: absolute;
-    left: 3vw;
-    top: 3vh;
 }
 
 .list-post-div {
     display: flex;
-    justify-content: space-around;
-    width: 45vw;
-    height: 25vh;
+    justify-content: space-between;
+    align-items: center;
+    width: 40rem;
+    height: 10rem;
     border: blue solid 3px;
     border-radius: 1rem;
     padding: 10px;
     background-color: yellow;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
     position: relative;
-    margin: 15px;
+    margin: 1rem;
 }
 
 .list-post-title {
     font-family: 'Fredoka One', cursive;
-    position: absolute;
-    left: 15vw;
+    text-overflow: ellipsis;
+    width: 15rem;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .list-post-price {
     font-family: 'Architects Daughter', cursive;
     font-size: 25px;
-    position: absolute;
-    left: 15vw;
-    top: 10vh;
 }
 
-.link-post {
-    left: 40vw;
+.list-info {
+    justify-content: space-around;
+    width: 30rem;
 }
 
-button.remove-list-post {
-    position: absolute;
-    top: 17vh;
-    left: 14.5vw;
-}
-
-.list-post-background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 99;
+.post-info {
+    align-items: flex-start;
+    width: 15rem;
 }
 
 .list-post-image,
@@ -69,13 +58,6 @@ button.remove-list-post {
 .link-post,
 .remove-list-post {
     z-index: 100;
-}
-
-
-.list-post-title,
-.list-post-price,
-.remove-list-post {
-    margin-left: 40px;
 }
 
 @media (max-width: 600px) {

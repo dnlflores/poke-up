@@ -39,7 +39,7 @@ const CreatePost = (props) => {
 
         setErrors(newErrors);
         newErrors = [];
-        
+
 
     }, [dispatch, image, title, description, price, quantity, category]);
 
@@ -70,7 +70,7 @@ const CreatePost = (props) => {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        if (errors.length > 0){
+        if (errors.length > 0) {
             setShowErrors(true);
             return;
         }
@@ -124,7 +124,7 @@ const CreatePost = (props) => {
     };
 
     return (
-        <>
+        <div>
             <div className="create-post-background" onClick={() => props.setTrigger(false)} />
             <div className="create-post-div">
                 <h2 className="create-post-title">Create Post</h2>
@@ -214,12 +214,12 @@ const CreatePost = (props) => {
                         </div>
                     </div>
                     {imageLoading && (
-                        <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo"></img>
+                        <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo" />
                     )}
-                    <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_5254081.png" alt="pikachu-and-ash" className="pikachu-and-ash-pic"></img>
                 </form>
+                <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_5254081.png" alt="pikachu-and-ash" className="pikachu-and-ash-pic" />
             </div>
-        </>
+        </div>
     )
 }
 

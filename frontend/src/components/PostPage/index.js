@@ -115,7 +115,7 @@ const PostPage = props => {
                     <img src={post?.image_url} alt="post" className="post-page-image"></img>
                 </div>
                 <div className="right-container bottom-container-mobile">
-                    <div className="flx-ctr flx-col" style={{ justifyContent: 'flex-start' }}>
+                    <div className="flx-ctr flx-col" style={{ justifyContent: 'flex-start', width: '30rem' }}>
                         <h2 className="post-page-title">{post?.title}</h2>
                         <h2 className="post-page-price">${post?.price.toLocaleString("en-US")}</h2>
                         <div className="quantity-category-container">

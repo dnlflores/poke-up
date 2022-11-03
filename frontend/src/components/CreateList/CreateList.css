@@ -19,16 +19,15 @@
     position: absolute;
     object-fit: cover;
     height: 250px;
-    bottom: -130px;
-    left: 50px;
-    z-index: 100;
+    right: 1rem;
+    top: 1rem;
 }
 
 .ash-pic {
     position: absolute;
-    height: 38vh;
-    top: 31.25vh;
-    right: 1vw;
+    height: 350px;
+    bottom: 0;
+    left: 0;
 }
 
 .name-div {
@@ -49,32 +48,25 @@ input.name-input {
 #create-list-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     position: relative;
-    top: 5.75vh;
+    height: 100%;
 }
 
 @media (max-width: 600px) {
     .pikachu-pic {
-        height: 23vh;
-        top: 63vh;
-        left: 5vw;
+        height: 100px;
     }
 
     .ash-pic {
-        height: 25vh;
-        top: 63vh;
-        right: 0;
+        height: 100px;
     }
 
     input.name-input {
         width: 60vw;
         height: 4vh;
     }
-
-    #create-list-form {
-        top: -13vh;
-    } 
     
     .fake-list-input {
         position: absolute;

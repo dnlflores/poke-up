@@ -6,6 +6,9 @@
 .post-container h2 {
     font-family: 'Fredoka One', cursive;
     font-size: 38px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .upper-container {
@@ -140,7 +143,7 @@ h2.seller-username {
     width: 30%;
     display: flex;
     border-left: solid 1px black;
-    padding-left: 20rem;
+    padding-left: 10rem;
     height: 35rem;
 }
 

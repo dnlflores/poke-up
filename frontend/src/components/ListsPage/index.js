@@ -31,15 +31,15 @@ const ListsPage = props => {
         setListButtonPopup(!listButtonPopup);
     };
 
-    const showEdit = event => {
+    const showEdit = (listId, event) => {
         event.stopPropagation();
-        const listId = event.target.className.split(' ')[1];
+        
         setEditButtonPopup(listId);
     }
 
-    const handleDelete = event => {
+    const handleDelete = (listId, event) => {
         event.stopPropagation();
-        const listId = event.target.className.split(' ')[1];
+        
         dispatch(removeList(listId));
     };
 
@@ -63,8 +63,8 @@ const ListsPage = props => {
                                 <img src={list.image_url} alt="list-cover" className="list-cover-image"></img>
                                 <div className="title-buttons-div">
                                     <h2 className="list-title" onClick={event => history.push(`/lists/${list.id}`)}>{list.name}</h2>
-                                    <button className={`delete-list ${list.id} button-default-cancel`} onClick={handleDelete}><span className={`material-icons ${list.id} delete-list-text`}>delete_forever</span></button>
-                                    <button className={`edit-list button-default`} onClick={showEdit}><span className={`material-icons ${list.id} edit-list-text`}>edit</span></button>
+                                    <button className="delete-list button-default-cancel" onClick={ e => handleDelete(list.id, e)}><span className="material-icons delete-list-text">delete_forever</span></button>
+                                    <button className="edit-list button-default" onClick={e => showEdit(list.id, e)}><span className="material-icons edit-list-text">edit</span></button>
                                 </div>
                             </div>
                             <h2 onClick={e => navigateToList(list.id, e)} className="arrow-link"><span className="material-icons arrow-icon">arrow_forward_ios</span></h2>
