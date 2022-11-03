@@ -54,12 +54,12 @@ button {
 
 .about-links {
     display: flex;
-    position: absolute;
-    bottom: -200px;
-    right: 35vw;
-    justify-content: space-around;
-    width: 300px;
-    margin: 20px 0px;
+    justify-content: center;
+}
+
+.about-links a {
+    margin: 0 2rem;
+    margin-bottom: 2rem;
 }
 
 .about-links a:visited {
@@ -84,10 +84,6 @@ button {
     right: 25vw;
 }
 
-#root {
-    position: relative;
-}
-
 textarea {
     font-size: 15px;
     border: none;
@@ -104,4 +100,15 @@ textarea {
         right: 9vw;
         bottom: -150px;
     }
+}
+
+.flx-ctr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flx-col {
+    display: flex;
+    flex-direction: column;
 }

@@ -11,10 +11,11 @@
 .post-container-div {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
     flex-wrap: wrap;
-    position: relative;
-    top: 200px;
-    padding-bottom: 80px;
+    margin-top: 15rem;
+    margin-bottom: 5rem;
 }
 
 .post-div {

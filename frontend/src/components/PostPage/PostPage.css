@@ -13,12 +13,11 @@
     justify-content: space-around;
     position: relative;
     top: 5vh;
+    margin-bottom: 10rem;
 }
 
 .bottom-container {
-    position: relative;
-    top: 18vh;
-    margin-left: 50px;
+    margin-left: 3rem;
 }
 
 .post-buttons {
@@ -32,14 +31,14 @@
     border-radius: 100%;
     object-fit: cover;
     position: relative;
-    /* top: 30px; */
 }
 
 .seller-container {
     display: flex;
     justify-content: space-around;
     position: relative;
-    top: 70px;
+    top: 5rem;
+    width: 13rem;
 }
 
 .post-buttons>button {
@@ -56,8 +55,6 @@
     max-width: 650px;
     max-height: 365px;
     object-fit: cover;
-    position: relative;
-    top: 50px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
@@ -97,13 +94,6 @@ h2.seller-username {
     font-size: 20px;
 }
 
-.line-div-1 {
-    border-left: solid 1px black;
-    height: 625px;
-    position: absolute;
-    right: -60px;
-}
-
 .line-div-2 {
     border-top: 1px solid black;
     position: absolute;
@@ -120,9 +110,7 @@ h2.seller-username {
 
 .line-div-4 {
     border-top: 1px solid black;
-    position: absolute;
-    width: 670px;
-    top: 11px;
+    width: 90%;
 }
 
 .description-container {
@@ -149,15 +137,15 @@ h2.seller-username {
 }
 
 .right-container {
-    min-height: 545px;
-    min-width: 345px;
+    width: 30%;
+    display: flex;
+    border-left: solid 1px black;
+    padding-left: 20rem;
+    height: 35rem;
 }
 
 .left-container {
-    min-width: 650px;
-    display: flex;
-    justify-content: center;
-    position: relative;
+    width: 50%;
 }
 
 .more-posts-div-container,
@@ -324,4 +312,11 @@ h2.seller-username {
         top: 20vh;
         left: 5vw;
     }
+}
+
+.line-div-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
