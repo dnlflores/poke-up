@@ -91,20 +91,14 @@
     align-items: center;
 }
 
-input.price-input,
-input.quantity-input {
-    width: 5vw;
-    height: 10vh;
-}
-
 .form-buttons {
     display: flex;
     justify-content: center;
 }
 
 .description-input {
-    width: 33vw;
-    height: 13vh;
+    width: 20rem;
+    height: 5rem;
     color: blue;
 }
 
@@ -143,6 +137,7 @@ input.quantity-input {
     color: blue;
     text-align: center;
     height: 4rem;
+    width: 5rem;
 }
 
 input.price-input::-webkit-outer-spin-button,

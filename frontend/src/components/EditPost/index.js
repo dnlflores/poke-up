@@ -25,11 +25,11 @@ const EditPost = (props) => {
 
         const newErrors = [];
 
-        if(title.length > 20) newErrors.push("Title must be less than 20 characters!");
-        if(+quantity > 1000) newErrors.push("Quantity is too large. Must be lower than 1,000!");
-        if(+quantity < 0) newErrors.push("Quantity must be greater than 0!");
-        if(+price < 0) newErrors.push("Price must be greater than or equal to $0!");
-        if(+price > 1000000000) newErrors.push("Price must be less than $1,000,000,000!");
+        if (title.length > 20) newErrors.push("Title must be less than 20 characters!");
+        if (+quantity > 1000) newErrors.push("Quantity is too large. Must be lower than 1,000!");
+        if (+quantity < 0) newErrors.push("Quantity must be greater than 0!");
+        if (+price < 0) newErrors.push("Price must be greater than or equal to $0!");
+        if (+price > 1000000000) newErrors.push("Price must be less than $1,000,000,000!");
 
         setErrors(newErrors);
     }, [dispatch, title, quantity, price]);
@@ -61,7 +61,7 @@ const EditPost = (props) => {
     const handleSubmit = async event => {
         event.preventDefault();
 
-        if(!errors.length){
+        if (!errors.length) {
             const formData = new FormData();
             formData.append("image", image);
 
@@ -85,7 +85,7 @@ const EditPost = (props) => {
                 dispatch(editPost(updatedPost));
                 setImageLoading(false);
                 props.setTrigger(0);
-            }else {
+            } else {
                 setImageLoading(false);
 
                 console.log("there was an error here is some info", response, response.formData, response.status);
@@ -99,8 +99,8 @@ const EditPost = (props) => {
         realBtn.click();
 
         realBtn.addEventListener('change', () => {
-            
-            if(realBtn.value) {
+
+            if (realBtn.value) {
                 const name = realBtn.value.split("\\")[2];
                 fileName.innerHTML = name;
             }
@@ -109,11 +109,10 @@ const EditPost = (props) => {
     };
 
     return (
-        <>
-            <div className="create-post-background" onClick={() => props.setTrigger(false)}/>
+        <div className="create-post-background" onClick={() => props.setTrigger(false)}>
             <div className="create-post-div">
                 <h2 className="create-post-title" id="edit-post-title">Edit Post</h2>
-                <form onSubmit={handleSubmit} id="create-post-form">
+                <form onSubmit={handleSubmit} className="create-post-form">
                     {showErrors > 0 && (
                         <div className="background-errors">
                             <div className="errors-container">
@@ -124,76 +123,74 @@ const EditPost = (props) => {
                             </div>
                         </div>
                     )}
-                    <div className="create-form-div">
-                        <div className="first-layer-form">
-                            <div className="title-div">
-                                <label>Title</label>
-                                <input
-                                    type="text"
-                                    name="title"
-                                    className="title-input"
-                                    onChange={updateTitle}
-                                    value={title}
-                                    placeholder="Title"
-                                ></input>
-                            </div>
-                            <div className="description-div">
-                                <label>Description</label>
-                                <textarea
-                                    name="description"
-                                    className="description-input"
-                                    onChange={updateDescription}
-                                    value={description}
-                                    placeholder="Description"
-                                ></textarea>
-                            </div>
-                        </div>
-                        <div className="second-layer-form">
-                            <div className="price-div">
-                                <label>Price</label>
-                                <input
-                                    type="number"
-                                    name="price"
-                                    className="price-input"
-                                    onChange={updatePrice}
-                                    value={price}
-                                ></input>
-                            </div>
-                            <div className="quantity-div">
-                                <label>Quantity</label>
-                                <input
-                                    type="number"
-                                    name="quantity"
-                                    className="quantity-input"
-                                    onChange={updateQuantity}
-                                    value={quantity}
-                                ></input>
-                            </div>
-                        </div>
-                        <div className="third-layer-form">
-                            <div className="category-div">
-                                <select className="categories" name="categories" form="create-post-form" onChange={updateCategory} value={category}>
-                                    {categories?.map(category => (
-                                        <option key={category.id} value={category.id}>{category.name}</option>
-                                    ))}
-                                </select>
-                            </div>
+                    <div className="first-layer-form">
+                        <div className="title-div">
+                            <label>Title</label>
                             <input
-                                type="file"
-                                accept="image/*"
-                                onChange={updateImage}
-                                id="real-file-button"
-                                hidden
-                            />
-                            <div className="fake-file-input">
-                                <span id="file-name">No picture chosen!</span>
-                                <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
-                            </div>
+                                type="text"
+                                name="title"
+                                className="title-input"
+                                onChange={updateTitle}
+                                value={title}
+                                placeholder="Title"
+                            ></input>
                         </div>
-                        <div className="form-buttons">
-                            <button className="submit-post-button button-default" type="submit">Submit Edit</button>
-                            <button className="cancel-button button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
+                        <div className="description-div">
+                            <label>Description</label>
+                            <textarea
+                                name="description"
+                                className="description-input"
+                                onChange={updateDescription}
+                                value={description}
+                                placeholder="Description"
+                            ></textarea>
                         </div>
+                    </div>
+                    <div className="second-layer-form">
+                        <div className="price-div">
+                            <label>Price</label>
+                            <input
+                                type="number"
+                                name="price"
+                                className="price-input"
+                                onChange={updatePrice}
+                                value={price}
+                            ></input>
+                        </div>
+                        <div className="quantity-div">
+                            <label>Quantity</label>
+                            <input
+                                type="number"
+                                name="quantity"
+                                className="quantity-input"
+                                onChange={updateQuantity}
+                                value={quantity}
+                            ></input>
+                        </div>
+                    </div>
+                    <div className="third-layer-form">
+                        <div className="category-div">
+                            <select className="categories" name="categories" form="create-post-form" onChange={updateCategory} value={category}>
+                                {categories?.map(category => (
+                                    <option key={category.id} value={category.id}>{category.name}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={updateImage}
+                            id="real-file-button"
+                            hidden
+                        />
+                        <div className="fake-file-input">
+                            <span id="file-name">No picture chosen!</span>
+                            <button className="button-default fake-file-button" type="button" onClick={handlePicture}>Choose a Picture!</button>
+                        </div>
+                    </div>
+                    <div className="form-buttons">
+                        <button className="submit-post-button button-default" type="submit">Submit Edit</button>
+                        <button className="cancel-button button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
                     </div>
                     {imageLoading && (
                         <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo"></img>
@@ -201,7 +198,7 @@ const EditPost = (props) => {
                     <img src="https://pokeup.s3.us-west-1.amazonaws.com/PngItem_5254081.png" alt="pikachu-and-ash" className="pikachu-and-ash-pic"></img>
                 </form>
             </div>
-        </>
+        </div>
     )
 }
 
