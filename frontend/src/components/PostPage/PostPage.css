@@ -173,9 +173,6 @@ h2.seller-username {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 20vh;
-    left: 30vw;
     z-index: 651;
 }
 

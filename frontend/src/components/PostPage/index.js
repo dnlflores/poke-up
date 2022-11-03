@@ -193,8 +193,7 @@ const PostPage = props => {
                 </div>
             </div>
             {showListsToAdd && (
-                <div>
-                    <div className="background-modal" onClick={() => setShowListsToAdd(false)} />
+                <div className="background-modal" onClick={() => setShowListsToAdd(false)}>
                     <div className="add-list-post-container">
                         <h2>Your Lists!</h2>
                         <div className="list-buttons-container">
@@ -207,8 +206,7 @@ const PostPage = props => {
                 </div>
             )}
             {showOfferModal && (
-                <div>
-                    <div className="background-modal" onClick={e => setShowOfferModal(false)} />
+                <div className="background-modal" onClick={e => setShowOfferModal(false)}>
                     <div className="add-list-post-container">
                         <h2>Offer</h2>
                         <div>
