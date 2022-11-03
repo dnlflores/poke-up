@@ -106,6 +106,8 @@ const PostPage = props => {
         history.push('/');
     }
 
+    if (!post) return null;
+
     return (
         <div className="post-container">
             <div className="upper-container">
@@ -197,7 +199,7 @@ const PostPage = props => {
                         <h2>Your Lists!</h2>
                         <div className="list-buttons-container">
                             {Array.from(listsToAdd)?.map(list => (
-                                <button className={`list-${list.id}-button button-default`} onClick={handleAddList}>{list.name}</button>
+                                <button key={list.id} className={`list-${list.id}-button button-default`} onClick={handleAddList}>{list.name}</button>
                             ))}
                         </div>
                         <button className='button-default-cancel' onClick={event => setShowListsToAdd(false)}>Cancel</button>
@@ -207,7 +209,7 @@ const PostPage = props => {
             {showOfferModal && (
                 <div>
                     <div className="background-modal" onClick={e => setShowOfferModal(false)} />
-                    <div className="offer-post-container add-list-post-container">
+                    <div className="add-list-post-container">
                         <h2>Offer</h2>
                         <div>
                             <label style={{ fontFamily: "'Fredoka One', cursive" }}>$</label>

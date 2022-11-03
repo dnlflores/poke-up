@@ -29,7 +29,7 @@ export default function EditProPic(props) {
             dispatch(updateUser(updatedUser));
             setImageLoading(false);
             props.setTrigger(false);
-        }else {
+        } else {
             setImageLoading(false);
 
             console.log("there was an error here is some info", response, response.formData, response.status);
@@ -42,8 +42,8 @@ export default function EditProPic(props) {
         realBtn.click();
 
         realBtn.addEventListener('change', () => {
-            
-            if(realBtn.value) {
+
+            if (realBtn.value) {
                 const name = realBtn.value.split("\\")[2];
                 fileName.innerHTML = name;
             }
@@ -64,8 +64,8 @@ export default function EditProPic(props) {
     };
 
     return (
-        <div>
-            <div className="create-post-background" onClick={() => props.setTrigger(false)}/>
+        <>
+            <div className="create-post-background" onClick={() => props.setTrigger(false)} />
             <div className="create-post-div edit-post-div edit-pro-pic-div">
                 <h2 className="create-post-title edit-pro-pic-title">Edit Profile Info</h2>
                 <form onSubmit={handleEditProPic} id="create-post-form">
@@ -108,13 +108,13 @@ export default function EditProPic(props) {
                         <button className="submit-list-button button-default" type="submit">Submit Edit</button>
                         <button className="button-default-cancel" onClick={event => props.setTrigger(false)}>Cancel</button>
                     </div>
-                    <img src="https://pokeup.s3.us-west-1.amazonaws.com/pngaaa.com-785576.png" alt="togepi" className="togepi-pic"></img>
-                    <img src="https://pokeup.s3.us-west-1.amazonaws.com/toppng.com-anime-pokemon-transparent-background-transparent-background-pokemon-transparent-851x1248.png" alt="celebi" className="celebi-pic"></img>
                     {imageLoading && (
                         <img src="https://pokeup.s3.us-west-1.amazonaws.com/pokeball_PNG24.png" alt="pokeball-spinning" className="loading-logo"></img>
                     )}
                 </form>
+                <img src="https://pokeup.s3.us-west-1.amazonaws.com/pngaaa.com-785576.png" alt="togepi" className="togepi-pic" />
+                <img src="https://pokeup.s3.us-west-1.amazonaws.com/toppng.com-anime-pokemon-transparent-background-transparent-background-pokemon-transparent-851x1248.png" alt="celebi" className="celebi-pic" />
             </div>
-        </div>
+        </>
     )
 }

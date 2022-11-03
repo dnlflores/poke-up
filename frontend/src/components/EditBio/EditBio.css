@@ -22,7 +22,7 @@ textarea.bio-input {
 
 .dragonite-pic {
     position: absolute;
-    height: 15vh;
+    height: 150px;
     top: 0;
     right: 1.5vw;
 }
@@ -39,5 +39,9 @@ textarea.bio-input {
 
     textarea.bio-input {
         width: 60vw;
+    }
+
+    .dragonite-pic {
+        height: 100px;
     }
 }

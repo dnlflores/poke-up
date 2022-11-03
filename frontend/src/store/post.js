@@ -63,7 +63,8 @@ export const createPost = post => async dispatch => {
 };
 
 export const getPost = id => async dispatch => {
-    const response = await fetch(`api/posts/${id}`);
+    console.log("this is the id from the thunk => ", id)
+    const response = await fetch(`/api/posts/${id}`);
 
     if(response.ok) {
         const post = await response.json();

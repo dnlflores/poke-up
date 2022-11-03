@@ -1,26 +1,28 @@
 .togepi-pic {
     position: absolute;
-    bottom: -120px;
-    left: 25px;
+    bottom: 3rem;
+    left: 3rem;
     height: 150px;
 }
 
 .celebi-pic {
     position: absolute;
-    bottom: 115px;
-    right: 30px;
+    top: 2rem;
+    right: 2rem;
     height: 200px;
 }
 
 @media (max-width: 600px) {
     .togepi-pic {
         height: 100px;
-        bottom: -25vh;
+        bottom: 1rem;
+        left: 1rem
     }
 
     .celebi-pic {
-        height: 100px;
-        bottom: 30vh;
+        height: 125px;
+        bottom: 1rem;
+        right: 1rem
     }
 
     .edit-pro-info-div {

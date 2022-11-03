@@ -43,6 +43,11 @@ const ListsPage = props => {
         dispatch(removeList(listId));
     };
 
+    const navigateToList = (listId, e) => {
+        e.stopPropagation();
+        history.push(`/lists/${listId}`)
+    };
+
     return (
         <div className="page-container">
             {listButtonPopup && (
@@ -62,7 +67,7 @@ const ListsPage = props => {
                                     <button className={`edit-list button-default`} onClick={showEdit}><span className={`material-icons ${list.id} edit-list-text`}>edit</span></button>
                                 </div>
                             </div>
-                            <NavLink to={`/lists/${list.id}`} exact={true} activeClassName="active" className="arrow-link"><span className="material-icons arrow-icon">arrow_forward_ios</span></NavLink>
+                            <h2 onClick={e => navigateToList(list.id, e)} className="arrow-link"><span className="material-icons arrow-icon">arrow_forward_ios</span></h2>
                         </div>
                         {+editButtonPopup === list.id && (
                             <EditList trigger={editButtonPopup} setTrigger={setEditButtonPopup} list={list} />

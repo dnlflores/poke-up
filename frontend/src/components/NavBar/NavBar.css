@@ -116,8 +116,8 @@ nav {
     justify-content: center;
 }
 
-.dropdown-username > a,
-.dropdown-username > a:visited{
+.dropdown-username>a,
+.dropdown-username>a:visited {
     margin: 20px 0px;
     position: relative;
     right: 60px;
@@ -179,13 +179,13 @@ nav {
     }
 
     .background-title {
-        left: 34vw;
-        font-size: 40px;
+        position: relative;
+        left: 30vw;
+        font-size: 43px;
     }
 
     .site-title {
-        top: 0.2rem;
-        left: 35.5vw;
+        right: 1rem;
         font-size: 40px;
     }
 
