@@ -48,37 +48,55 @@ Can message people about their product to offer them a price you both can agree 
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/Login-Page.png)
 
+Here you can login into PokéUp if you have an account already. You can choose to use your e-mail or username. Note that the username/e-mail and password are case-sensitive.
+
 ### SignUp Page
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/SignUp-Page.png)
+
+Here you can create an account on PokéUp if you do not have one already. You must use a unique username and e-mail in order to sign up. By default you will be given a generic profile picture and bio. You can change this picture and bio from the profile page.
 
 ### Home Page
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/HomePage.gif)
 
+Whether you are logged in or not, you can view the posts on PokéUp.
+
 ### Creating a Post
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/CreateAPost.gif)
+
+Once you are logged in, you can upload an item to PokéUp with a picture of your choosing. 
 
 ### Create and Add to a List
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/CreateAndAddToList.gif)
 
+You can create lists to store your favorite items on PokéUp, or ones that you plan to purchase late.
+
 ### Navigating Between Posts
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/NavigatingBetweenPosts.gif)
+
+When looking at a post on PokéUp you will be given suggestions of other posts made by the user who posted the item as well as items in the same category as the one you are looking at.
 
 ### Profile Page
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/ProfilePage.gif)
 
+Anyone can view a user's profile to see who they are buying/selling to. The profile page shows all the items that are currently offered by the user. If you are logged in and viewing your own page, you can edit your bio and picture from here as well. On computers, hover over with your mouse to reveal the edit button. On mobile, buttons should be visible immediately.
+
 ### Sending an Offer to a User
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/SendingAnOffer.gif)
 
+When on the post page, you can choose to send an offer to that user for purchase. The asking price is filled in by default but you can make a different offer if you wish to do so. Once the offer button is clicked a message is sent to the owner of the item asking to buy the item for the price you input.
+
 ### Instant Messaging between Users
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/SendingMessage.gif)
+
+Users recieve messages about their products and can view them from the inbox page. From the inbox page, you can switch between the conversations that you are selling and which you are buying. You can respond to and message any user you interested in purchasing an item from or selling an item to. You can have multiple conversations with the same user as long as they are about different products. These messages are sent and recieved in real time so as soon as they respond you will see.
 
 ## Getting started locally
 
