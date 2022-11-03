@@ -194,7 +194,7 @@ const PostPage = props => {
             </div>
             {showListsToAdd && (
                 <div className="background-modal" onClick={() => setShowListsToAdd(false)}>
-                    <div className="add-list-post-container">
+                    <div className="add-list-post-container" onClick={e => e.stopPropagation()}>
                         <h2>Your Lists!</h2>
                         <div className="list-buttons-container">
                             {Array.from(listsToAdd)?.map(list => (
@@ -207,7 +207,7 @@ const PostPage = props => {
             )}
             {showOfferModal && (
                 <div className="background-modal" onClick={e => setShowOfferModal(false)}>
-                    <div className="add-list-post-container">
+                    <div className="add-list-post-container" onClick={e => e.stopPropagation()}>
                         <h2>Offer</h2>
                         <div>
                             <label style={{ fontFamily: "'Fredoka One', cursive" }}>$</label>
