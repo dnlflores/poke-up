@@ -60,7 +60,25 @@ Can message people about their product to offer them a price you both can agree 
 
 ![](https://github.com/dnlflores/poke-up/blob/main/res/CreateAPost.gif)
 
-###
+### Create and Add to a List
+
+![](https://github.com/dnlflores/poke-up/blob/main/res/CreateAndAddToList.gif)
+
+### Navigating Between Posts
+
+![](https://github.com/dnlflores/poke-up/blob/main/res/NavigatingBetweenPosts.gif)
+
+### Profile Page
+
+![](https://github.com/dnlflores/poke-up/blob/main/res/ProfilePage.gif)
+
+### Sending an Offer to a User
+
+![](https://github.com/dnlflores/poke-up/blob/main/res/SendingAnOffer.gif)
+
+### Instant Messaging between Users
+
+![](https://github.com/dnlflores/poke-up/blob/main/res/SendingMessage.gif)
 
 ## Getting started locally
 
