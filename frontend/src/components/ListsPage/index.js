@@ -52,7 +52,7 @@ const ListsPage = props => {
             <h2 className='page-title'>Your Lists</h2>
             <div className="list-container">
                 {lists?.map(list => (
-                    <div key={list.id}>
+                    <div className="flx-ctr" key={list.id}>
                         <div className="list-div" onClick={() => history.push(`/lists/${list.id}`)}>
                             <div className="flx-ctr">
                                 <img src={list.image_url} alt="list-cover" className="list-cover-image"></img>

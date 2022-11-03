@@ -26,11 +26,11 @@ nav {
 }
 
 .site-title {
-    position: absolute;
+    position: relative;
     font-family: 'Pokemon Solid', sans-serif;
     font-size: 35px;
     color: Yellow;
-    top: 0;
+    right: 8rem;
     margin: 0;
 }
 
@@ -41,11 +41,9 @@ nav {
 }
 
 .background-title {
-    position: absolute;
     font-family: 'Pokemon Solid', sans-serif;
     font-size: 38px;
     color: blue;
-    top: 0;
     margin: 0;
 }
 
@@ -242,4 +240,9 @@ nav {
     position: absolute;
     top: 0;
     left: 2rem;
+    height: 5rem;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

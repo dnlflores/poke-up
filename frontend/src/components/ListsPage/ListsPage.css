@@ -153,4 +153,8 @@ img.empty-page-pic {
     button#create-list-button {
         top: 75vh
     }
+
+    .list-div {
+        width: 75%;
+    }
 }
