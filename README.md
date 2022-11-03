@@ -43,6 +43,25 @@ Can message people about their product to offer them a price you both can agree 
 10. CSS
 11. WebSockets
 
+## Demo
+### Login Page
+
+![](https://github.com/dnlflores/poke-up/blob/main/res/Login-Page.png)
+
+### SignUp Page
+
+![](https://github.com/dnlflores/poke-up/blob/main/res/SignUp-Page.png)
+
+### Home Page
+
+![](https://github.com/dnlflores/poke-up/blob/main/res/HomePage.gif)
+
+### Creating a Post
+
+![](https://github.com/dnlflores/poke-up/blob/main/res/CreateAPost.gif)
+
+###
+
 ## Getting started locally
 
 1. Clone this repository (only this branch)
