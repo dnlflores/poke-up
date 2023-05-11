@@ -41,34 +41,36 @@ const HomePage = ({ posts }) => {
     };
 
     return (
-        <div className='post-container-div'>
-            {posts.map(post => (
-                <div key={post.id}>
-                    <div className={`post-div ${post.id}`}>
-                        <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active'>
-                            <img src={post.image_url} alt="post" className={`image-post ${post.id}`}></img>
-                        </NavLink>
-                        <div className='image-info-div'>
-                            <label className="post-title">{post.title} </label>
-                            <div className="price-control-container">
-                                <label className="post-price">${post.price.toLocaleString("en-US")} </label>
-                                {user?.id === post.user_id && (
-                                    <div className="user-options">
-                                        <button onClick={handleDelete}><span className={`delete-post-${post.id} material-icons`}>delete_forever</span></button>
-                                        <button onClick={handleEdit}><span className={`edit-post-${post.id} material-icons`}>edit</span></button>
-                                    </div>
-                                )}
+        <div className='post-container-wrapper'>
+            <div className="post-container-div">
+                {posts.map(post => (
+                    <div key={post.id}>
+                        <div className={`post-div ${post.id}`}>
+                            <NavLink to={`/posts/${post.id}`} exact={true} activeClassName='active'>
+                                <img src={post.image_url} alt="post" className={`image-post ${post.id}`}></img>
+                            </NavLink>
+                            <div className='image-info-div'>
+                                <label className="post-title">{post.title} </label>
+                                <div className="price-control-container">
+                                    <label className="post-price">${post.price.toLocaleString("en-US")} </label>
+                                    {user?.id === post.user_id && (
+                                        <div className="user-options">
+                                            <button onClick={handleDelete}><span className={`delete-post-${post.id} material-icons`}>delete_forever</span></button>
+                                            <button onClick={handleEdit}><span className={`edit-post-${post.id} material-icons`}>edit</span></button>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
                         </div>
+                        {createButtonPopup && (
+                            <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} categories={categories} />
+                        )}
+                        {+editButtonPopup === post.id && (
+                            <EditPost post={post} trigger={editButtonPopup} setTrigger={setEditButtonPopup} />
+                        )}
                     </div>
-                    {createButtonPopup && (
-                        <CreatePost trigger={createButtonPopup} setTrigger={setCreateButtonPopup} categories={categories} />
-                    )}
-                    {+editButtonPopup === post.id && (
-                        <EditPost post={post} trigger={editButtonPopup} setTrigger={setEditButtonPopup} />
-                    )}
-                </div>
-            ))}
+                ))}
+            </div>
         </div>
     )
 }

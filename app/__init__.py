@@ -18,6 +18,8 @@ from .seeds import seed_commands
 
 from .config import Config
 
+os.environ["DYLD_LIBRARY_PATH"] = "/opt/homebrew/opt/postgresql/lib/postgresql@14"
+
 app = Flask(__name__)
 
 # Setup login manager
