@@ -16,13 +16,13 @@
 
 .post-container-div {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     margin: 0 1rem;
     flex-wrap: wrap;
     margin-top: 15rem;
     margin-bottom: 5rem;
-    max-width: 75%;
+    max-width: 95%;
 }
 
 .post-div {
